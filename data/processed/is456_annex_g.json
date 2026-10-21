@@ -11,26 +11,32 @@
   "items": [
     {
       "id": "G-1.1(a)",
+      "heading": "G-1 Rectangular Sections - G-1.1 Sections Without Compression Reinforcement",
       "text": "xu/d = 0.87*fy*Ast / (0.36*fck*b*d)"
     },
     {
       "id": "G-1.1(b)",
+      "heading": "G-1 Rectangular Sections - G-1.1 Sections Without Compression Reinforcement",
       "text": "Mu = 0.87*fy*Ast*d*(1 - Ast*fy/(b*d*fck)) when xu/d is less than the limiting value"
     },
     {
       "id": "G-1.1(c)",
+      "heading": "G-1 Rectangular Sections - G-1.1 Sections Without Compression Reinforcement",
       "text": "Mu_lim = 0.36*(xu_max/d)*(1 - 0.42*(xu_max/d))*b*d^2*fck when xu/d equals the limiting value"
     },
     {
       "id": "G-1.1(d)",
+      "heading": "G-1 Rectangular Sections - G-1.1 Sections Without Compression Reinforcement",
       "text": "if xu/d is greater than the limiting value the section should be redesigned"
     },
     {
       "id": "G-1.2",
+      "heading": "G-1 Rectangular Sections - G-1.2 Section with Compression Reinforcement",
       "text": "Mu - Mu_lim = fsc*Asc*(d - d'); Ast = Ast1 + Ast2; Ast2 = Asc*fsc/(0.87*fy)"
     },
     {
       "id": "G-2",
+      "heading": "not implemented",
       "text": "not implemented"
     }
   ]

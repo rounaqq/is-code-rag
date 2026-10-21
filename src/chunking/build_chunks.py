@@ -221,6 +221,9 @@ def build_chunks():
             continue
         chunk_id = f"IS456-2000-ANNEX-G-{item['id']}"
         citation = f"IS 456:2000 Annex G, {item['id']}"
+        heading = item.get("heading")
+        title = f"{item['id']} {heading}" if heading else annex_g["title"]
+        text = f"{item['id']} {heading}: {item['text']}" if heading else f"{item['id']}\n{item['text']}"
         chunks.append({
             "chunk_id": chunk_id,
             "chunk_type": "clause",
@@ -228,10 +231,10 @@ def build_chunks():
             "edition_year": annex_g["edition_year"],
             "clause_number": item["id"],
             "table_number": None,
-            "title": annex_g["title"],
+            "title": title,
             "context_path": "IS 456 > Annex G Moments of resistance for rectangular and T-sections",
             "page_number": page_list_g,
-            "text": f"{item['id']}\n{item['text']}",
+            "text": text,
             "cross_references": [],
             "citation": citation,
             "verified": annex_g["verified"],
@@ -258,6 +261,10 @@ def build_chunks():
         else:
             cross_refs = []
 
+        heading = item.get("heading")
+        title = f"{item['id']} {heading}" if heading else cl_40["title"]
+        text = f"{item['id']} {heading}: {item['text']}" if heading else f"{item['id']}\n{item['text']}"
+
         chunks.append({
             "chunk_id": chunk_id,
             "chunk_type": "clause",
@@ -265,10 +272,10 @@ def build_chunks():
             "edition_year": cl_40["edition_year"],
             "clause_number": item["id"],
             "table_number": None,
-            "title": cl_40["title"],
+            "title": title,
             "context_path": "IS 456 > 40 Limit state of collapse: shear",
             "page_number": page_list_40,
-            "text": f"{item['id']}\n{item['text']}",
+            "text": text,
             "cross_references": cross_refs,
             "citation": citation,
             "verified": cl_40["verified"],

@@ -10,26 +10,32 @@
   "items": [
     {
       "id": "40.1",
+      "heading": "Nominal Shear Stress",
       "text": "tau_v = Vu/(b*d)"
     },
     {
       "id": "40.2.3",
+      "heading": "With Shear Reinforcement",
       "text": "under no circumstances, even with shear reinforcement, shall tau_v exceed tau_c_max given in Table 20"
     },
     {
       "id": "40.3",
+      "heading": "Minimum Shear Reinforcement",
       "text": "when tau_v is less than tau_c given in Table 19, minimum shear reinforcement shall be provided in accordance with 26.5.1.6"
     },
     {
       "id": "40.4",
+      "heading": "Design of Shear Reinforcement",
       "text": "when tau_v exceeds tau_c, shear reinforcement shall be provided to carry a shear equal to Vu - tau_c*b*d"
     },
     {
       "id": "40.4(a)",
+      "heading": "Design of Shear Reinforcement - vertical stirrups",
       "text": "vertical stirrups: Vus = 0.87*fy*Asv*d/sv; fy of the stirrups shall not be taken greater than 415 N/mm2"
     },
     {
       "id": "not_implemented",
+      "heading": "Not implemented",
       "text": "inclined stirrups, bent-up bars, slabs (40.2.1.1), axial compression (40.2.2), beams of varying depth (40.1.1), enhanced shear near supports (40.5)"
     }
   ],
