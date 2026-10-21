@@ -1,6 +1,7 @@
 """
 Unit tests for data/processed/chunks.jsonl.
-Validates chunk count, uniqueness, verification status, clean text, and Table 19 values.
+Validates chunk count, uniqueness, verification status, clean text, Table 19 values,
+and context paths across all 23 chunks.
 """
 
 import json
@@ -21,13 +22,13 @@ def load_chunks():
 
 
 def test_chunks_count_and_uniqueness():
-    """Checks that there are exactly 11 chunks and every chunk_id is unique."""
+    """Checks that there are exactly 23 chunks and every chunk_id is unique."""
     chunks = load_chunks()
-    assert len(chunks) == 11, f"Expected 11 chunks, got {len(chunks)}"
+    assert len(chunks) == 23, f"Expected 23 chunks, got {len(chunks)}"
 
     chunk_ids = [c["chunk_id"] for c in chunks]
     unique_ids = set(chunk_ids)
-    assert len(unique_ids) == 11, f"Duplicate chunk_id found: {chunk_ids}"
+    assert len(unique_ids) == 23, f"Duplicate chunk_id found: {chunk_ids}"
 
 
 def test_every_chunk_verified():
@@ -73,12 +74,19 @@ def test_table_19_contains_all_78_values():
     assert not missing, f"Missing {len(missing)} values from Table 19 chunk text: {missing}"
 
 
-def test_clause_chunks_context_path():
-    """Checks that every clause chunk has a context_path containing 'Beams' and tables have None."""
+def test_clause_and_table_chunks_context_path():
+    """Checks that chunks have accurate context_paths according to IS 456 hierarchy."""
     chunks = load_chunks()
     for c in chunks:
-        if c["chunk_type"] == "clause":
-            assert c.get("context_path") is not None, f"Missing context_path in clause chunk {c['chunk_id']}"
-            assert "Beams" in c["context_path"], f"'Beams' not in context_path for {c['chunk_id']}"
-        elif c["chunk_type"] == "table":
-            assert c.get("context_path") is None, f"Table chunk {c['chunk_id']} has non-null context_path"
+        cid = c["chunk_id"]
+        cp = c.get("context_path")
+        if "CL-26.5.1" in cid:
+            assert cp is not None and "Beams" in cp, f"'Beams' not in context_path for {cid}"
+        elif "ANNEX-G" in cid:
+            assert cp == "IS 456 > Annex G Moments of resistance for rectangular and T-sections", f"Unexpected context_path for {cid}"
+        elif "CL-40" in cid or cid == "IS456-2000-TABLE-20":
+            assert cp == "IS 456 > 40 Limit state of collapse: shear", f"Unexpected context_path for {cid}"
+        elif cid == "IS456-2000-TABLE-XU-MAX-38.1":
+            assert cp == "IS 456 > 38 Limit state of collapse: flexure", f"Unexpected context_path for {cid}"
+        elif cid in ("IS456-2000-TABLE-16", "IS456-2000-TABLE-19"):
+            assert cp is None, f"Expected None context_path for {cid}, got {cp}"

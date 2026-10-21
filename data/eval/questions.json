@@ -42,5 +42,37 @@
   {
     "question": "design shear strength of concrete M25",
     "expected_chunk_id": "IS456-2000-TABLE-19"
+  },
+  {
+    "question": "maximum shear stress for M25 concrete",
+    "expected_chunk_id": "IS456-2000-TABLE-20"
+  },
+  {
+    "question": "limiting neutral axis depth for Fe500",
+    "expected_chunk_id": "IS456-2000-TABLE-XU-MAX-38.1"
+  },
+  {
+    "question": "moment of resistance of a rectangular section without compression steel",
+    "expected_chunk_id": "IS456-2000-ANNEX-G-G-1.1(b)"
+  },
+  {
+    "question": "limiting moment of resistance of a rectangular beam",
+    "expected_chunk_id": "IS456-2000-ANNEX-G-G-1.1(c)"
+  },
+  {
+    "question": "nominal shear stress in a beam",
+    "expected_chunk_id": "IS456-2000-CL-40.1"
+  },
+  {
+    "question": "shear to be carried by stirrups when nominal shear stress exceeds design shear strength of concrete",
+    "expected_chunk_id": "IS456-2000-CL-40.4"
+  },
+  {
+    "question": "strength of vertical stirrups",
+    "expected_chunk_id": "IS456-2000-CL-40.4(a)"
+  },
+  {
+    "question": "nominal shear stress must not exceed maximum even with shear reinforcement",
+    "expected_chunk_id": "IS456-2000-CL-40.2.3"
   }
 ]
