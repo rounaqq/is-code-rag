@@ -1,0 +1,37 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "annex": "G",
+  "clause_reference": "38.1",
+  "title": "Moments of resistance for rectangular and T-sections",
+  "page_number": 109,
+  "printed_page_number": 96,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_109.png",
+  "items": [
+    {
+      "id": "G-1.1(a)",
+      "text": "xu/d = 0.87*fy*Ast / (0.36*fck*b*d)"
+    },
+    {
+      "id": "G-1.1(b)",
+      "text": "Mu = 0.87*fy*Ast*d*(1 - Ast*fy/(b*d*fck)) when xu/d is less than the limiting value"
+    },
+    {
+      "id": "G-1.1(c)",
+      "text": "Mu_lim = 0.36*(xu_max/d)*(1 - 0.42*(xu_max/d))*b*d^2*fck when xu/d equals the limiting value"
+    },
+    {
+      "id": "G-1.1(d)",
+      "text": "if xu/d is greater than the limiting value the section should be redesigned"
+    },
+    {
+      "id": "G-1.2",
+      "text": "Mu - Mu_lim = fsc*Asc*(d - d'); Ast = Ast1 + Ast2; Ast2 = Asc*fsc/(0.87*fy)"
+    },
+    {
+      "id": "G-2",
+      "text": "not implemented"
+    }
+  ]
+}

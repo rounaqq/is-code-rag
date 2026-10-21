@@ -1,0 +1,24 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "title": "Limiting values of the depth of neutral axis",
+  "clause_reference": "38.1",
+  "rows": [
+    {
+      "fy_N_per_mm2": 250,
+      "xu_max_over_d": 0.53
+    },
+    {
+      "fy_N_per_mm2": 415,
+      "xu_max_over_d": 0.48
+    },
+    {
+      "fy_N_per_mm2": 500,
+      "xu_max_over_d": 0.46
+    }
+  ],
+  "page_number": 70,
+  "pdf_page_number": 83,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_083.png"
+}

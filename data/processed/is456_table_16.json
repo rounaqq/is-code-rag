@@ -1,0 +1,37 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "table_number": 16,
+  "title": "Nominal Cover to Meet Durability Requirements",
+  "clause_reference": "26.4.2",
+  "rows": [
+    {
+      "exposure": "Mild",
+      "nominal_cover_mm": 20
+    },
+    {
+      "exposure": "Moderate",
+      "nominal_cover_mm": 30
+    },
+    {
+      "exposure": "Severe",
+      "nominal_cover_mm": 45
+    },
+    {
+      "exposure": "Very severe",
+      "nominal_cover_mm": 50
+    },
+    {
+      "exposure": "Extreme",
+      "nominal_cover_mm": 75
+    }
+  ],
+  "notes": [
+    "For main reinforcement up to 12 mm diameter bar for mild exposure the nominal cover may be reduced by 5 mm.",
+    "Unless specified otherwise, actual concrete cover should not deviate from the required nominal cover by +10 mm / 0 mm (printed as +10 over 0).",
+    "For exposure condition 'severe' and 'very severe', reduction of 5 mm may be made, where concrete grade is M35 and above."
+  ],
+  "page_number": 60,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against crop_table_16.png"
+}

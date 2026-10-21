@@ -1,0 +1,44 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "table_number": 20,
+  "title": "Maximum Shear Stress",
+  "symbol": "tau_c_max",
+  "units": "N/mm2",
+  "clause_references": [
+    "40.2.3",
+    "40.2.3.1",
+    "40.5.1",
+    "41.3.1"
+  ],
+  "rows": [
+    {
+      "grade": "M15",
+      "tau_c_max": 2.5
+    },
+    {
+      "grade": "M20",
+      "tau_c_max": 2.8
+    },
+    {
+      "grade": "M25",
+      "tau_c_max": 3.1
+    },
+    {
+      "grade": "M30",
+      "tau_c_max": 3.5
+    },
+    {
+      "grade": "M35",
+      "tau_c_max": 3.7
+    },
+    {
+      "grade": "M40 and above",
+      "tau_c_max": 4.0
+    }
+  ],
+  "page_number": 86,
+  "printed_page_number": 73,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_086.png"
+}

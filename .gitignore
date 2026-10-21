@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Raw input data (IS Code PDFs)
+data/raw/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables and API keys
+.env
+
+# Audit logs
+data/audit/

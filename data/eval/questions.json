@@ -1,0 +1,46 @@
+[
+  {
+    "question": "minimum tension reinforcement in a beam",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.1(a)"
+  },
+  {
+    "question": "maximum tension reinforcement in a beam",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.1(b)"
+  },
+  {
+    "question": "maximum compression reinforcement in a beam",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.2"
+  },
+  {
+    "question": "side face reinforcement when web depth exceeds 750 mm",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.3"
+  },
+  {
+    "question": "transverse reinforcement around outer-most tension and compression bars",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.4"
+  },
+  {
+    "question": "maximum spacing of vertical stirrups",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.5"
+  },
+  {
+    "question": "minimum shear reinforcement formula for stirrups",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.6"
+  },
+  {
+    "question": "spacing of closed stirrups for torsion",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.7"
+  },
+  {
+    "question": "reinforcement in flanges of T-beams",
+    "expected_chunk_id": "IS456-2000-CL-26.5.1.8"
+  },
+  {
+    "question": "nominal cover for moderate exposure",
+    "expected_chunk_id": "IS456-2000-TABLE-16"
+  },
+  {
+    "question": "design shear strength of concrete M25",
+    "expected_chunk_id": "IS456-2000-TABLE-19"
+  }
+]
