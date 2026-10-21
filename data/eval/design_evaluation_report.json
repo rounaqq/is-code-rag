@@ -1,19 +1,17 @@
 {
-  "evaluation_timestamp": "2026-10-21T09:35:20Z",
+  "evaluation_timestamp": "2026-10-21T09:55:51Z",
   "total_scenarios": 5,
   "scenarios_passed": 5,
   "scenario_pass_rate_pct": 100.0,
   "total_checks_evaluated": 30,
   "total_checks_passed": 30,
-  "compliance_accuracy_pct": 100.0,
+  "self_consistency_checks_passed": "30/30",
   "dxf_exports_verified": 5,
-  "avg_latency_ms": 4.02,
-  "time_savings_vs_manual_pct": 99.9998,
-  "error_rate_pct": 0.0,
+  "avg_latency_ms": 3.34,
   "stirrups_designed_count": 5,
   "minimum_shear_steel_count": 0,
   "shear_spacing_violations": [],
-  "independent_shear_all_passed": true,
+  "arithmetic_recheck_from_json_tables_all_passed": true,
   "scenario_reports": [
     {
       "scenario_id": "SCEN-01",
@@ -32,9 +30,21 @@
       "shear_status": "stirrups_designed",
       "status": "PASSED",
       "checks_passed": "6/6",
+      "self_consistency_checks": "6/6",
       "dxf_generated": true,
-      "latency_ms": 6.66,
+      "latency_ms": 5.79,
       "independent_shear": {
+        "tau_v": 0.783,
+        "tau_c": 0.56,
+        "tau_c_max": 2.8,
+        "pt": 0.908,
+        "vus_kN": 16.694,
+        "required_spacing_mm": 243.75,
+        "drawn_spacing_mm": 240.0,
+        "drawn_exceeds_required": false,
+        "shear_check_passed": true
+      },
+      "arithmetic_recheck_from_json_tables": {
         "tau_v": 0.783,
         "tau_c": 0.56,
         "tau_c_max": 2.8,
@@ -63,9 +73,21 @@
       "shear_status": "stirrups_designed",
       "status": "PASSED",
       "checks_passed": "6/6",
+      "self_consistency_checks": "6/6",
       "dxf_generated": true,
-      "latency_ms": 2.5,
+      "latency_ms": 2.94,
       "independent_shear": {
+        "tau_v": 0.997,
+        "tau_c": 0.57,
+        "tau_c_max": 3.1,
+        "pt": 0.931,
+        "vus_kN": 57.628,
+        "required_spacing_mm": 283.43,
+        "drawn_spacing_mm": 280.0,
+        "drawn_exceeds_required": false,
+        "shear_check_passed": true
+      },
+      "arithmetic_recheck_from_json_tables": {
         "tau_v": 0.997,
         "tau_c": 0.57,
         "tau_c_max": 3.1,
@@ -94,9 +116,21 @@
       "shear_status": "stirrups_designed",
       "status": "PASSED",
       "checks_passed": "6/6",
+      "self_consistency_checks": "6/6",
       "dxf_generated": true,
-      "latency_ms": 2.39,
+      "latency_ms": 2.94,
       "independent_shear": {
+        "tau_v": 1.175,
+        "tau_c": 0.66,
+        "tau_c_max": 3.5,
+        "pt": 1.047,
+        "vus_kN": 77.302,
+        "required_spacing_mm": 234.77,
+        "drawn_spacing_mm": 230.0,
+        "drawn_exceeds_required": false,
+        "shear_check_passed": true
+      },
+      "arithmetic_recheck_from_json_tables": {
         "tau_v": 1.175,
         "tau_c": 0.66,
         "tau_c_max": 3.5,
@@ -125,9 +159,21 @@
       "shear_status": "stirrups_designed",
       "status": "PASSED",
       "checks_passed": "6/6",
+      "self_consistency_checks": "6/6",
       "dxf_generated": true,
-      "latency_ms": 6.67,
+      "latency_ms": 2.72,
       "independent_shear": {
+        "tau_v": 0.826,
+        "tau_c": 0.64,
+        "tau_c_max": 3.1,
+        "pt": 1.072,
+        "vus_kN": 20.916,
+        "required_spacing_mm": 281.25,
+        "drawn_spacing_mm": 280.0,
+        "drawn_exceeds_required": false,
+        "shear_check_passed": true
+      },
+      "arithmetic_recheck_from_json_tables": {
         "tau_v": 0.826,
         "tau_c": 0.64,
         "tau_c_max": 3.1,
@@ -156,9 +202,21 @@
       "shear_status": "stirrups_designed",
       "status": "PASSED",
       "checks_passed": "6/6",
+      "self_consistency_checks": "6/6",
       "dxf_generated": true,
-      "latency_ms": 1.9,
+      "latency_ms": 2.31,
       "independent_shear": {
+        "tau_v": 1.183,
+        "tau_c": 0.67,
+        "tau_c_max": 3.7,
+        "pt": 1.171,
+        "vus_kN": 41.263,
+        "required_spacing_mm": 262.5,
+        "drawn_spacing_mm": 260.0,
+        "drawn_exceeds_required": false,
+        "shear_check_passed": true
+      },
+      "arithmetic_recheck_from_json_tables": {
         "tau_v": 1.183,
         "tau_c": 0.67,
         "tau_c_max": 3.7,
@@ -170,5 +228,6 @@
         "shear_check_passed": true
       }
     }
-  ]
+  ],
+  "disclaimer": "These results are not an independent validation. A structural engineer must review the designs."
 }

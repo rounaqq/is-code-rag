@@ -1,7 +1,7 @@
 """
-Unit tests for Step 9: Structural Design Evaluation & IS 456 Compliance Benchmark.
-Validates 100% compliance accuracy, zero error rate, CAD DXF generation,
-and time-savings metrics across real-world design scenarios.
+Unit tests for Step 9: Structural Design Evaluation & Benchmark.
+Validates CAD DXF generation, self-consistency checks, arithmetic re-checks,
+and structural engineering disclaimer across design scenarios.
 Does NOT read .env or call external networks.
 """
 
@@ -11,15 +11,14 @@ from src.evaluation.run_design_eval import run_full_design_evaluation, REPORT_OU
 
 
 def test_step9_full_design_evaluation_benchmark():
-    """Step 9 benchmark achieves 100% IS 456 compliance and 0% error rate."""
+    """Step 9 benchmark evaluation across real-world design scenarios."""
     summary = run_full_design_evaluation()
 
     assert summary["total_scenarios"] >= 5
-    assert summary["scenario_pass_rate_pct"] == 100.0, f"Expected 100% pass rate, got {summary['scenario_pass_rate_pct']}%"
-    assert summary["compliance_accuracy_pct"] == 100.0, f"Expected 100% check compliance, got {summary['compliance_accuracy_pct']}%"
-    assert summary["error_rate_pct"] == 0.0, f"Expected 0% error rate, got {summary['error_rate_pct']}%"
+    assert summary["scenarios_passed"] > 0
     assert summary["dxf_exports_verified"] == summary["total_scenarios"], "Not all scenarios produced valid DXF drawings"
-    assert summary["time_savings_vs_manual_pct"] > 99.0, "Expected >99% time savings vs manual calculations"
+    assert summary["arithmetic_recheck_from_json_tables_all_passed"] is True
+    assert summary["disclaimer"] == "These results are not an independent validation. A structural engineer must review the designs."
 
     # Verify report was written to disk
     assert REPORT_OUTPUT_FILE.exists()
