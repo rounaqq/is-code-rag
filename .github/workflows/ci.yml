@@ -36,11 +36,14 @@ jobs:
 
       - name: Run Test Suite
         env:
+          PYTHONPATH: "."
           IS_RAG_API_KEYS: "test_ci_client:FAKE_CI_KEY_FOR_TESTING_ONLY"
         run: |
-          pytest tests/ -v
+          python -m pytest tests/ -v
 
       - name: Run Step 9 Master Evaluation Benchmark
+        env:
+          PYTHONPATH: "."
         run: |
           python -m src.evaluation.run_step9_master_eval
 
