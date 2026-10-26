@@ -1,0 +1,90 @@
+[
+  {
+    "example_id": "SP16-EX-01",
+    "source": "Hand-calculation cross-check (written by author of this repository, not published values)",
+    "title": "Singly Reinforced Rectangular Beam under Flexure (M20 & Fe 415)",
+    "description": "Rectangular beam subjected to factored bending moment. Compares required tension steel Ast and pt percentage.",
+    "inputs": {
+      "b_mm": 250.0,
+      "d_mm": 400.0,
+      "fck": 20.0,
+      "fy": 415.0,
+      "mu_kNm": 85.0
+    },
+    "reference_hand_calc_values": {
+      "mu_over_bd2": 2.125,
+      "pt_percent_approx": 0.686,
+      "ast_required_mm2_approx": 686.0,
+      "is_under_reinforced": true
+    },
+    "tolerance_pct": 1.5
+  },
+  {
+    "example_id": "SP16-EX-02",
+    "source": "Hand-calculation cross-check (written by author of this repository, not published values)",
+    "title": "Higher Strength Beam under Flexure (M25 & Fe 500)",
+    "description": "Rectangular beam in commercial framing carrying moderate-high moment with Fe 500 reinforcement.",
+    "inputs": {
+      "b_mm": 300.0,
+      "d_mm": 500.0,
+      "fck": 25.0,
+      "fy": 500.0,
+      "mu_kNm": 175.0
+    },
+    "reference_hand_calc_values": {
+      "mu_over_bd2": 2.333,
+      "pt_percent_approx": 0.611,
+      "ast_required_mm2_approx": 917.0,
+      "is_under_reinforced": true
+    },
+    "tolerance_pct": 1.5
+  },
+  {
+    "example_id": "SP16-EX-03",
+    "source": "Hand-calculation cross-check (written by author of this repository, not published values)",
+    "title": "Beam with Designed Vertical Shear Stirrups (tau_v > tau_c)",
+    "description": "Beam section carrying factored shear requiring designed 2-legged 8mm stirrups.",
+    "inputs": {
+      "b_mm": 250.0,
+      "d_mm": 450.0,
+      "fck": 20.0,
+      "fy_stirrup": 415.0,
+      "vu_kN": 140.0,
+      "ast_provided_mm2": 900.0,
+      "stirrup_dia_mm": 8.0,
+      "stirrup_legs": 2
+    },
+    "reference_hand_calc_values": {
+      "tau_v_N_per_mm2": 1.244,
+      "pt_percent": 0.80,
+      "tau_c_N_per_mm2": 0.56,
+      "vus_kN": 77.0,
+      "required_spacing_mm": 212.1
+    },
+    "tolerance_pct": 2.0
+  },
+  {
+    "example_id": "SP16-EX-04",
+    "source": "Hand-calculation cross-check (written by author of this repository, not published values)",
+    "title": "Lightly Loaded Beam Governed by Minimum Shear Steel (tau_v <= tau_c)",
+    "description": "Beam section where concrete carries shear and stirrup spacing is governed by code minimum steel and 0.75d limit.",
+    "inputs": {
+      "b_mm": 230.0,
+      "d_mm": 350.0,
+      "fck": 25.0,
+      "fy_stirrup": 415.0,
+      "vu_kN": 30.0,
+      "ast_provided_mm2": 450.0,
+      "stirrup_dia_mm": 8.0,
+      "stirrup_legs": 2
+    },
+    "reference_hand_calc_values": {
+      "tau_v_N_per_mm2": 0.373,
+      "pt_percent": 0.559,
+      "tau_c_N_per_mm2": 0.49,
+      "shear_governing": "minimum_shear_steel",
+      "required_spacing_mm": 262.5
+    },
+    "tolerance_pct": 2.0
+  }
+]

@@ -17,7 +17,9 @@ from src.validation.is456_checks import (
     max_compression_steel,
     max_stirrup_spacing,
     min_shear_steel,
+    min_bar_clear_spacing,
 )
+
 
 BASE_NOTE = (
     "Passes the implemented IS 456 beam detailing checks only; "
@@ -37,7 +39,9 @@ CITATION_TO_CHUNK_ID = {
     "IS 456:2000 Cl. 26.5.1.8": "IS456-2000-CL-26.5.1.8",
     "IS 456:2000 Table 16": "IS456-2000-TABLE-16",
     "IS 456:2000 Table 19": "IS456-2000-TABLE-19",
+    "IS 456:2000 Cl. 26.3.2(a)": "IS456-2000-CL-26.3.2(a)",
 }
+
 
 _CHUNKS_CACHE: Optional[Dict[str, str]] = None
 
@@ -69,8 +73,23 @@ def get_chunks_map() -> Dict[str, str]:
             if cid:
                 chunks_map[cid] = item.get("text", "")
 
+    # Also load verified Cl. 26.3.2 if available
+    cl_26_3_2_path = Path(__file__).resolve().parent.parent.parent / "data" / "processed" / "is456_cl_26_3_2.json"
+    if not cl_26_3_2_path.exists():
+        cl_26_3_2_path = Path("data/processed/is456_cl_26_3_2.json")
+    if cl_26_3_2_path.exists():
+        try:
+            with open(cl_26_3_2_path, "r", encoding="utf-8") as f:
+                cdata = json.load(f)
+                for item in cdata.get("items", []):
+                    if item.get("id") == "26.3.2(a)":
+                        chunks_map["IS456-2000-CL-26.3.2(a)"] = item.get("text", "")
+        except Exception:
+            pass
+
     _CHUNKS_CACHE = chunks_map
     return _CHUNKS_CACHE
+
 
 
 def validate_design(design: Dict[str, Any]) -> Dict[str, Any]:
@@ -144,6 +163,19 @@ def validate_design(design: Dict[str, Any]) -> Dict[str, Any]:
     # Shear stirrup checks
     raw_checks.append(max_stirrup_spacing(d=d, spacing=stirrup_spacing, inclined_45=False))
     raw_checks.append(min_shear_steel(b=b, sv=stirrup_spacing, fy=fy, asv_provided=asv_provided))
+
+    # Bar clear spacing check (IS 456 Cl. 26.3.2(a))
+    max_agg = float(design.get("max_aggregate_size_mm", 20.0))
+    raw_checks.append(
+        min_bar_clear_spacing(
+            b=b,
+            cover_mm=float(cover_mm),
+            stirrup_dia=stirrup_dia,
+            n_bars=main_bar_count,
+            bar_dia=main_bar_dia,
+            max_aggregate_size_mm=max_agg,
+        )
+    )
 
     # 3. Map each check's citation to its chunk_id and read clause text from chunks.jsonl
     chunks_map = get_chunks_map()

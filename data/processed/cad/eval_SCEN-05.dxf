@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461335.7409837963
+2461338.668622685
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461335.7409837963
+2461338.668622685
   9
 $TDUUPDATE
  40
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{D66B4760-B093-49EE-ABBD-37D4138FAFED}
+{6470226B-1BE0-4A7C-B4BD-6341ADE5325D}
   9
 $VERSIONGUID
   2
-{8EA723B1-0BBA-4276-A852-29F9BF077219}
+{D96F8070-71AD-48AA-9B43-BAA7474DE17C}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -6381,7 +6381,7 @@ AcDbText
  40
 13.0
   1
-2L-T8 @ 260 c/c (IS 456 Cl. 26.5.1.5, 26.5.1.6)
+2L-T8 @ 270 c/c (IS 456 Cl. 26.5.1.5, 26.5.1.6)
  72
 2
  11
@@ -6637,13 +6637,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1340.0
+1350.0
  20
 45.0
  30
 0.0
  11
-1340.0
+1350.0
  21
 380.0
  31
@@ -6661,13 +6661,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1600.0
+1620.0
  20
 45.0
  30
 0.0
  11
-1600.0
+1620.0
  21
 380.0
  31
@@ -6685,13 +6685,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1860.0
+1890.0
  20
 45.0
  30
 0.0
  11
-1860.0
+1890.0
  21
 380.0
  31
@@ -6709,13 +6709,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2120.0
+2160.0
  20
 45.0
  30
 0.0
  11
-2120.0
+2160.0
  21
 380.0
  31
@@ -6733,13 +6733,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2380.0
+2430.0
  20
 45.0
  30
 0.0
  11
-2380.0
+2430.0
  21
 380.0
  31
@@ -6757,13 +6757,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2640.0
+2700.0
  20
 45.0
  30
 0.0
  11
-2640.0
+2700.0
  21
 380.0
  31
@@ -6781,13 +6781,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2900.0
+2970.0
  20
 45.0
  30
 0.0
  11
-2900.0
+2970.0
  21
 380.0
  31
@@ -6805,13 +6805,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3160.0
+3240.0
  20
 45.0
  30
 0.0
  11
-3160.0
+3240.0
  21
 380.0
  31
@@ -6829,13 +6829,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3400.0
+3320.0
  20
 45.0
  30
 0.0
  11
-3400.0
+3320.0
  21
 380.0
  31
@@ -6853,13 +6853,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3660.0
+3590.0
  20
 45.0
  30
 0.0
  11
-3660.0
+3590.0
  21
 380.0
  31
@@ -6877,13 +6877,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3920.0
+3860.0
  20
 45.0
  30
 0.0
  11
-3920.0
+3860.0
  21
 380.0
  31
@@ -6901,13 +6901,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4180.0
+4130.0
  20
 45.0
  30
 0.0
  11
-4180.0
+4130.0
  21
 380.0
  31
@@ -6925,13 +6925,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4440.0
+4400.0
  20
 45.0
  30
 0.0
  11
-4440.0
+4400.0
  21
 380.0
  31
@@ -6949,13 +6949,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4700.0
+4670.0
  20
 45.0
  30
 0.0
  11
-4700.0
+4670.0
  21
 380.0
  31
@@ -6973,13 +6973,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4960.0
+4940.0
  20
 45.0
  30
 0.0
  11
-4960.0
+4940.0
  21
 380.0
  31
@@ -6997,13 +6997,13 @@ STIRRUPS
 100
 AcDbLine
  10
-5220.0
+5210.0
  20
 45.0
  30
 0.0
  11
-5220.0
+5210.0
  21
 380.0
  31
@@ -7837,7 +7837,7 @@ AcDbText
  40
 12.0
   1
-5. Shear Reinforcement: 2-legged closed stirrups T8 @ 260 mm c/c (IS 456:2000 Cl. 40.4, 26.5.1.5, 26.5.1.6). tau_v = 1.183 N/mm2, tau_c = 0.670 N/mm2, Vus = 41.26 kN (41262.5 N), Spacing = 260 mm.
+5. Shear Reinforcement: 2-legged closed stirrups T8 @ 270 mm c/c (IS 456:2000 Cl. 40.4, 26.5.1.5, 26.5.1.6). tau_v = 1.143 N/mm2, tau_c = 0.670 N/mm2, Vus = 39.41 kN (39413.3 N), Spacing = 270 mm.
  11
 20.0
  21
@@ -8235,7 +8235,7 @@ AcDbText
  40
 9.5
   1
-STATUS: DRAFT - NOT FOR CONSTRUCTION. Passes the implemented IS 456 beam detailing checks only. Must be reviewed and signed by a structural engineer.
+STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.
  11
 750.0
  21
@@ -9349,7 +9349,7 @@ DictionaryVariables
 280
 0
   1
-1.4.5 @ 2026-10-21T12:17:01.518397+00:00
+1.4.5 @ 2026-10-24T10:32:49.761132+00:00
   0
 VISUALSTYLE
   5
@@ -10061,7 +10061,7 @@ DictionaryVariables
 280
 0
   1
-1.4.5 @ 2026-10-21T12:17:01.534697+00:00
+1.4.5 @ 2026-10-24T10:32:49.780268+00:00
   0
 ENDSEC
   0

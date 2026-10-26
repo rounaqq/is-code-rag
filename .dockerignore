@@ -1,0 +1,26 @@
+# Git and IDE
+.git/
+.gitignore
+.gemini/
+.idea/
+.vscode/
+
+# Python Virtual Environments & Caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Environment Secrets & Scratch Files
+.env
+.env.*
+scratch/
+colab/
+
+# Temporary media & cache storage
+*.log
+data/audit/*.jsonl

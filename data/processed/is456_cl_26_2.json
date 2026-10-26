@@ -1,0 +1,36 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "clause_reference": "26.2",
+  "title": "Development of Stress in Reinforcement",
+  "page_number": [55, 56],
+  "printed_pages": [42, 43],
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_055.png, page_056.png, crop_cl_26_2_1.png, and crop_table_bond_stress.png",
+  "items": [
+    {
+      "id": "26.2.1",
+      "heading": "Development Length of Bars",
+      "text": "The development length Ld is given by Ld = (phi * sigma_s) / (4 * tau_bd), where phi = nominal diameter of the bar, sigma_s = stress in bar at the section considered at design load, and tau_bd = design bond stress given in 26.2.1.1. At limit state, sigma_s = 0.87 * fy."
+    },
+    {
+      "id": "26.2.1.1",
+      "heading": "Design Bond Stress in Limit State Method",
+      "text": "Design bond stress in limit state method for plain bars in tension shall be as below: M20: 1.2 N/mm2; M25: 1.4 N/mm2; M30: 1.5 N/mm2; M35: 1.7 N/mm2; M40 and above: 1.9 N/mm2. For deformed bars conforming to IS 1786 these values shall be increased by 60 percent. For bars in compression, the values of bond stress for bars in tension shall be increased by 25 percent."
+    },
+    {
+      "id": "26.2.3.3",
+      "heading": "Anchoring Tension Reinforcement at Support",
+      "text": "At simple supports and at points of inflection by tension reinforcement, at least one-third the positive moment reinforcement shall extend along the same face into the support to a length equal to Ld / 3."
+    }
+  ],
+  "bond_stress_plain_tension_N_per_mm2": {
+    "M20": 1.2,
+    "M25": 1.4,
+    "M30": 1.5,
+    "M35": 1.7,
+    "M40 and above": 1.9
+  },
+  "deformed_bar_factor": 1.6,
+  "compression_bar_factor": 1.25
+}

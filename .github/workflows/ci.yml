@@ -1,0 +1,73 @@
+name: IS 456 Structural RAG CI/CD Pipeline
+
+'on':
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Regression Tests & Evaluation Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify Chunk Index Integrity
+        run: |
+          python -m src.chunking.build_chunks
+
+      - name: Run Test Suite
+        env:
+          IS_RAG_API_KEYS: "test_ci_client:FAKE_CI_KEY_FOR_TESTING_ONLY"
+        run: |
+          pytest tests/ -v
+
+      - name: Run Step 9 Master Evaluation Benchmark
+        run: |
+          python -m src.evaluation.run_step9_master_eval
+
+      - name: Archive Evaluation Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: step9-master-evaluation-reports
+          path: |
+            data/eval/step9_master_evaluation_report.json
+            data/eval/sp16_evaluation_report.json
+            data/eval/design_evaluation_report.json
+            data/eval/engineer_review_package.json
+          retention-days: 14
+
+  docker-build:
+    name: Docker Image Build Validation
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Container
+        run: |
+          docker build -t is456-rag-api:latest .

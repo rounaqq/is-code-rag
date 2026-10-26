@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary & Objective
 
-This project implements an end-to-end, production-grade **Retrieval-Augmented Generation (RAG) and Deterministic Structural Design System** for structural Indian Standards, specifically **IS 456:2000** (*Plain and Reinforced Concrete - Code of Practice*).
+This project is a draft pilot implementation of a **Retrieval-Augmented Generation (RAG) and Deterministic Structural Design System** for structural Indian Standards, specifically **IS 456:2000** (*Plain and Reinforced Concrete - Code of Practice*).
 
-The primary objective is the automated, code-compliant structural sizing, reinforcement detailing, multi-stage clause retrieval, and 2D CAD drawing generation for **Reinforced Concrete (RC) Beams**.
+The primary objective is automated preliminary structural sizing, reinforcement detailing, multi-stage clause retrieval, and 2D CAD drawing generation for **Reinforced Concrete (RC) Beams**. The system passes the implemented IS 456 beam detailing checks only, is not a full design check, and a structural engineer must review every result.
 
 ---
 
@@ -14,11 +14,11 @@ A foundational requirement of this project is the strict separation between **st
 
 1. **Deterministic Calculation & Validation Engine**:
    - All structural math—including flexural capacity ($M_u, M_{u,lim}, A_{st}$), shear capacity ($\tau_v, \tau_c, \tau_{c,max}, V_{us}, s_v$), detailing limits ($A_{s,min}, A_{s,max}$), and durability cover—is executed deterministically in pure Python code against verified JSON tables.
-   - **Zero LLM Hallucination Risk**: Large Language Models (LLMs) are never allowed to invent, estimate, or alter structural design formulas or safety factors.
+   - **Deterministic Calculations**: Large Language Models (LLMs) are never allowed to invent, estimate, or alter structural design formulas or safety factors.
 2. **AI & RAG Retrieval Engine**:
    - Language models and vector search engines are used exclusively for semantic query interpretation, relevant code clause retrieval, and grounded engineering explanations citing verified clause citations.
 3. **Automated 2D CAD Engine**:
-   - Validated engineering parameters are mapped deterministically into CAD geometry (`ezdxf`), producing production-ready DXF drawings.
+   - Validated engineering parameters are mapped deterministically into CAD geometry (`ezdxf`), producing preliminary 2D DXF drawings.
 
 ---
 
@@ -75,7 +75,7 @@ The system covers 23 human-verified chunks across 4 major design domains:
 - **Vector Storage**: File-backed normalized NumPy matrices (`embeddings.npy`, `embedding_ids.json`)
 - **API Framework**: FastAPI with lifespan startup preloading and Uvicorn
 - **CAD Drafting Engine**: `ezdxf` (AC1024 standard DXF output)
-- **Testing Framework**: `pytest` (93 comprehensive tests)
+- **Testing Framework**: `pytest` (123 comprehensive tests)
 
 ---
 
@@ -85,6 +85,7 @@ The system covers 23 human-verified chunks across 4 major design domains:
 2. **Partial Safety Factors**: Factored design loads use $\gamma_f = 1.5$ ($w_u = 1.5(DL + LL + \text{self-weight})$).
 3. **Bar Detailing**:
    - Tension bars evaluated across standard sizes: 12 mm, 16 mm, 20 mm, 25 mm, 32 mm.
+   - Clear spacing per IS 456 Cl. 26.3.2(a) requires clear gap $\ge \max(\phi_{\text{bar}}, \text{aggregate size} + 5\text{ mm})$. A 20 mm nominal maximum aggregate size (giving a 25 mm clearance floor) is assumed unless an alternative is provided.
    - Top bars provided as 2 hanger bars (minimum 10 mm or 12 mm) for stirrup support.
 4. **Practical Stirrup Selection**:
    - Sizing progressively evaluates 8 mm, 10 mm, then 12 mm two-legged stirrups.

@@ -5,6 +5,7 @@ Formulas and limits are derived strictly from verified clauses and tables in IS 
 """
 
 import json
+import math
 import re
 from pathlib import Path
 from typing import Dict, Any, Optional
@@ -413,5 +414,287 @@ def tau_c_max(grade: Any) -> float:
         return m40_and_above_val
     else:
         raise ValueError("needs engineer decision")
+
+
+def unit_weight_concrete(concrete_type: str = "reinforced") -> float:
+    """
+    Unit weight of concrete in kN/m3 per IS 456:2000 Cl. 19.2.1.
+    - Plain concrete: 24.0 kN/m3
+    - Reinforced concrete: 25.0 kN/m3
+    """
+    c_type = concrete_type.strip().lower()
+    if c_type in ("plain", "pcc"):
+        return 24.0
+    return 25.0
+
+
+def effective_span_simply_supported(
+    clear_span_mm: float,
+    d_mm: float,
+    support_width_mm: float,
+) -> Dict[str, Any]:
+    """
+    Computes effective span for a simply supported beam per IS 456:2000 Cl. 22.2(a):
+    L_eff = min(clear_span + d, clear_span + support_width)
+    """
+    if clear_span_mm <= 0 or d_mm <= 0 or support_width_mm <= 0:
+        raise ValueError("All span and support dimensions must be strictly positive.")
+
+    val_d = clear_span_mm + d_mm
+    val_bearing = clear_span_mm + support_width_mm
+    l_eff_mm = min(val_d, val_bearing)
+    governing = "clear_span + d" if val_d <= val_bearing else "clear_span + support_width"
+
+    return CheckResult({
+        "check": "effective_span",
+        "clear_span_mm": clear_span_mm,
+        "d_mm": d_mm,
+        "support_width_mm": support_width_mm,
+        "effective_span_mm": l_eff_mm,
+        "effective_span_m": l_eff_mm / 1000.0,
+        "governing_criterion": governing,
+        "citation": "IS 456:2000 Cl. 22.2(a)",
+        "formula": "min(clear_span + d, clear_span + support_width)",
+    })
+
+
+def design_bond_stress(
+    fck: float,
+    bar_type: str = "deformed",
+    stress_type: str = "tension",
+) -> float:
+    """
+    Design bond stress tau_bd in N/mm2 in limit state method per IS 456:2000 Cl. 26.2.1.1.
+    Plain bars in tension:
+      M20: 1.2, M25: 1.4, M30: 1.5, M35: 1.7, M40 and above: 1.9 N/mm2.
+    For deformed bars (IS 1786): increased by 60% (* 1.6).
+    For bars in compression: increased by 25% (* 1.25).
+    """
+    if fck is None or fck <= 0:
+        raise ValueError("fck must be strictly positive.")
+
+    grade_val = int(round(fck))
+    if grade_val >= 40:
+        basic_tau_bd = 1.9
+    elif grade_val >= 35:
+        basic_tau_bd = 1.7
+    elif grade_val >= 30:
+        basic_tau_bd = 1.5
+    elif grade_val >= 25:
+        basic_tau_bd = 1.4
+    elif grade_val >= 20:
+        basic_tau_bd = 1.2
+    else:
+        raise ValueError("needs engineer decision: fck below M20 not covered in Table 26.2.1.1")
+
+    tau_bd = basic_tau_bd
+    b_type = bar_type.strip().lower()
+    if b_type in ("deformed", "hysd", "fe415", "fe500", "fe550"):
+        tau_bd *= 1.6
+
+    s_type = stress_type.strip().lower()
+    if s_type == "compression":
+        tau_bd *= 1.25
+
+    return round(tau_bd, 4)
+
+
+def development_length(
+    bar_dia_mm: float,
+    fck: float,
+    fy: float,
+    bar_type: str = "deformed",
+    stress_type: str = "tension",
+) -> Dict[str, Any]:
+    """
+    Computes development length Ld per IS 456:2000 Cl. 26.2.1:
+      Ld = (phi * sigma_s) / (4 * tau_bd)
+    where sigma_s = 0.87 * fy at limit state.
+    Also returns support anchorage embedment requirement per Cl. 26.2.3.3 (Ld / 3).
+    """
+    if bar_dia_mm <= 0 or fck <= 0 or fy <= 0:
+        raise ValueError("Bar diameter, fck, and fy must be strictly positive.")
+
+    tau_bd = design_bond_stress(fck, bar_type=bar_type, stress_type=stress_type)
+    sigma_s = 0.87 * fy
+    ld_calc = (bar_dia_mm * sigma_s) / (4.0 * tau_bd)
+    ld_rounded = math.ceil(ld_calc / 5.0) * 5.0
+    support_anchorage_min = math.ceil((ld_calc / 3.0) / 5.0) * 5.0
+
+    return CheckResult({
+        "check": "development_length",
+        "bar_dia_mm": bar_dia_mm,
+        "fck": fck,
+        "fy": fy,
+        "bar_type": bar_type,
+        "stress_type": stress_type,
+        "tau_bd_N_per_mm2": tau_bd,
+        "sigma_s_N_per_mm2": round(sigma_s, 2),
+        "ld_mm": round(ld_calc, 1),
+        "ld_rounded_mm": ld_rounded,
+        "support_anchorage_min_mm": support_anchorage_min,
+        "bar_diameters_multiple": round(ld_calc / bar_dia_mm, 1),
+        "citation": "IS 456:2000 Cl. 26.2.1 & Cl. 26.2.1.1",
+        "formula": "Ld = (phi * 0.87 * fy) / (4 * tau_bd)",
+    })
+
+
+def deflection_check(
+    span_m: float,
+    d_actual_mm: float,
+    fy: float,
+    ast_required_mm2: float,
+    ast_provided_mm2: float,
+    b_mm: float,
+    member_type: str = "simply_supported",
+) -> Dict[str, Any]:
+    """
+    Checks span-to-effective-depth ratio for deflection control per IS 456:2000 Cl. 23.2.1.
+    Basic value for simply supported beams up to 10 m: 20.
+    Modification factor F1 per Fig. 4 for tension reinforcement:
+      fs = 0.58 * fy * (ast_required / ast_provided)
+      pt = 100 * ast_provided / (b * d_actual)
+      F1 = 1 / (0.225 + 0.00322 * fs + 0.625 * log10(pt)) <= 2.0
+    Permissible L/d = basic * F1.
+    """
+    if span_m <= 0 or d_actual_mm <= 0 or fy <= 0 or b_mm <= 0:
+        raise ValueError("Span, depth, width, and fy must be strictly positive.")
+    if ast_required_mm2 <= 0 or ast_provided_mm2 <= 0:
+        raise ValueError("Steel areas must be strictly positive.")
+
+    # 1. Basic ratio per Cl. 23.2.1(a)
+    m_type = member_type.strip().lower()
+    if m_type == "cantilever":
+        basic_ratio = 7.0
+    elif m_type == "continuous":
+        basic_ratio = 26.0
+    else:
+        basic_ratio = 20.0
+
+    # For spans above 10 m per Cl. 23.2.1(b)
+    if span_m > 10.0 and m_type != "cantilever":
+        basic_ratio = basic_ratio * (10.0 / span_m)
+
+    # 2. Service stress fs per Fig. 4 Note
+    fs = 0.58 * fy * (ast_required_mm2 / ast_provided_mm2)
+
+    # 3. Tension steel percentage pt
+    pt = (100.0 * ast_provided_mm2) / (b_mm * d_actual_mm)
+
+    actual_ld_ratio = round((span_m * 1000.0) / d_actual_mm, 2)
+
+    base_note = (
+        "The modification factor F1 uses an approximate curve fit that is NOT from IS 456; "
+        "Fig. 4 has not yet been entered from the page. Deflection result is indicative only."
+    )
+
+    # Fig. 4 covers pt from 0 to 3.0 and fs from 120 to 290 N/mm2
+    if pt > 3.0 or fs > 290.0:
+        return CheckResult({
+            "check": "deflection_control",
+            "status": "needs_review",
+            "passed": False,
+            "ratio_satisfied": False,
+            "note": "Outside the range of Fig. 4",
+            "notes": ["Outside the range of Fig. 4"],
+            "actual_ld_ratio": actual_ld_ratio,
+            "max_ld_ratio": None,
+            "basic_ratio": basic_ratio,
+            "service_stress_fs": round(fs, 2),
+            "pt": round(pt, 3),
+            "modification_factor_f1": None,
+            "modification_factor_f1_unclamped": None,
+            "d_actual_mm": d_actual_mm,
+            "span_m": span_m,
+            "citation": "IS 456:2000 Cl. 23.2.1",
+            "formula": "(L / d) <= basic_ratio * F1 (F1: approximate curve fit, not from IS 456)",
+        })
+
+    notes = [base_note]
+    if fs < 120.0:
+        fs_used = 120.0
+        fs_note = "fs is below 120 N/mm2; fs = 120 N/mm2 used per Fig. 4 lower curve limit."
+        notes.append(fs_note)
+        note_text = f"{base_note} {fs_note}"
+    else:
+        fs_used = fs
+        note_text = base_note
+
+    # 4. Modification factor F1 (approximate curve fit, not from IS 456)
+    log_pt = math.log10(pt)
+    denom = 0.225 + (0.00322 * fs_used) + (0.625 * log_pt)
+    if denom <= 0:
+        f1_unclamped = 2.0
+        f1 = 2.0
+    else:
+        f1_unclamped = round(1.0 / denom, 4)
+        # Upper limit 2.0 kept; no lower limit
+        f1 = min(2.0, f1_unclamped)
+
+    # 5. Allowable vs Actual L/d
+    max_ld_ratio = round(basic_ratio * f1, 2)
+    ratio_satisfied = actual_ld_ratio <= max_ld_ratio
+
+    return CheckResult({
+        "check": "deflection_control",
+        "status": "indicative",
+        "passed": ratio_satisfied,
+        "ratio_satisfied": ratio_satisfied,
+        "note": note_text,
+        "notes": notes,
+        "actual_ld_ratio": actual_ld_ratio,
+        "max_ld_ratio": max_ld_ratio,
+        "basic_ratio": basic_ratio,
+        "service_stress_fs": round(fs, 2),
+        "service_stress_fs_used": round(fs_used, 2),
+        "pt": round(pt, 3),
+        "modification_factor_f1": round(f1, 3),
+        "modification_factor_f1_unclamped": round(f1_unclamped, 3),
+        "d_actual_mm": d_actual_mm,
+        "span_m": span_m,
+        "citation": "IS 456:2000 Cl. 23.2.1",
+        "formula": "(L / d) <= basic_ratio * F1 (F1: approximate curve fit, not from IS 456)",
+    })
+
+
+def min_bar_clear_spacing(
+    b: float,
+    cover_mm: float,
+    stirrup_dia: float,
+    n_bars: int,
+    bar_dia: float,
+    max_aggregate_size_mm: float = 20.0,
+) -> Dict[str, Any]:
+    """
+    Checks minimum horizontal distance between individual parallel main reinforcing bars
+    per IS 456:2000 Cl. 26.3.2(a).
+    Clear gap = (b - 2*cover - 2*stirrup_dia - n_bars*bar_dia) / (n_bars - 1)
+    Required gap = max(bar_dia, max_aggregate_size_mm + 5.0)
+    Citation: IS 456:2000 Cl. 26.3.2(a)
+    """
+    if n_bars < 2:
+        raise ValueError("Number of bars must be at least 2 to calculate horizontal spacing.")
+    if b <= 0 or cover_mm < 0 or stirrup_dia < 0 or bar_dia <= 0 or max_aggregate_size_mm < 0:
+        raise ValueError("Dimensions, cover, bar diameter and aggregate size must be positive.")
+
+    clear_gap = (b - (2.0 * cover_mm) - (2.0 * stirrup_dia) - (n_bars * bar_dia)) / (n_bars - 1.0)
+    required_gap = max(float(bar_dia), float(max_aggregate_size_mm) + 5.0)
+    provided_gap = round(clear_gap, 2)
+    required_gap = round(required_gap, 2)
+    passed = provided_gap >= required_gap
+
+    return CheckResult({
+        "check": "min_bar_clear_spacing",
+        "passed": passed,
+        "required": required_gap,
+        "provided": provided_gap,
+        "required_gap": required_gap,
+        "provided_gap": provided_gap,
+        "clear_gap": provided_gap,
+        "citation": "IS 456:2000 Cl. 26.3.2(a)",
+        "formula": "clear_gap = (b - 2*cover - 2*stirrup_dia - n_bars*bar_dia)/(n_bars - 1) >= max(bar_dia, max_aggregate_size_mm + 5)",
+    })
+
+
 
 

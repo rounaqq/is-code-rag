@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-10-24T10:32:49Z",
+  "pillar_name": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
+  "source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
+  "handbook_source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
+  "total_examples": 4,
+  "examples_passed": 4,
+  "pass_rate_pct": 100.0,
+  "all_congruent": true,
+  "results": [
+    {
+      "example_id": "SP16-EX-01",
+      "title": "Singly Reinforced Rectangular Beam under Flexure (M20 & Fe 415)",
+      "type": "Flexure",
+      "inputs": {
+        "b_mm": 250.0,
+        "d_mm": 400.0,
+        "fck": 20.0,
+        "fy": 415.0,
+        "mu_kNm": 85.0
+      },
+      "calculated": {
+        "mu_over_bd2": 2.125,
+        "ast_mm2": 686.29,
+        "pt_percent": 0.686,
+        "xu_over_d": 0.344,
+        "is_under_reinforced": true
+      },
+      "reference_hand_calc": {
+        "mu_over_bd2": 2.125,
+        "pt_percent_approx": 0.686,
+        "ast_required_mm2_approx": 686.0,
+        "is_under_reinforced": true
+      },
+      "ast_difference_pct": 0.04,
+      "ast_variance_pct": 0.04,
+      "status": "PASSED"
+    },
+    {
+      "example_id": "SP16-EX-02",
+      "title": "Higher Strength Beam under Flexure (M25 & Fe 500)",
+      "type": "Flexure",
+      "inputs": {
+        "b_mm": 300.0,
+        "d_mm": 500.0,
+        "fck": 25.0,
+        "fy": 500.0,
+        "mu_kNm": 175.0
+      },
+      "calculated": {
+        "mu_over_bd2": 2.333,
+        "ast_mm2": 916.62,
+        "pt_percent": 0.611,
+        "xu_over_d": 0.295,
+        "is_under_reinforced": true
+      },
+      "reference_hand_calc": {
+        "mu_over_bd2": 2.333,
+        "pt_percent_approx": 0.611,
+        "ast_required_mm2_approx": 917.0,
+        "is_under_reinforced": true
+      },
+      "ast_difference_pct": 0.04,
+      "ast_variance_pct": 0.04,
+      "status": "PASSED"
+    },
+    {
+      "example_id": "SP16-EX-03",
+      "title": "Beam with Designed Vertical Shear Stirrups (tau_v > tau_c)",
+      "type": "Shear",
+      "inputs": {
+        "b_mm": 250.0,
+        "d_mm": 450.0,
+        "fck": 20.0,
+        "fy_stirrup": 415.0,
+        "vu_kN": 140.0,
+        "ast_provided_mm2": 900.0,
+        "stirrup_dia_mm": 8.0,
+        "stirrup_legs": 2
+      },
+      "calculated": {
+        "tau_v_N_per_mm2": 1.244,
+        "tau_c_N_per_mm2": 0.56,
+        "shear_status": "stirrups_designed",
+        "required_spacing_mm": 212.1,
+        "suggested_spacing_mm": 210.0
+      },
+      "reference_hand_calc": {
+        "tau_v_N_per_mm2": 1.244,
+        "pt_percent": 0.8,
+        "tau_c_N_per_mm2": 0.56,
+        "vus_kN": 77.0,
+        "required_spacing_mm": 212.1
+      },
+      "spacing_difference_pct": 0.0,
+      "spacing_variance_pct": 0.0,
+      "status": "PASSED"
+    },
+    {
+      "example_id": "SP16-EX-04",
+      "title": "Lightly Loaded Beam Governed by Minimum Shear Steel (tau_v <= tau_c)",
+      "type": "Shear",
+      "inputs": {
+        "b_mm": 230.0,
+        "d_mm": 350.0,
+        "fck": 25.0,
+        "fy_stirrup": 415.0,
+        "vu_kN": 30.0,
+        "ast_provided_mm2": 450.0,
+        "stirrup_dia_mm": 8.0,
+        "stirrup_legs": 2
+      },
+      "calculated": {
+        "tau_v_N_per_mm2": 0.373,
+        "tau_c_N_per_mm2": 0.49,
+        "shear_status": "minimum_shear_steel",
+        "required_spacing_mm": 262.5,
+        "suggested_spacing_mm": 260.0
+      },
+      "reference_hand_calc": {
+        "tau_v_N_per_mm2": 0.373,
+        "pt_percent": 0.559,
+        "tau_c_N_per_mm2": 0.49,
+        "shear_governing": "minimum_shear_steel",
+        "required_spacing_mm": 262.5
+      },
+      "spacing_difference_pct": 0.0,
+      "spacing_variance_pct": 0.0,
+      "status": "PASSED"
+    }
+  ]
+}

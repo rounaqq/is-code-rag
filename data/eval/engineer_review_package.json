@@ -1,0 +1,343 @@
+{
+  "timestamp": "2026-10-24T10:07:48Z",
+  "total_scenarios": 5,
+  "reviewed_scenarios": 5,
+  "drawing_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+  "package_results": [
+    {
+      "scenario_id": "SCEN-01",
+      "name": "Residential Simply Supported Beam",
+      "span_m": 4.0,
+      "section": "230x375 mm",
+      "d_actual_mm": 337.0,
+      "cover_mm": 20,
+      "materials": "M20 / Fe415",
+      "exposure": "Mild",
+      "rebar": "2-T20",
+      "clear_gap_mm": 134.0,
+      "stirrups": "2L-T8 @ 250 mm",
+      "review_status": "ready_for_engineer_review",
+      "dxf_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+      "dxf_path": "data\\processed\\cad\\draft_SCEN-01.dxf",
+      "checks": [
+        {
+          "check": "Flexural Capacity (Singly Reinforced Limit)",
+          "clause": "IS 456:2000 Annex G-1.1",
+          "status": "pass",
+          "details": "Mu,lim = 72.07 kNm vs Mu = 0.00 kNm (xu,max/d = 0.48)"
+        },
+        {
+          "check": "Tension Reinforcement Area Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.1(a),(b)",
+          "status": "pass",
+          "details": "Ast,prov = 628.3 mm2 (Min: 158.8 mm2, Max: 3450.0 mm2)"
+        },
+        {
+          "check": "Minimum Horizontal Bar Clear Spacing",
+          "clause": "IS 456:2000 Cl. 26.3.2(a)",
+          "status": "pass",
+          "details": "Clear gap = 134.0 mm (Floor: 25.0 mm)"
+        },
+        {
+          "check": "Nominal Shear Stress vs tau_c,max",
+          "clause": "IS 456:2000 Cl. 40.2.3 & Table 20",
+          "status": "pass",
+          "details": "tau_v = 0.000 N/mm2 <= tau_c,max = 2.80 N/mm2"
+        },
+        {
+          "check": "Shear Reinforcement Spacing Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6",
+          "status": "pass",
+          "details": "Provided sv = 250 mm (Max: 253 mm, Practical floor: 100 mm)"
+        },
+        {
+          "check": "Tension Bar Development Length (Anchorage)",
+          "clause": "IS 456:2000 Cl. 26.2.1",
+          "status": "pass",
+          "details": "Ld required = 940 mm (tau_bd = 1.92 N/mm2)"
+        },
+        {
+          "check": "Span-to-Effective-Depth Ratio (Deflection)",
+          "clause": "IS 456:2000 Cl. 23.2 & Fig. 4",
+          "status": "indicative",
+          "details": "Actual L/d = 13.35 vs Allowable = 21.21 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.)"
+        },
+        {
+          "check": "Nominal Concrete Cover (Durability)",
+          "clause": "IS 456:2000 Table 16",
+          "status": "pass",
+          "details": "Cover = 20 mm for 'Mild' exposure (Required: 20 mm)"
+        }
+      ],
+      "markdown_report": "# Structural RC Beam Design \u2014 Engineer Review Sheet\n**Status**: Draft Pilot \u2014 Passes implemented IS 456 beam detailing checks only. Must be reviewed by an engineer.\n\n## 1. Design Inputs & Geometry\n- **Span**: 4.50 m\n- **Cross-Section**: Width $b = 230\\text{ mm}$, Depth $D = 375\\text{ mm}$\n- **Actual Effective Depth**: $d_{\\text{actual}} = 337.0\\text{ mm}$\n- **Materials**: Concrete $f_{ck} = 20\\text{ N/mm}^2$, Steel $f_y = 415\\text{ N/mm}^2$\n- **Environmental Exposure**: Mild (Cover: 20 mm)\n\n## 2. Reinforcement Detailing\n- **Main Tension Steel**: 2-T20 ($A_{st} = 628.3\\text{ mm}^2$, $p_t = 0.81\\%$)\n- **Clear Bar Spacing**: 134.0 mm (Required min: 25.0 mm)\n- **Shear Reinforcement**: 2L-T8 @ 250 mm c/c\n- **Development Length ($L_d$)**: 940 mm\n\n## 3. IS 456:2000 Clause Compliance Checks\n| Check Item | IS 456 Reference | Status | Calculation Details |\n| :--- | :--- | :---: | :--- |\n| Flexural Capacity (Singly Reinforced Limit) | IS 456:2000 Annex G-1.1 | **pass** | Mu,lim = 72.07 kNm vs Mu = 0.00 kNm (xu,max/d = 0.48) |\n| Tension Reinforcement Area Limits | IS 456:2000 Cl. 26.5.1.1(a),(b) | **pass** | Ast,prov = 628.3 mm2 (Min: 158.8 mm2, Max: 3450.0 mm2) |\n| Minimum Horizontal Bar Clear Spacing | IS 456:2000 Cl. 26.3.2(a) | **pass** | Clear gap = 134.0 mm (Floor: 25.0 mm) |\n| Nominal Shear Stress vs tau_c,max | IS 456:2000 Cl. 40.2.3 & Table 20 | **pass** | tau_v = 0.000 N/mm2 <= tau_c,max = 2.80 N/mm2 |\n| Shear Reinforcement Spacing Limits | IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6 | **pass** | Provided sv = 250 mm (Max: 253 mm, Practical floor: 100 mm) |\n| Tension Bar Development Length (Anchorage) | IS 456:2000 Cl. 26.2.1 | **pass** | Ld required = 940 mm (tau_bd = 1.92 N/mm2) |\n| Span-to-Effective-Depth Ratio (Deflection) | IS 456:2000 Cl. 23.2 & Fig. 4 | **indicative** | Actual L/d = 13.35 vs Allowable = 21.21 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.) |\n| Nominal Concrete Cover (Durability) | IS 456:2000 Table 16 | **pass** | Cover = 20 mm for 'Mild' exposure (Required: 20 mm) |\n\n## 4. Governing Engineering Assumptions\n- **Partial safety factor for loads**: 1.5 on dead load and live load (Table 18) (*IS 456:2000 Table 18*)\n- **Unit weight of reinforced concrete**: 25.0 kN/m3 (Cl. 19.2.1) (*IS 456:2000 Cl. 19.2.1*)\n- **Support bearing width**: 300 mm assumed when not provided (Cl. 22.2(a)) (*IS 456:2000 Cl. 22.2(a)*)\n- **Nominal maximum aggregate size**: 20 mm assumed unless provided; gives 25 mm clear gap floor (Cl. 26.3.2(a)) (*IS 456:2000 Cl. 26.3.2(a)*)\n- **Stirrup practical constructability floor**: Minimum 100 mm spacing threshold to permit concrete pouring (*Constructability Rule*)\n- **Deflection modification factor F1**: Empirical curve fit; results are indicative only until Fig. 4 is digitized (*IS 456:2000 Cl. 23.2 & Fig. 4*)\n\n## 5. Review Status\n- **Current State**: READY FOR ENGINEER REVIEW\n- **Status**: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+    },
+    {
+      "scenario_id": "SCEN-02",
+      "name": "Commercial Office Intermediate Beam",
+      "span_m": 5.5,
+      "section": "300x525 mm",
+      "d_actual_mm": 479.0,
+      "cover_mm": 30,
+      "materials": "M25 / Fe500",
+      "exposure": "Moderate",
+      "rebar": "6-T16",
+      "clear_gap_mm": 25.6,
+      "stirrups": "2L-T8 @ 300 mm",
+      "review_status": "ready_for_engineer_review",
+      "dxf_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+      "dxf_path": "data\\processed\\cad\\draft_SCEN-02.dxf",
+      "checks": [
+        {
+          "check": "Flexural Capacity (Singly Reinforced Limit)",
+          "clause": "IS 456:2000 Annex G-1.1",
+          "status": "pass",
+          "details": "Mu,lim = 229.91 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46)"
+        },
+        {
+          "check": "Tension Reinforcement Area Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.1(a),(b)",
+          "status": "pass",
+          "details": "Ast,prov = 1206.4 mm2 (Min: 244.3 mm2, Max: 6300.0 mm2)"
+        },
+        {
+          "check": "Minimum Horizontal Bar Clear Spacing",
+          "clause": "IS 456:2000 Cl. 26.3.2(a)",
+          "status": "pass",
+          "details": "Clear gap = 25.6 mm (Floor: 25.0 mm)"
+        },
+        {
+          "check": "Nominal Shear Stress vs tau_c,max",
+          "clause": "IS 456:2000 Cl. 40.2.3 & Table 20",
+          "status": "pass",
+          "details": "tau_v = 0.000 N/mm2 <= tau_c,max = 3.10 N/mm2"
+        },
+        {
+          "check": "Shear Reinforcement Spacing Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6",
+          "status": "pass",
+          "details": "Provided sv = 300 mm (Max: 300 mm, Practical floor: 100 mm)"
+        },
+        {
+          "check": "Tension Bar Development Length (Anchorage)",
+          "clause": "IS 456:2000 Cl. 26.2.1",
+          "status": "pass",
+          "details": "Ld required = 777 mm (tau_bd = 2.24 N/mm2)"
+        },
+        {
+          "check": "Span-to-Effective-Depth Ratio (Deflection)",
+          "clause": "IS 456:2000 Cl. 23.2 & Fig. 4",
+          "status": "indicative",
+          "details": "Actual L/d = 9.39 vs Allowable = 18.00 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.)"
+        },
+        {
+          "check": "Nominal Concrete Cover (Durability)",
+          "clause": "IS 456:2000 Table 16",
+          "status": "pass",
+          "details": "Cover = 30 mm for 'Moderate' exposure (Required: 30 mm)"
+        }
+      ],
+      "markdown_report": "# Structural RC Beam Design \u2014 Engineer Review Sheet\n**Status**: Draft Pilot \u2014 Passes implemented IS 456 beam detailing checks only. Must be reviewed by an engineer.\n\n## 1. Design Inputs & Geometry\n- **Span**: 4.50 m\n- **Cross-Section**: Width $b = 300\\text{ mm}$, Depth $D = 525\\text{ mm}$\n- **Actual Effective Depth**: $d_{\\text{actual}} = 479.0\\text{ mm}$\n- **Materials**: Concrete $f_{ck} = 25\\text{ N/mm}^2$, Steel $f_y = 500\\text{ N/mm}^2$\n- **Environmental Exposure**: Moderate (Cover: 30 mm)\n\n## 2. Reinforcement Detailing\n- **Main Tension Steel**: 6-T16 ($A_{st} = 1206.4\\text{ mm}^2$, $p_t = 0.84\\%$)\n- **Clear Bar Spacing**: 25.6 mm (Required min: 25.0 mm)\n- **Shear Reinforcement**: 2L-T8 @ 300 mm c/c\n- **Development Length ($L_d$)**: 777 mm\n\n## 3. IS 456:2000 Clause Compliance Checks\n| Check Item | IS 456 Reference | Status | Calculation Details |\n| :--- | :--- | :---: | :--- |\n| Flexural Capacity (Singly Reinforced Limit) | IS 456:2000 Annex G-1.1 | **pass** | Mu,lim = 229.91 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46) |\n| Tension Reinforcement Area Limits | IS 456:2000 Cl. 26.5.1.1(a),(b) | **pass** | Ast,prov = 1206.4 mm2 (Min: 244.3 mm2, Max: 6300.0 mm2) |\n| Minimum Horizontal Bar Clear Spacing | IS 456:2000 Cl. 26.3.2(a) | **pass** | Clear gap = 25.6 mm (Floor: 25.0 mm) |\n| Nominal Shear Stress vs tau_c,max | IS 456:2000 Cl. 40.2.3 & Table 20 | **pass** | tau_v = 0.000 N/mm2 <= tau_c,max = 3.10 N/mm2 |\n| Shear Reinforcement Spacing Limits | IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6 | **pass** | Provided sv = 300 mm (Max: 300 mm, Practical floor: 100 mm) |\n| Tension Bar Development Length (Anchorage) | IS 456:2000 Cl. 26.2.1 | **pass** | Ld required = 777 mm (tau_bd = 2.24 N/mm2) |\n| Span-to-Effective-Depth Ratio (Deflection) | IS 456:2000 Cl. 23.2 & Fig. 4 | **indicative** | Actual L/d = 9.39 vs Allowable = 18.00 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.) |\n| Nominal Concrete Cover (Durability) | IS 456:2000 Table 16 | **pass** | Cover = 30 mm for 'Moderate' exposure (Required: 30 mm) |\n\n## 4. Governing Engineering Assumptions\n- **Partial safety factor for loads**: 1.5 on dead load and live load (Table 18) (*IS 456:2000 Table 18*)\n- **Unit weight of reinforced concrete**: 25.0 kN/m3 (Cl. 19.2.1) (*IS 456:2000 Cl. 19.2.1*)\n- **Support bearing width**: 300 mm assumed when not provided (Cl. 22.2(a)) (*IS 456:2000 Cl. 22.2(a)*)\n- **Nominal maximum aggregate size**: 20 mm assumed unless provided; gives 25 mm clear gap floor (Cl. 26.3.2(a)) (*IS 456:2000 Cl. 26.3.2(a)*)\n- **Stirrup practical constructability floor**: Minimum 100 mm spacing threshold to permit concrete pouring (*Constructability Rule*)\n- **Deflection modification factor F1**: Empirical curve fit; results are indicative only until Fig. 4 is digitized (*IS 456:2000 Cl. 23.2 & Fig. 4*)\n\n## 5. Review Status\n- **Current State**: READY FOR ENGINEER REVIEW\n- **Status**: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+    },
+    {
+      "scenario_id": "SCEN-03",
+      "name": "Heavy Commercial Retail Beam",
+      "span_m": 6.0,
+      "section": "300x575 mm",
+      "d_actual_mm": 524.5,
+      "cover_mm": 30,
+      "materials": "M30 / Fe500",
+      "exposure": "Moderate",
+      "rebar": "3-T25",
+      "clear_gap_mm": 74.5,
+      "stirrups": "2L-T8 @ 225 mm",
+      "review_status": "ready_for_engineer_review",
+      "dxf_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+      "dxf_path": "data\\processed\\cad\\draft_SCEN-03.dxf",
+      "checks": [
+        {
+          "check": "Flexural Capacity (Singly Reinforced Limit)",
+          "clause": "IS 456:2000 Annex G-1.1",
+          "status": "pass",
+          "details": "Mu,lim = 330.80 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46)"
+        },
+        {
+          "check": "Tension Reinforcement Area Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.1(a),(b)",
+          "status": "pass",
+          "details": "Ast,prov = 1472.6 mm2 (Min: 267.5 mm2, Max: 6900.0 mm2)"
+        },
+        {
+          "check": "Minimum Horizontal Bar Clear Spacing",
+          "clause": "IS 456:2000 Cl. 26.3.2(a)",
+          "status": "pass",
+          "details": "Clear gap = 74.5 mm (Floor: 25.0 mm)"
+        },
+        {
+          "check": "Nominal Shear Stress vs tau_c,max",
+          "clause": "IS 456:2000 Cl. 40.2.3 & Table 20",
+          "status": "pass",
+          "details": "tau_v = 0.000 N/mm2 <= tau_c,max = 3.50 N/mm2"
+        },
+        {
+          "check": "Shear Reinforcement Spacing Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6",
+          "status": "pass",
+          "details": "Provided sv = 225 mm (Max: 300 mm, Practical floor: 100 mm)"
+        },
+        {
+          "check": "Tension Bar Development Length (Anchorage)",
+          "clause": "IS 456:2000 Cl. 26.2.1",
+          "status": "pass",
+          "details": "Ld required = 1133 mm (tau_bd = 2.40 N/mm2)"
+        },
+        {
+          "check": "Span-to-Effective-Depth Ratio (Deflection)",
+          "clause": "IS 456:2000 Cl. 23.2 & Fig. 4",
+          "status": "indicative",
+          "details": "Actual L/d = 8.58 vs Allowable = 17.53 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.)"
+        },
+        {
+          "check": "Nominal Concrete Cover (Durability)",
+          "clause": "IS 456:2000 Table 16",
+          "status": "pass",
+          "details": "Cover = 30 mm for 'Moderate' exposure (Required: 30 mm)"
+        }
+      ],
+      "markdown_report": "# Structural RC Beam Design \u2014 Engineer Review Sheet\n**Status**: Draft Pilot \u2014 Passes implemented IS 456 beam detailing checks only. Must be reviewed by an engineer.\n\n## 1. Design Inputs & Geometry\n- **Span**: 4.50 m\n- **Cross-Section**: Width $b = 300\\text{ mm}$, Depth $D = 575\\text{ mm}$\n- **Actual Effective Depth**: $d_{\\text{actual}} = 524.5\\text{ mm}$\n- **Materials**: Concrete $f_{ck} = 30\\text{ N/mm}^2$, Steel $f_y = 500\\text{ N/mm}^2$\n- **Environmental Exposure**: Moderate (Cover: 30 mm)\n\n## 2. Reinforcement Detailing\n- **Main Tension Steel**: 3-T25 ($A_{st} = 1472.6\\text{ mm}^2$, $p_t = 0.94\\%$)\n- **Clear Bar Spacing**: 74.5 mm (Required min: 25.0 mm)\n- **Shear Reinforcement**: 2L-T8 @ 225 mm c/c\n- **Development Length ($L_d$)**: 1133 mm\n\n## 3. IS 456:2000 Clause Compliance Checks\n| Check Item | IS 456 Reference | Status | Calculation Details |\n| :--- | :--- | :---: | :--- |\n| Flexural Capacity (Singly Reinforced Limit) | IS 456:2000 Annex G-1.1 | **pass** | Mu,lim = 330.80 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46) |\n| Tension Reinforcement Area Limits | IS 456:2000 Cl. 26.5.1.1(a),(b) | **pass** | Ast,prov = 1472.6 mm2 (Min: 267.5 mm2, Max: 6900.0 mm2) |\n| Minimum Horizontal Bar Clear Spacing | IS 456:2000 Cl. 26.3.2(a) | **pass** | Clear gap = 74.5 mm (Floor: 25.0 mm) |\n| Nominal Shear Stress vs tau_c,max | IS 456:2000 Cl. 40.2.3 & Table 20 | **pass** | tau_v = 0.000 N/mm2 <= tau_c,max = 3.50 N/mm2 |\n| Shear Reinforcement Spacing Limits | IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6 | **pass** | Provided sv = 225 mm (Max: 300 mm, Practical floor: 100 mm) |\n| Tension Bar Development Length (Anchorage) | IS 456:2000 Cl. 26.2.1 | **pass** | Ld required = 1133 mm (tau_bd = 2.40 N/mm2) |\n| Span-to-Effective-Depth Ratio (Deflection) | IS 456:2000 Cl. 23.2 & Fig. 4 | **indicative** | Actual L/d = 8.58 vs Allowable = 17.53 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.) |\n| Nominal Concrete Cover (Durability) | IS 456:2000 Table 16 | **pass** | Cover = 30 mm for 'Moderate' exposure (Required: 30 mm) |\n\n## 4. Governing Engineering Assumptions\n- **Partial safety factor for loads**: 1.5 on dead load and live load (Table 18) (*IS 456:2000 Table 18*)\n- **Unit weight of reinforced concrete**: 25.0 kN/m3 (Cl. 19.2.1) (*IS 456:2000 Cl. 19.2.1*)\n- **Support bearing width**: 300 mm assumed when not provided (Cl. 22.2(a)) (*IS 456:2000 Cl. 22.2(a)*)\n- **Nominal maximum aggregate size**: 20 mm assumed unless provided; gives 25 mm clear gap floor (Cl. 26.3.2(a)) (*IS 456:2000 Cl. 26.3.2(a)*)\n- **Stirrup practical constructability floor**: Minimum 100 mm spacing threshold to permit concrete pouring (*Constructability Rule*)\n- **Deflection modification factor F1**: Empirical curve fit; results are indicative only until Fig. 4 is digitized (*IS 456:2000 Cl. 23.2 & Fig. 4*)\n\n## 5. Review Status\n- **Current State**: READY FOR ENGINEER REVIEW\n- **Status**: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+    },
+    {
+      "scenario_id": "SCEN-04",
+      "name": "Institutional Classroom Beam",
+      "span_m": 5.0,
+      "section": "300x450 mm",
+      "d_actual_mm": 404.0,
+      "cover_mm": 30,
+      "materials": "M25 / Fe415",
+      "exposure": "Moderate",
+      "rebar": "5-T16",
+      "clear_gap_mm": 36.0,
+      "stirrups": "2L-T8 @ 300 mm",
+      "review_status": "ready_for_engineer_review",
+      "dxf_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+      "dxf_path": "data\\processed\\cad\\draft_SCEN-04.dxf",
+      "checks": [
+        {
+          "check": "Flexural Capacity (Singly Reinforced Limit)",
+          "clause": "IS 456:2000 Annex G-1.1",
+          "status": "pass",
+          "details": "Mu,lim = 168.88 kNm vs Mu = 0.00 kNm (xu,max/d = 0.48)"
+        },
+        {
+          "check": "Tension Reinforcement Area Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.1(a),(b)",
+          "status": "pass",
+          "details": "Ast,prov = 1005.3 mm2 (Min: 248.2 mm2, Max: 5400.0 mm2)"
+        },
+        {
+          "check": "Minimum Horizontal Bar Clear Spacing",
+          "clause": "IS 456:2000 Cl. 26.3.2(a)",
+          "status": "pass",
+          "details": "Clear gap = 36.0 mm (Floor: 25.0 mm)"
+        },
+        {
+          "check": "Nominal Shear Stress vs tau_c,max",
+          "clause": "IS 456:2000 Cl. 40.2.3 & Table 20",
+          "status": "pass",
+          "details": "tau_v = 0.000 N/mm2 <= tau_c,max = 3.10 N/mm2"
+        },
+        {
+          "check": "Shear Reinforcement Spacing Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6",
+          "status": "pass",
+          "details": "Provided sv = 300 mm (Max: 300 mm, Practical floor: 100 mm)"
+        },
+        {
+          "check": "Tension Bar Development Length (Anchorage)",
+          "clause": "IS 456:2000 Cl. 26.2.1",
+          "status": "pass",
+          "details": "Ld required = 645 mm (tau_bd = 2.24 N/mm2)"
+        },
+        {
+          "check": "Span-to-Effective-Depth Ratio (Deflection)",
+          "clause": "IS 456:2000 Cl. 23.2 & Fig. 4",
+          "status": "indicative",
+          "details": "Actual L/d = 11.14 vs Allowable = 21.07 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.)"
+        },
+        {
+          "check": "Nominal Concrete Cover (Durability)",
+          "clause": "IS 456:2000 Table 16",
+          "status": "pass",
+          "details": "Cover = 30 mm for 'Moderate' exposure (Required: 30 mm)"
+        }
+      ],
+      "markdown_report": "# Structural RC Beam Design \u2014 Engineer Review Sheet\n**Status**: Draft Pilot \u2014 Passes implemented IS 456 beam detailing checks only. Must be reviewed by an engineer.\n\n## 1. Design Inputs & Geometry\n- **Span**: 4.50 m\n- **Cross-Section**: Width $b = 300\\text{ mm}$, Depth $D = 450\\text{ mm}$\n- **Actual Effective Depth**: $d_{\\text{actual}} = 404.0\\text{ mm}$\n- **Materials**: Concrete $f_{ck} = 25\\text{ N/mm}^2$, Steel $f_y = 415\\text{ N/mm}^2$\n- **Environmental Exposure**: Moderate (Cover: 30 mm)\n\n## 2. Reinforcement Detailing\n- **Main Tension Steel**: 5-T16 ($A_{st} = 1005.3\\text{ mm}^2$, $p_t = 0.83\\%$)\n- **Clear Bar Spacing**: 36.0 mm (Required min: 25.0 mm)\n- **Shear Reinforcement**: 2L-T8 @ 300 mm c/c\n- **Development Length ($L_d$)**: 645 mm\n\n## 3. IS 456:2000 Clause Compliance Checks\n| Check Item | IS 456 Reference | Status | Calculation Details |\n| :--- | :--- | :---: | :--- |\n| Flexural Capacity (Singly Reinforced Limit) | IS 456:2000 Annex G-1.1 | **pass** | Mu,lim = 168.88 kNm vs Mu = 0.00 kNm (xu,max/d = 0.48) |\n| Tension Reinforcement Area Limits | IS 456:2000 Cl. 26.5.1.1(a),(b) | **pass** | Ast,prov = 1005.3 mm2 (Min: 248.2 mm2, Max: 5400.0 mm2) |\n| Minimum Horizontal Bar Clear Spacing | IS 456:2000 Cl. 26.3.2(a) | **pass** | Clear gap = 36.0 mm (Floor: 25.0 mm) |\n| Nominal Shear Stress vs tau_c,max | IS 456:2000 Cl. 40.2.3 & Table 20 | **pass** | tau_v = 0.000 N/mm2 <= tau_c,max = 3.10 N/mm2 |\n| Shear Reinforcement Spacing Limits | IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6 | **pass** | Provided sv = 300 mm (Max: 300 mm, Practical floor: 100 mm) |\n| Tension Bar Development Length (Anchorage) | IS 456:2000 Cl. 26.2.1 | **pass** | Ld required = 645 mm (tau_bd = 2.24 N/mm2) |\n| Span-to-Effective-Depth Ratio (Deflection) | IS 456:2000 Cl. 23.2 & Fig. 4 | **indicative** | Actual L/d = 11.14 vs Allowable = 21.07 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.) |\n| Nominal Concrete Cover (Durability) | IS 456:2000 Table 16 | **pass** | Cover = 30 mm for 'Moderate' exposure (Required: 30 mm) |\n\n## 4. Governing Engineering Assumptions\n- **Partial safety factor for loads**: 1.5 on dead load and live load (Table 18) (*IS 456:2000 Table 18*)\n- **Unit weight of reinforced concrete**: 25.0 kN/m3 (Cl. 19.2.1) (*IS 456:2000 Cl. 19.2.1*)\n- **Support bearing width**: 300 mm assumed when not provided (Cl. 22.2(a)) (*IS 456:2000 Cl. 22.2(a)*)\n- **Nominal maximum aggregate size**: 20 mm assumed unless provided; gives 25 mm clear gap floor (Cl. 26.3.2(a)) (*IS 456:2000 Cl. 26.3.2(a)*)\n- **Stirrup practical constructability floor**: Minimum 100 mm spacing threshold to permit concrete pouring (*Constructability Rule*)\n- **Deflection modification factor F1**: Empirical curve fit; results are indicative only until Fig. 4 is digitized (*IS 456:2000 Cl. 23.2 & Fig. 4*)\n\n## 5. Review Status\n- **Current State**: READY FOR ENGINEER REVIEW\n- **Status**: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+    },
+    {
+      "scenario_id": "SCEN-05",
+      "name": "Coastal Marine Atmosphere Beam",
+      "span_m": 4.5,
+      "section": "230x425 mm",
+      "d_actual_mm": 362.0,
+      "cover_mm": 45,
+      "materials": "M35 / Fe500",
+      "exposure": "Severe",
+      "rebar": "3-T20",
+      "clear_gap_mm": 32.0,
+      "stirrups": "2L-T8 @ 270 mm",
+      "review_status": "ready_for_engineer_review",
+      "dxf_status": "DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
+      "dxf_path": "data\\processed\\cad\\draft_SCEN-05.dxf",
+      "checks": [
+        {
+          "check": "Flexural Capacity (Singly Reinforced Limit)",
+          "clause": "IS 456:2000 Annex G-1.1",
+          "status": "pass",
+          "details": "Mu,lim = 140.94 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46)"
+        },
+        {
+          "check": "Tension Reinforcement Area Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.1(a),(b)",
+          "status": "pass",
+          "details": "Ast,prov = 942.5 mm2 (Min: 141.5 mm2, Max: 3910.0 mm2)"
+        },
+        {
+          "check": "Minimum Horizontal Bar Clear Spacing",
+          "clause": "IS 456:2000 Cl. 26.3.2(a)",
+          "status": "pass",
+          "details": "Clear gap = 32.0 mm (Floor: 25.0 mm)"
+        },
+        {
+          "check": "Nominal Shear Stress vs tau_c,max",
+          "clause": "IS 456:2000 Cl. 40.2.3 & Table 20",
+          "status": "pass",
+          "details": "tau_v = 0.000 N/mm2 <= tau_c,max = 3.70 N/mm2"
+        },
+        {
+          "check": "Shear Reinforcement Spacing Limits",
+          "clause": "IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6",
+          "status": "pass",
+          "details": "Provided sv = 270 mm (Max: 272 mm, Practical floor: 100 mm)"
+        },
+        {
+          "check": "Tension Bar Development Length (Anchorage)",
+          "clause": "IS 456:2000 Cl. 26.2.1",
+          "status": "pass",
+          "details": "Ld required = 800 mm (tau_bd = 2.72 N/mm2)"
+        },
+        {
+          "check": "Span-to-Effective-Depth Ratio (Deflection)",
+          "clause": "IS 456:2000 Cl. 23.2 & Fig. 4",
+          "status": "indicative",
+          "details": "Actual L/d = 12.43 vs Allowable = 16.77 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.)"
+        },
+        {
+          "check": "Nominal Concrete Cover (Durability)",
+          "clause": "IS 456:2000 Table 16",
+          "status": "pass",
+          "details": "Cover = 45 mm for 'Severe' exposure (Required: 45 mm)"
+        }
+      ],
+      "markdown_report": "# Structural RC Beam Design \u2014 Engineer Review Sheet\n**Status**: Draft Pilot \u2014 Passes implemented IS 456 beam detailing checks only. Must be reviewed by an engineer.\n\n## 1. Design Inputs & Geometry\n- **Span**: 4.50 m\n- **Cross-Section**: Width $b = 230\\text{ mm}$, Depth $D = 425\\text{ mm}$\n- **Actual Effective Depth**: $d_{\\text{actual}} = 362.0\\text{ mm}$\n- **Materials**: Concrete $f_{ck} = 35\\text{ N/mm}^2$, Steel $f_y = 500\\text{ N/mm}^2$\n- **Environmental Exposure**: Severe (Cover: 45 mm)\n\n## 2. Reinforcement Detailing\n- **Main Tension Steel**: 3-T20 ($A_{st} = 942.5\\text{ mm}^2$, $p_t = 1.13\\%$)\n- **Clear Bar Spacing**: 32.0 mm (Required min: 25.0 mm)\n- **Shear Reinforcement**: 2L-T8 @ 270 mm c/c\n- **Development Length ($L_d$)**: 800 mm\n\n## 3. IS 456:2000 Clause Compliance Checks\n| Check Item | IS 456 Reference | Status | Calculation Details |\n| :--- | :--- | :---: | :--- |\n| Flexural Capacity (Singly Reinforced Limit) | IS 456:2000 Annex G-1.1 | **pass** | Mu,lim = 140.94 kNm vs Mu = 0.00 kNm (xu,max/d = 0.46) |\n| Tension Reinforcement Area Limits | IS 456:2000 Cl. 26.5.1.1(a),(b) | **pass** | Ast,prov = 942.5 mm2 (Min: 141.5 mm2, Max: 3910.0 mm2) |\n| Minimum Horizontal Bar Clear Spacing | IS 456:2000 Cl. 26.3.2(a) | **pass** | Clear gap = 32.0 mm (Floor: 25.0 mm) |\n| Nominal Shear Stress vs tau_c,max | IS 456:2000 Cl. 40.2.3 & Table 20 | **pass** | tau_v = 0.000 N/mm2 <= tau_c,max = 3.70 N/mm2 |\n| Shear Reinforcement Spacing Limits | IS 456:2000 Cl. 26.5.1.5 & Cl. 26.5.1.6 | **pass** | Provided sv = 270 mm (Max: 272 mm, Practical floor: 100 mm) |\n| Tension Bar Development Length (Anchorage) | IS 456:2000 Cl. 26.2.1 | **pass** | Ld required = 800 mm (tau_bd = 2.72 N/mm2) |\n| Span-to-Effective-Depth Ratio (Deflection) | IS 456:2000 Cl. 23.2 & Fig. 4 | **indicative** | Actual L/d = 12.43 vs Allowable = 16.77 (The modification factor F1 uses an approximate curve fit that is NOT from IS 456; Fig. 4 has not yet been entered from the page. Deflection result is indicative only.) |\n| Nominal Concrete Cover (Durability) | IS 456:2000 Table 16 | **pass** | Cover = 45 mm for 'Severe' exposure (Required: 45 mm) |\n\n## 4. Governing Engineering Assumptions\n- **Partial safety factor for loads**: 1.5 on dead load and live load (Table 18) (*IS 456:2000 Table 18*)\n- **Unit weight of reinforced concrete**: 25.0 kN/m3 (Cl. 19.2.1) (*IS 456:2000 Cl. 19.2.1*)\n- **Support bearing width**: 300 mm assumed when not provided (Cl. 22.2(a)) (*IS 456:2000 Cl. 22.2(a)*)\n- **Nominal maximum aggregate size**: 20 mm assumed unless provided; gives 25 mm clear gap floor (Cl. 26.3.2(a)) (*IS 456:2000 Cl. 26.3.2(a)*)\n- **Stirrup practical constructability floor**: Minimum 100 mm spacing threshold to permit concrete pouring (*Constructability Rule*)\n- **Deflection modification factor F1**: Empirical curve fit; results are indicative only until Fig. 4 is digitized (*IS 456:2000 Cl. 23.2 & Fig. 4*)\n\n## 5. Review Status\n- **Current State**: READY FOR ENGINEER REVIEW\n- **Status**: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+    }
+  ]
+}

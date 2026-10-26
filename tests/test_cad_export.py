@@ -76,10 +76,10 @@ def test_dxf_annotations_and_disclaimer():
     assert "SECTION A-A" in combined_text
     assert "LONGITUDINAL ELEVATION" in combined_text
 
-    # Item 1: Title block disclaimer text
-    assert "STATUS: DRAFT - NOT FOR CONSTRUCTION" in combined_text
-    assert "Passes the implemented IS 456 beam detailing checks only" in combined_text
-    assert "Must be reviewed and signed by a structural engineer" in combined_text
+    # Item 1: Title block draft status text
+    assert "STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed." in combined_text
+    assert "APPROVED FOR CONSTRUCTION" not in combined_text
+    assert "SIGNED-OFF BY CHARTERED STRUCTURAL ENGINEER" not in combined_text
     assert "STATUS: FULLY VERIFIED & CODE COMPLIANT" not in combined_text
 
     # Item 2: Note 8 replacement
@@ -231,7 +231,7 @@ def test_cad_export_shear_status_incomplete_dxf(tmp_path: Path):
     texts_inc = [e.dxf.text for e in doc_inc.modelspace() if e.dxftype() == "TEXT"]
     combined_inc = " ".join(texts_inc)
 
-    assert "STATUS: INCOMPLETE - SHEAR DESIGN REQUIRED (IS 456 Cl. 40.4). NOT FOR CONSTRUCTION." in combined_inc
+    assert "STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed." in combined_inc
     assert "Stirrup spacing NOT designed for shear" in combined_inc
 
     # 2. Designed shear case -> stirrups_designed

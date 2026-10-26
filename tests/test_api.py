@@ -107,3 +107,42 @@ def test_audit_log_appended_and_excludes_secret_key(client):
     assert "returned_chunk_ids" in log_data
     assert "rerank_scores" in log_data
     assert "latency_ms" in log_data
+
+
+def test_design_assistant_requires_auth(client):
+    """POST /v1/design/assistant without API key returns 401."""
+    response = client.post("/v1/design/assistant", json={"parameters": {"span_m": 5.0, "dead_load_kN_per_m": 12.0, "live_load_kN_per_m": 8.0}})
+    assert response.status_code == 401
+
+
+def test_design_assistant_direct_parameters_success(client):
+    """POST /v1/design/assistant with valid parameters returns deterministic sizing result."""
+    params = {
+        "span_m": 5.0,
+        "dead_load_kN_per_m": 12.0,
+        "live_load_kN_per_m": 8.0,
+        "fck": 25.0,
+        "fy": 500.0,
+        "exposure": "Moderate",
+    }
+    response = client.post(
+        "/v1/design/assistant",
+        json={"parameters": params},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "passed"
+    assert data["sizing"]["section_dimensions"]["d_actual"] == 402.0
+    assert "Passes the implemented IS 456 beam detailing checks only" in data["disclaimer"]
+
+
+def test_design_assistant_empty_body_returns_422(client):
+    """POST /v1/design/assistant with neither query nor parameters returns 422."""
+    response = client.post(
+        "/v1/design/assistant",
+        json={},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 422
+

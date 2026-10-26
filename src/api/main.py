@@ -17,6 +17,14 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from src.retrieval.pipeline import retrieve
+from src.generation.design_assistant import design_beam_assistant, BASE_DISCLAIMER
+from src.generation.beam_sizing import size_beam_from_loads
+from src.cad.beam_dxf import export_dxf_from_design
+from src.cad.engineer_review import (
+    generate_review_report,
+    apply_engineer_overrides,
+    sign_off_design,
+)
 
 # Load environment variables from .env if present
 load_dotenv()
@@ -169,3 +177,273 @@ def query_rag(req: QueryRequest, key_name: str = Depends(verify_api_key)):
         results=results,
         note="ranking scores are not probabilities",
     )
+
+
+class DesignAssistantRequest(BaseModel):
+    query: Optional[str] = Field(None, description="Natural language prompt from structural engineer")
+    parameters: Optional[Dict[str, Any]] = Field(None, description="Direct structural parameters (span_m, dead_load_kN_per_m, etc.)")
+    max_aggregate_size_mm: Optional[float] = Field(20.0, description="Nominal maximum aggregate size in mm per IS 456 Cl. 26.3.2 (default 20.0)")
+
+
+@app.post("/v1/design/assistant")
+def design_assistant_endpoint(req: DesignAssistantRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Authenticated IS 456 Structural Design Assistant endpoint.
+    Extracts parameters, executes deterministic sizing, and explains results with clause citations.
+    """
+    start_time = time.perf_counter()
+    user_input = req.parameters if req.parameters is not None else req.query
+    if user_input is None:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Either 'query' or 'parameters' must be provided.",
+        )
+
+    if isinstance(user_input, dict) and req.max_aggregate_size_mm is not None:
+        if "max_aggregate_size_mm" not in user_input:
+            user_input["max_aggregate_size_mm"] = req.max_aggregate_size_mm
+
+    result = design_beam_assistant(user_input=user_input)
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+
+    log_audit_event(
+        key_name=key_name,
+        query=str(req.query or req.parameters),
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+
+    return result
+
+
+class DesignReviewRequest(BaseModel):
+    span_m: Optional[float] = Field(None, description="Clear span in meters")
+    dead_load_kN_per_m: Optional[float] = Field(None, description="Dead load in kN/m excluding self weight")
+    live_load_kN_per_m: Optional[float] = Field(None, description="Live load in kN/m")
+    fck: Optional[float] = Field(25.0, description="Concrete characteristic compressive strength in N/mm2")
+    fy: Optional[float] = Field(500.0, description="Steel characteristic yield strength in N/mm2")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition")
+    max_aggregate_size_mm: Optional[float] = Field(20.0, description="Nominal maximum aggregate size in mm")
+    design: Optional[Dict[str, Any]] = Field(None, description="Existing design dictionary to review")
+    overrides: Optional[Dict[str, Any]] = Field(None, description="Optional engineer overrides to apply")
+    reviewer_name: Optional[str] = Field(None, description="Reviewer name (e.g. Er. Sharma)")
+    reviewer_role: Optional[str] = Field(None, description="Reviewer role (e.g. Senior Structural Engineer)")
+    review_date: Optional[str] = Field(None, description="Review date (e.g. 2026-10-24)")
+    outcome: Optional[str] = Field(None, description="Review outcome (e.g. Reviewed)")
+    sign_off_engineer: Optional[str] = Field(None, description="Alias for reviewer_name")
+    remarks: Optional[str] = Field(None, description="Engineer review remarks")
+
+
+@app.post("/v1/design/review")
+def design_review_endpoint(req: DesignReviewRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Step 8 Engineer Review & Feedback Loop endpoint.
+    Generates a structured review sheet, applies engineer overrides, and records formal review.
+    """
+    start_time = time.perf_counter()
+
+    current_design: Optional[Dict[str, Any]] = None
+    sizing_res: Optional[Dict[str, Any]] = None
+
+    if req.design is not None:
+        current_design = dict(req.design)
+    elif req.span_m is not None and req.dead_load_kN_per_m is not None and req.live_load_kN_per_m is not None:
+        sizing_res = size_beam_from_loads(
+            span_m=req.span_m,
+            dead_load_kN_per_m=req.dead_load_kN_per_m,
+            live_load_kN_per_m=req.live_load_kN_per_m,
+            fck=req.fck or 25.0,
+            fy=req.fy or 500.0,
+            exposure=req.exposure or "Moderate",
+            max_aggregate_size_mm=req.max_aggregate_size_mm or 20.0,
+        )
+        if sizing_res.get("status") == "needs_review":
+            latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+            log_audit_event(
+                key_name=key_name,
+                query=f"design_review span={req.span_m}",
+                k=0,
+                returned_chunk_ids=[],
+                rerank_scores=[],
+                latency_ms=latency_ms,
+                status_code=200,
+            )
+            return sizing_res
+        current_design = sizing_res["design_dict"]
+        current_design["span_m"] = req.span_m
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Either 'design' dictionary or (span_m, dead_load_kN_per_m, live_load_kN_per_m) must be provided.",
+        )
+
+    # Apply engineer overrides if requested
+    if req.overrides:
+        override_res = apply_engineer_overrides(current_design, req.overrides)
+        if override_res["status"] == "override_rejected":
+            latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+            log_audit_event(
+                key_name=key_name,
+                query="design_review override_rejected",
+                k=0,
+                returned_chunk_ids=[],
+                rerank_scores=[],
+                latency_ms=latency_ms,
+                status_code=400,
+            )
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={"message": "Engineer overrides violate IS 456 rules", "reasons": override_res["reasons"]},
+            )
+        current_design = override_res["design"]
+
+    # Apply review status only when reviewer name, role, and date are provided
+    r_name = req.reviewer_name or req.sign_off_engineer
+    if r_name and req.reviewer_role and req.review_date:
+        current_design = sign_off_design(
+            design=current_design,
+            reviewer_name=r_name,
+            reviewer_role=req.reviewer_role,
+            review_date=req.review_date,
+            outcome=req.outcome or "Reviewed",
+            remarks=req.remarks,
+        )
+    elif r_name:
+        current_design["reviewer_name"] = r_name
+        current_design["engineer_remarks"] = req.remarks or ""
+
+    # Generate full report
+    review_report = generate_review_report(current_design)
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_review status={review_report['approval_status']}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+
+    return {
+        "status": "success",
+        "design": current_design,
+        "review_report": review_report,
+    }
+
+
+class DesignDxfRequest(BaseModel):
+    design: Optional[Dict[str, Any]] = Field(None, description="Validated design dictionary to export")
+    span_m: Optional[float] = Field(None, description="Clear span in meters")
+    dead_load_kN_per_m: Optional[float] = Field(None, description="Dead load in kN/m excluding self weight")
+    live_load_kN_per_m: Optional[float] = Field(None, description="Live load in kN/m")
+    fck: Optional[float] = Field(25.0, description="Concrete characteristic compressive strength in N/mm2")
+    fy: Optional[float] = Field(500.0, description="Steel characteristic yield strength in N/mm2")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition")
+    max_aggregate_size_mm: Optional[float] = Field(20.0, description="Nominal maximum aggregate size in mm")
+    reviewer_name: Optional[str] = Field(None, description="Reviewer name (e.g. Er. Sharma)")
+    reviewer_role: Optional[str] = Field(None, description="Reviewer role (e.g. Senior Structural Engineer)")
+    review_date: Optional[str] = Field(None, description="Review date (e.g. 2026-10-24)")
+    outcome: Optional[str] = Field(None, description="Review outcome (e.g. Reviewed)")
+    sign_off_engineer: Optional[str] = Field(None, description="Alias for reviewer_name")
+    remarks: Optional[str] = Field(None, description="Optional engineer remarks for title block")
+    output_filename: Optional[str] = Field("beam_design.dxf", description="Output DXF filename")
+
+
+@app.post("/v1/design/dxf")
+def design_dxf_endpoint(req: DesignDxfRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Step 8 2D CAD DXF Drawing Export endpoint.
+    Takes validated parameters or sizing loads, generates a 2D DXF drawing with IS 456 annotations,
+    and returns export metadata.
+    """
+    start_time = time.perf_counter()
+
+    design: Optional[Dict[str, Any]] = None
+
+    if req.design is not None:
+        design = dict(req.design)
+    elif req.span_m is not None and req.dead_load_kN_per_m is not None and req.live_load_kN_per_m is not None:
+        sizing_res = size_beam_from_loads(
+            span_m=req.span_m,
+            dead_load_kN_per_m=req.dead_load_kN_per_m,
+            live_load_kN_per_m=req.live_load_kN_per_m,
+            fck=req.fck or 25.0,
+            fy=req.fy or 500.0,
+            exposure=req.exposure or "Moderate",
+            max_aggregate_size_mm=req.max_aggregate_size_mm or 20.0,
+        )
+        if sizing_res.get("status") == "needs_review":
+            latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+            log_audit_event(
+                key_name=key_name,
+                query=f"design_dxf needs_review span={req.span_m}",
+                k=0,
+                returned_chunk_ids=[],
+                rerank_scores=[],
+                latency_ms=latency_ms,
+                status_code=200,
+            )
+            return {
+                "status": "needs_review",
+                "reason": sizing_res.get("reason"),
+                "dxf_path": None,
+                "sizing": sizing_res,
+            }
+        design = sizing_res["design_dict"]
+        design["span_m"] = req.span_m
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Either 'design' dictionary or (span_m, dead_load_kN_per_m, live_load_kN_per_m) must be provided.",
+        )
+
+    # Apply engineer review if reviewer_name, reviewer_role, and review_date are supplied
+    r_name = req.reviewer_name or req.sign_off_engineer
+    if r_name and req.reviewer_role and req.review_date:
+        design = sign_off_design(
+            design=design,
+            reviewer_name=r_name,
+            reviewer_role=req.reviewer_role,
+            review_date=req.review_date,
+            outcome=req.outcome or "Reviewed",
+            remarks=req.remarks,
+        )
+
+    cad_dir = Path("data/processed/cad")
+    cad_dir.mkdir(parents=True, exist_ok=True)
+    filename = Path(req.output_filename or "beam_design.dxf").name
+    out_path = cad_dir / filename
+
+    dxf_result = export_dxf_from_design(
+        design=design,
+        output_path=str(out_path),
+        validate_first=True,
+    )
+
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_dxf output={filename}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+
+    return {
+        "status": dxf_result["status"],
+        "dxf_path": dxf_result.get("dxf_path"),
+        "reviewer_name": design.get("reviewer_name"),
+        "review_date": design.get("review_date"),
+        "outcome": design.get("outcome"),
+        "is456_citations": dxf_result.get("is456_citations"),
+        "validation": dxf_result.get("validation"),
+    }
+
+

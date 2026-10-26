@@ -243,4 +243,97 @@ def test_shear_design_section_too_small_returns_needs_review():
     assert "section_too_small" in res["reason"]
 
 
+def test_beam_sizing_actual_d_and_deflection_and_ld():
+    """Verify that beam sizing recomputes actual d from bar geometry, checks deflection, and computes Ld."""
+    res = size_beam_from_loads(
+        span_m=5.0,
+        dead_load_kN_per_m=12.0,
+        live_load_kN_per_m=8.0,
+        fck=25.0,
+        fy=500.0,
+        exposure="Moderate",
+    )
+    assert res["status"] == "ok"
+    dims = res["section_dimensions"]
+    rebar = res["reinforcement_detailing"]
+
+    # Verify d is recomputed as actual d from bar placement:
+    # d_actual = D - cover - stirrup_dia - main_bar_dia/2
+    d_expected = dims["D"] - dims["cover_mm"] - rebar["stirrup_dia_mm"] - (rebar["main_bar_dia_mm"] / 2.0)
+    assert dims["d"] == d_expected
+    assert dims["d_actual"] == d_expected
+
+    # Verify deflection check (indicative per Cl. 23.2.1)
+    assert "deflection" in res
+    defl = res["deflection"]
+    assert defl["status"] == "indicative"
+    assert defl["ratio_satisfied"] is True
+    assert "approximate curve fit that is NOT from IS 456" in defl["note"]
+    assert defl["actual_ld_ratio"] <= defl["max_ld_ratio"]
+    assert "Cl. 23.2.1" in defl["citation"]
+
+    # Verify development length
+    assert "development_length" in res
+    ld = res["development_length"]
+    assert ld["ld_mm"] > 0
+    assert ld["ld_rounded_mm"] >= ld["ld_mm"]
+    assert ld["support_anchorage_min_mm"] > 0
+    assert "Cl. 26.2.1" in ld["citation"]
+
+
+def test_scen01_under_reinforced_xu_d_limit():
+    """A SCEN-01-like beam (b=230, D=375, M20, Fe415, 62.9 kNm) must not return an arrangement with xu/d > 0.48."""
+    res = size_beam_from_loads(
+        span_m=4.0,
+        dead_load_kN_per_m=10.0,
+        live_load_kN_per_m=6.0,
+        fck=20.0,
+        fy=415.0,
+        exposure="Mild",
+    )
+    assert res["status"] == "ok"
+    dims = res["section_dimensions"]
+    assert dims["b"] == 230.0
+    assert dims["D"] == 375.0
+    assert abs(res["derived_loads"]["factored_moment_Mu_kNm"] - 62.9) < 0.2
+    rebar = res["reinforcement_detailing"]
+    ast_prov = rebar["main_bar_area_provided_mm2"]
+    d_act = dims["d_actual"]
+    xu_d = (0.87 * 415.0 * ast_prov) / (0.36 * 20.0 * dims["b"] * d_act)
+    assert xu_d <= 0.48
+
+
+def test_sizing_loop_converges_in_one_pass():
+    """A beam design where the sizing loop converges in exactly one pass."""
+    res = size_beam_from_loads(
+        span_m=4.5,
+        dead_load_kN_per_m=14.0,
+        live_load_kN_per_m=10.0,
+        fck=35.0,
+        fy=500.0,
+        exposure="Severe",
+    )
+    assert res["status"] == "ok"
+    rebar = res["reinforcement_detailing"]
+    assert rebar["loop_passes"] == 1
+    assert res["design_dict"]["loop_passes"] == 1
+
+
+def test_sizing_loop_no_arrangement_works():
+    """A beam section where no reinforcement arrangement satisfies spacing and code limits."""
+    res = size_beam_from_loads(
+        span_m=3.0,
+        dead_load_kN_per_m=15.0,
+        live_load_kN_per_m=10.0,
+        fck=20.0,
+        fy=415.0,
+        exposure="Mild",
+        b=100.0,
+    )
+    assert res["status"] == "needs_review"
+    assert "insufficient_bar_clear_spacing" in res["reason"]
+
+
+
+
 

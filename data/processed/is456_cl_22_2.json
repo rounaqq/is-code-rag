@@ -1,0 +1,32 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "clause_reference": "22.2",
+  "title": "Effective Span",
+  "page_number": [47, 48],
+  "printed_pages": [34, 35],
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_047.png, page_048.png, crop_cl_22_2_a.png, and crop_cl_22_2_bcd.png",
+  "items": [
+    {
+      "id": "22.2(a)",
+      "heading": "Simply Supported Beam or Slab",
+      "text": "The effective span of a member that is not built integrally with its supports shall be taken as clear span plus the effective depth of slab or beam or centre to centre of supports, whichever is less."
+    },
+    {
+      "id": "22.2(b)",
+      "heading": "Continuous Beam or Slab",
+      "text": "In the case of continuous beam or slab, if the width of the support is less than 1/12 of the clear span, the effective span shall be as in 22.2 (a). If the supports are wider than 1/12 of the clear span or 600 mm whichever is less, the effective span shall be taken as under: 1) For end span with one end fixed and the other continuous or for intermediate spans, the effective span shall be the clear span between supports; 2) For end span with one end free and the other continuous, the effective span shall be equal to the clear span plus half the effective depth of the beam or slab or the clear span plus half the width of the discontinuous support, whichever is less; 3) In the case of spans with roller or rocket bearings, the effective span shall always be the distance between the centres of bearings."
+    },
+    {
+      "id": "22.2(c)",
+      "heading": "Cantilever",
+      "text": "The effective length of a cantilever shall be taken as its length to the face of the support plus half the effective depth except where it forms the end of a continuous beam where the length to the centre of support shall be taken."
+    },
+    {
+      "id": "22.2(d)",
+      "heading": "Frames",
+      "text": "In the analysis of a continuous frame, centre to centre distance shall be used."
+    }
+  ]
+}

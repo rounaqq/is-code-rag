@@ -60,7 +60,7 @@ def test_citation_not_in_retrieved_set_rejected():
             "main_bar_count": 3,
             "stirrup_dia_mm": 8,
             "stirrup_spacing_mm": 150,
-            "citations": ["IS456-HALLUCINATED-CHUNK-999"],
+            "citations": ["IS456-INVALID-CHUNK-999"],
             "reasoning": "Uses invalid non-retrieved citation.",
             "insufficient_information": False,
         })

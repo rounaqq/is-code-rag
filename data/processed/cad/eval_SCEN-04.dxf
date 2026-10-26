@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461335.7409837963
+2461338.668622685
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461335.7409837963
+2461338.668622685
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-103
+100
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{2477E664-534E-4CEB-80FB-229C0CEAC402}
+{AFB5F06A-41A0-4FC6-8E64-10EA1252D89A}
   9
 $VERSIONGUID
   2
-{5448C2CC-CED1-4DCD-A216-B70CED3093A9}
+{573619AC-E998-44E9-8E40-D9C28B93BB4B}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -3277,7 +3277,7 @@ ACAD
   0
 APPID
   5
-100
+FD
 330
 3
 100
@@ -3291,7 +3291,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-101
+FE
 330
 3
 100
@@ -5525,7 +5525,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-87.6
+98.0
  20
 46.0
  30
@@ -5545,7 +5545,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-87.6
+98.0
  20
 46.0
  30
@@ -5565,7 +5565,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-129.2
+150.0
  20
 46.0
  30
@@ -5585,7 +5585,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-129.2
+150.0
  20
 46.0
  30
@@ -5605,7 +5605,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-170.8
+202.0
  20
 46.0
  30
@@ -5625,7 +5625,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-170.8
+202.0
  20
 46.0
  30
@@ -5645,7 +5645,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-212.4
+254.0
  20
 46.0
  30
@@ -5665,7 +5665,7 @@ REBAR_MAIN
 100
 AcDbCircle
  10
-212.4
+254.0
  20
 46.0
  30
@@ -5681,17 +5681,17 @@ CIRCLE
 100
 AcDbEntity
   8
-REBAR_MAIN
+REBAR_TOP
 100
 AcDbCircle
  10
-254.0
+44.0
  20
-46.0
+406.0
  30
 0.0
  40
-8.0
+6.0
   0
 CIRCLE
   5
@@ -5701,17 +5701,17 @@ CIRCLE
 100
 AcDbEntity
   8
-REBAR_MAIN
+REBAR_TOP
 100
 AcDbCircle
  10
-254.0
+44.0
  20
-46.0
+406.0
  30
 0.0
  40
-4.0
+3.0
   0
 CIRCLE
   5
@@ -5725,7 +5725,7 @@ REBAR_TOP
 100
 AcDbCircle
  10
-44.0
+256.0
  20
 406.0
  30
@@ -5745,7 +5745,7 @@ REBAR_TOP
 100
 AcDbCircle
  10
-44.0
+256.0
  20
 406.0
  30
@@ -5753,7 +5753,7 @@ AcDbCircle
  40
 3.0
   0
-CIRCLE
+LINE
   5
 A2
 330
@@ -5761,19 +5761,23 @@ A2
 100
 AcDbEntity
   8
-REBAR_TOP
+DIMENSIONS
 100
-AcDbCircle
+AcDbLine
  10
-256.0
+0.0
  20
-406.0
+0.0
  30
 0.0
- 40
-6.0
+ 11
+0.0
+ 21
+-60.0
+ 31
+0.0
   0
-CIRCLE
+LINE
   5
 A3
 330
@@ -5781,17 +5785,21 @@ A3
 100
 AcDbEntity
   8
-REBAR_TOP
+DIMENSIONS
 100
-AcDbCircle
+AcDbLine
  10
-256.0
+300.0
  20
-406.0
+0.0
  30
 0.0
- 40
-3.0
+ 11
+300.0
+ 21
+-60.0
+ 31
+0.0
   0
 LINE
   5
@@ -5807,67 +5815,19 @@ AcDbLine
  10
 0.0
  20
-0.0
+-50.0
  30
 0.0
  11
-0.0
+300.0
  21
--60.0
+-50.0
  31
 0.0
   0
 LINE
   5
 A5
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-300.0
- 20
-0.0
- 30
-0.0
- 11
-300.0
- 21
--60.0
- 31
-0.0
-  0
-LINE
-  5
-A6
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-0.0
- 20
--50.0
- 30
-0.0
- 11
-300.0
- 21
--50.0
- 31
-0.0
-  0
-LINE
-  5
-A7
 330
 17
 100
@@ -5891,7 +5851,7 @@ AcDbLine
   0
 LINE
   5
-A8
+A6
 330
 17
 100
@@ -5915,7 +5875,7 @@ AcDbLine
   0
 TEXT
   5
-A9
+A7
 330
 17
 100
@@ -5949,6 +5909,54 @@ AcDbText
   0
 LINE
   5
+A8
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+300.0
+ 20
+0.0
+ 30
+0.0
+ 11
+360.0
+ 21
+0.0
+ 31
+0.0
+  0
+LINE
+  5
+A9
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+300.0
+ 20
+450.0
+ 30
+0.0
+ 11
+360.0
+ 21
+450.0
+ 31
+0.0
+  0
+LINE
+  5
 AA
 330
 17
@@ -5959,69 +5967,21 @@ DIMENSIONS
 100
 AcDbLine
  10
-300.0
+350.0
  20
 0.0
  30
 0.0
  11
-360.0
+350.0
  21
-0.0
+450.0
  31
 0.0
   0
 LINE
   5
 AB
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-300.0
- 20
-450.0
- 30
-0.0
- 11
-360.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-AC
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-350.0
- 20
-0.0
- 30
-0.0
- 11
-350.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-AD
 330
 17
 100
@@ -6045,7 +6005,7 @@ AcDbLine
   0
 LINE
   5
-AE
+AC
 330
 17
 100
@@ -6069,7 +6029,7 @@ AcDbLine
   0
 TEXT
   5
-AF
+AD
 330
 17
 100
@@ -6105,6 +6065,54 @@ AcDbText
   0
 LINE
   5
+AE
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+300.0
+ 20
+46.0
+ 30
+0.0
+ 11
+420.0
+ 21
+46.0
+ 31
+0.0
+  0
+LINE
+  5
+AF
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+300.0
+ 20
+450.0
+ 30
+0.0
+ 11
+420.0
+ 21
+450.0
+ 31
+0.0
+  0
+LINE
+  5
 B0
 330
 17
@@ -6115,69 +6123,21 @@ DIMENSIONS
 100
 AcDbLine
  10
-300.0
+410.0
  20
 46.0
  30
 0.0
  11
-420.0
+410.0
  21
-46.0
+450.0
  31
 0.0
   0
 LINE
   5
 B1
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-300.0
- 20
-450.0
- 30
-0.0
- 11
-420.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-B2
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-410.0
- 20
-46.0
- 30
-0.0
- 11
-410.0
- 21
-450.0
- 31
-0.0
-  0
-LINE
-  5
-B3
 330
 17
 100
@@ -6201,7 +6161,7 @@ AcDbLine
   0
 LINE
   5
-B4
+B2
 330
 17
 100
@@ -6225,7 +6185,7 @@ AcDbLine
   0
 TEXT
   5
-B5
+B3
 330
 17
 100
@@ -6261,7 +6221,7 @@ AcDbText
   0
 TEXT
   5
-B6
+B4
 330
 17
 100
@@ -6295,7 +6255,7 @@ AcDbText
   0
 LINE
   5
-B7
+B5
 330
 17
 100
@@ -6319,7 +6279,7 @@ AcDbLine
   0
 LINE
   5
-B8
+B6
 330
 17
 100
@@ -6343,7 +6303,7 @@ AcDbLine
   0
 TEXT
   5
-B9
+B7
 330
 17
 100
@@ -6361,7 +6321,7 @@ AcDbText
  40
 13.0
   1
-6-T16 Bottom Bars (IS 456 Cl. 26.5.1.1)
+5-T16 Bottom Bars (IS 456 Cl. 26.5.1.1)
  72
 2
  11
@@ -6377,7 +6337,7 @@ AcDbText
   0
 LINE
   5
-BA
+B8
 330
 17
 100
@@ -6401,7 +6361,7 @@ AcDbLine
   0
 LINE
   5
-BB
+B9
 330
 17
 100
@@ -6425,7 +6385,7 @@ AcDbLine
   0
 TEXT
   5
-BC
+BA
 330
 17
 100
@@ -6459,7 +6419,7 @@ AcDbText
   0
 LINE
   5
-BD
+BB
 330
 17
 100
@@ -6483,7 +6443,7 @@ AcDbLine
   0
 TEXT
   5
-BE
+BC
 330
 17
 100
@@ -6501,7 +6461,7 @@ AcDbText
  40
 13.0
   1
-2L-T8 @ 280 c/c (IS 456 Cl. 26.5.1.5, 26.5.1.6)
+2L-T8 @ 300 c/c (IS 456 Cl. 26.5.1.5, 26.5.1.6)
  72
 2
  11
@@ -6517,7 +6477,7 @@ AcDbText
   0
 TEXT
   5
-BF
+BD
 330
 17
 100
@@ -6551,79 +6511,79 @@ AcDbText
   0
 LWPOLYLINE
   5
+BE
+330
+17
+100
+AcDbEntity
+  8
+HATCH
+100
+AcDbPolyline
+ 90
+5
+ 70
+1
+ 10
+800.0
+ 20
+-250.0
+ 10
+1100.0
+ 20
+-250.0
+ 10
+1100.0
+ 20
+0.0
+ 10
+800.0
+ 20
+0.0
+ 10
+800.0
+ 20
+-250.0
+  0
+LWPOLYLINE
+  5
+BF
+330
+17
+100
+AcDbEntity
+  8
+HATCH
+100
+AcDbPolyline
+ 90
+5
+ 70
+1
+ 10
+5600.0
+ 20
+-250.0
+ 10
+5900.0
+ 20
+-250.0
+ 10
+5900.0
+ 20
+0.0
+ 10
+5600.0
+ 20
+0.0
+ 10
+5600.0
+ 20
+-250.0
+  0
+LWPOLYLINE
+  5
 C0
-330
-17
-100
-AcDbEntity
-  8
-HATCH
-100
-AcDbPolyline
- 90
-5
- 70
-1
- 10
-800.0
- 20
--250.0
- 10
-1100.0
- 20
--250.0
- 10
-1100.0
- 20
-0.0
- 10
-800.0
- 20
-0.0
- 10
-800.0
- 20
--250.0
-  0
-LWPOLYLINE
-  5
-C1
-330
-17
-100
-AcDbEntity
-  8
-HATCH
-100
-AcDbPolyline
- 90
-5
- 70
-1
- 10
-5600.0
- 20
--250.0
- 10
-5900.0
- 20
--250.0
- 10
-5900.0
- 20
-0.0
- 10
-5600.0
- 20
-0.0
- 10
-5600.0
- 20
--250.0
-  0
-LWPOLYLINE
-  5
-C2
 330
 17
 100
@@ -6659,7 +6619,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-C3
+C1
 330
 17
 100
@@ -6691,7 +6651,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-C4
+C2
 330
 17
 100
@@ -6723,7 +6683,7 @@ AcDbPolyline
   0
 LINE
   5
-C5
+C3
 330
 17
 100
@@ -6740,6 +6700,54 @@ AcDbLine
 0.0
  11
 1150.0
+ 21
+420.0
+ 31
+0.0
+  0
+LINE
+  5
+C4
+330
+17
+100
+AcDbEntity
+  8
+STIRRUPS
+100
+AcDbLine
+ 10
+1450.0
+ 20
+30.0
+ 30
+0.0
+ 11
+1450.0
+ 21
+420.0
+ 31
+0.0
+  0
+LINE
+  5
+C5
+330
+17
+100
+AcDbEntity
+  8
+STIRRUPS
+100
+AcDbLine
+ 10
+1750.0
+ 20
+30.0
+ 30
+0.0
+ 11
+1750.0
  21
 420.0
  31
@@ -6757,13 +6765,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1430.0
+2050.0
  20
 30.0
  30
 0.0
  11
-1430.0
+2050.0
  21
 420.0
  31
@@ -6781,13 +6789,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1710.0
+2350.0
  20
 30.0
  30
 0.0
  11
-1710.0
+2350.0
  21
 420.0
  31
@@ -6805,13 +6813,13 @@ STIRRUPS
 100
 AcDbLine
  10
-1990.0
+2650.0
  20
 30.0
  30
 0.0
  11
-1990.0
+2650.0
  21
 420.0
  31
@@ -6829,13 +6837,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2270.0
+2950.0
  20
 30.0
  30
 0.0
  11
-2270.0
+2950.0
  21
 420.0
  31
@@ -6853,13 +6861,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2550.0
+3250.0
  20
 30.0
  30
 0.0
  11
-2550.0
+3250.0
  21
 420.0
  31
@@ -6877,13 +6885,13 @@ STIRRUPS
 100
 AcDbLine
  10
-2830.0
+3450.0
  20
 30.0
  30
 0.0
  11
-2830.0
+3450.0
  21
 420.0
  31
@@ -6901,13 +6909,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3110.0
+3750.0
  20
 30.0
  30
 0.0
  11
-3110.0
+3750.0
  21
 420.0
  31
@@ -6925,13 +6933,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3350.0
+4050.0
  20
 30.0
  30
 0.0
  11
-3350.0
+4050.0
  21
 420.0
  31
@@ -6949,13 +6957,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3590.0
+4350.0
  20
 30.0
  30
 0.0
  11
-3590.0
+4350.0
  21
 420.0
  31
@@ -6973,13 +6981,13 @@ STIRRUPS
 100
 AcDbLine
  10
-3870.0
+4650.0
  20
 30.0
  30
 0.0
  11
-3870.0
+4650.0
  21
 420.0
  31
@@ -6997,13 +7005,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4150.0
+4950.0
  20
 30.0
  30
 0.0
  11
-4150.0
+4950.0
  21
 420.0
  31
@@ -7021,13 +7029,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4430.0
+5250.0
  20
 30.0
  30
 0.0
  11
-4430.0
+5250.0
  21
 420.0
  31
@@ -7045,13 +7053,13 @@ STIRRUPS
 100
 AcDbLine
  10
-4710.0
+5550.0
  20
 30.0
  30
 0.0
  11
-4710.0
+5550.0
  21
 420.0
  31
@@ -7065,19 +7073,19 @@ D3
 100
 AcDbEntity
   8
-STIRRUPS
+DIMENSIONS
 100
 AcDbLine
  10
-4990.0
+1100.0
  20
-30.0
+0.0
  30
 0.0
  11
-4990.0
+1100.0
  21
-420.0
+-70.0
  31
 0.0
   0
@@ -7089,19 +7097,19 @@ D4
 100
 AcDbEntity
   8
-STIRRUPS
+DIMENSIONS
 100
 AcDbLine
  10
-5270.0
+5600.0
  20
-30.0
+0.0
  30
 0.0
  11
-5270.0
+5600.0
  21
-420.0
+-70.0
  31
 0.0
   0
@@ -7113,97 +7121,25 @@ D5
 100
 AcDbEntity
   8
-STIRRUPS
+DIMENSIONS
 100
 AcDbLine
  10
-5550.0
+1100.0
  20
-30.0
+-60.0
  30
 0.0
  11
-5550.0
+5600.0
  21
-420.0
+-60.0
  31
 0.0
   0
 LINE
   5
 D6
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-1100.0
- 20
-0.0
- 30
-0.0
- 11
-1100.0
- 21
--70.0
- 31
-0.0
-  0
-LINE
-  5
-D7
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-5600.0
- 20
-0.0
- 30
-0.0
- 11
-5600.0
- 21
--70.0
- 31
-0.0
-  0
-LINE
-  5
-D8
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-1100.0
- 20
--60.0
- 30
-0.0
- 11
-5600.0
- 21
--60.0
- 31
-0.0
-  0
-LINE
-  5
-D9
 330
 17
 100
@@ -7227,7 +7163,7 @@ AcDbLine
   0
 LINE
   5
-DA
+D7
 330
 17
 100
@@ -7251,7 +7187,7 @@ AcDbLine
   0
 TEXT
   5
-DB
+D8
 330
 17
 100
@@ -7285,79 +7221,79 @@ AcDbText
   0
 LINE
   5
+D9
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+800.0
+ 20
+0.0
+ 30
+0.0
+ 11
+800.0
+ 21
+-130.0
+ 31
+0.0
+  0
+LINE
+  5
+DA
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+5900.0
+ 20
+0.0
+ 30
+0.0
+ 11
+5900.0
+ 21
+-130.0
+ 31
+0.0
+  0
+LINE
+  5
+DB
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+800.0
+ 20
+-120.0
+ 30
+0.0
+ 11
+5900.0
+ 21
+-120.0
+ 31
+0.0
+  0
+LINE
+  5
 DC
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-800.0
- 20
-0.0
- 30
-0.0
- 11
-800.0
- 21
--130.0
- 31
-0.0
-  0
-LINE
-  5
-DD
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-5900.0
- 20
-0.0
- 30
-0.0
- 11
-5900.0
- 21
--130.0
- 31
-0.0
-  0
-LINE
-  5
-DE
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-800.0
- 20
--120.0
- 30
-0.0
- 11
-5900.0
- 21
--120.0
- 31
-0.0
-  0
-LINE
-  5
-DF
 330
 17
 100
@@ -7381,7 +7317,7 @@ AcDbLine
   0
 LINE
   5
-E0
+DD
 330
 17
 100
@@ -7405,7 +7341,7 @@ AcDbLine
   0
 TEXT
   5
-E1
+DE
 330
 17
 100
@@ -7439,79 +7375,79 @@ AcDbText
   0
 LINE
   5
+DF
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+800.0
+ 20
+0.0
+ 30
+0.0
+ 11
+800.0
+ 21
+-40.0
+ 31
+0.0
+  0
+LINE
+  5
+E0
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+1100.0
+ 20
+0.0
+ 30
+0.0
+ 11
+1100.0
+ 21
+-40.0
+ 31
+0.0
+  0
+LINE
+  5
+E1
+330
+17
+100
+AcDbEntity
+  8
+DIMENSIONS
+100
+AcDbLine
+ 10
+800.0
+ 20
+-30.0
+ 30
+0.0
+ 11
+1100.0
+ 21
+-30.0
+ 31
+0.0
+  0
+LINE
+  5
 E2
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-800.0
- 20
-0.0
- 30
-0.0
- 11
-800.0
- 21
--40.0
- 31
-0.0
-  0
-LINE
-  5
-E3
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-1100.0
- 20
-0.0
- 30
-0.0
- 11
-1100.0
- 21
--40.0
- 31
-0.0
-  0
-LINE
-  5
-E4
-330
-17
-100
-AcDbEntity
-  8
-DIMENSIONS
-100
-AcDbLine
- 10
-800.0
- 20
--30.0
- 30
-0.0
- 11
-1100.0
- 21
--30.0
- 31
-0.0
-  0
-LINE
-  5
-E5
 330
 17
 100
@@ -7535,7 +7471,7 @@ AcDbLine
   0
 LINE
   5
-E6
+E3
 330
 17
 100
@@ -7559,7 +7495,7 @@ AcDbLine
   0
 TEXT
   5
-E7
+E4
 330
 17
 100
@@ -7593,7 +7529,7 @@ AcDbText
   0
 LINE
   5
-E8
+E5
 330
 17
 100
@@ -7617,7 +7553,7 @@ AcDbLine
   0
 TEXT
   5
-E9
+E6
 330
 17
 100
@@ -7651,7 +7587,7 @@ AcDbText
   0
 TEXT
   5
-EA
+E7
 330
 17
 100
@@ -7685,7 +7621,7 @@ AcDbText
   0
 TEXT
   5
-EB
+E8
 330
 17
 100
@@ -7719,7 +7655,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-EC
+E9
 330
 17
 100
@@ -7755,7 +7691,7 @@ AcDbPolyline
   0
 TEXT
   5
-ED
+EA
 330
 17
 100
@@ -7787,7 +7723,7 @@ AcDbText
   0
 TEXT
   5
-EE
+EB
 330
 17
 100
@@ -7819,7 +7755,7 @@ AcDbText
   0
 TEXT
   5
-EF
+EC
 330
 17
 100
@@ -7851,7 +7787,7 @@ AcDbText
   0
 TEXT
   5
-F0
+ED
 330
 17
 100
@@ -7869,7 +7805,7 @@ AcDbText
  40
 12.0
   1
-3. Tension Steel: 6-T16 mm bars complying with minimum (Cl. 26.5.1.1(a)) and maximum (Cl. 26.5.1.1(b)) limits.
+3. Tension Steel: 5-T16 mm bars complying with minimum (Cl. 26.5.1.1(a)) and maximum (Cl. 26.5.1.1(b)) limits.
  11
 20.0
  21
@@ -7883,7 +7819,7 @@ AcDbText
   0
 TEXT
   5
-F1
+EE
 330
 17
 100
@@ -7915,7 +7851,7 @@ AcDbText
   0
 TEXT
   5
-F2
+EF
 330
 17
 100
@@ -7933,7 +7869,7 @@ AcDbText
  40
 12.0
   1
-5. Shear Reinforcement: 2-legged closed stirrups T8 @ 280 mm c/c (IS 456:2000 Cl. 40.4, 26.5.1.5, 26.5.1.6). tau_v = 0.826 N/mm2, tau_c = 0.640 N/mm2, Vus = 20.92 kN (20915.6 N), Spacing = 280 mm.
+5. Shear Reinforcement: 2-legged closed stirrups T8 @ 300 mm c/c (IS 456:2000 Cl. 40.4, 26.5.1.5, 26.5.1.6). tau_v = 0.767 N/mm2, tau_c = 0.570 N/mm2, Vus = 23.83 kN (23831.6 N), Spacing = 300 mm.
  11
 20.0
  21
@@ -7947,7 +7883,7 @@ AcDbText
   0
 TEXT
   5
-F3
+F0
 330
 17
 100
@@ -7979,7 +7915,7 @@ AcDbText
   0
 TEXT
   5
-F4
+F1
 330
 17
 100
@@ -8011,7 +7947,7 @@ AcDbText
   0
 TEXT
   5
-F5
+F2
 330
 17
 100
@@ -8043,7 +7979,7 @@ AcDbText
   0
 TEXT
   5
-F6
+F3
 330
 17
 100
@@ -8075,7 +8011,7 @@ AcDbText
   0
 TEXT
   5
-F7
+F4
 330
 17
 100
@@ -8107,7 +8043,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-F8
+F5
 330
 17
 100
@@ -8143,7 +8079,7 @@ AcDbPolyline
   0
 LINE
   5
-F9
+F6
 330
 17
 100
@@ -8167,7 +8103,7 @@ AcDbLine
   0
 LINE
   5
-FA
+F7
 330
 17
 100
@@ -8191,7 +8127,7 @@ AcDbLine
   0
 LINE
   5
-FB
+F8
 330
 17
 100
@@ -8215,7 +8151,7 @@ AcDbLine
   0
 TEXT
   5
-FC
+F9
 330
 17
 100
@@ -8249,7 +8185,7 @@ AcDbText
   0
 TEXT
   5
-FD
+FA
 330
 17
 100
@@ -8281,7 +8217,7 @@ AcDbText
   0
 TEXT
   5
-FE
+FB
 330
 17
 100
@@ -8313,7 +8249,7 @@ AcDbText
   0
 TEXT
   5
-FF
+FC
 330
 17
 100
@@ -8331,7 +8267,7 @@ AcDbText
  40
 9.5
   1
-STATUS: DRAFT - NOT FOR CONSTRUCTION. Passes the implemented IS 456 beam detailing checks only. Must be reviewed and signed by a structural engineer.
+STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.
  11
 820.0
  21
@@ -9433,7 +9369,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-102
+FF
   0
 DICTIONARYVAR
   5
@@ -9445,7 +9381,7 @@ DictionaryVariables
 280
 0
   1
-1.4.5 @ 2026-10-21T12:17:01.382206+00:00
+1.4.5 @ 2026-10-24T10:32:49.644861+00:00
   0
 VISUALSTYLE
   5
@@ -10149,7 +10085,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-102
+FF
 330
 2D
 100
@@ -10157,7 +10093,7 @@ DictionaryVariables
 280
 0
   1
-1.4.5 @ 2026-10-21T12:17:01.403818+00:00
+1.4.5 @ 2026-10-24T10:32:49.664044+00:00
   0
 ENDSEC
   0

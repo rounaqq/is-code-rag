@@ -1,18 +1,18 @@
 # IS-Code-RAG: Structural IS 456:2000 RAG & AI-Driven 2D CAD Engine
 
-A production-grade Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering engine for structural Indian Standards (**IS 456:2000 - Plain and Reinforced Concrete**). The system automates code-compliant Reinforced Concrete (RC) beam sizing, multi-stage clause retrieval, structural design validation, and production 2D CAD DXF drafting.
+A Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering engine for structural Indian Standards (**IS 456:2000 - Plain and Reinforced Concrete**). The system automates code-compliant Reinforced Concrete (RC) beam sizing, multi-stage clause retrieval, structural design validation, and 2D CAD DXF drafting.
 
 ---
 
 ## Key Highlights
 
-- **Deterministic Structural Engineering**: All calculations (Annex G flexure, Clause 40 shear, Clause 26.5.1 detailing, Table 16 cover) are computed deterministically in Python from verified JSON tables. **Zero LLM hallucination risk in calculations.**
+- **Deterministic Structural Engineering**: All calculations (Annex G flexure, Clause 40 shear, Clause 26.5.1 detailing, Table 16 cover) are computed deterministically in Python from verified JSON tables. **Calculations are executed deterministically without LLM generation.**
 - **23 Human-Verified IS 456 Chunks**: Every clause and table was extracted from original standard pages and manually checked against page images with verified citations and printed headings.
 - **Multi-Stage Retrieval Engine**: Lexical search (**BM25Okapi**) + Dense semantic embeddings (**BAAI/bge-small-en-v1.5**) + Hybrid Reciprocal Rank Fusion (**RRF $k=60$**) + Cross-Encoder (**BAAI/bge-reranker-base**).
 - **100% Top-3 Retrieval Recall**: Achieves **100.0% Hit@3 (19/19)** and **84.2% Hit@1 (16/19)** across structural design queries.
 - **Automated 2D CAD Generation**: Generates standard CAD DXF files (`ezdxf`) featuring longitudinal elevations, cross-sections, stirrup distributions, dimensions, title blocks, and code compliance notes.
-- **Production FastAPI Service**: Authenticated `/v1/rag/query` endpoint with API key verification, lifespan model preloading, and audit logging to `data/audit/audit.jsonl`.
-- **93 Automated Tests**: 100% test pass rate across schemas, math functions, CAD generation, API endpoints, and evaluation benchmarks.
+- **FastAPI Service**: Authenticated `/v1/rag/query` endpoint with API key verification, lifespan model preloading, and audit logging to `data/audit/audit.jsonl`.
+- **Automated Tests**: Comprehensive test suite covering schemas, math functions, CAD generation, API endpoints, and evaluation benchmarks.
 
 ---
 
@@ -48,7 +48,7 @@ flowchart TD
 
     subgraph Drafting ["4. Automated 2D CAD Drafting"]
         Validator --> CAD["ezdxf CAD Engine"]
-        CAD --> DXF["Production 2D CAD DXF\n- Cross-Section A-A\n- Longitudinal Elevation\n- Rebar Detailing & Stirrups\n- Title Block & Notes"]
+        CAD --> DXF["2D CAD DXF\n- Cross-Section A-A\n- Longitudinal Elevation\n- Rebar Detailing & Stirrups\n- Title Block & Notes"]
     end
 ```
 
@@ -191,7 +191,7 @@ Run this one-liner to size a custom beam and output a CAD drawing:
 ```
 *Expected: Output DXF drawing created at `data/processed/cad/demo_beam.dxf`.*
 
-### 5. Start the FastAPI Production Service
+### 5. Start the FastAPI Service
 ```powershell
 .venv\Scripts\python -m uvicorn src.api.main:app --port 8000
 ```
@@ -202,7 +202,7 @@ Open another terminal to test the endpoints:
   ```
 - **Authenticated RAG Query**:
   ```powershell
-  Invoke-RestMethod -Uri "http://localhost:8000/v1/rag/query" -Method POST -Headers @{"X-API-Key"="admin_secret_key_12345"; "Content-Type"="application/json"} -Body '{"query": "nominal shear stress in a beam", "k": 3}'
+  Invoke-RestMethod -Uri "http://localhost:8000/v1/rag/query" -Method POST -Headers @{"X-API-Key"="FAKE_DEMO_KEY_FOR_LOCAL_TESTING_ONLY"; "Content-Type"="application/json"} -Body '{"query": "nominal shear stress in a beam", "k": 3}'
   ```
 
 ---

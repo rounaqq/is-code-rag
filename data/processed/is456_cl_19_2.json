@@ -1,0 +1,24 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "clause_reference": "19.2",
+  "title": "Dead Loads and Unit Weights",
+  "page_number": 45,
+  "printed_page_number": 32,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_045.png and crop_cl_19_2.png",
+  "items": [
+    {
+      "id": "19.2",
+      "heading": "Dead Loads",
+      "text": "Dead loads shall be calculated on the basis of unit weights which shall be established taking into consideration the materials specified for construction."
+    },
+    {
+      "id": "19.2.1",
+      "heading": "Unit Weights of Concrete",
+      "text": "Alternatively, the dead loads may be calculated on the basis of unit weights of materials given in IS 875 (Part 1). Unless more accurate calculations are warranted, the unit weights of plain concrete and reinforced concrete made with sand and gravel or crushed natural stone aggregate may be taken as 24 kN/m3 and 25 kN/m3 respectively.",
+      "unit_weight_plain_concrete_kN_per_m3": 24.0,
+      "unit_weight_reinforced_concrete_kN_per_m3": 25.0
+    }
+  ]
+}

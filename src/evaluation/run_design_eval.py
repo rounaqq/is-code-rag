@@ -203,7 +203,24 @@ def run_full_design_evaluation() -> Dict[str, Any]:
         shear = sizing["shear"]
         rebar = sizing["reinforcement_detailing"]
 
-        under_reinforced = flex["xu_over_d"] <= 0.48
+        # Independent under-reinforced check from is456_xu_max_table.json using provided steel and d_actual
+        t_xu_path = Path("data/processed/is456_xu_max_table.json")
+        with open(t_xu_path, "r", encoding="utf-8") as f_xu:
+            xu_table_data = json.load(f_xu)
+        fy_target = int(round(inputs["fy"]))
+        xu_max_d_table = None
+        for r_xu in xu_table_data["rows"]:
+            if int(round(r_xu["fy_N_per_mm2"])) == fy_target:
+                xu_max_d_table = float(r_xu["xu_max_over_d"])
+                break
+        if xu_max_d_table is None:
+            xu_max_d_table = 0.48 if fy_target <= 415 else 0.46
+
+        d_act = float(dims.get("d_actual", dims["d"]))
+        ast_prov = float(rebar["main_bar_area_provided_mm2"])
+        xu_d_provided = (0.87 * inputs["fy"] * ast_prov) / (0.36 * inputs["fck"] * dims["b"] * d_act)
+        under_reinforced = xu_d_provided <= xu_max_d_table
+
         shear_safe = shear["shear_safe"]
         shear_status = sizing.get("shear_status", "minimum_shear_steel_ok")
         cover_correct = dims["cover_mm"] == expected["cover_mm"]
@@ -224,6 +241,7 @@ def run_full_design_evaluation() -> Dict[str, Any]:
             validation["status"] == "passed"
             and all(c["passed"] for c in checks)
             and indep_shear["shear_check_passed"]
+            and under_reinforced
         )
         if scenario_passed:
             passed_scenarios += 1
@@ -241,6 +259,8 @@ def run_full_design_evaluation() -> Dict[str, Any]:
             "rebar": f"{rebar['main_bar_count']}-T{int(rebar['main_bar_dia_mm'])}",
             "stirrups": f"2L-T{int(rebar['stirrup_dia_mm'])} @ {int(rebar['stirrup_spacing_mm'])} c/c",
             "under_reinforced": under_reinforced,
+            "xu_d_provided": round(xu_d_provided, 3),
+            "xu_max_d": xu_max_d_table,
             "shear_safe": shear_safe,
             "shear_status": shear_status,
             "status": "PASSED" if scenario_passed else "FAILED",

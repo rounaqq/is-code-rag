@@ -1,0 +1,24 @@
+# Step 10: Docker Compose Configuration for IS 456 Structural RAG Service
+services:
+  is456-rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: is456-rag-api
+    ports:
+      - "8000:8000"
+    environment:
+      - IS_RAG_API_KEYS=${IS_RAG_API_KEYS:-test_engineer:FAKE_DEMO_KEY_FOR_LOCAL_TESTING_ONLY,prod_client:FAKE_PROD_KEY_FOR_LOCAL_TESTING_ONLY}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-}
+      - OLLAMA_API_TOKEN=${OLLAMA_API_TOKEN:-}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data/audit:/app/data/audit
+      - ./data/processed/cad:/app/data/processed/cad
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    restart: unless-stopped

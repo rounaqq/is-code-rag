@@ -1,0 +1,22 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "clause_reference": "26.3.2",
+  "title": "Minimum distance between individual bars",
+  "page_number": 58,
+  "printed_page_number": 45,
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_058.png",
+  "items": [
+    {
+      "id": "26.3.2(a)",
+      "text": "The horizontal distance between two parallel main reinforcing bars shall usually be not less than the greatest of the following: 1) the diameter of the bar if the diameters are equal, 2) the diameter of the larger bar if the diameters are unequal, and 3) 5 mm more than the nominal maximum size of coarse aggregate."
+    }
+  ],
+  "note": "This does not preclude the use of larger size of aggregates beyond the congested reinforcement in the same member; the size of aggregates may be reduced around congested reinforcement to comply with this provision.",
+  "not_implemented": [
+    "bundled bars (26.3.1)",
+    "bars in more than one layer",
+    "26.3.2(b)"
+  ]
+}

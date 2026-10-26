@@ -1,0 +1,18 @@
+{
+  "code_id": "IS 456",
+  "edition_year": 2000,
+  "clause_reference": "23.2",
+  "title": "Control of Deflection",
+  "page_number": [50, 51],
+  "printed_pages": [37, 38],
+  "verified": true,
+  "verified_by": "Rounaq, manual check against page_050.png, page_051.png, crop_cl_23_2.png, and crop_fig_4_deflection.png",
+  "basic_span_to_depth_ratios": {
+    "cantilever": 7.0,
+    "simply_supported": 20.0,
+    "continuous": 26.0
+  },
+  "spans_above_10m_rule": "For spans above 10 m, the basic values may be multiplied by 10/span in metres, except for cantilever.",
+  "fs_formula": "0.58 * fy * (Ast_required / Ast_provided)",
+  "modification_factor_formula": "1.0 / (0.225 + 0.00322 * fs + 0.625 * log10(pt)) capped at 2.0"
+}

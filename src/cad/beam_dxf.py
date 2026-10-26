@@ -528,16 +528,17 @@ def draw_title_block(
     t3 = msp.add_text("CODE: IS 456:2000 | SCALE: NTS (ALL DIMS IN MM)", dxfattribs={"layer": "TITLE_BLOCK", "height": 11.0})
     t3.set_placement((ox + 570.0, oy - 68.0), align=ezdxf.enums.TextEntityAlignment.MIDDLE_LEFT)
 
-    shear_status = design.get("shear_status", "minimum_shear_steel_ok")
-    if shear_status in ("needs_shear_design", "needs_review", "section_too_small"):
-        status_text = (
-            "STATUS: INCOMPLETE - SHEAR DESIGN REQUIRED (IS 456 Cl. 40.4). NOT FOR CONSTRUCTION."
-        )
+    reviewer_name = design.get("reviewer_name")
+    reviewer_role = design.get("reviewer_role")
+    review_date = design.get("review_date")
+    outcome = design.get("outcome") or design.get("review_outcome")
+
+    if reviewer_name and reviewer_role and review_date:
+        outcome_str = outcome or "Reviewed"
+        status_text = f"Reviewed by {reviewer_name}, {review_date}: {outcome_str}"
     else:
-        status_text = (
-            "STATUS: DRAFT - NOT FOR CONSTRUCTION. Passes the implemented IS 456 beam detailing checks "
-            "only. Must be reviewed and signed by a structural engineer."
-        )
+        status_text = "STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed."
+
     t4 = msp.add_text(status_text, dxfattribs={"layer": "TITLE_BLOCK", "height": 9.5})
     t4.set_placement((ox + 20.0, oy - 115.0), align=ezdxf.enums.TextEntityAlignment.MIDDLE_LEFT)
 
@@ -547,7 +548,7 @@ def generate_beam_dxf(
     output_path: Optional[str] = None,
 ) -> Drawing:
     """
-    Generates a complete, production-grade 2D DXF drawing of an RC beam from design parameters.
+    Generates a 2D DXF drawing of an RC beam from design parameters.
 
     Args:
         design: Dictionary containing b, D, d, fck, fy, exposure,
