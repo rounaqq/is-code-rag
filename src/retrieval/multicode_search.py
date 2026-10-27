@@ -7,19 +7,22 @@ Step 6: Retrieval System
 Supports multi-standard hybrid search across:
 - IS 456:2000 (Plain & Reinforced Concrete)
 - IS 13920:2016 (Seismic Ductile Detailing)
+- IS 1893 (Part 1):2016 (Criteria for Earthquake Resistant Design)
 - IS 875 (Part 2):1987 (Occupancy Imposed / Live Loads)
+- IS 800:2007 (General Construction In Steel)
 
-Implements:
-- BM25Okapi lexical retrieval with engineering tokenizer
-- Dense cosine similarity matching
-- Reciprocal Rank Fusion (RRF k=60)
-- Code-specific filtering or cross-code federated search
+Search Architecture:
+- Lexical Engine: BM25Okapi with engineering domain tokenizer (preserves clause decimals and standards).
+- Dense Vector Store: Qdrant Local Client (BGE-small 384-dimensional dense semantic embeddings).
+- Hybrid Fusion: Reciprocal Rank Fusion (RRF k=60) combining keyword precision with semantic depth.
+- Standard-specific filtering (e.g. 'IS 13920', 'IS 1893', 'IS 875', 'IS 800', 'IS 456') or cross-code federated retrieval.
 """
 
-import json
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from rank_bm25 import BM25Okapi
+
+from src.retrieval.qdrant_db import load_all_structural_chunks, get_qdrant_db
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -34,116 +37,30 @@ def custom_engineering_tokenizer(text: str) -> List[str]:
 
 
 class MultiCodeRetriever:
-    """Multi-code indexing and search engine for Indian Standards."""
+    """Multi-code hybrid indexing and search engine for Indian Standards."""
 
     def __init__(self):
-        self.corpus: List[Dict[str, Any]] = []
-        self._load_all_standards()
+        self.corpus: List[Dict[str, Any]] = load_all_structural_chunks()
         self._build_bm25_indices()
-
-    def _load_all_standards(self) -> None:
-        """Loads and unifies chunks from IS 456, IS 13920, and IS 875."""
-        self.corpus = []
-
-        # 1. Load IS 456 Chunks
-        chunks_file = DATA_PROCESSED_DIR / "chunks.jsonl"
-        if chunks_file.exists():
-            with open(chunks_file, "r", encoding="utf-8") as f:
-                for line in f:
-                    if line.strip():
-                        c = json.loads(line)
-                        self.corpus.append({
-                            "chunk_id": c.get("chunk_id"),
-                            "code": "IS 456:2000",
-                            "clause": str(c.get("clause_number") or c.get("table_number") or ""),
-                            "title": c.get("title", ""),
-                            "citation": c.get("citation", f"IS 456:2000 Cl. {c.get('clause_number', '')}"),
-                            "text": c.get("text", ""),
-                        })
-
-        # 2. Load IS 13920 Clauses
-        is13920_file = DATA_PROCESSED_DIR / "is13920_verified_clauses.json"
-        if is13920_file.exists():
-            with open(is13920_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                for c in data.get("clauses", []):
-                    self.corpus.append({
-                        "chunk_id": f"IS-13920-2016-CL-{c.get('clause_number')}",
-                        "code": "IS 13920:2016",
-                        "clause": c.get("clause_number", ""),
-                        "title": c.get("title", ""),
-                        "citation": c.get("citation", f"IS 13920:2016 Cl. {c.get('clause_number', '')}"),
-                        "text": f"{c.get('title', '')}: {c.get('text', '')}",
-                    })
-
-        # 3. Load IS 875 Part 2 Clauses
-        is875_file = DATA_PROCESSED_DIR / "is875_verified_clauses.json"
-        if is875_file.exists():
-            with open(is875_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                for c in data.get("clauses", []):
-                    c_num = c.get("clause_number", "")
-                    self.corpus.append({
-                        "chunk_id": f"IS-875-PART-2-CL-{c_num.replace(' ', '-')}",
-                        "code": "IS 875 (Part 2):1987",
-                        "clause": c_num,
-                        "title": c.get("title", ""),
-                        "citation": c.get("citation", f"IS 875 (Part 2):1987 {c_num}"),
-                        "text": f"{c.get('title', '')}: {c.get('content', c.get('text', ''))}",
-                    })
-
-        # 4. Load IS 1893 Part 1 Clauses
-        is1893_file = DATA_PROCESSED_DIR / "is1893_verified_clauses.json"
-        if is1893_file.exists():
-            with open(is1893_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                for c in data.get("clauses", []):
-                    c_num = c.get("clause_number", "")
-                    self.corpus.append({
-                        "chunk_id": f"IS-1893-PART-1-CL-{c_num.replace(' ', '-')}",
-                        "code": "IS 1893 (Part 1):2016",
-                        "clause": c_num,
-                        "title": c.get("title", ""),
-                        "citation": f"IS 1893 (Part 1):2016 Cl. {c_num}",
-                        "text": f"{c.get('title', '')}: {c.get('content', '')}",
-                    })
-
-        # 5. Load IS 800 Clauses
-        is800_file = DATA_PROCESSED_DIR / "is800_verified_clauses.json"
-        if is800_file.exists():
-            with open(is800_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                for c in data.get("clauses", []):
-                    c_num = c.get("clause_number", "")
-                    self.corpus.append({
-                        "chunk_id": f"IS-800-2007-CL-{c_num.replace(' ', '-')}",
-                        "code": "IS 800:2007",
-                        "clause": c_num,
-                        "title": c.get("title", ""),
-                        "citation": f"IS 800:2007 Cl. {c_num}",
-                        "text": f"{c.get('title', '')}: {c.get('content', '')}",
-                    })
+        self.qdrant = get_qdrant_db()
 
     def _build_bm25_indices(self) -> None:
-        """Builds global and code-filtered BM25 search indices."""
+        """Builds global BM25 search index over unified structural corpus."""
         tokenized_corpus = [custom_engineering_tokenizer(item["text"]) for item in self.corpus]
         self.bm25 = BM25Okapi(tokenized_corpus) if tokenized_corpus else None
 
-    def search(
+    def search_bm25(
         self,
         query: str,
         code_filter: Optional[str] = None,
-        top_k: int = 3,
+        top_k: int = 5,
     ) -> List[Dict[str, Any]]:
-        """
-        Executes search over structural standards with optional code filtering.
-        """
+        """Executes BM25 lexical search over the structural corpus."""
         if not self.corpus or not self.bm25 or not query.strip():
             return []
 
         tokens = custom_engineering_tokenizer(query)
         scores = self.bm25.get_scores(tokens)
-
         ranked_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
 
         results = []
@@ -172,6 +89,76 @@ class MultiCodeRetriever:
 
         return results
 
+    def search_qdrant(
+        self,
+        query: str,
+        code_filter: Optional[str] = None,
+        top_k: int = 5,
+    ) -> List[Dict[str, Any]]:
+        """Executes dense semantic search using embedded Qdrant vector database."""
+        return self.qdrant.search(query=query, code_filter=code_filter, top_k=top_k)
+
+    def search(
+        self,
+        query: str,
+        code_filter: Optional[str] = None,
+        top_k: int = 3,
+        mode: str = "hybrid",
+        rrf_k: int = 60,
+    ) -> List[Dict[str, Any]]:
+        """
+        Executes search over structural standards.
+        Modes:
+        - 'hybrid' (default): Reciprocal Rank Fusion (RRF) combining BM25 lexical & Qdrant dense semantic vectors.
+        - 'dense' or 'qdrant': Dense vector search only.
+        - 'bm25' or 'lexical': Lexical BM25 search only.
+        """
+        if not query.strip():
+            return []
+
+        if mode in ("bm25", "lexical"):
+            return self.search_bm25(query=query, code_filter=code_filter, top_k=top_k)
+
+        if mode in ("qdrant", "dense"):
+            return self.search_qdrant(query=query, code_filter=code_filter, top_k=top_k)
+
+        # Hybrid RRF Fusion
+        candidate_limit = max(top_k * 3, 10)
+        bm25_hits = self.search_bm25(query=query, code_filter=code_filter, top_k=candidate_limit)
+        qdrant_hits = self.search_qdrant(query=query, code_filter=code_filter, top_k=candidate_limit)
+
+        if not bm25_hits and not qdrant_hits:
+            return []
+        if not bm25_hits:
+            return qdrant_hits[:top_k]
+        if not qdrant_hits:
+            return bm25_hits[:top_k]
+
+        # Calculate RRF scores
+        rrf_scores: Dict[str, float] = {}
+        items_by_id: Dict[str, Dict[str, Any]] = {}
+
+        for rank, hit in enumerate(bm25_hits):
+            cid = hit["chunk_id"]
+            rrf_scores[cid] = rrf_scores.get(cid, 0.0) + (1.0 / (rrf_k + rank + 1))
+            items_by_id[cid] = hit
+
+        for rank, hit in enumerate(qdrant_hits):
+            cid = hit["chunk_id"]
+            rrf_scores[cid] = rrf_scores.get(cid, 0.0) + (1.0 / (rrf_k + rank + 1))
+            if cid not in items_by_id:
+                items_by_id[cid] = hit
+
+        ranked_cids = sorted(rrf_scores.keys(), key=lambda cid: rrf_scores[cid], reverse=True)
+
+        hybrid_results = []
+        for cid in ranked_cids[:top_k]:
+            item = items_by_id[cid].copy()
+            item["score"] = round(float(rrf_scores[cid]), 5)
+            hybrid_results.append(item)
+
+        return hybrid_results
+
 
 # Global singleton
 _GLOBAL_MULTICODE_RETRIEVER: Optional[MultiCodeRetriever] = None
@@ -184,7 +171,12 @@ def get_multicode_retriever() -> MultiCodeRetriever:
     return _GLOBAL_MULTICODE_RETRIEVER
 
 
-def retrieve_multicode(query: str, code_filter: Optional[str] = None, top_k: int = 3) -> List[Dict[str, Any]]:
-    """Public helper function for multi-code retrieval."""
+def retrieve_multicode(
+    query: str,
+    code_filter: Optional[str] = None,
+    top_k: int = 3,
+    mode: str = "hybrid",
+) -> List[Dict[str, Any]]:
+    """Public helper function for multi-code retrieval across all 5 Indian Standards."""
     retriever = get_multicode_retriever()
-    return retriever.search(query=query, code_filter=code_filter, top_k=top_k)
+    return retriever.search(query=query, code_filter=code_filter, top_k=top_k, mode=mode)

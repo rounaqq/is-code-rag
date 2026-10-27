@@ -17,12 +17,12 @@
 | **Step 2: Data Acquisition & Collection** | **COMPLETED** | `src/ingestion/download_codes.py`<br>`data/raw/registry.json`<br>`data/raw/DVC_MANIFEST.md`<br>`.gitattributes` | Automated acquisition pipeline with SHA-256 validation. Acquired official PDFs for IS 456, IS 13920, IS 875, IS 1893, IS 800, SP 16, SP 34. Versioned with Git LFS & DVC. |
 | **Step 3: Document Preprocessing & OCR** | **COMPLETED** | `src/ingestion/ocr_preprocessor.py`<br>`data/tessdata/eng.traineddata` | Solved BIS proprietary font encoding corruption using PyMuPDF C-engine OCR. Processed 158 pages of IS 800, 56 pages of IS 1893, 33 pages of IS 13920, and 23 pages of IS 875. |
 | **Step 4: Chunking & Metadata Enrichment** | **COMPLETED** | `data/processed/is13920_preprocessed.json`<br>`data/processed/is875_part_2_preprocessed.json`<br>`data/processed/is1893_part_1_preprocessed.json`<br>`data/processed/is800_preprocessed.json` | Clause-level chunking preserving hierarchy (e.g. `6.4.2`, `7.6.1`). Metadata tags for applicability, structural dependencies, keywords, and formula indicators. |
-| **Step 5: Vector Indexing & Hybrid Retrieval** | **COMPLETED** | `src/retrieval/multicode_search.py`<br>`src/retrieval/pipeline.py` | Unified multi-code retrieval engine indexing all 5 standards with custom engineering tokenizer, BM25Okapi, dense semantic similarity, and standard filtering. |
+| **Step 5: Vector Indexing & Hybrid Retrieval** | **COMPLETED** | `src/retrieval/qdrant_db.py`<br>`src/retrieval/multicode_search.py`<br>`data/processed/qdrant_storage` | Embedded Qdrant vector database (v1.20) indexing 996 chunks across all 5 standards with BGE-small embeddings (384-dim, cosine), BM25Okapi, Reciprocal Rank Fusion (RRF k=60), and native metadata payload filtering. |
 | **Step 6: Compliance Reasoning Engine & Conflict Resolution** | **COMPLETED** | `src/validation/seismic_compliance.py`<br>`src/generation/seismic_base_shear.py` | Automatically resolves conflicts where IS 13920 ductile provisions supersede IS 456 in seismic zones III–V. Deterministic base shear $V_B = A_h W$ calculator per IS 1893. |
 | **Step 7: 2D CAD Generation & Parameter Mapping** | **COMPLETED** | `src/cad/beam_dxf.py`<br>`src/cad/column_dxf.py`<br>`src/cad/slab_dxf.py`<br>`src/cad/footing_dxf.py` | Headless DXF generation using `ezdxf`. Produces longitudinal sections, cross-sections, stirrup zones, bar callouts, 135° seismic hooks, and title blocks. |
 | **Step 8: Quality Assurance & Safety Guardrails** | **COMPLETED** | `src/generation/design_validation.py`<br>`src/cad/engineer_review.py` | Design Rule Checking (DRC) for shear ceiling, deflection, bar clearance, minimum/maximum steel percentages. Immutable draft watermark on all blueprints. |
 | **Step 9: API & Integration Layer** | **COMPLETED** | `src/api/main.py` | REST API with API key authentication and audit logging. Endpoints for multi-code search, seismic compliance checking, base shear calculation, and DXF exports. |
-| **Step 10: Testing, Validation & Golden Dataset** | **COMPLETED** | `tests/test_data_acquisition.py`<br>`tests/test_multicode_search.py`<br>`tests/test_seismic_compliance.py`<br>`tests/test_seismic_base_shear.py`<br>`tests/test_api.py` | 190+ automated unit tests verifying data acquisition, OCR extraction, multi-code search, seismic compliance, and API security. |
+| **Step 10: Testing, Validation & Golden Dataset** | **COMPLETED** | `tests/test_data_acquisition.py`<br>`tests/test_multicode_search.py`<br>`tests/test_qdrant_search.py`<br>`tests/test_seismic_compliance.py`<br>`tests/test_seismic_base_shear.py`<br>`tests/test_api.py` | 200+ automated unit tests verifying data acquisition, OCR extraction, Qdrant search, multi-code RRF search, seismic compliance, and API security. |
 
 ---
 
@@ -42,7 +42,26 @@ Official Bureau of Indian Standards (BIS) electronic PDFs (specifically `IS 1392
 
 ---
 
-## 3. Step 6: Seismic Conflict Resolution Matrix (IS 456 vs IS 13920)
+## 3. Step 5: Qdrant Vector Database & Hybrid Retrieval Engine
+
+### Vector Database Architecture
+- **Engine**: Qdrant Local Client (`qdrant-client` v1.20) running 100% offline via embedded disk storage at `data/processed/qdrant_storage`. Zero external SaaS dependencies or API keys.
+- **Embedding Model**: `BAAI/bge-small-en-v1.5` (384-dimensional dense semantic vectors with cosine similarity metric).
+- **Index Size**: 996 structural chunks indexing all 5 Indian Standards:
+  - IS 456:2000 (Plain & Reinforced Concrete)
+  - IS 13920:2016 (Ductile Detailing of RC Structures under Seismic Forces)
+  - IS 1893 (Part 1):2016 (Criteria for Earthquake Resistant Design of Structures)
+  - IS 875 (Part 2):1987 (Design Imposed / Live Loads)
+  - IS 800:2007 (General Construction In Steel)
+- **Hybrid Retrieval Fusion**:
+  $$\text{RRF\_Score}(d) = \sum_{m \in \{\text{BM25}, \text{Qdrant}\}} \frac{1.0}{k + \text{rank}_m(d)}$$
+  where $k = 60$. Combines exact lexical engineering tokens (clause decimals like `6.3.3`, `Table 16`, steel grades) with dense semantic generalization.
+- **Metadata Payload Filtering**:
+  Native Qdrant `Filter` with `FieldCondition` on `code` and `category` enabling instant standard-isolated queries (`code_filter='IS 13920'`) or cross-code federated retrieval.
+
+---
+
+## 4. Step 6: Seismic Conflict Resolution Matrix (IS 456 vs IS 13920)
 
 In Seismic Zones III, IV, and V, the ductile detailing provisions of **IS 13920:2016** supersede the general provisions of **IS 456:2000**:
 
@@ -72,7 +91,7 @@ In Seismic Zones III, IV, and V, the ductile detailing provisions of **IS 13920:
 
 ---
 
-## 4. Deterministic Seismic Base Shear ($V_B$) per IS 1893:2016
+## 5. Deterministic Seismic Base Shear ($V_B$) per IS 1893:2016
 
 The base shear calculation strictly follows:
 $$V_B = A_h \cdot W$$
@@ -89,7 +108,7 @@ $$A_h = \frac{Z}{2} \cdot \frac{I}{R} \cdot \left(\frac{S_a}{g}\right)$$
 
 ---
 
-## 5. API Endpoint Reference
+## 6. API Endpoint Reference
 
 | HTTP Method & Path | Description | Authentication |
 | :--- | :--- | :---: |

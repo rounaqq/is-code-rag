@@ -22,3 +22,8 @@ data/audit/
 # OCR language models and temp debug images
 data/tessdata/*.traineddata
 data/raw/*.png
+
+# Local Vector Database & Test Blueprints
+data/processed/qdrant_storage/
+data/processed/cad/api_test_*.dxf
+
