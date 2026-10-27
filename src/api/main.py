@@ -17,6 +17,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from src.retrieval.pipeline import retrieve
+from src.retrieval.multicode_search import retrieve_multicode
 from src.generation.design_assistant import design_beam_assistant, BASE_DISCLAIMER
 from src.generation.beam_sizing import size_beam_from_loads
 from src.generation.column_sizing import size_column_from_load
@@ -31,6 +32,11 @@ from src.cad.engineer_review import (
     apply_engineer_overrides,
     sign_off_design,
 )
+from src.validation.seismic_compliance import (
+    resolve_beam_seismic_conflicts,
+    resolve_column_seismic_conflicts,
+)
+from src.generation.seismic_base_shear import calculate_seismic_base_shear
 
 # Load environment variables from .env if present
 load_dotenv()
@@ -780,6 +786,155 @@ def design_footing_dxf_endpoint(req: FootingDxfRequest, key_name: str = Depends(
         "reinforcement": dxf_result["reinforcement"],
         "approval_status": dxf_result["approval_status"],
     }
+
+
+class MultiCodeQueryRequest(BaseModel):
+    query: str = Field(..., min_length=3, description="Search query across structural standards")
+    code: Optional[str] = Field(None, description="Optional standard filter: 'IS 456', 'IS 13920', or 'IS 875'")
+    top_k: Optional[int] = Field(3, ge=1, le=10, description="Number of results to return (default 3)")
+
+
+@app.post("/v1/rag/multicode/query")
+def multicode_rag_query_endpoint(req: MultiCodeQueryRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Multi-Standard Structural RAG Search Endpoint.
+    Searches across IS 456:2000, IS 13920:2016 (Seismic), and IS 875 (Imposed Loads).
+    """
+    start_time = time.perf_counter()
+    results = retrieve_multicode(
+        query=req.query,
+        code_filter=req.code,
+        top_k=req.top_k or 3,
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"multicode_query [{req.code or 'ALL'}]: {req.query}",
+        k=len(results),
+        returned_chunk_ids=[r["chunk_id"] for r in results],
+        rerank_scores=[r["score"] for r in results],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return {
+        "query": req.query,
+        "code_filter": req.code or "ALL",
+        "total_results": len(results),
+        "results": results,
+    }
+
+
+class SeismicComplianceRequest(BaseModel):
+    member_type: str = Field(..., description="'beam' or 'column'")
+    b_mm: float = Field(..., gt=0, description="Width in mm")
+    D_mm: float = Field(..., gt=0, description="Total depth in mm")
+    d_mm: Optional[float] = Field(None, description="Effective depth for beams in mm")
+    clear_height_mm: Optional[float] = Field(None, description="Clear unsupported height for columns in mm")
+    fck: float = Field(..., ge=15, le=80, description="Concrete compressive strength (N/mm2)")
+    fy: float = Field(..., ge=250, le=600, description="Steel yield strength (N/mm2)")
+    ast_provided_mm2: Optional[float] = Field(None, description="Longitudinal steel area in mm2")
+    stirrup_or_tie_dia_mm: Optional[float] = Field(8.0, description="Transverse tie/stirrup diameter in mm")
+    db_min_mm: Optional[float] = Field(16.0, description="Smallest longitudinal bar diameter in mm")
+    seismic_zone: Optional[str] = Field("IV", description="Seismic Zone: II, III, IV, or V")
+    is_ductile: Optional[bool] = Field(True, description="Enforce IS 13920 ductile detailing")
+
+
+@app.post("/v1/validation/seismic-compliance")
+def seismic_compliance_endpoint(req: SeismicComplianceRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Step 6 Compliance Reasoning Engine:
+    Resolves conflicts between IS 456:2000 (General) and IS 13920:2016 (Seismic Ductile Detailing).
+    Determines governing requirements for beams and columns.
+    """
+    start_time = time.perf_counter()
+    m_type = req.member_type.lower()
+
+    if m_type == "beam":
+        effective_d = req.d_mm or (req.D_mm - 50.0)
+        ast = req.ast_provided_mm2 or (0.01 * req.b_mm * effective_d)
+        res = resolve_beam_seismic_conflicts(
+            b=req.b_mm,
+            D=req.D_mm,
+            d=effective_d,
+            fck=req.fck,
+            fy=req.fy,
+            ast_provided=ast,
+            stirrup_dia=req.stirrup_or_tie_dia_mm or 8.0,
+            stirrup_spacing_midspan=150.0,
+            db_min=req.db_min_mm or 16.0,
+            seismic_zone=req.seismic_zone or "IV",
+            is_ductile=req.is_ductile if req.is_ductile is not None else True,
+        )
+    elif m_type == "column":
+        height = req.clear_height_mm or 3000.0
+        res = resolve_column_seismic_conflicts(
+            b=req.b_mm,
+            D=req.D_mm,
+            clear_height=height,
+            fck=req.fck,
+            fy=req.fy,
+            db_min=req.db_min_mm or 16.0,
+            tie_dia=req.stirrup_or_tie_dia_mm or 8.0,
+            seismic_zone=req.seismic_zone or "IV",
+            is_ductile=req.is_ductile if req.is_ductile is not None else True,
+        )
+    else:
+        raise HTTPException(status_code=400, detail="Invalid member_type. Must be 'beam' or 'column'.")
+
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"seismic_compliance {m_type} zone={req.seismic_zone}",
+        k=len(res.get("checks", [])),
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return res
+
+
+class SeismicBaseShearRequest(BaseModel):
+    height_m: float = Field(..., gt=0, description="Building height in meters")
+    total_weight_kN: float = Field(..., gt=0, description="Total building seismic weight W in kN")
+    base_dim_m: Optional[float] = Field(None, gt=0, description="Base plan dimension in meters along considered direction")
+    seismic_zone: Optional[str] = Field("IV", description="Seismic zone: II, III, IV, or V")
+    occupancy: Optional[str] = Field("residential", description="Occupancy type: hospital, school, residential, dense_commercial")
+    structural_system: Optional[str] = Field("rc_smrf", description="Lateral system: rc_smrf, rc_omrf, steel_cbf, steel_ebf")
+    soil_type: Optional[str] = Field("medium", description="Soil type: rock, medium, or soft")
+    storey_height_m: Optional[float] = Field(3.0, gt=0, description="Storey height in meters for drift check")
+
+
+@app.post("/v1/design/seismic/base-shear")
+def seismic_base_shear_endpoint(req: SeismicBaseShearRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Step 6 Deterministic Calculation Engine:
+    Calculates fundamental period (Ta), spectral acceleration (Sa/g), seismic coefficient (Ah),
+    and total design base shear (VB) per IS 1893 (Part 1):2016.
+    """
+    start_time = time.perf_counter()
+    res = calculate_seismic_base_shear(
+        height_m=req.height_m,
+        total_weight_kN=req.total_weight_kN,
+        base_dim_m=req.base_dim_m,
+        seismic_zone=req.seismic_zone or "IV",
+        occupancy=req.occupancy or "residential",
+        structural_system=req.structural_system or "rc_smrf",
+        soil_type=req.soil_type or "medium",
+        storey_height_m=req.storey_height_m or 3.0,
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"seismic_base_shear h={req.height_m}m zone={req.seismic_zone}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return res
+
 
 
 

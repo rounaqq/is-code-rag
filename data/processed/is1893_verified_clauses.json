@@ -1,0 +1,103 @@
+{
+  "standard": "IS 1893 (Part 1):2016",
+  "title": "Criteria for Earthquake Resistant Design of Structures - Part 1: General Provisions and Buildings (Sixth Revision)",
+  "reaffirmed": "2021",
+  "clauses": [
+    {
+      "clause_number": "6.4.2",
+      "title": "Design Horizontal Seismic Coefficient (Ah)",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "The design horizontal seismic coefficient Ah for a structure shall be determined by Ah = (Z / 2) * (I / R) * (Sa / g). Provided that for any structure with fundamental period T <= 0.1 s, Ah shall not be taken less than Z / 2.",
+      "formula": "Ah = (Z / 2) * (I / R) * (Sa / g)",
+      "variables": {
+        "Z": "Zone factor given in Table 2 for the maximum considered earthquake (MCE)",
+        "I": "Importance factor given in Table 6",
+        "R": "Response reduction factor given in Table 7",
+        "Sa_over_g": "Design acceleration coefficient given in Cl. 6.4.2 and Fig. 2 based on natural period T and soil type"
+      },
+      "tags": ["seismic_coefficient", "base_shear", "lateral_force", "earthquake", "sa_g", "zone_factor", "response_reduction"]
+    },
+    {
+      "clause_number": "Table 2",
+      "title": "Zone Factor, Z",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "Seismic Zone Factors for Maximum Considered Earthquake (MCE): Zone II (Low) = 0.10, Zone III (Moderate) = 0.16, Zone IV (Severe) = 0.24, Zone V (Very Severe) = 0.36. The factor 2 in the denominator of Ah is used so as to reduce the Maximum Considered Earthquake (MCE) zone factor to the Design Basis Earthquake (DBE).",
+      "table_data": {
+        "Zone II": {"intensity": "Low", "Z": 0.10},
+        "Zone III": {"intensity": "Moderate", "Z": 0.16},
+        "Zone IV": {"intensity": "Severe", "Z": 0.24},
+        "Zone V": {"intensity": "Very Severe", "Z": 0.36}
+      },
+      "tags": ["zone_factor", "seismic_zones", "zone_ii", "zone_iii", "zone_iv", "zone_v", "hazard"]
+    },
+    {
+      "clause_number": "Table 6",
+      "title": "Importance Factor, I",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "Structure Importance Factor I: 1.5 for critical and lifeline structures (hospitals, schools, telephone exchanges, emergency facilities), 1.2 for residential and commercial buildings housing more than 200 persons, 1.0 for all other standard residential and office buildings.",
+      "table_data": {
+        "Critical Lifeline (Hospitals, Emergency, Schools)": 1.5,
+        "Dense Commercial / Residential (>200 persons)": 1.2,
+        "Standard Residential and Commercial": 1.0
+      },
+      "tags": ["importance_factor", "occupancy", "hospital", "school", "residential", "commercial"]
+    },
+    {
+      "clause_number": "Table 7",
+      "title": "Response Reduction Factor R for Building Systems",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "Response Reduction Factor R: Special RC Moment-Resisting Frame (SMRF ductile detailing per IS 13920) = 5.0. Ordinary RC Moment-Resisting Frame (OMRF per IS 456) = 3.0. Steel frame with Concentric Braces = 4.0. Steel frame with Eccentric Braces = 4.5. Structural walls ductile = 4.0.",
+      "table_data": {
+        "RC SMRF (Ductile IS 13920)": 5.0,
+        "RC OMRF (IS 456 standard)": 3.0,
+        "Steel Concentric Braced Frame (CBF)": 4.0,
+        "Steel Eccentric Braced Frame (EBF)": 4.5,
+        "Ductile Shear Wall (IS 13920)": 4.0
+      },
+      "tags": ["response_reduction", "smrf", "omrf", "ductility", "frame_system", "is13920"]
+    },
+    {
+      "clause_number": "6.4.2.1",
+      "title": "Design Acceleration Coefficient (Sa / g)",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "For 5 percent damping, Sa/g shall be determined based on fundamental period T (s) and foundation soil type:\nType I (Rock / Hard soil): 0 < T <= 0.10: 1 + 15T; 0.10 < T <= 0.40: 2.50; 0.40 < T <= 4.00: 1.00 / T.\nType II (Medium soil): 0 < T <= 0.10: 1 + 15T; 0.10 < T <= 0.55: 2.50; 0.55 < T <= 4.00: 1.36 / T.\nType III (Soft soil): 0 < T <= 0.10: 1 + 15T; 0.10 < T <= 0.67: 2.50; 0.67 < T <= 4.00: 1.67 / T.",
+      "tags": ["sa_over_g", "spectral_acceleration", "soil_type", "damping", "period"]
+    },
+    {
+      "clause_number": "7.2.1",
+      "title": "Design Seismic Base Shear (VB)",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "The total design lateral force or design seismic base shear (VB) along any principal direction of a building shall be determined by VB = Ah * W, where Ah is design horizontal seismic coefficient and W is seismic weight of the building.",
+      "formula": "VB = Ah * W",
+      "variables": {
+        "VB": "Total design base shear (kN)",
+        "Ah": "Design horizontal seismic coefficient",
+        "W": "Total seismic weight of the building (kN)"
+      },
+      "tags": ["base_shear", "seismic_weight", "lateral_force", "ah", "vb"]
+    },
+    {
+      "clause_number": "7.3.1",
+      "title": "Seismic Weight Calculation and Live Load Reduction",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "The seismic weight of each floor is its full dead load plus appropriate percentage of imposed load per Table 8: For imposed uniformly distributed floor load <= 3.0 kN/m2, 25% of imposed load shall be included. For floor load > 3.0 kN/m2, 50% shall be included. For roofs, 0% of imposed load shall be included.",
+      "tags": ["seismic_weight", "dead_load", "live_load_reduction", "table_8", "gravity_load"]
+    },
+    {
+      "clause_number": "7.6.2",
+      "title": "Approximate Fundamental Natural Period (Ta)",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "The approximate fundamental natural period of vibration (Ta) in seconds of a building shall be estimated: a) For bare RC moment-resisting frame: Ta = 0.075 * h^0.75. b) For bare steel frame: Ta = 0.085 * h^0.75. c) For buildings with masonry infill panels: Ta = 0.09 * h / sqrt(d), where h is height of building in meters and d is base dimension in meters along considered direction.",
+      "formula": "Ta = 0.075 * h^0.75 (bare RC) or 0.09 * h / sqrt(d) (infill)",
+      "tags": ["natural_period", "ta", "height", "bare_frame", "infill_frame"]
+    },
+    {
+      "clause_number": "7.11.1",
+      "title": "Storey Drift Limitation",
+      "code": "IS 1893 (Part 1):2016",
+      "content": "The storey drift in any storey due to minimum specified design lateral force with partial safety factor 1.0 shall not exceed 0.004 times the storey height (0.004 * hi).",
+      "formula": "Delta_drift <= 0.004 * hi",
+      "tags": ["storey_drift", "drift_limit", "lateral_deflection", "serviceability"]
+    }
+  ]
+}

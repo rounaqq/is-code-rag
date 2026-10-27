@@ -2,7 +2,10 @@
 .venv/
 
 # Raw input data (IS Code PDFs)
-data/raw/
+data/raw/*.pdf
+data/raw/*.tmp
+!data/raw/registry.json
+!data/raw/DVC_MANIFEST.md
 
 # Python cache files
 __pycache__/
@@ -15,3 +18,7 @@ __pycache__/
 
 # Audit logs
 data/audit/
+
+# OCR language models and temp debug images
+data/tessdata/*.traineddata
+data/raw/*.png

@@ -255,5 +255,91 @@ def test_footing_dxf_endpoint_success(client):
     assert "api_test_footing.dxf" in data["dxf_path"]
 
 
+def test_multicode_query_endpoint_success(client):
+    """POST /v1/rag/multicode/query searches across multiple standards."""
+    response = client.post(
+        "/v1/rag/multicode/query",
+        json={"query": "minimum grade of concrete in seismic zones", "code": "IS 13920"},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["total_results"] > 0
+    assert "IS 13920" in data["results"][0]["code"]
+
+
+def test_multicode_query_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized for multicode query."""
+    response = client.post(
+        "/v1/rag/multicode/query",
+        json={"query": "school classroom live load"},
+    )
+    assert response.status_code == 401
+
+
+def test_seismic_compliance_endpoint_beam_success(client):
+    """POST /v1/validation/seismic-compliance resolves beam seismic conflicts."""
+    response = client.post(
+        "/v1/validation/seismic-compliance",
+        json={
+            "member_type": "beam",
+            "b_mm": 250.0,
+            "D_mm": 500.0,
+            "d_mm": 450.0,
+            "fck": 25.0,
+            "fy": 500.0,
+            "seismic_zone": "IV",
+            "is_ductile": True,
+        },
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["member_type"] == "beam"
+    assert data["seismic_active"] is True
+    assert "recommended_hinge_spacing_mm" in data
+
+
+def test_seismic_compliance_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized for seismic compliance endpoint."""
+    response = client.post(
+        "/v1/validation/seismic-compliance",
+        json={"member_type": "beam", "b_mm": 250.0, "D_mm": 500.0, "fck": 25.0, "fy": 500.0},
+    )
+    assert response.status_code == 401
+
+
+def test_seismic_base_shear_endpoint_success(client):
+    """POST /v1/design/seismic/base-shear calculates IS 1893 base shear."""
+    response = client.post(
+        "/v1/design/seismic/base-shear",
+        json={
+            "height_m": 18.0,
+            "total_weight_kN": 12000.0,
+            "seismic_zone": "IV",
+            "occupancy": "hospital",
+            "structural_system": "rc_smrf",
+            "soil_type": "medium",
+        },
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "SUCCESS"
+    assert data["seismic_parameters"]["zone_factor_Z"] == 0.24
+    assert data["seismic_parameters"]["importance_factor_I"] == 1.5
+    assert data["design_base_shear_VB_kN"] > 0
+
+
+def test_seismic_base_shear_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized for seismic base shear endpoint."""
+    response = client.post(
+        "/v1/design/seismic/base-shear",
+        json={"height_m": 18.0, "total_weight_kN": 12000.0},
+    )
+    assert response.status_code == 401
+
+
+
 
 

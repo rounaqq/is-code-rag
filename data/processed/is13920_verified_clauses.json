@@ -1,0 +1,83 @@
+{
+  "code": "IS 13920:2016",
+  "title": "Ductile Design and Detailing of Reinforced Concrete Structures Subjected to Seismic Forces",
+  "clauses": [
+    {
+      "clause_number": "5.2",
+      "title": "Minimum Grade of Concrete in Seismic Zones",
+      "text": "Minimum grade of structural concrete shall be M20, but M25 for buildings: a) more than 15 m in height in Seismic Zones III, IV and V; and b) but not less than that required by IS 456 based on exposure conditions.",
+      "citation": "IS 13920:2016 Cl. 5.2",
+      "keywords": ["minimum grade", "concrete", "seismic zones", "height", "M20", "M25", "Zone III", "Zone IV", "Zone V"]
+    },
+    {
+      "clause_number": "5.3",
+      "title": "Steel Reinforcement Requirements for Ductility",
+      "text": "High strength deformed steel bars conforming to IS 1786 of grade Fe 415 or Fe 500 shall be used. Steel shall have minimum elongation of 14.5 percent and ratio of actual ultimate tensile strength to actual yield strength not less than 1.15.",
+      "citation": "IS 13920:2016 Cl. 5.3",
+      "keywords": ["steel grade", "reinforcement", "elongation", "Fe 415", "Fe 500", "ductility", "tensile strength"]
+    },
+    {
+      "clause_number": "6.1.1",
+      "title": "Geometric Constraints for Seismic Beams",
+      "text": "The width-to-depth ratio of flexural members shall be at least 0.3 (b/D >= 0.3). Width of member shall not be less than 200 mm. Depth D of member shall not exceed 1/4 of clear span.",
+      "citation": "IS 13920:2016 Cl. 6.1.1",
+      "keywords": ["beam dimensions", "width", "depth", "ratio", "b/D", "clear span"]
+    },
+    {
+      "clause_number": "6.2.1",
+      "title": "Longitudinal Reinforcement in Beams",
+      "text": "At least two bars of 12 mm diameter shall be provided continuously along both the top and bottom faces throughout the length of the beam.",
+      "citation": "IS 13920:2016 Cl. 6.2.1",
+      "keywords": ["beam longitudinal rebar", "continuous bars", "top and bottom", "12 mm"]
+    },
+    {
+      "clause_number": "6.2.2",
+      "title": "Minimum Tension Steel in Seismic Beams",
+      "text": "The minimum area of tension reinforcement on any face at any section shall be: rho_min = (0.24 * sqrt(fck)) / fy. The maximum area of reinforcement shall not exceed 2.5 percent of cross-sectional area (rho_max = 0.025).",
+      "citation": "IS 13920:2016 Cl. 6.2.2",
+      "keywords": ["minimum steel", "maximum steel", "rho_min", "0.24*sqrt(fck)/fy", "rho_max", "0.025"]
+    },
+    {
+      "clause_number": "6.2.4",
+      "title": "Moment Capacity at Beam-Column Joint Face",
+      "text": "The positive moment capacity at joint face shall not be less than 50 percent of the negative moment capacity at that face (Mu+ >= 0.5 * Mu-). Neither positive nor negative moment resistance at any section along length shall be less than 1/4 of the maximum moment capacity at either joint face.",
+      "citation": "IS 13920:2016 Cl. 6.2.4",
+      "keywords": ["positive moment capacity", "negative moment capacity", "joint face", "50 percent", "reversal"]
+    },
+    {
+      "clause_number": "6.3.1",
+      "title": "Seismic Confinement Stirrups and Hooks",
+      "text": "Web reinforcement in beams shall consist of closed hoops. Hoops shall have 135-degree hooks with a 10-diameter extension (but not less than 65 mm) embedded into the core concrete.",
+      "citation": "IS 13920:2016 Cl. 6.3.1",
+      "keywords": ["closed hoops", "135 degree hook", "10-diameter extension", "65 mm", "stirrups"]
+    },
+    {
+      "clause_number": "6.3.3",
+      "title": "Closely Spaced Confining Stirrups in Beams (Plastic Hinge Zone)",
+      "text": "Over a length 2d from the face of each joint, hoop spacing shall not exceed: a) d/4; b) 8 times diameter of smallest longitudinal bar; and c) 100 mm. The first hoop shall be at not more than 50 mm from joint face.",
+      "citation": "IS 13920:2016 Cl. 6.3.3",
+      "keywords": ["plastic hinge zone", "2d length", "spacing", "d/4", "8 times dia", "100 mm", "first hoop 50 mm"]
+    },
+    {
+      "clause_number": "7.1",
+      "title": "Minimum Dimensions of Seismic Columns",
+      "text": "The minimum cross-sectional dimension of a column shall not be less than 300 mm, nor less than 20 times the diameter of the largest longitudinal reinforcement bar in beam framing into it.",
+      "citation": "IS 13920:2016 Cl. 7.1",
+      "keywords": ["column dimension", "minimum 300 mm", "20 times bar diameter"]
+    },
+    {
+      "clause_number": "7.6.1",
+      "title": "Special Confining Reinforcement Length in Columns",
+      "text": "Special confining reinforcement shall be provided over length lo from each joint face: a) larger lateral dimension of column; b) 1/6 of clear span of column; and c) 450 mm.",
+      "citation": "IS 13920:2016 Cl. 7.6.1",
+      "keywords": ["special confining reinforcement", "length lo", "450 mm", "larger dimension", "1/6 span"]
+    },
+    {
+      "clause_number": "7.6.2",
+      "title": "Pitch of Special Confining Ties in Columns",
+      "text": "Pitch of special confining ties along length lo shall not exceed: a) 1/4 of minimum column dimension; b) 6 times diameter of smallest longitudinal bar; and c) 100 mm.",
+      "citation": "IS 13920:2016 Cl. 7.6.2",
+      "keywords": ["confining ties", "pitch", "spacing", "100 mm", "b/4", "6 times bar dia"]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-10-27T00:00:00Z",
+  "standards": [
+    {
+      "code": "IS 456:2000",
+      "title": "Plain and Reinforced Concrete - Code of Practice (Fourth Revision)",
+      "filename": "is_456_2000.pdf",
+      "edition": "Fourth Revision (Reaffirmed 2021)",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "core_concrete",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000/is.456.2000.pdf",
+      "description": "Foundational Indian standard for plain and reinforced concrete structural design.",
+      "file_size_bytes": 7445902,
+      "sha256": "13d8a479c84f76d7c08b5df550b6bcfb87131785e306f42bc2faae1d91537b6b"
+    },
+    {
+      "code": "IS 13920:2016",
+      "title": "Ductile Design and Detailing of Reinforced Concrete Structures Subjected to Seismic Forces - Code of Practice",
+      "filename": "is_13920_2016.pdf",
+      "edition": "First Revision",
+      "amendments": [
+        "Amendment No. 1 (2017)",
+        "Amendment No. 2 (2020)"
+      ],
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "earthquake_ductility",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.13920.2016/IS13920:2016.pdf",
+      "description": "Mandatory seismic ductile detailing code for RCC beams, columns, and joints in seismic zones.",
+      "file_size_bytes": 1598829,
+      "sha256": "7fb28f817712ccf5caad281ad22cf6193a50476b100da05b8c2f226a82bf21d4"
+    },
+    {
+      "code": "IS 875 (Part 2):1987",
+      "title": "Code of Practice for Design Loads (Other Than Earthquake) for Buildings and Structures - Part 2: Imposed Loads",
+      "filename": "is_875_part_2_1987.pdf",
+      "edition": "Second Revision (Reaffirmed 2018)",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "design_loads",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.875.2.1987/is.875.2.1987.pdf",
+      "description": "Codified floor, roof, and occupancy live loads for residential, commercial, and industrial buildings.",
+      "file_size_bytes": 1103910,
+      "sha256": "d63b77eec05b19ce5089d7a0a084ebadae25c2593967f1680a08f4b7df48add8"
+    },
+    {
+      "code": "IS 1893 (Part 1):2016",
+      "title": "Criteria for Earthquake Resistant Design of Structures - Part 1: General Provisions and Buildings",
+      "filename": "is_1893_part_1_2016.pdf",
+      "edition": "Sixth Revision",
+      "amendments": [
+        "Amendment No. 1 (2017)",
+        "Amendment No. 2 (2020)"
+      ],
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "seismic_criteria",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.1893.1.2016/IS1893:Part1:2016.pdf",
+      "description": "Seismic zone factors (Z), importance factors (I), response reduction factors (R), and base shear.",
+      "file_size_bytes": 4527811,
+      "sha256": "b46eca6d221d3dd8c7b68010d5529608a585027b863ddc7cf95d41605a224e75"
+    },
+    {
+      "code": "IS 800:2007",
+      "title": "General Construction in Steel - Code of Practice",
+      "filename": "is_800_2007.pdf",
+      "edition": "Third Revision (Reaffirmed 2017)",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "structural_steel",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.800.2007/is.800.2007.pdf",
+      "description": "Limit state design of structural steel tension, compression, and flexural members and connections.",
+      "file_size_bytes": 11379693,
+      "sha256": "dbafc6ae4479e8e98d96e7f2c7a0e404c4458374b8bab288f43c054cae0aef47"
+    }
+  ],
+  "handbooks": [
+    {
+      "code": "SP:16:1980",
+      "title": "Design Aids for Reinforced Concrete to IS 456:1978",
+      "filename": "sp_16_1980.pdf",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "supplementary_handbook",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.sp.16.1980/is.sp.16.1980.pdf",
+      "description": "Design charts and tables for flexural moments, shear, and column P-M interaction.",
+      "file_size_bytes": 27708937,
+      "sha256": "d2a6246a5dc7504568f4e55f310dd4be9d925fb1a8b04b6d7f5132c93f66c76e"
+    },
+    {
+      "code": "SP:34:1987",
+      "title": "Handbook on Concrete Reinforcement and Detailing",
+      "filename": "sp_34_1987.pdf",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "supplementary_handbook",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.sp.34.1987/is.sp.34.1987.pdf",
+      "description": "Standard detailing conventions, bar bending schedules, hook lengths, and drafting rules.",
+      "file_size_bytes": 17172873,
+      "sha256": "d6ccc3ff3b3531057108fb4aa72b1ef463b5b88787bf9fe88d3b6e3412af2d68"
+    },
+    {
+      "code": "SP:24:1983",
+      "title": "Explanatory Handbook on Indian Standard Code of Practice for Plain and Reinforced Concrete (IS 456:1978)",
+      "filename": "sp_24_1983.pdf",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "explanatory_handbook",
+      "status": "cataloged",
+      "description": "Theoretical derivations, historical commentary, and clause-by-clause explanatory notes."
+    }
+  ]
+}

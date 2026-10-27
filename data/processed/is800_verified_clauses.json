@@ -1,0 +1,75 @@
+{
+  "standard": "IS 800:2007",
+  "title": "General Construction in Steel - Code of Practice (Third Revision)",
+  "reaffirmed": "2017",
+  "clauses": [
+    {
+      "clause_number": "5.4.1",
+      "title": "Partial Safety Factor for Materials (Table 5)",
+      "code": "IS 800:2007",
+      "content": "Partial safety factor for materials gamma_m: Resistance governed by yielding gamma_m0 = 1.10. Resistance governed by ultimate stress (buckling / rupture) gamma_m1 = 1.25. Resistance of connection: shop fabrication gamma_mf = 1.25, field fabrication gamma_mf = 1.50.",
+      "table_data": {
+        "gamma_m0": 1.10,
+        "gamma_m1": 1.25,
+        "gamma_mf_shop": 1.25,
+        "gamma_mf_field": 1.50
+      },
+      "tags": ["partial_safety_factor", "gamma_m0", "yield_strength", "ultimate_strength", "steel"]
+    },
+    {
+      "clause_number": "Table 3",
+      "title": "Maximum Slenderness Ratio (KL / r)",
+      "code": "IS 800:2007",
+      "content": "Maximum slenderness ratio lambda = KL / r: 1) A member carrying compressive loads resulting from dead loads and imposed loads = 180. 2) A member subjected to compression forces resulting from wind/earthquake loads = 250. 3) A member normally acting as a tie in a roof truss or a bracing system = 350. 4) Members always in tension = 400.",
+      "table_data": {
+        "Compression (DL + LL)": 180,
+        "Compression (Wind / Earthquake)": 250,
+        "Tie / Bracing": 350,
+        "Pure Tension": 400
+      },
+      "tags": ["slenderness_ratio", "kl_over_r", "buckling", "compression_limit", "effective_length"]
+    },
+    {
+      "clause_number": "7.1.2",
+      "title": "Design Compressive Strength (Pd)",
+      "code": "IS 800:2007",
+      "content": "The design compressive strength Pd of a member is given by: Pd = Ae * fcd, where Ae is effective sectional area and fcd is design compressive stress obtained from non-dimensional slenderness lambda and buckling curves a, b, c, d.",
+      "formula": "Pd = Ae * fcd",
+      "variables": {
+        "Pd": "Design axial compressive capacity (N)",
+        "Ae": "Effective sectional area (mm2)",
+        "fcd": "Design compressive stress (N/mm2)"
+      },
+      "tags": ["compression_strength", "column_capacity", "axial_load", "fcd", "buckling_curve"]
+    },
+    {
+      "clause_number": "8.2.1",
+      "title": "Design Bending Strength of Laterally Supported Beams (Md)",
+      "code": "IS 800:2007",
+      "content": "When laterally supported, the design bending strength Md is governed by plastic section modulus Zp: Md = beta_b * Zp * fy / gamma_m0 <= 1.2 * Ze * fy / gamma_m0 for simply supported beams, where beta_b = 1.0 for plastic/compact sections.",
+      "formula": "Md = beta_b * Zp * fy / gamma_m0",
+      "tags": ["flexural_strength", "moment_capacity", "plastic_modulus", "laterally_supported", "beam_bending"]
+    },
+    {
+      "clause_number": "8.4.1",
+      "title": "Design Shear Strength (Vd)",
+      "code": "IS 800:2007",
+      "content": "The design shear strength Vd of a web is given by: Vd = Vn / gamma_m0, where nominal shear capacity Vn = Vp = Av * fyw / sqrt(3). When design shear force V <= 0.6 Vd, there is no reduction in moment capacity.",
+      "formula": "Vd = (Av * fyw / sqrt(3)) / gamma_m0",
+      "tags": ["shear_capacity", "web_shear", "vn", "vd", "fy_over_sqrt3"]
+    },
+    {
+      "clause_number": "Table 6",
+      "title": "Deflection Limits for Structural Steelwork",
+      "code": "IS 800:2007",
+      "content": "Limiting vertical deflection for simply supported beams: Under live load alone = Span / 300 (general building), Span / 360 (plastered ceiling). For cantilever beams = Span / 150. For crane gantry girders = Span / 500 to Span / 1000.",
+      "table_data": {
+        "General Simply Supported Beam": "Span / 300",
+        "Plastered Ceiling Finish": "Span / 360",
+        "Cantilever": "Span / 150",
+        "Purlin / Girt": "Span / 180"
+      },
+      "tags": ["deflection_limits", "serviceability", "span_over_300", "purlin", "gantry"]
+    }
+  ]
+}

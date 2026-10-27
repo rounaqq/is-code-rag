@@ -1,0 +1,48 @@
+{
+  "code": "IS 875 (Part 2):1987",
+  "title": "Code of Practice for Design Loads (Other Than Earthquake) - Imposed Loads",
+  "clauses": [
+    {
+      "clause_number": "Table 1 (Item 1)",
+      "title": "Residential Buildings Imposed Loads",
+      "text": "Living rooms, bedrooms: 2.0 kN/m2. Kitchens, dining rooms: 2.0 kN/m2. Corridors, passages, staircases, store rooms: 3.0 kN/m2. Balconies: 3.0 kN/m2.",
+      "citation": "IS 875 (Part 2):1987 Table 1 Item 1",
+      "keywords": ["residential", "living room", "bedroom", "kitchen", "balcony", "corridor", "2.0 kN/m2", "3.0 kN/m2"]
+    },
+    {
+      "clause_number": "Table 1 (Item 2)",
+      "title": "Educational Buildings Imposed Loads",
+      "text": "Classrooms and lecture rooms: 3.0 kN/m2. Dining rooms, cafeterias: 3.0 kN/m2. Assembly halls with fixed seats: 4.0 kN/m2; without fixed seats: 5.0 kN/m2. Library reading rooms: 3.0 to 4.0 kN/m2; Book stacks: 6.0 to 10.0 kN/m2.",
+      "citation": "IS 875 (Part 2):1987 Table 1 Item 2",
+      "keywords": ["educational", "school", "classroom", "lecture room", "library", "3.0 kN/m2", "book stack", "assembly hall"]
+    },
+    {
+      "clause_number": "Table 1 (Item 3)",
+      "title": "Institutional & Hospital Buildings Imposed Loads",
+      "text": "Bedrooms, wards: 2.0 kN/m2. Dressing rooms, consultation rooms: 2.5 kN/m2. Operating theatres, ICU, X-ray rooms: 3.0 kN/m2. Corridors, waiting areas: 4.0 kN/m2.",
+      "citation": "IS 875 (Part 2):1987 Table 1 Item 3",
+      "keywords": ["hospital", "institutional", "ward", "ICU", "operating theatre", "consultation", "2.0 kN/m2", "3.0 kN/m2"]
+    },
+    {
+      "clause_number": "Table 1 (Item 4)",
+      "title": "Office Buildings Imposed Loads",
+      "text": "General offices: 2.5 kN/m2. Office entrance halls and banking halls: 3.0 kN/m2. Office rooms with storage/filing: 4.0 kN/m2. Vaults and strong rooms: 5.0 kN/m2.",
+      "citation": "IS 875 (Part 2):1987 Table 1 Item 4",
+      "keywords": ["office", "general office", "banking hall", "filing", "storage", "vault", "2.5 kN/m2", "3.0 kN/m2"]
+    },
+    {
+      "clause_number": "Table 1 (Item 5)",
+      "title": "Mercantile & Commercial Buildings Imposed Loads",
+      "text": "Retail shops and department stores: 4.0 kN/m2. Wholesale shops and showrooms: 5.0 kN/m2. Storage and warehouses: 5.0 to 10.0 kN/m2 based on stacking height.",
+      "citation": "IS 875 (Part 2):1987 Table 1 Item 5",
+      "keywords": ["mercantile", "commercial", "retail shop", "showroom", "department store", "warehouse", "4.0 kN/m2", "5.0 kN/m2"]
+    },
+    {
+      "clause_number": "3.2",
+      "title": "Reduction in Imposed Loads for Multi-Storey Columns",
+      "text": "For columns supporting more than one floor in multi-storey buildings, imposed load reduction factor: 1 floor = 0%, 2 floors = 10%, 3 floors = 20%, 4 floors = 30%, 5 to 10 floors = 40%, over 10 floors = 50% maximum reduction.",
+      "citation": "IS 875 (Part 2):1987 Cl. 3.2",
+      "keywords": ["reduction", "multi-storey", "columns", "floors", "10 percent", "50 percent maximum"]
+    }
+  ]
+}
