@@ -214,42 +214,58 @@
 
 ---
 
-## Part 3: What We Have NOT Done Till Now (The 6 Boundaries)
+## Part 3: Scope & Boundaries (Phase 1 vs Phase 2 Pillar 1)
 
-If your manager asks about limitations, give them these 6 clear boundaries:
-1. **Beams Only**: We do not size columns, slabs, footings, or retaining walls.
-2. **Singly Reinforced Only**: We design tension rebar at the bottom; we do not auto-size T-beams or doubly reinforced beams.
-3. **IS 456 Only**: We support the concrete code, not steel codes (IS 800) or earthquake detailing (IS 13920).
-4. **DXF Output Only**: We export standard vector `.dxf`, not proprietary binary `.dwg`.
-5. **No AI Math**: AI is strictly forbidden from doing calculations.
-6. **No Rebar Lap Length Calculation**: Site lap lengths (Cl. 26.2) must be specified by the site engineer.
+If your manager asks about what was expanded in **Phase 2 (Pillar 1)** vs current boundaries:
+1. **Full Building Superstructure & Foundation (Pillar 1 Delivered)**:
+   - **Beams** (IS 456 Cl. 26.5.1, Annex G flexure, Cl. 40 shear).
+   - **Columns** (IS 456 Cl. 39 axial loads, Cl. 26.5.3 longitudinal rebar & lateral confinement ties).
+   - **Floor Slabs** (IS 456 Cl. 24 one-way/two-way, Cl. 26.5.2 mesh reinforcement, Cl. 23.2 deflection).
+   - **Isolated Footings** (IS 456 Cl. 34 soil bearing area, Cl. 31.6.3 two-way punching shear, one-way beam shear, and bottom steel mesh).
+2. **Current Remaining Boundaries (Future Pillars)**:
+   - *Seismic Ductile Detailing*: IS 13920:2016 ductile ties at beam-column joints is part of Pillar 2.
+   - *Structural Steel*: IS 800 steel I-beams and trusses are part of Pillar 2.
+   - *Automated Bar Bending Schedule (BBS)*: Excel rebar cutting list is part of Pillar 3.
+   - *DXF Output Format*: Standard vector `.dxf` (readable by any CAD software).
+   - *Deterministic Engineering Math*: AI is strictly forbidden from inventing formulas or rebar numbers.
 
 ---
 
 ## Part 4: How to Test and Run the Project in Front of Your Manager
 
-Open your PowerShell terminal and run these exact 4 commands to demonstrate the project live:
+Open your PowerShell terminal and run these commands to demonstrate the project live:
 
-### 1. Show the 134 Automated Tests Passing
+### 1. Show the 178 Automated Tests Passing (100% Green)
 ```powershell
-.venv\Scripts\python -m pytest
+.venv\Scripts\python -m pytest tests/
 ```
-*What happens: In ~2 minutes, it runs all 134 tests across 20 test files and shows `134 passed, 0 failed` in green.*
+*What happens: Runs all 178 tests across 24 test files (beams, columns, slabs, footings, CAD, and API endpoints) and shows `178 passed` in green.*
 
-### 2. Run the Step 9 Benchmark Evaluation Suite
+### 2. Sizing & 2D CAD Blueprint Generation Live
+
+#### A. Generate an RC Beam Blueprint (5m span):
 ```powershell
-.venv\Scripts\python -m src.evaluation.run_step9_master_eval
+.venv\Scripts\python -c "from src.cad.beam_dxf import export_dxf_from_loads; res = export_dxf_from_loads(span_m=5.0, dead_load_kN_per_m=12.0, live_load_kN_per_m=8.0, fck=25, fy=415, exposure='moderate', output_path='data/processed/cad/sample_beam.dxf'); print('Beam DXF Created:', res['dxf_path'])"
 ```
-*What happens: Evaluates all 4 pillars, tests the 19 search queries (100% recall), checks the 4 hand calculations, sizes 5 real-world buildings, and prints the summary report.*
 
-### 3. Generate a 2D AutoCAD Blueprint Live
+#### B. Generate an RC Column Blueprint (1000 kN axial load):
 ```powershell
-.venv\Scripts\python -c "from src.cad.beam_dxf import export_dxf_from_loads; res = export_dxf_from_loads(span_m=5.0, dead_load_kN_per_m=12.0, live_load_kN_per_m=8.0, fck=25, fy=415, exposure='moderate', output_path='data/processed/cad/sample_beam.dxf'); print('DXF Created at:', res['dxf_path']); print('Beam Size:', res['sizing']['section_dimensions'])"
+.venv\Scripts\python -c "from src.generation.column_sizing import size_column_from_load; from src.cad.column_dxf import export_column_dxf; res = size_column_from_load(axial_load_kN=1000.0); export_column_dxf(res['design_dict'], 'data/processed/cad/sample_column.dxf'); print('Column DXF Created at: data/processed/cad/sample_column.dxf')"
 ```
-*What happens: In ~20 milliseconds, it calculates a 5-meter beam and generates `data/processed/cad/sample_beam.dxf` stamped as DRAFT.*
 
-### 4. Start the Web API Server & Show the Interactive UI
+#### C. Generate a Floor Slab Blueprint (3.0m x 4.5m panel):
+```powershell
+.venv\Scripts\python -c "from src.generation.slab_sizing import size_slab_from_loads; from src.cad.slab_dxf import export_slab_dxf; res = size_slab_from_loads(lx_m=3.0, ly_m=4.5, live_load_kN_m2=3.0); export_slab_dxf(res['design_dict'], 'data/processed/cad/sample_slab.dxf'); print('Slab DXF Created at: data/processed/cad/sample_slab.dxf')"
+```
+
+#### D. Generate an Isolated Footing Blueprint (1000 kN on soil SBC=200):
+```powershell
+.venv\Scripts\python -c "from src.generation.footing_sizing import size_footing_from_load; from src.cad.footing_dxf import export_footing_dxf; res = size_footing_from_load(axial_load_kN=1000.0, sbc_kN_m2=200.0); export_footing_dxf(res['design_dict'], 'data/processed/cad/sample_footing.dxf'); print('Footing DXF Created at: data/processed/cad/sample_footing.dxf')"
+```
+
+### 3. Start the Web API Server & Show the Interactive Swagger UI
 ```powershell
 .venv\Scripts\python -m uvicorn src.api.main:app --port 8000
 ```
-*What happens: Starts the FastAPI server at `http://localhost:8000`. You can open your browser to `http://localhost:8000/docs` to show your manager the interactive Swagger web interface where you can test the endpoints live.*
+*What happens: Starts the FastAPI server at `http://localhost:8000`. You can open your browser to `http://localhost:8000/docs` to show your manager the interactive Swagger web interface with live endpoints for Beams, Columns, Slabs, and Footings.*
+
