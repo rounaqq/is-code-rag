@@ -1,0 +1,28 @@
+{
+  "standard": "IS 456:2000",
+  "clause_number": "39.3",
+  "title": "Short Axially Loaded Members with Minimum Eccentricity",
+  "section": "Section 5: Structural Design (Limit State Method)",
+  "sub_clauses": [
+    {
+      "clause_number": "39.1",
+      "title": "General",
+      "text": "All members in compression shall be designed for the minimum eccentricity specified in 25.4. Where the minimum eccentricity as given in 25.4 does not exceed 0.05 times the lateral dimension, the member may be designed by the following equation: Pu = 0.4 * fck * Ac + 0.67 * fy * Asc.",
+      "formula": "Pu = 0.4*fck*Ac + 0.67*fy*Asc"
+    },
+    {
+      "clause_number": "39.3",
+      "title": "Short Axially Loaded Compression Members",
+      "text": "The member shall be designed for an axial load Pu given by: Pu = 0.4 * fck * Ac + 0.67 * fy * Asc, where Pu is factored axial load, fck is characteristic compressive strength of concrete, Ac is area of concrete (Ag - Asc), fy is characteristic strength of compression reinforcement, and Asc is area of longitudinal reinforcement for columns.",
+      "formula": "Pu = 0.4*fck*(Ag - Asc) + 0.67*fy*Asc"
+    },
+    {
+      "clause_number": "25.4",
+      "title": "Minimum Eccentricity",
+      "text": "All columns shall be designed for minimum eccentricity, equal to the unsupported length of column/500 plus lateral dimensions/30, subject to a minimum of 20 mm. Where bi-axial bending is considered, it is sufficient to ensure that eccentricity exceeds the minimum about one axis at a time.",
+      "formula": "emin = max(L/500 + D/30, 20 mm)"
+    }
+  ],
+  "citation": "IS 456:2000, Clause 39.3, Page 71",
+  "verified": true
+}

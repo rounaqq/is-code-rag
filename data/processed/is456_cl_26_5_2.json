@@ -1,0 +1,23 @@
+{
+  "clause_number": "26.5.2",
+  "clause_title": "Requirements of Reinforcement for Slabs",
+  "code": "IS 456:2000",
+  "section": "Section 4 - Special Design Requirements for Structural Members and Systems",
+  "subclauses": [
+    {
+      "subclause_number": "26.5.2.1",
+      "title": "Minimum Reinforcement",
+      "text": "The mild steel reinforcement in either direction in slabs shall not be less than 0.15 percent of the total cross-sectional area. However, this value may be reduced to 0.12 percent when high strength deformed bars (HYSD / Fe 415 / Fe 500) or welded wire fabric are used."
+    },
+    {
+      "subclause_number": "26.5.2.2",
+      "title": "Maximum Diameter and Spacing",
+      "text": "The diameter of reinforcing bars shall not exceed one-eighth of the total thickness of the slab (phi <= D / 8). The horizontal pitch of the bars shall not exceed three times the effective depth of such slab or 300 mm, whichever is smaller (s <= min(3d, 300 mm)) for main tensile reinforcement. For distribution and temperature reinforcement, the pitch of the bars shall not exceed five times the effective depth of such slab or 450 mm, whichever is smaller (s <= min(5d, 450 mm))."
+    }
+  ],
+  "verification": {
+    "verified_by_human": true,
+    "source_edition": "IS 456:2000 Fourth Revision (Reaffirmed 2021)",
+    "verification_notes": "Digitized from Section 4 Clause 26.5.2 for slab minimum steel, maximum bar diameter, and maximum spacing limits."
+  }
+}

@@ -146,3 +146,114 @@ def test_design_assistant_empty_body_returns_422(client):
     )
     assert response.status_code == 422
 
+
+def test_column_review_endpoint_success(client):
+    """POST /v1/design/column/review calculates column and returns 200 OK."""
+    response = client.post(
+        "/v1/design/column/review",
+        json={"axial_load_kN": 1000.0, "length_m": 3.0, "fck": 25.0, "fy": 500.0},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert data["section_dimensions"] == "400x400 mm"
+    assert data["design_dict"]["rebar_selected"]["bar_count"] in [4, 6, 8]
+
+
+def test_column_review_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized."""
+    response = client.post(
+        "/v1/design/column/review",
+        json={"axial_load_kN": 1000.0},
+    )
+    assert response.status_code == 401
+
+
+def test_column_dxf_endpoint_success(client):
+    """POST /v1/design/column/dxf generates column DXF drawing."""
+    response = client.post(
+        "/v1/design/column/dxf",
+        json={"axial_load_kN": 1000.0, "output_filename": "api_test_column.dxf"},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "api_test_column.dxf" in data["dxf_path"]
+
+
+def test_slab_review_endpoint_success(client):
+    """POST /v1/design/slab/review calculates slab and returns 200 OK."""
+    response = client.post(
+        "/v1/design/slab/review",
+        json={"lx_m": 2.5, "ly_m": 6.0, "live_load_kN_m2": 3.0, "fck": 25.0, "fy": 500.0},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert data["slab_type"] == "one_way"
+    assert "T" in data["main_reinforcement"]
+
+
+def test_slab_review_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized for slab endpoint."""
+    response = client.post(
+        "/v1/design/slab/review",
+        json={"lx_m": 2.5, "ly_m": 5.0, "live_load_kN_m2": 3.0},
+    )
+    assert response.status_code == 401
+
+
+def test_slab_dxf_endpoint_success(client):
+    """POST /v1/design/slab/dxf generates slab CAD drawing."""
+    response = client.post(
+        "/v1/design/slab/dxf",
+        json={"lx_m": 2.5, "ly_m": 5.0, "live_load_kN_m2": 3.0, "output_filename": "api_test_slab.dxf"},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "api_test_slab.dxf" in data["dxf_path"]
+
+
+def test_footing_review_endpoint_success(client):
+    """POST /v1/design/footing/review calculates footing and returns 200 OK."""
+    response = client.post(
+        "/v1/design/footing/review",
+        json={"axial_load_kN": 1000.0, "sbc_kN_m2": 200.0, "fck": 25.0, "fy": 500.0},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "mm" in data["plan_dimensions"]
+    assert "T" in data["reinforcement_both_ways"]
+
+
+def test_footing_review_endpoint_unauthorized(client):
+    """Missing API key returns 401 Unauthorized for footing endpoint."""
+    response = client.post(
+        "/v1/design/footing/review",
+        json={"axial_load_kN": 1000.0},
+    )
+    assert response.status_code == 401
+
+
+def test_footing_dxf_endpoint_success(client):
+    """POST /v1/design/footing/dxf generates footing CAD drawing."""
+    response = client.post(
+        "/v1/design/footing/dxf",
+        json={"axial_load_kN": 1000.0, "sbc_kN_m2": 200.0, "output_filename": "api_test_footing.dxf"},
+        headers={"X-API-Key": TEST_SECRET_KEY},
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "api_test_footing.dxf" in data["dxf_path"]
+
+
+
+

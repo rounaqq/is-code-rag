@@ -1,0 +1,28 @@
+{
+  "clause_number": "24",
+  "clause_title": "Solid Slabs",
+  "code": "IS 456:2000",
+  "section": "Section 3 - General Design Requirements",
+  "subclauses": [
+    {
+      "subclause_number": "24.1",
+      "title": "General",
+      "text": "The rules given in 24.2 to 24.5 shall apply to slabs of uniform thickness. Slabs spanning in two directions may be designed using any acceptable theory. The effective span shall be determined as in 22.2."
+    },
+    {
+      "subclause_number": "24.2",
+      "title": "Slabs Spanning in Two Directions",
+      "text": "When the ratio of the longer span (Ly) to the shorter span (Lx) is greater than 2.0 (Ly/Lx > 2.0), the slab is designed as spanning in one direction (one-way slab) across the shorter span Lx. When Ly/Lx <= 2.0, the slab is designed as spanning in two directions (two-way slab)."
+    },
+    {
+      "subclause_number": "24.4",
+      "title": "Loads on Supporting Beams",
+      "text": "The loads on beams supporting solid slabs spanning in two directions at right angles and supporting uniformly distributed loads may be assumed to be in accordance with the triangular and trapezoidal distributions."
+    }
+  ],
+  "verification": {
+    "verified_by_human": true,
+    "source_edition": "IS 456:2000 Fourth Revision (Reaffirmed 2021)",
+    "verification_notes": "Digitized from Section 3 Clause 24 for solid one-way and two-way slabs."
+  }
+}

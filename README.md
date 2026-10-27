@@ -235,8 +235,12 @@ IS-Code-Rag/
 ├── src/
 │   ├── api/                          # FastAPI service, security & audit logging
 │   │   └── main.py
-│   ├── cad/                          # 2D CAD DXF generator (ezdxf)
-│   │   └── beam_dxf.py
+│   ├── cad/                          # 2D CAD DXF drafting engines (ezdxf)
+│   │   ├── beam_dxf.py
+│   │   ├── column_dxf.py
+│   │   ├── slab_dxf.py
+│   │   ├── footing_dxf.py
+│   │   └── engineer_review.py
 │   ├── chunking/                     # Chunk compiler & Pydantic schema
 │   │   ├── build_chunks.py
 │   │   └── schema.py
@@ -245,9 +249,13 @@ IS-Code-Rag/
 │   │   ├── run_design_eval.py
 │   │   ├── run_hybrid_eval.py
 │   │   ├── run_rerank_eval.py
-│   │   └── run_retrieval_eval.py
-│   ├── generation/                   # Sizing algorithms & design proposal logic
+│   │   ├── run_retrieval_eval.py
+│   │   └── run_step9_master_eval.py
+│   ├── generation/                   # Sizing algorithms & design engines
 │   │   ├── beam_sizing.py
+│   │   ├── column_sizing.py
+│   │   ├── slab_sizing.py
+│   │   ├── footing_sizing.py
 │   │   ├── design_proposal.py
 │   │   └── design_validation.py
 │   ├── ingestion/                    # PDF extraction & verification tools
@@ -261,11 +269,58 @@ IS-Code-Rag/
 │       ├── is456_checks.py
 │       ├── is456_flexure.py
 │       └── is456_shear.py
-└── tests/                            # 93 automated pytest unit & integration tests
+└── tests/                            # 178 automated pytest unit & integration tests
 ```
+
+---
+
+## Phase 2 (Pillar 1): Full Building Frame Members
+
+Phase 2 expands the proven deterministic 5-stage architecture beyond horizontal beams to deliver complete building superstructure and foundation design:
+
+```
+[ Floor Slabs ]  (IS 456 Cl. 24 & 26.5.2)  --> Dead & Live Gravity Loads
+       │
+       ▼
+  [ RC Beams ]   (IS 456 Cl. 26.5.1, Annex G) --> Transfer Moments & Shears
+       │
+       ▼
+ [ RC Columns ]  (IS 456 Cl. 39 & 26.5.3)  --> Axial Compression & Lateral Ties
+       │
+       ▼
+ [ RC Footings ] (IS 456 Cl. 34 & 31.6.3)  --> Punching Shear & Soil Bearing
+       │
+       ▼
+   [ Ground ]    (Safe Soil Bearing Capacity)
+```
+
+### 1. Reinforced Concrete Columns (IS 456 Cl. 39 & Cl. 26.5.3)
+- **Axial Compression**: Factored capacity $P_u = 0.4 f_{ck} A_c + 0.67 f_y A_{sc}$ (Cl. 39.3).
+- **Slenderness Ratio**: Verified $L_{eff}/D < 12$ and $L_{eff}/b < 12$ for short column behavior (Cl. 25.1.2).
+- **Minimum Eccentricity**: Calculated $e_{min} = \max(L/500 + D/30, 20\text{ mm}) \le 0.05 D$ (Cl. 25.4 & 39.1).
+- **Longitudinal Steel**: Codified envelope $0.8\% \le p_c \le 4.0\%$ with minimum 4 bars ($\phi \ge 12\text{ mm}$) (Cl. 26.5.3.1).
+- **Lateral Confinement Ties**: Diameter $\ge \max(\phi_{max}/4, 6\text{ mm})$, pitch $\le \min(b, 16\phi_{min}, 300\text{ mm})$ (Cl. 26.5.3.2).
+- **AutoCAD DXF & API**: `POST /v1/design/column/review` and `POST /v1/design/column/dxf`.
+
+### 2. Reinforced Concrete Floor Slabs (IS 456 Cl. 24 & Cl. 26.5.2)
+- **Classification**: Aspect ratio $L_y / L_x > 2.0 \implies$ One-Way Slab; $L_y / L_x \le 2.0 \implies$ Two-Way Slab (Cl. 24.2).
+- **Deflection Control**: Span-to-effective-depth ratio $L/d \le (L/d)_{basic} \times F_t$ (Cl. 23.2.1).
+- **Bending Moments**: One-way flexure $M_u = w_u L^2 / 8$; Two-way flexure using Table 27 coefficients ($\alpha_x, \alpha_y$).
+- **Reinforcement Detailing**: Minimum steel $0.12\% b D$ (Fe 415/500), maximum diameter $\le D/8$, main bar pitch $\le \min(3d, 300\text{ mm})$, distribution bar pitch $\le \min(5d, 450\text{ mm})$ (Cl. 26.5.2).
+- **Shear Safety**: Solid slab shear capacity $k \tau_c$ verified without stirrups (Cl. 40.2.1.1).
+- **AutoCAD DXF & API**: `POST /v1/design/slab/review` and `POST /v1/design/slab/dxf`.
+
+### 3. Reinforced Concrete Isolated Footings (IS 456 Cl. 34)
+- **Base Plan Area**: $A \ge 1.10 P / q_a$ including 10% self-weight allowance against Safe Bearing Capacity (Cl. 34.1.2).
+- **Two-Way Punching Shear**: Critical perimeter at $d/2$ from column face, $\tau_v \le k_s (0.25 \sqrt{f_{ck}})$ (Cl. 31.6.3 & Cl. 34.2.4.1).
+- **One-Way Beam Shear**: Critical section at $d$ from column face, $\tau_v \le \tau_c$ (Cl. 34.2.4.1 & Table 19).
+- **Flexural Reinforcement**: Bending moment at column face $M_u = q_u B a^2 / 2$ with bottom rebar mesh in both directions (Cl. 34.2.3 & 34.3.1).
+- **Edge Thickness & Cover**: Minimum edge thickness $\ge 150\text{ mm}$ (Cl. 34.1.3), nominal cover $\ge 50\text{ mm}$ (Table 16).
+- **AutoCAD DXF & API**: `POST /v1/design/footing/review` and `POST /v1/design/footing/dxf`.
 
 ---
 
 ## Structural Engineering Disclaimer
 
 > **IMPORTANT**: The design calculations, automated checks, and CAD drawings produced by this software are self-consistency checks and arithmetic re-checks based on codified rules in IS 456:2000. These results do not constitute an independent validation. A licensed structural engineer must review and approve all designs before construction.
+

@@ -1,0 +1,52 @@
+{
+  "standard": "IS 456:2000",
+  "clause_number": "26.5.3",
+  "title": "Columns - Longitudinal and Transverse Reinforcement",
+  "section": "Section 4: Special Design Requirements for Structural Members and Systems",
+  "sub_clauses": [
+    {
+      "clause_number": "26.5.3.1(a)",
+      "title": "Minimum and Maximum Longitudinal Reinforcement",
+      "text": "The cross-sectional area of longitudinal reinforcement shall be not less than 0.8 percent nor more than 6 percent of the gross cross-sectional area of the column. NOTE - Where bars from the column below have to be lapped with those in the column, the percentage of steel should usually not exceed 4 percent.",
+      "formula": "0.008 * Ag <= Asc <= 0.04 * Ag"
+    },
+    {
+      "clause_number": "26.5.3.1(c)",
+      "title": "Minimum Number of Bars",
+      "text": "The minimum number of longitudinal bars provided in a column shall be four in rectangular columns and six in circular columns.",
+      "formula": "num_bars >= 4"
+    },
+    {
+      "clause_number": "26.5.3.1(d)",
+      "title": "Minimum Bar Diameter",
+      "text": "The bars shall not be less than 12 mm in diameter.",
+      "formula": "phi_bar >= 12 mm"
+    },
+    {
+      "clause_number": "26.5.3.1(g)",
+      "title": "Spacing of Longitudinal Bars",
+      "text": "The spacing of longitudinal bars measured along the periphery of the column shall not exceed 300 mm.",
+      "formula": "spacing_periphery <= 300 mm"
+    },
+    {
+      "clause_number": "26.5.3.2(c)(1)",
+      "title": "Pitch of Lateral Ties",
+      "text": "The pitch of transverse reinforcement shall be not more than the least of: i) The least lateral dimension of the compression member; ii) Sixteen times the smallest diameter of the longitudinal bar; and iii) 300 mm.",
+      "formula": "pitch <= min(least_lateral_dim, 16 * phi_min, 300 mm)"
+    },
+    {
+      "clause_number": "26.5.3.2(c)(2)",
+      "title": "Diameter of Lateral Ties",
+      "text": "The diameter of the polygonal links or lateral ties shall be not less than one-fourth of the diameter of the largest longitudinal bar, and in no case less than 6 mm.",
+      "formula": "phi_tie >= max(phi_max / 4, 6 mm)"
+    },
+    {
+      "clause_number": "26.4.2.1",
+      "title": "Nominal Cover for Columns",
+      "text": "For a longitudinal reinforcing bar in a column, nominal cover shall in any case not be less than 40 mm, or less than the diameter of such bar. In the case of columns of minimum dimension of 200 mm or under, whose reinforcing bars do not exceed 12 mm, a nominal cover of 25 mm may be used.",
+      "formula": "cover >= 40 mm"
+    }
+  ],
+  "citation": "IS 456:2000, Clause 26.5.3, Pages 48-49",
+  "verified": true
+}

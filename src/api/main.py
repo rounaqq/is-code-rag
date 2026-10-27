@@ -19,7 +19,13 @@ from pydantic import BaseModel, Field
 from src.retrieval.pipeline import retrieve
 from src.generation.design_assistant import design_beam_assistant, BASE_DISCLAIMER
 from src.generation.beam_sizing import size_beam_from_loads
+from src.generation.column_sizing import size_column_from_load
+from src.generation.slab_sizing import size_slab_from_loads
+from src.generation.footing_sizing import size_footing_from_load
 from src.cad.beam_dxf import export_dxf_from_design
+from src.cad.column_dxf import export_column_dxf
+from src.cad.slab_dxf import export_slab_dxf
+from src.cad.footing_dxf import export_footing_dxf
 from src.cad.engineer_review import (
     generate_review_report,
     apply_engineer_overrides,
@@ -445,5 +451,337 @@ def design_dxf_endpoint(req: DesignDxfRequest, key_name: str = Depends(verify_ap
         "is456_citations": dxf_result.get("is456_citations"),
         "validation": dxf_result.get("validation"),
     }
+
+
+class ColumnReviewRequest(BaseModel):
+    axial_load_kN: float = Field(..., gt=0, description="Service axial load in kN (unfactored)")
+    length_m: Optional[float] = Field(3.0, gt=0, description="Unsupported column length in meters (default 3.0)")
+    b_mm: Optional[float] = Field(None, gt=0, description="Column width in mm (optional, auto-sized if null)")
+    D_mm: Optional[float] = Field(None, gt=0, description="Column depth in mm (optional, auto-sized if null)")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2 (default 25.0)")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2 (default 500.0)")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition (default Moderate)")
+
+
+@app.post("/v1/design/column/review")
+def design_column_review_endpoint(req: ColumnReviewRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Column Design & Sizing endpoint.
+    Computes short axial columns with minimum eccentricity, rebar selection, and lateral ties.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_column_from_load(
+        axial_load_kN=req.axial_load_kN,
+        length_m=req.length_m or 3.0,
+        b_mm=req.b_mm,
+        D_mm=req.D_mm,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+        exposure=req.exposure or "Moderate",
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_column_review axial={req.axial_load_kN}kN",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return sizing_res
+
+
+class ColumnDxfRequest(BaseModel):
+    axial_load_kN: float = Field(..., gt=0, description="Service axial load in kN")
+    length_m: Optional[float] = Field(3.0, gt=0, description="Unsupported column length in meters")
+    b_mm: Optional[float] = Field(None, gt=0, description="Column width in mm")
+    D_mm: Optional[float] = Field(None, gt=0, description="Column depth in mm")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition")
+    output_filename: Optional[str] = Field("column_design.dxf", description="Output DXF filename")
+
+
+@app.post("/v1/design/column/dxf")
+def design_column_dxf_endpoint(req: ColumnDxfRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Column 2D CAD DXF Export endpoint.
+    Computes column design, generates 2D AutoCAD blueprint with cross-section, elevation, and ties.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_column_from_load(
+        axial_load_kN=req.axial_load_kN,
+        length_m=req.length_m or 3.0,
+        b_mm=req.b_mm,
+        D_mm=req.D_mm,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+        exposure=req.exposure or "Moderate",
+    )
+    if sizing_res.get("status") == "needs_review":
+        latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+        log_audit_event(
+            key_name=key_name,
+            query=f"design_column_dxf needs_review axial={req.axial_load_kN}kN",
+            k=0,
+            returned_chunk_ids=[],
+            rerank_scores=[],
+            latency_ms=latency_ms,
+            status_code=200,
+        )
+        return sizing_res
+
+    cad_dir = Path("data/processed/cad")
+    cad_dir.mkdir(parents=True, exist_ok=True)
+    filename = Path(req.output_filename or "column_design.dxf").name
+    out_path = cad_dir / filename
+
+    dxf_result = export_column_dxf(
+        design=sizing_res["design_dict"],
+        output_path=str(out_path),
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_column_dxf output={filename}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return {
+        "status": dxf_result["status"],
+        "dxf_path": dxf_result["dxf_path"],
+        "section_dimensions": dxf_result["section_dimensions"],
+        "rebar": dxf_result["rebar"],
+        "ties": dxf_result["ties"],
+        "approval_status": dxf_result["approval_status"],
+    }
+
+
+class SlabReviewRequest(BaseModel):
+    lx_m: float = Field(..., gt=0, description="Shorter slab span in meters")
+    ly_m: float = Field(..., gt=0, description="Longer slab span in meters")
+    live_load_kN_m2: float = Field(..., gt=0, description="Service live/imposed load in kN/m2")
+    floor_finish_kN_m2: Optional[float] = Field(1.0, ge=0, description="Floor finish load in kN/m2 (default 1.0)")
+    support_width_mm: Optional[float] = Field(230.0, gt=0, description="Width of supporting wall/beam in mm (default 230.0)")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2 (default 25.0)")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2 (default 500.0)")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition (default Moderate)")
+    support_condition: Optional[str] = Field("simply_supported", description="Support condition: simply_supported or continuous")
+
+
+@app.post("/v1/design/slab/review")
+def design_slab_review_endpoint(req: SlabReviewRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Slab Design & Sizing endpoint.
+    Computes one-way or two-way slab thickness, deflection limits, flexural steel, and spacing checks.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_slab_from_loads(
+        lx_m=req.lx_m,
+        ly_m=req.ly_m,
+        live_load_kN_m2=req.live_load_kN_m2,
+        floor_finish_kN_m2=req.floor_finish_kN_m2 or 1.0,
+        support_width_mm=req.support_width_mm or 230.0,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+        exposure=req.exposure or "Moderate",
+        support_condition=req.support_condition or "simply_supported",
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_slab_review lx={req.lx_m}m ly={req.ly_m}m LL={req.live_load_kN_m2}kN/m2",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return sizing_res
+
+
+class SlabDxfRequest(BaseModel):
+    lx_m: float = Field(..., gt=0, description="Shorter slab span in meters")
+    ly_m: float = Field(..., gt=0, description="Longer slab span in meters")
+    live_load_kN_m2: float = Field(..., gt=0, description="Service live/imposed load in kN/m2")
+    floor_finish_kN_m2: Optional[float] = Field(1.0, ge=0, description="Floor finish load in kN/m2")
+    support_width_mm: Optional[float] = Field(230.0, gt=0, description="Width of supporting wall/beam in mm")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2")
+    exposure: Optional[str] = Field("Moderate", description="Environmental exposure condition")
+    support_condition: Optional[str] = Field("simply_supported", description="Support condition")
+    output_filename: Optional[str] = Field("slab_design.dxf", description="Output DXF filename")
+
+
+@app.post("/v1/design/slab/dxf")
+def design_slab_dxf_endpoint(req: SlabDxfRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Slab 2D CAD DXF Export endpoint.
+    Computes slab design and generates 2D AutoCAD blueprint with cross-section, plan layout, and title block.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_slab_from_loads(
+        lx_m=req.lx_m,
+        ly_m=req.ly_m,
+        live_load_kN_m2=req.live_load_kN_m2,
+        floor_finish_kN_m2=req.floor_finish_kN_m2 or 1.0,
+        support_width_mm=req.support_width_mm or 230.0,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+        exposure=req.exposure or "Moderate",
+        support_condition=req.support_condition or "simply_supported",
+    )
+    if sizing_res.get("status") == "needs_review":
+        latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+        log_audit_event(
+            key_name=key_name,
+            query=f"design_slab_dxf needs_review lx={req.lx_m}m ly={req.ly_m}m",
+            k=0,
+            returned_chunk_ids=[],
+            rerank_scores=[],
+            latency_ms=latency_ms,
+            status_code=200,
+        )
+        return sizing_res
+
+    cad_dir = Path("data/processed/cad")
+    cad_dir.mkdir(parents=True, exist_ok=True)
+    filename = Path(req.output_filename or "slab_design.dxf").name
+    out_path = cad_dir / filename
+
+    dxf_result = export_slab_dxf(
+        design=sizing_res["design_dict"],
+        output_path=str(out_path),
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_slab_dxf output={filename}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return {
+        "status": dxf_result["status"],
+        "dxf_path": dxf_result["dxf_path"],
+        "slab_type": dxf_result["slab_type"],
+        "dimensions": dxf_result["dimensions"],
+        "main_reinforcement": dxf_result["main_reinforcement"],
+        "transverse_reinforcement": dxf_result["transverse_reinforcement"],
+        "approval_status": dxf_result["approval_status"],
+    }
+
+
+class FootingReviewRequest(BaseModel):
+    axial_load_kN: float = Field(..., gt=0, description="Column service axial load in kN (unfactored)")
+    sbc_kN_m2: Optional[float] = Field(200.0, gt=0, description="Soil safe bearing capacity in kN/m2 (default 200.0)")
+    col_b_mm: Optional[float] = Field(400.0, gt=0, description="Column width in mm (default 400.0)")
+    col_D_mm: Optional[float] = Field(400.0, gt=0, description="Column depth in mm (default 400.0)")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2 (default 25.0)")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2 (default 500.0)")
+
+
+@app.post("/v1/design/footing/review")
+def design_footing_review_endpoint(req: FootingReviewRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Isolated Footing Design & Sizing endpoint.
+    Computes plan dimensions (B x L), depth for punching shear, flexural steel mesh, and soil checks.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_footing_from_load(
+        axial_load_kN=req.axial_load_kN,
+        sbc_kN_m2=req.sbc_kN_m2 or 200.0,
+        col_b_mm=req.col_b_mm or 400.0,
+        col_D_mm=req.col_D_mm or 400.0,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_footing_review axial={req.axial_load_kN}kN sbc={req.sbc_kN_m2}kN/m2",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return sizing_res
+
+
+class FootingDxfRequest(BaseModel):
+    axial_load_kN: float = Field(..., gt=0, description="Column service axial load in kN")
+    sbc_kN_m2: Optional[float] = Field(200.0, gt=0, description="Soil safe bearing capacity in kN/m2")
+    col_b_mm: Optional[float] = Field(400.0, gt=0, description="Column width in mm")
+    col_D_mm: Optional[float] = Field(400.0, gt=0, description="Column depth in mm")
+    fck: Optional[float] = Field(25.0, description="Concrete compressive strength in N/mm2")
+    fy: Optional[float] = Field(500.0, description="Steel yield strength in N/mm2")
+    output_filename: Optional[str] = Field("footing_design.dxf", description="Output DXF filename")
+
+
+@app.post("/v1/design/footing/dxf")
+def design_footing_dxf_endpoint(req: FootingDxfRequest, key_name: str = Depends(verify_api_key)):
+    """
+    Pillar 1: IS 456 RC Isolated Footing 2D CAD DXF Export endpoint.
+    Generates 2D AutoCAD blueprint with plan view, elevation section, starter dowels, and bottom mesh.
+    """
+    start_time = time.perf_counter()
+    sizing_res = size_footing_from_load(
+        axial_load_kN=req.axial_load_kN,
+        sbc_kN_m2=req.sbc_kN_m2 or 200.0,
+        col_b_mm=req.col_b_mm or 400.0,
+        col_D_mm=req.col_D_mm or 400.0,
+        fck=req.fck or 25.0,
+        fy=req.fy or 500.0,
+    )
+    if sizing_res.get("status") == "needs_review":
+        latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+        log_audit_event(
+            key_name=key_name,
+            query=f"design_footing_dxf needs_review axial={req.axial_load_kN}kN",
+            k=0,
+            returned_chunk_ids=[],
+            rerank_scores=[],
+            latency_ms=latency_ms,
+            status_code=200,
+        )
+        return sizing_res
+
+    cad_dir = Path("data/processed/cad")
+    cad_dir.mkdir(parents=True, exist_ok=True)
+    filename = Path(req.output_filename or "footing_design.dxf").name
+    out_path = cad_dir / filename
+
+    dxf_result = export_footing_dxf(
+        design=sizing_res["design_dict"],
+        output_path=str(out_path),
+    )
+    latency_ms = round((time.perf_counter() - start_time) * 1000, 2)
+    log_audit_event(
+        key_name=key_name,
+        query=f"design_footing_dxf output={filename}",
+        k=0,
+        returned_chunk_ids=[],
+        rerank_scores=[],
+        latency_ms=latency_ms,
+        status_code=200,
+    )
+    return {
+        "status": dxf_result["status"],
+        "dxf_path": dxf_result["dxf_path"],
+        "plan_dimensions": dxf_result["plan_dimensions"],
+        "total_depth": dxf_result["total_depth"],
+        "reinforcement": dxf_result["reinforcement"],
+        "approval_status": dxf_result["approval_status"],
+    }
+
+
+
 
 
