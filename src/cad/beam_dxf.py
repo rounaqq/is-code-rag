@@ -114,6 +114,7 @@ def draw_cross_section(
     comp_bar_count: int,
     stirrup_dia: float,
     stirrup_spacing: float,
+    is_seismic: bool = False,
 ) -> None:
     """Draws the transverse cross-section of the RC beam with all detailing callouts."""
     ox, oy = origin
@@ -220,6 +221,14 @@ def draw_cross_section(
     txt_cov = msp.add_text(lbl_cov, dxfattribs={"layer": "ANNOTATIONS", "height": 12.0})
     txt_cov.set_placement((ox + b / 2.0, oy + 4.0), align=ezdxf.enums.TextEntityAlignment.BOTTOM_CENTER)
 
+    # 135-degree Seismic Hook Details (IS 13920:2016 Cl. 5.2)
+    if is_seismic:
+        hook_proj = max(10.0 * stirrup_dia, 65.0) * 0.7071
+        msp.add_line((stirrup_x1, stirrup_y2), (stirrup_x1 + hook_proj, stirrup_y2 - hook_proj), dxfattribs={"layer": "STIRRUPS"})
+        msp.add_line((stirrup_x2, stirrup_y2), (stirrup_x2 - hook_proj, stirrup_y2 - hook_proj), dxfattribs={"layer": "STIRRUPS"})
+        txt_hook = msp.add_text("135° Seismic Hook ext >= 10db (IS 13920 Cl. 5.2)", dxfattribs={"layer": "ANNOTATIONS", "height": 11.0})
+        txt_hook.set_placement((ox + b / 2.0, oy + D + 15.0), align=ezdxf.enums.TextEntityAlignment.BOTTOM_CENTER)
+
 
 def compute_symmetric_stirrup_positions(
     span_mm: float,
@@ -267,6 +276,73 @@ def compute_symmetric_stirrup_positions(
     return positions
 
 
+def compute_seismic_stirrup_positions(
+    span_mm: float,
+    support_width_mm: float,
+    d: float,
+    s_conf: float = 100.0,
+    s_mid: float = 150.0,
+    ox: float = 0.0,
+) -> Tuple[List[float], float, float]:
+    """
+    Computes stirrup positions per IS 13920:2016 Cl. 6.3.3:
+    1. Support Confinement Zone: Length = 2 * d from support face.
+       First stirrup starts at <= 50 mm from column face.
+       Spacing s_conf <= min(d/4, 8*db_min, 100 mm).
+    2. Midspan Zone: Remaining central span.
+       Spacing s_mid <= min(d/2, 300 mm).
+    Returns:
+        (sorted_unique_positions, left_zone_end_x, right_zone_start_x)
+    """
+    x_left_face = ox + support_width_mm
+    x_right_face = x_left_face + span_mm
+    L_conf = round(2.0 * d, 1)
+
+    if 2.0 * L_conf >= span_mm:
+        # Short beam: entire span is confinement zone
+        pos = compute_symmetric_stirrup_positions(
+            span_mm=span_mm,
+            support_width_mm=support_width_mm,
+            stirrup_spacing=s_conf,
+            ox=ox,
+        )
+        return pos, x_right_face, x_left_face
+
+    # Left confinement zone
+    x_first = x_left_face + 50.0
+    x_left_conf_end = x_left_face + L_conf
+    left_positions = []
+    curr = x_first
+    while curr <= (x_left_conf_end + 1e-4):
+        left_positions.append(round(curr, 2))
+        curr += s_conf
+
+    # Right confinement zone (symmetric)
+    x_last = x_right_face - 50.0
+    x_right_conf_start = x_right_face - L_conf
+    right_positions = []
+    curr = x_last
+    while curr >= (x_right_conf_start - 1e-4):
+        right_positions.append(round(curr, 2))
+        curr -= s_conf
+    right_positions.reverse()
+
+    # Midspan zone between last left stirrup and first right stirrup
+    mid_start = left_positions[-1]
+    mid_end = right_positions[0]
+    mid_dist = mid_end - mid_start
+    mid_positions = []
+
+    if mid_dist > s_mid:
+        k = int(mid_dist // s_mid)
+        actual_spacing = mid_dist / (k + 1)
+        for i in range(1, k + 1):
+            mid_positions.append(round(mid_start + i * actual_spacing, 2))
+
+    all_positions = sorted(list(set(left_positions + mid_positions + right_positions)))
+    return all_positions, x_left_conf_end, x_right_conf_start
+
+
 def draw_longitudinal_elevation(
     msp: Modelspace,
     origin: Tuple[float, float],
@@ -281,6 +357,9 @@ def draw_longitudinal_elevation(
     stirrup_dia: float,
     stirrup_spacing: float,
     support_width_mm: float = 300.0,
+    d: Optional[float] = None,
+    is_seismic: bool = False,
+    seismic_zone: Optional[str] = None,
 ) -> None:
     """Draws longitudinal elevation view showing beam span, supports, rebar bends, and stirrups."""
     ox, oy = origin
@@ -356,20 +435,75 @@ def draw_longitudinal_elevation(
         dxfattribs={"layer": "REBAR_TOP"},
     )
 
-    # 5. Stirrups distributed across the clear span, symmetric about mid-span
+    # 5. Stirrups distributed across the clear span
     stirrup_bot_y = oy + cover_mm
     stirrup_top_y = oy + D - cover_mm
+    effective_d = d or (D - cover_mm - stirrup_dia - (main_bar_dia / 2.0))
 
-    stirrup_positions = compute_symmetric_stirrup_positions(
-        span_mm=span_mm,
-        support_width_mm=support_width_mm,
-        stirrup_spacing=stirrup_spacing,
-        ox=ox,
-    )
+    if is_seismic:
+        s_conf = min(round(effective_d / 4.0, 1), round(8.0 * main_bar_dia, 1), 100.0)
+        s_mid = min(stirrup_spacing, round(effective_d / 2.0, 1), 300.0)
+        stirrup_positions, left_conf_end, right_conf_start = compute_seismic_stirrup_positions(
+            span_mm=span_mm,
+            support_width_mm=support_width_mm,
+            d=effective_d,
+            s_conf=s_conf,
+            s_mid=s_mid,
+            ox=ox,
+        )
+    else:
+        stirrup_positions = compute_symmetric_stirrup_positions(
+            span_mm=span_mm,
+            support_width_mm=support_width_mm,
+            stirrup_spacing=stirrup_spacing,
+            ox=ox,
+        )
+
     for sx in stirrup_positions:
         msp.add_line((sx, stirrup_bot_y), (sx, stirrup_top_y), dxfattribs={"layer": "STIRRUPS"})
 
     # 6. Dimensions
+    if is_seismic and left_conf_end < right_conf_start:
+        # 3-Zone Confinement Dimensions
+        draw_dimension_horizontal(
+            msp,
+            ox + support_width_mm,
+            left_conf_end,
+            oy,
+            f"2d = {int(round(2*effective_d))} mm (@{int(round(s_conf))})",
+            offset=45.0,
+            text_height=11.0,
+        )
+        draw_dimension_horizontal(
+            msp,
+            left_conf_end,
+            right_conf_start,
+            oy,
+            f"Midspan (@{int(round(s_mid))})",
+            offset=45.0,
+            text_height=11.0,
+        )
+        draw_dimension_horizontal(
+            msp,
+            right_conf_start,
+            rx,
+            oy,
+            f"2d = {int(round(2*effective_d))} mm (@{int(round(s_conf))})",
+            offset=45.0,
+            text_height=11.0,
+        )
+        dim_clear_span_offset = 85.0
+        dim_total_len_offset = 130.0
+        # Callout at top
+        z_name = seismic_zone or "IV"
+        msp.add_text(
+            f"IS 13920:2016 SEISMIC DUCTILE DETAILING (Zone {z_name})",
+            dxfattribs={"layer": "ANNOTATIONS", "height": 13.0},
+        ).set_placement((ox + support_width_mm, oy + D + 40.0), align=ezdxf.enums.TextEntityAlignment.BOTTOM_LEFT)
+    else:
+        dim_clear_span_offset = 60.0
+        dim_total_len_offset = 120.0
+
     # Clear Span
     draw_dimension_horizontal(
         msp,
@@ -377,7 +511,7 @@ def draw_longitudinal_elevation(
         ox + support_width_mm + span_mm,
         oy,
         f"Clear Span L = {int(round(span_mm))} mm",
-        offset=60.0,
+        offset=dim_clear_span_offset,
     )
     # Total Beam Length
     draw_dimension_horizontal(
@@ -386,7 +520,7 @@ def draw_longitudinal_elevation(
         ox + total_length,
         oy,
         f"Total Length = {int(round(total_length))} mm",
-        offset=120.0,
+        offset=dim_total_len_offset,
     )
     # Support Widths
     draw_dimension_horizontal(
@@ -409,7 +543,7 @@ def draw_longitudinal_elevation(
 
     # Elevation Title
     el_title = msp.add_text("LONGITUDINAL ELEVATION", dxfattribs={"layer": "ANNOTATIONS", "height": 22.0})
-    el_title.set_placement((ox + total_length / 2.0, oy - 170.0), align=ezdxf.enums.TextEntityAlignment.TOP_CENTER)
+    el_title.set_placement((ox + total_length / 2.0, oy - (dim_total_len_offset + 50.0)), align=ezdxf.enums.TextEntityAlignment.TOP_CENTER)
 
 
 def draw_notes_and_compliance_table(
@@ -475,6 +609,15 @@ def draw_notes_and_compliance_table(
         "9. Shear Design Basis: Table 19 row rule (row at or below pt) is an assumption, not from IS 456 standard; Vu is taken at support face without Cl. 40.5.3 reduction; ast_provided is full tension steel (Table 19 note also depends on anchorage not implemented).",
         "10. Construction to be executed strictly in accordance with approved structural engineering drawings.",
     ]
+
+    is_seismic = bool(
+        design.get("is_seismic", False)
+        or design.get("is_ductile", False)
+        or str(design.get("seismic_zone", "")).upper() in ["III", "IV", "V"]
+    )
+    if is_seismic:
+        notes.append("11. Seismic Ductile Detailing: Complies with IS 13920:2016 Cl. 6.3.3. Support confinement spacing <= 100 mm over 2d.")
+        notes.append("12. Seismic Hooks: 135° closed stirrups with extension length >= 10*db (min 65 mm) per IS 13920:2016 Cl. 5.2.")
 
     box_height = len(notes) * line_height + 40.0
 
@@ -590,6 +733,13 @@ def generate_beam_dxf(
     span_m = float(design.get("span_m", 4.5))
     span_mm = span_m * 1000.0
 
+    is_seismic = bool(
+        design.get("is_seismic", False)
+        or design.get("is_ductile", False)
+        or str(design.get("seismic_zone", "")).upper() in ["III", "IV", "V"]
+    )
+    seismic_zone = str(design.get("seismic_zone", "IV")) if is_seismic else None
+
     # 3. Layout Positioning
     # Cross-section at origin (0, 0)
     draw_cross_section(
@@ -605,6 +755,7 @@ def generate_beam_dxf(
         comp_bar_count=comp_bar_count,
         stirrup_dia=stirrup_dia,
         stirrup_spacing=stirrup_spacing,
+        is_seismic=is_seismic,
     )
 
     # Longitudinal Elevation to the right
@@ -622,6 +773,9 @@ def generate_beam_dxf(
         comp_bar_count=comp_bar_count,
         stirrup_dia=stirrup_dia,
         stirrup_spacing=stirrup_spacing,
+        d=d,
+        is_seismic=is_seismic,
+        seismic_zone=seismic_zone,
     )
 
     # Notes Box below Cross-Section and Elevation

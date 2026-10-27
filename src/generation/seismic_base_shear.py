@@ -206,3 +206,58 @@ def calculate_seismic_base_shear(
             "IS 1893 (Part 1):2016 Cl. 7.11.1 (Storey Drift)",
         ],
     }
+
+
+def calculate_vertical_distribution_of_base_shear(
+    vb_kN: float,
+    floor_weights_kN: List[float],
+    floor_heights_m: List[float],
+) -> Dict[str, Any]:
+    """
+    Computes floor-by-floor lateral design seismic forces Qi and cumulative storey shear Vi
+    per IS 1893 (Part 1):2016 Cl. 7.6.3:
+        Qi = VB * (Wi * hi^2) / sum(Wj * hj^2)
+        Vi = sum_{j=i}^n Qj
+    """
+    if len(floor_weights_kN) != len(floor_heights_m):
+        raise ValueError("floor_weights_kN and floor_heights_m must have identical length.")
+    if len(floor_weights_kN) == 0:
+        raise ValueError("At least one floor level is required.")
+
+    n = len(floor_weights_kN)
+    wi_hi_sq = [w * (h ** 2) for w, h in zip(floor_weights_kN, floor_heights_m)]
+    sum_wi_hi_sq = sum(wi_hi_sq)
+
+    if sum_wi_hi_sq <= 0:
+        raise ValueError("Sum of (Wi * hi^2) must be strictly positive.")
+
+    lateral_forces_Qi: List[float] = []
+    for wh2 in wi_hi_sq:
+        qi = vb_kN * (wh2 / sum_wi_hi_sq)
+        lateral_forces_Qi.append(round(qi, 2))
+
+    # Calculate cumulative storey shear Vi from roof down to base
+    storey_shears_Vi: List[float] = [0.0] * n
+    running_shear = 0.0
+    for i in range(n - 1, -1, -1):
+        running_shear += lateral_forces_Qi[i]
+        storey_shears_Vi[i] = round(running_shear, 2)
+
+    floors_data = []
+    for i in range(n):
+        floors_data.append({
+            "floor_level": i + 1,
+            "height_above_base_m": floor_heights_m[i],
+            "seismic_weight_Wi_kN": floor_weights_kN[i],
+            "lateral_force_Qi_kN": lateral_forces_Qi[i],
+            "storey_shear_Vi_kN": storey_shears_Vi[i],
+        })
+
+    return {
+        "status": "SUCCESS",
+        "total_base_shear_VB_kN": vb_kN,
+        "sum_lateral_forces_kN": round(sum(lateral_forces_Qi), 2),
+        "floors": floors_data,
+        "formula": "Qi = VB * (Wi * hi^2) / sum(Wj * hj^2)",
+        "citation": "IS 1893 (Part 1):2016 Cl. 7.6.3",
+    }

@@ -146,23 +146,86 @@ def export_column_dxf(
         rebar_mid_x = (rebar_x0 + rebar_x1) / 2.0
         msp.add_line((rebar_mid_x, 0), (rebar_mid_x, elev_height), dxfattribs={"layer": "REBAR"})
 
-    # Horizontal Ties along Height at pitch
-    cur_y = 50.0  # first tie 50 mm from base
-    while cur_y < (elev_height - 50.0):
-        msp.add_line((elev_x + cover, cur_y), (elev_x + elev_width - cover, cur_y), dxfattribs={"layer": "TIES"})
-        cur_y += tie_pitch
+    is_seismic = bool(
+        design.get("is_seismic", False)
+        or design.get("is_ductile", False)
+        or str(design.get("seismic_zone", "")).upper() in ["III", "IV", "V"]
+    )
+    seismic_zone = str(design.get("seismic_zone", "IV")) if is_seismic else None
+
+    # Calculate IS 13920 Confinement Parameters (Cl. 7.6.1)
+    if is_seismic:
+        lo = max(max(b, D), L / 6.0, 450.0)
+        s_conf = min(min(b, D) / 4.0, 6.0 * bar_dia, 100.0)
+        s_conf = max(s_conf, 65.0)  # min 65 mm pitch
+        s_mid = min(tie_pitch, min(b, D) / 2.0, 300.0)
+        tie_callout = f"Confining: T{int(tie_dia)} @ {int(s_conf)} c/c (lo={int(lo)}mm) | Mid: T{int(tie_dia)} @ {int(s_mid)} c/c"
+    else:
+        lo = 0.0
+        s_conf = tie_pitch
+        s_mid = tie_pitch
+
+    # Horizontal Ties along Height
+    tie_y_positions: List[float] = []
+    if is_seismic and (2.0 * lo < elev_height):
+        # Bottom confining zone: 0 to lo
+        y = 50.0
+        while y <= lo:
+            tie_y_positions.append(y)
+            y += s_conf
+
+        # Middle intermediate zone: lo to (elev_height - lo)
+        top_lo_start = elev_height - lo
+        mid_y = lo + s_mid
+        while mid_y < (top_lo_start - 20.0):
+            tie_y_positions.append(mid_y)
+            mid_y += s_mid
+
+        # Top confining zone: (elev_height - lo) to elev_height
+        y = top_lo_start
+        while y <= (elev_height - 50.0):
+            tie_y_positions.append(y)
+            y += s_conf
+    else:
+        cur_y = 50.0
+        while cur_y < (elev_height - 50.0):
+            tie_y_positions.append(cur_y)
+            cur_y += tie_pitch
+
+    for ty in tie_y_positions:
+        msp.add_line((elev_x + cover, ty), (elev_x + elev_width - cover, ty), dxfattribs={"layer": "TIES"})
+
+    # Elevation Dimensions
+    dim_elev_x = elev_x + elev_width + 50.0
+    if is_seismic and (2.0 * lo < elev_height):
+        # Bottom lo dimension
+        msp.add_line((dim_elev_x, 0), (dim_elev_x, lo), dxfattribs={"layer": "DIMENSIONS"})
+        msp.add_text(f"lo = {int(lo)} mm", dxfattribs={"layer": "DIMENSIONS", "height": 14, "rotation": 90}).set_placement((dim_elev_x + 18, lo / 2.0 - 25))
+        # Top lo dimension
+        top_lo_start = elev_height - lo
+        msp.add_line((dim_elev_x, top_lo_start), (dim_elev_x, elev_height), dxfattribs={"layer": "DIMENSIONS"})
+        msp.add_text(f"lo = {int(lo)} mm", dxfattribs={"layer": "DIMENSIONS", "height": 14, "rotation": 90}).set_placement((dim_elev_x + 18, top_lo_start + lo / 2.0 - 25))
+        # Total height
+        dim_total_x = dim_elev_x + 60.0
+        msp.add_line((dim_total_x, 0), (dim_total_x, elev_height), dxfattribs={"layer": "DIMENSIONS"})
+        msp.add_text(f"H = {int(L)} mm", dxfattribs={"layer": "DIMENSIONS", "height": 18, "rotation": 90}).set_placement((dim_total_x + 22, elev_height / 2.0 - 30))
+    else:
+        msp.add_line((dim_elev_x, 0), (dim_elev_x, elev_height), dxfattribs={"layer": "DIMENSIONS"})
+        msp.add_text(f"H = {int(L)} mm", dxfattribs={"layer": "DIMENSIONS", "height": 18, "rotation": 90}).set_placement((dim_elev_x + 22, elev_height / 2.0 - 30))
 
     # Elevation Annotations
     msp.add_text("LONGITUDINAL ELEVATION", dxfattribs={"layer": "ANNOTATIONS", "height": 25}).set_placement((elev_x, elev_height + 60))
     msp.add_text(f"Clear Height: {int(L)} mm", dxfattribs={"layer": "ANNOTATIONS", "height": 18}).set_placement((elev_x, elev_height + 30))
-    msp.add_text(f"Ties: {tie_callout}", dxfattribs={"layer": "ANNOTATIONS", "height": 18}).set_placement((elev_x, -dim_offset - 30))
+    msp.add_text(f"Ties: {tie_callout}", dxfattribs={"layer": "ANNOTATIONS", "height": 16}).set_placement((elev_x, -dim_offset - 30))
+    if is_seismic:
+        msp.add_text(f"IS 13920 Cl. 7.6.1 Ductile Ties (Zone {seismic_zone or 'IV'})", dxfattribs={"layer": "ANNOTATIONS", "height": 15}).set_placement((elev_x, -dim_offset - 60))
 
     # =========================================================================
     # 3. TITLE BLOCK & COMPLIANCE NOTES
     # =========================================================================
     tb_x = 0
     tb_y = -350.0
-    tb_w = elev_x + elev_width
+    tb_w = elev_x + elev_width + 120.0
     tb_h = 160.0
 
     msp.add_lwpolyline(
@@ -171,9 +234,13 @@ def export_column_dxf(
     )
 
     approval_status = design.get("approval_status", "STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.")
-    msp.add_text("IS 456:2000 REINFORCED CONCRETE COLUMN DESIGN", dxfattribs={"layer": "TITLE_BLOCK", "height": 22}).set_placement((tb_x + 20, tb_y + 120))
+    title_text = "IS 456 / IS 13920 SEISMIC RC COLUMN DESIGN" if is_seismic else "IS 456:2000 REINFORCED CONCRETE COLUMN DESIGN"
+    msp.add_text(title_text, dxfattribs={"layer": "TITLE_BLOCK", "height": 22}).set_placement((tb_x + 20, tb_y + 120))
     msp.add_text(f"Section: {int(b)}x{int(D)} mm | Load Pu: {design.get('factored_axial_load_Pu_kN', 'N/A')} kN | Capacity: {design.get('axial_capacity_Pu_kN', 'N/A')} kN", dxfattribs={"layer": "TITLE_BLOCK", "height": 16}).set_placement((tb_x + 20, tb_y + 90))
-    msp.add_text(f"Materials: Concrete M{int(design.get('fck', 25))} | Steel Fe{int(design.get('fy', 500))} | Exposure: {design.get('exposure', 'Moderate')}", dxfattribs={"layer": "TITLE_BLOCK", "height": 16}).set_placement((tb_x + 20, tb_y + 60))
+    mat_note = f"Materials: Concrete M{int(design.get('fck', 25))} | Steel Fe{int(design.get('fy', 500))} | Exposure: {design.get('exposure', 'Moderate')}"
+    if is_seismic:
+        mat_note += f" | Seismic Zone: {seismic_zone or 'IV'}"
+    msp.add_text(mat_note, dxfattribs={"layer": "TITLE_BLOCK", "height": 16}).set_placement((tb_x + 20, tb_y + 60))
     msp.add_text(approval_status, dxfattribs={"layer": "TITLE_BLOCK", "height": 18}).set_placement((tb_x + 20, tb_y + 25))
 
     out_file = Path(output_path)

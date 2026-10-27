@@ -72,3 +72,34 @@ def test_seismic_base_shear_zone_iv_hospital():
 
     # Storey drift limit = 0.004 * 3000 mm = 12.0 mm
     assert res["drift_limitations"]["max_allowable_storey_drift_mm"] == 12.0
+
+
+def test_vertical_distribution_of_base_shear():
+    """
+    Validates IS 1893:2016 Cl. 7.6.3: Qi = VB * (Wi * hi^2) / sum(Wj * hj^2).
+    4-storey building: VB = 500 kN, floors at 3m, 6m, 9m, 12m with weights 3000, 3000, 3000, 2000 kN.
+    """
+    from src.generation.seismic_base_shear import calculate_vertical_distribution_of_base_shear
+
+    weights = [3000.0, 3000.0, 3000.0, 2000.0]
+    heights = [3.0, 6.0, 9.0, 12.0]
+    vb = 500.0
+
+    res = calculate_vertical_distribution_of_base_shear(
+        vb_kN=vb,
+        floor_weights_kN=weights,
+        floor_heights_m=heights,
+    )
+
+    assert res["status"] == "SUCCESS"
+    assert len(res["floors"]) == 4
+
+    # Sum of lateral forces must equal total base shear VB
+    sum_qi = sum(f["lateral_force_Qi_kN"] for f in res["floors"])
+    assert abs(sum_qi - vb) <= 1.0
+
+    # Storey shear at base (floor 1) must equal total base shear
+    assert abs(res["floors"][0]["storey_shear_Vi_kN"] - vb) <= 1.0
+
+    # Forces must increase quadratically with height: top floor carries higher lateral force than bottom
+    assert res["floors"][3]["lateral_force_Qi_kN"] > res["floors"][0]["lateral_force_Qi_kN"]
