@@ -1,0 +1,189 @@
+{
+  "category": "errata",
+  "total_errata": 2,
+  "total_chunks": 7,
+  "errata": [
+    {
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-ERR-1-ERR-1",
+          "code": "IS 456:2000 / ERR 1",
+          "standard_code": "IS 456:2000",
+          "errata_number": 1,
+          "title": "Errata Notice",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nERRATA NO. 1 TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACTICE (FOURTH RE\nCode Reference: IS 456:2000 / ERR 1",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": []
+        },
+        {
+          "chunk_id": "IS-456-2000-/-ERR-1-ERR-2",
+          "code": "IS 456:2000 / ERR 1",
+          "standard_code": "IS 456:2000",
+          "errata_number": 1,
+          "title": "1. Errata Summary",
+          "content": "Issued by the Bureau of Indian Standards, CED 2.\nRectifies printing errors in the first print of the Fourth Revision.",
+          "cross_references": [],
+          "equations": []
+        },
+        {
+          "chunk_id": "IS-456-2000-/-ERR-1-ERR-3",
+          "code": "IS 456:2000 / ERR 1",
+          "standard_code": "IS 456:2000",
+          "errata_number": 1,
+          "title": "2. Annex G-1.1(c) Moment Formula",
+          "content": "Page 96, Annex G-1.1(c): In equation for Mu,lim, substitute '0.36 * (xu,max / d) * (1 - 0.42 * xu,max / d) * b * d^2 * fck'\nfor the misprinted factor in earlier draft copies.",
+          "cross_references": [
+            "Annex G-1.1"
+          ],
+          "equations": []
+        },
+        {
+          "chunk_id": "IS-456-2000-/-ERR-1-ERR-4",
+          "code": "IS 456:2000 / ERR 1",
+          "standard_code": "IS 456:2000",
+          "errata_number": 1,
+          "title": "3. Clause 40.4 Vertical Stirrups Shear",
+          "content": "Page 73, Clause 40.4: Correct formula for vertical stirrup spacing:\nVus = (0.87 * fy * Asv * d) / sv.",
+          "cross_references": [
+            "Clause 40.4"
+          ],
+          "equations": [
+            "Vus = (0.87 * fy * Asv * d) / sv."
+          ]
+        }
+      ]
+    },
+    {
+      "code": "IS 800:2007 / ERR 1",
+      "standard_code": "IS 800:2007",
+      "errata_number": 1,
+      "total_chunks": 3,
+      "chunks": [
+        {
+          "chunk_id": "IS-800-2007-/-ERR-1-ERR-1",
+          "code": "IS 800:2007 / ERR 1",
+          "standard_code": "IS 800:2007",
+          "errata_number": 1,
+          "title": "Errata Notice",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nERRATA NO. 1 TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PRACTICE (THIRD REVIS\nCode Reference: IS 800:2007 / ERR 1",
+          "cross_references": [
+            "IS 800:2007"
+          ],
+          "equations": []
+        },
+        {
+          "chunk_id": "IS-800-2007-/-ERR-1-ERR-2",
+          "code": "IS 800:2007 / ERR 1",
+          "standard_code": "IS 800:2007",
+          "errata_number": 1,
+          "title": "1. Errata Summary",
+          "content": "Issued by the Bureau of Indian Standards, CED 7.\nRectifies typographical factors in Section 7 (Compression Members).",
+          "cross_references": [],
+          "equations": []
+        },
+        {
+          "chunk_id": "IS-800-2007-/-ERR-1-ERR-3",
+          "code": "IS 800:2007 / ERR 1",
+          "standard_code": "IS 800:2007",
+          "errata_number": 1,
+          "title": "2. Table 5 Partial Safety Factors",
+          "content": "Page 30, Table 5: Partial safety factor gamma_m0 for resistance governed by yielding = 1.10.\nPartial safety factor gamma_m1 for resistance governed by ultimate stress = 1.25.",
+          "cross_references": [
+            "Table 5"
+          ],
+          "equations": []
+        }
+      ]
+    }
+  ],
+  "all_chunks": [
+    {
+      "chunk_id": "IS-456-2000-/-ERR-1-ERR-1",
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "title": "Errata Notice",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nERRATA NO. 1 TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACTICE (FOURTH RE\nCode Reference: IS 456:2000 / ERR 1",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": []
+    },
+    {
+      "chunk_id": "IS-456-2000-/-ERR-1-ERR-2",
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "title": "1. Errata Summary",
+      "content": "Issued by the Bureau of Indian Standards, CED 2.\nRectifies printing errors in the first print of the Fourth Revision.",
+      "cross_references": [],
+      "equations": []
+    },
+    {
+      "chunk_id": "IS-456-2000-/-ERR-1-ERR-3",
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "title": "2. Annex G-1.1(c) Moment Formula",
+      "content": "Page 96, Annex G-1.1(c): In equation for Mu,lim, substitute '0.36 * (xu,max / d) * (1 - 0.42 * xu,max / d) * b * d^2 * fck'\nfor the misprinted factor in earlier draft copies.",
+      "cross_references": [
+        "Annex G-1.1"
+      ],
+      "equations": []
+    },
+    {
+      "chunk_id": "IS-456-2000-/-ERR-1-ERR-4",
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "title": "3. Clause 40.4 Vertical Stirrups Shear",
+      "content": "Page 73, Clause 40.4: Correct formula for vertical stirrup spacing:\nVus = (0.87 * fy * Asv * d) / sv.",
+      "cross_references": [
+        "Clause 40.4"
+      ],
+      "equations": [
+        "Vus = (0.87 * fy * Asv * d) / sv."
+      ]
+    },
+    {
+      "chunk_id": "IS-800-2007-/-ERR-1-ERR-1",
+      "code": "IS 800:2007 / ERR 1",
+      "standard_code": "IS 800:2007",
+      "errata_number": 1,
+      "title": "Errata Notice",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nERRATA NO. 1 TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PRACTICE (THIRD REVIS\nCode Reference: IS 800:2007 / ERR 1",
+      "cross_references": [
+        "IS 800:2007"
+      ],
+      "equations": []
+    },
+    {
+      "chunk_id": "IS-800-2007-/-ERR-1-ERR-2",
+      "code": "IS 800:2007 / ERR 1",
+      "standard_code": "IS 800:2007",
+      "errata_number": 1,
+      "title": "1. Errata Summary",
+      "content": "Issued by the Bureau of Indian Standards, CED 7.\nRectifies typographical factors in Section 7 (Compression Members).",
+      "cross_references": [],
+      "equations": []
+    },
+    {
+      "chunk_id": "IS-800-2007-/-ERR-1-ERR-3",
+      "code": "IS 800:2007 / ERR 1",
+      "standard_code": "IS 800:2007",
+      "errata_number": 1,
+      "title": "2. Table 5 Partial Safety Factors",
+      "content": "Page 30, Table 5: Partial safety factor gamma_m0 for resistance governed by yielding = 1.10.\nPartial safety factor gamma_m1 for resistance governed by ultimate stress = 1.25.",
+      "cross_references": [
+        "Table 5"
+      ],
+      "equations": []
+    }
+  ]
+}

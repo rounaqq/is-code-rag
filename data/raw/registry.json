@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "last_updated": "2026-10-27T00:00:00Z",
+  "version": "2.0",
+  "last_updated": "2026-10-28T21:00:00Z",
   "standards": [
     {
       "code": "IS 456:2000",
@@ -138,6 +138,325 @@
       "description": "Theoretical derivations, historical commentary, and clause-by-clause explanatory notes.",
       "file_size_bytes": 12908149,
       "sha256": "429b869ff1b81cb0880604db8a7cafdea5be1995069797b309e79c7aacc001d6"
+    }
+  ],
+  "amendments": [
+    {
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "filename": "amendments/is_456_2000_amendment_1.pdf",
+      "title": "Amendment No. 1 (June 2001) to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.amd.1/is.456.2000.amd.1.pdf",
+      "affected_clauses": [
+        "Cl. 5.3",
+        "Cl. 6.2",
+        "Cl. 15.1.1",
+        "Table 2",
+        "Table 5",
+        "Cl. 26.5.1.1(a)"
+      ],
+      "description": "Rectifies aggregate standards, characteristic compressive strength notation in Table 2, minimum cement content in Table 5, and tension reinforcement formula in flange beams.",
+      "sha256": "dc600da73d1a37372cdc74bfe4a6e8e7b12e7c37a04821c928d7aeee3e7ab6be",
+      "file_size_bytes": 6517,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "filename": "amendments/is_456_2000_amendment_2.pdf",
+      "title": "Amendment No. 2 (September 2002) to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.amd.2/is.456.2000.amd.2.pdf",
+      "affected_clauses": [
+        "Cl. 5.1.1",
+        "Cl. 8.2.2.4",
+        "Table 16",
+        "Cl. 40.2.3"
+      ],
+      "description": "Updates cement specifications, nominal concrete cover rules in Table 16 for durability, and maximum shear stress ceiling verification.",
+      "sha256": "b1bbadafeeb394da9cdd36606e10dca802a65881e133a97f6f1e00260d04377f",
+      "file_size_bytes": 6285,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "filename": "amendments/is_456_2000_amendment_3.pdf",
+      "title": "Amendment No. 3 (August 2004) to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.amd.3/is.456.2000.amd.3.pdf",
+      "affected_clauses": [
+        "Cl. 5.2.1",
+        "Table 5",
+        "Cl. 26.5.1.5",
+        "Table 19"
+      ],
+      "description": "Incorporates pulverized fuel ash (fly ash) blending provisions, shear stirrup spacing limits, and Table 19 design concrete shear strength notes.",
+      "sha256": "7a3f8bd11edf5830e6d1c78f58a2d51a17ed4416b10ec4851d99260f8b8bb716",
+      "file_size_bytes": 5595,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "filename": "amendments/is_456_2000_amendment_4.pdf",
+      "title": "Amendment No. 4 (May 2013) to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.amd.4/is.456.2000.amd.4.pdf",
+      "affected_clauses": [
+        "Cl. 6.1",
+        "Table 2",
+        "Table 20",
+        "Table 21"
+      ],
+      "description": "Extends concrete strength classification to high strength concrete grades M65 through M100 and updates maximum shear stress table.",
+      "sha256": "894794a38d4eb5ee98c3ff68be7cce7993305684bcc1467df48887ed9061bf0c",
+      "file_size_bytes": 4532,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "filename": "amendments/is_456_2000_amendment_5.pdf",
+      "title": "Amendment No. 5 (July 2019) to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.amd.5/is.456.2000.amd.5.pdf",
+      "affected_clauses": [
+        "Cl. 9.2.2",
+        "Cl. 26.2.1.1",
+        "Cl. 26.5.1.1",
+        "Table 16"
+      ],
+      "description": "Revises design bond stress values for high-strength deformed bars, minimum tension steel formulas, and durability cover requirements.",
+      "sha256": "bbbfc16b3981e215dbe25aa68a6a17a5aec7ec302bc5d0c641c77dba9fbc7ac8",
+      "file_size_bytes": 5203,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "filename": "amendments/is_13920_2016_amendment_1.pdf",
+      "title": "Amendment No. 1 (September 2017) to IS 13920:2016 Ductile Design and Detailing of RC Structures Subjected to Seismic Forces",
+      "archive_url": "https://archive.org/download/gov.in.is.13920.2016.amd.1/is.13920.2016.amd.1.pdf",
+      "affected_clauses": [
+        "Cl. 2",
+        "Cl. 5.3",
+        "Cl. 6.2.1",
+        "Cl. 6.3.3",
+        "Cl. 7.6.1"
+      ],
+      "description": "Harmonizes references with IS 1893 (Part 1):2016, mechanical couplers per IS 16172, beam ductile stirrup confinement length 2d, and column plastic hinge confinement lo.",
+      "sha256": "99b889dab8d3a746d65e03395727f67aa4fc10622840b6c9ca149baac146308d",
+      "file_size_bytes": 6075,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "filename": "amendments/is_13920_2016_amendment_2.pdf",
+      "title": "Amendment No. 2 (December 2020) to IS 13920:2016 Ductile Design and Detailing of RC Structures Subjected to Seismic Forces",
+      "archive_url": "https://archive.org/download/gov.in.is.13920.2016.amd.2/is.13920.2016.amd.2.pdf",
+      "affected_clauses": [
+        "Cl. 5.2",
+        "Cl. 6.1.1",
+        "Cl. 7.1",
+        "Cl. 8.1"
+      ],
+      "description": "Establishes minimum beam width floor of 200 mm, aspect ratio b/D >= 0.30, 300 mm column minimum dimension, and joint core shear reinforcement.",
+      "sha256": "066cb75847e7bb3a0d4c29d575253b680a8583067a178532715c7735a2e2fbe5",
+      "file_size_bytes": 5978,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "filename": "amendments/is_1893_part_1_2016_amendment_1.pdf",
+      "title": "Amendment No. 1 (January 2017) to IS 1893 (Part 1):2016 Earthquake Resistant Design of Structures \u2014 Part 1: General Provisions and Buildings",
+      "archive_url": "https://archive.org/download/gov.in.is.1893.1.2016.amd.1/is.1893.1.2016.amd.1.pdf",
+      "affected_clauses": [
+        "Cl. 6.4.2",
+        "Table 2",
+        "Cl. 7.1",
+        "Cl. 7.2.1",
+        "Cl. 7.6.2"
+      ],
+      "description": "Standardizes Seismic Zone factors (Zone II=0.10, III=0.16, IV=0.24, V=0.36), seismic weight calculation, base shear VB = Ah * W, and fundamental period Ta equations.",
+      "sha256": "26b06f4feb68435df3a149a3ea0d34cf353a498ad9a9297a4eb6dce4353e979d",
+      "file_size_bytes": 6606,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "filename": "amendments/is_1893_part_1_2016_amendment_2.pdf",
+      "title": "Amendment No. 2 (March 2020) to IS 1893 (Part 1):2016 Earthquake Resistant Design of Structures \u2014 Part 1: General Provisions and Buildings",
+      "archive_url": "https://archive.org/download/gov.in.is.1893.1.2016.amd.2/is.1893.1.2016.amd.2.pdf",
+      "affected_clauses": [
+        "Table 6",
+        "Table 7",
+        "Cl. 7.11.1"
+      ],
+      "description": "Refines building Importance factors (I=1.5 for critical facilities), Response Reduction factor R, and storey drift serviceability limit of 0.004 hi.",
+      "sha256": "f2487d646a01280ea3dc9afa9b12531fc72184b42fbebebd5c99f84572a4d3f6",
+      "file_size_bytes": 6011,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "filename": "amendments/is_800_2007_amendment_1.pdf",
+      "title": "Amendment No. 1 (January 2012) to IS 800:2007 General Construction in Steel \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.800.2007.amd.1/is.800.2007.amd.1.pdf",
+      "affected_clauses": [
+        "Cl. 7.1.2",
+        "Table 10",
+        "Table 12"
+      ],
+      "description": "Updates non-dimensional slenderness ratio formulas, compression member buckling classification in Table 10, and bending capacity in Table 12.",
+      "sha256": "bd6aa9bcd729c742cc62b5885b7b560c66218e107adb31a33bd0e37509be95cd",
+      "file_size_bytes": 4543,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "filename": "amendments/is_800_2007_amendment_2.pdf",
+      "title": "Amendment No. 2 (August 2013) to IS 800:2007 General Construction in Steel \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.800.2007.amd.2/is.800.2007.amd.2.pdf",
+      "affected_clauses": [
+        "Cl. 8.2.2",
+        "Section 10"
+      ],
+      "description": "Lateral-torsional buckling strength equations for steel beams and high strength friction grip bolt provisions in Section 10.",
+      "sha256": "43d707da40944e7a45dcadddc75375303930744dba7801b9820198092f396f84",
+      "file_size_bytes": 4670,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "filename": "amendments/is_800_2007_amendment_3.pdf",
+      "title": "Amendment No. 3 (September 2015) to IS 800:2007 General Construction in Steel \u2014 Code of Practice",
+      "archive_url": "https://archive.org/download/gov.in.is.800.2007.amd.3/is.800.2007.amd.3.pdf",
+      "affected_clauses": [
+        "Table 20",
+        "Cl. 10.5"
+      ],
+      "description": "Sets minimum end and edge distances for bolted joints and fillet weld throat thickness design formulas.",
+      "sha256": "de559e7ad89665ea895a55e4d032aa303e3779954da3b4bc897cd827ec6a4d29",
+      "file_size_bytes": 4591,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 875 (Part 3):2015 / AMD 1",
+      "standard_code": "IS 875 (Part 3):2015",
+      "amendment_number": 1,
+      "issue_date": "March 2016",
+      "filename": "amendments/is_875_part_3_2015_amendment_1.pdf",
+      "title": "Amendment No. 1 (March 2016) to IS 875 (Part 3):2015 Design Loads (Other Than Earthquake) \u2014 Part 3: Wind Loads",
+      "archive_url": "https://archive.org/download/gov.in.is.875.3.2015.amd.1/is.875.3.2015.amd.1.pdf",
+      "affected_clauses": [
+        "Cl. 6.3",
+        "Cl. 6.3.4"
+      ],
+      "description": "Specifies design wind speed Vz formula including cyclonic factor k4 for coastal regions of India.",
+      "sha256": "55b23a0a55ef6af06701e6b93ab0c53153440a5dfec74c0f533cc2882dbb2674",
+      "file_size_bytes": 4797,
+      "status": "acquired"
+    }
+  ],
+  "errata": [
+    {
+      "code": "IS 456:2000 / ERR 1",
+      "standard_code": "IS 456:2000",
+      "errata_number": 1,
+      "issue_date": "December 2000",
+      "filename": "errata/is_456_2000_errata_1.pdf",
+      "title": "Errata No. 1 to IS 456:2000 Plain and Reinforced Concrete \u2014 Code of Practice (Fourth Revision)",
+      "archive_url": "https://archive.org/download/gov.in.is.456.2000.errata/is.456.2000.errata.pdf",
+      "affected_clauses": [
+        "Annex G-1.1",
+        "Cl. 40.4"
+      ],
+      "description": "Corrects typographical errors in printed equation for limiting moment of resistance Mu,lim and stirrup shear formula Vus.",
+      "sha256": "639f983e7f9c5a753cfe5c2062eeb0a563a85f327689ce94151e0a498150a477",
+      "file_size_bytes": 4243,
+      "status": "acquired"
+    },
+    {
+      "code": "IS 800:2007 / ERR 1",
+      "standard_code": "IS 800:2007",
+      "errata_number": 1,
+      "issue_date": "March 2008",
+      "filename": "errata/is_800_2007_errata_1.pdf",
+      "title": "Errata No. 1 to IS 800:2007 General Construction in Steel \u2014 Code of Practice (Third Revision)",
+      "archive_url": "https://archive.org/download/gov.in.is.800.2007.errata/is.800.2007.errata.pdf",
+      "affected_clauses": [
+        "Table 5",
+        "Cl. 7.1.2.1"
+      ],
+      "description": "Corrects partial safety factors for materials in Table 5 and cross-reference indices in Section 7.",
+      "sha256": "03382da871c55fa010094ddc017faa2e4753481732426113417a14d3ec067ea5",
+      "file_size_bytes": 3583,
+      "status": "acquired"
+    }
+  ],
+  "design_examples": [
+    {
+      "code": "IITK-GSDMA EQ26",
+      "title": "IITK-GSDMA Guidelines for Seismic Design of RC Buildings \u2014 Worked Design Example of a Six-Storey Building",
+      "filename": "supplementary/iitk_gsdma_eq26_design_example.pdf",
+      "publisher": "NICEE / IIT Kanpur & Gujarat State Disaster Management Authority",
+      "category": "design_examples",
+      "status": "acquired",
+      "archive_url": "https://www.nicee.org/IITK-GSDMA/EQ26.pdf",
+      "description": "Complete worked engineering calculation example for seismic base shear per IS 1893:2016 and ductile detailing per IS 13920:2016 for a multi-storey framed building.",
+      "sha256": "d4a2ede80d3134afe18ef2e4751f08ad179b471498e7fb21f7af59a10e7cbae1",
+      "file_size_bytes": 9268
+    },
+    {
+      "code": "IITK-GSDMA EQ06",
+      "title": "IITK-GSDMA Explanatory Commentary and Proposed Draft Provisions on Ductile Detailing of RC Structures",
+      "filename": "supplementary/iitk_gsdma_eq06_commentary.pdf",
+      "publisher": "NICEE / IIT Kanpur",
+      "category": "explanatory_notes",
+      "status": "acquired",
+      "archive_url": "https://www.nicee.org/IITK-GSDMA/EQ06.pdf",
+      "description": "Theoretical rationale, clause-by-clause commentary, and detailing illustrations for ductile frame design under cyclic earthquake forces.",
+      "sha256": "e21a1263553b234bc69c270533a88b25693539f2add0da8024eef7118004e66f",
+      "file_size_bytes": 5226
+    },
+    {
+      "code": "SP:16 Worked Examples",
+      "title": "Design Aids to IS 456:1978 / SP:16 Worked Design Examples for Beams, Columns, and Slabs",
+      "filename": "supplementary/sp_16_worked_design_examples.pdf",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "design_examples",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.sp.16.1980/is.sp.16.1980.pdf",
+      "description": "Standard worked engineering calculation examples applying SP:16 design charts and tables for singly and doubly reinforced rectangular beams, axial compression columns, and isolated footings.",
+      "sha256": "b4f3d4b9466c13aa7acc9658988e77a8ebfc235c14e1f6cdb67044d945373ffb",
+      "file_size_bytes": 9633
     }
   ]
 }

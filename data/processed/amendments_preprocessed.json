@@ -1,0 +1,1912 @@
+{
+  "category": "amendments",
+  "total_amendments": 13,
+  "total_chunks": 59,
+  "amendments": [
+    {
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "affected_clauses": [
+        "Cl. 5.3",
+        "Cl. 6.2",
+        "Cl. 15.1.1",
+        "Table 2",
+        "Table 5",
+        "Cl. 26.5.1.1(a)"
+      ],
+      "total_chunks": 6,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-1",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "AMD-1.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JUNE 2001) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 1",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-2",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "AMD-1.2",
+          "title": "1. Sectional Committee & Authority",
+          "content": "Cement and Concrete Sectional Committee, CED 2.\nNotified under the Bureau of Indian Standards Act, 1986.\nDate of Publication: June 2001.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-3",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "5.3",
+          "title": "Page 2, Clause 5.3: Substitute 'IS 383' for 'IS 383:1970'.",
+          "content": "Coarse and fine aggregates shall comply with the requirements of IS 383.\nAggregate nominal maximum size for reinforced concrete shall be 20 mm unless otherwise specified.",
+          "cross_references": [
+            "IS 383"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-4",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "AMD-1.4",
+          "title": "Page 13, Table 2: Note under Table 2 shall read:",
+          "content": "'In the designation of concrete mix M refers to the mix and the number to the specified characteristic compressive\nstrength of 150 mm size cube at 28 days, expressed in N/mm2.'",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-5",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "AMD-1.5",
+          "title": "Page 20, Table 5: In column 3 under 'Moderate Exposure', substitute '0.50' for '0.55' for reinforced concrete.",
+          "content": "Minimum cement content for reinforced concrete under Moderate exposure shall be 300 kg/m3.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-1-SEC-6",
+          "code": "IS 456:2000 / AMD 1",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 1,
+          "issue_date": "June 2001",
+          "clause_number": "26.5.1.1(a)",
+          "title": "Page 47, Clause 26.5.1.1(a): Clarification for T-beams and L-beams:",
+          "content": "'For flanged beams, breadth of beam (b) shall be considered as breadth of web (bw) for minimum tension steel: As / (bw * d) >= 0.85 / fy.'",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "affected_clauses": [
+        "Cl. 5.1.1",
+        "Cl. 8.2.2.4",
+        "Table 16",
+        "Cl. 40.2.3"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-AMD-2-SEC-1",
+          "code": "IS 456:2000 / AMD 2",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 2,
+          "issue_date": "September 2002",
+          "clause_number": "AMD-2.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (SEPTEMBER 2002) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF\nCode Reference: IS 456:2000 / AMD 2",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-2-SEC-2",
+          "code": "IS 456:2000 / AMD 2",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 2,
+          "issue_date": "September 2002",
+          "clause_number": "AMD-2.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: September 2002.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-2-SEC-3",
+          "code": "IS 456:2000 / AMD 2",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 2,
+          "issue_date": "September 2002",
+          "clause_number": "5.1.1",
+          "title": "Page 2, Clause 5.1.1: Cement shall conform to the following:",
+          "content": "a) 33 Grade ordinary Portland cement conforming to IS 269.\nb) 43 Grade ordinary Portland cement conforming to IS 8112.\nc) 53 Grade ordinary Portland cement conforming to IS 12269.\nd) Portland pozzolana cement conforming to IS 1489 (Part 1 and Part 2).",
+          "cross_references": [
+            "IS 269",
+            "IS 8112",
+            "IS 12269",
+            "IS 1489"
+          ],
+          "equations": [],
+          "is_table": true
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-2-SEC-4",
+          "code": "IS 456:2000 / AMD 2",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 2,
+          "issue_date": "September 2002",
+          "clause_number": "AMD-2.4",
+          "title": "Page 47, Table 16: Note 1 shall be modified as follows:",
+          "content": "'For main reinforcement up to 12 mm diameter bar size for mild exposure the nominal cover may be reduced by 5 mm.\nFor longitudinal bars in columns, nominal cover shall not be less than 40 mm, nor less than the bar diameter.'",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-2-SEC-5",
+          "code": "IS 456:2000 / AMD 2",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 2,
+          "issue_date": "September 2002",
+          "clause_number": "40.2.3",
+          "title": "Page 72, Clause 40.2.3: Reaffirms strict ceiling:",
+          "content": "'Under no circumstances, even with shear reinforcement, shall the nominal shear stress tau_v exceed tau_c,max given in Table 20.\nIf tau_v > tau_c,max, the cross-sectional dimensions must be redesigned.'",
+          "cross_references": [
+            "Table 20"
+          ],
+          "equations": [],
+          "is_table": true
+        }
+      ]
+    },
+    {
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "affected_clauses": [
+        "Cl. 5.2.1",
+        "Table 5",
+        "Cl. 26.5.1.5",
+        "Table 19"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-AMD-3-SEC-1",
+          "code": "IS 456:2000 / AMD 3",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 3,
+          "issue_date": "August 2004",
+          "clause_number": "AMD-3.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 3 (AUGUST 2004) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PR\nCode Reference: IS 456:2000 / AMD 3",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-3-SEC-2",
+          "code": "IS 456:2000 / AMD 3",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 3,
+          "issue_date": "August 2004",
+          "clause_number": "AMD-3.2",
+          "title": "1. Sectional Committee & Authority",
+          "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: August 2004.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-3-SEC-3",
+          "code": "IS 456:2000 / AMD 3",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 3,
+          "issue_date": "August 2004",
+          "clause_number": "5.2.1",
+          "title": "Page 2, Clause 5.2.1: Fly ash conforming to IS 3812 (Part 1) may be used as part replacement of OPC provided",
+          "content": "the percentage does not exceed 35% by mass of total cementitious content.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-3-SEC-4",
+          "code": "IS 456:2000 / AMD 3",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 3,
+          "issue_date": "August 2004",
+          "clause_number": "26.5.1.5",
+          "title": "Page 48, Clause 26.5.1.5: 'The maximum spacing of shear reinforcement measured along the axis of the member",
+          "content": "shall not exceed 0.75 d for vertical stirrups and d for inclined stirrups at 45 degrees, where d is the effective depth.\nIn no case shall the spacing exceed 300 mm.'",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-3-SEC-5",
+          "code": "IS 456:2000 / AMD 3",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 3,
+          "issue_date": "August 2004",
+          "clause_number": "AMD-3.5",
+          "title": "Page 73, Table 19: Note 1 shall read:",
+          "content": "'The values of tau_c given in Table 19 are for design concrete shear strength. The value of As is that of tension reinforcement\nwhich continues for a distance of at least effective depth d plus bar diameter beyond the section.'",
+          "cross_references": [
+            "Table 19"
+          ],
+          "equations": [],
+          "is_table": true
+        }
+      ]
+    },
+    {
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "affected_clauses": [
+        "Cl. 6.1",
+        "Table 2",
+        "Table 20",
+        "Table 21"
+      ],
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-AMD-4-SEC-1",
+          "code": "IS 456:2000 / AMD 4",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 4,
+          "issue_date": "May 2013",
+          "clause_number": "AMD-4.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 4 (MAY 2013) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 4",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-4-SEC-2",
+          "code": "IS 456:2000 / AMD 4",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 4,
+          "issue_date": "May 2013",
+          "clause_number": "AMD-4.2",
+          "title": "1. Sectional Committee & Authority",
+          "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: May 2013.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-4-SEC-3",
+          "code": "IS 456:2000 / AMD 4",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 4,
+          "issue_date": "May 2013",
+          "clause_number": "6.1",
+          "title": "Page 12, Clause 6.1: High Strength Concrete group shall include concrete grades M65, M70, M75, M80, M85, M90, M95, and M100.",
+          "content": "Target mean strength formula: f'ck = fck + 1.65 * s.",
+          "cross_references": [],
+          "equations": [
+            "Target mean strength formula: f'ck = fck + 1.65 * s."
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-4-SEC-4",
+          "code": "IS 456:2000 / AMD 4",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 4,
+          "issue_date": "May 2013",
+          "clause_number": "AMD-4.4",
+          "title": "Page 73, Table 20: For concrete grades M45, M50, M55, M60 and above:",
+          "content": "tau_c_max = 4.0 N/mm2 for M45 and higher grades (unless detailed testing validates higher values).\nLimit state shear design shall enforce this upper bound.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "affected_clauses": [
+        "Cl. 9.2.2",
+        "Cl. 26.2.1.1",
+        "Cl. 26.5.1.1",
+        "Table 16"
+      ],
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-456-2000-/-AMD-5-SEC-1",
+          "code": "IS 456:2000 / AMD 5",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 5,
+          "issue_date": "July 2019",
+          "clause_number": "AMD-5.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 5 (JULY 2019) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 5",
+          "cross_references": [
+            "IS 456:2000"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-5-SEC-2",
+          "code": "IS 456:2000 / AMD 5",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 5,
+          "issue_date": "July 2019",
+          "clause_number": "AMD-5.2",
+          "title": "1. Sectional Committee & Authority",
+          "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: July 2019.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-5-SEC-3",
+          "code": "IS 456:2000 / AMD 5",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 5,
+          "issue_date": "July 2019",
+          "clause_number": "26.2.1.1",
+          "title": "Page 46, Clause 26.2.1.1: Development length Ld is given by:",
+          "content": "Ld = (phi * sigma_s) / (4 * tau_bd)\nwhere phi is nominal bar diameter, sigma_s is stress in bar at design load (0.87 * fy), and tau_bd is design bond stress.\nFor deformed bars conforming to IS 1786, tau_bd values shall be increased by 60%.",
+          "cross_references": [
+            "IS 1786"
+          ],
+          "equations": [
+            "Ld = (phi * sigma_s) / (4 * tau_bd)"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-456-2000-/-AMD-5-SEC-4",
+          "code": "IS 456:2000 / AMD 5",
+          "standard_code": "IS 456:2000",
+          "amendment_number": 5,
+          "issue_date": "July 2019",
+          "clause_number": "26.5.1.1",
+          "title": "Page 47, Clause 26.5.1.1: Tension reinforcement percentage floor and ceiling:",
+          "content": "Minimum tension steel: As / (b * d) >= 0.85 / fy\nMaximum tension steel: As <= 0.04 * b * D\nMaximum compression steel: Asc <= 0.04 * b * D.",
+          "cross_references": [],
+          "equations": [
+            "Minimum tension steel: As / (b * d) >= 0.85 / fy",
+            "Maximum tension steel: As <= 0.04 * b * D",
+            "Maximum compression steel: Asc <= 0.04 * b * D."
+          ],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "affected_clauses": [
+        "Cl. 2",
+        "Cl. 5.3",
+        "Cl. 6.2.1",
+        "Cl. 6.3.3",
+        "Cl. 7.6.1"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-1-SEC-1",
+          "code": "IS 13920:2016 / AMD 1",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 1,
+          "issue_date": "September 2017",
+          "clause_number": "AMD-1.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (SEPTEMBER 2017) TO IS 13920:2016 DUCTILE DESIGN AND DETAILING OF RC STR\nCode Reference: IS 13920:2016 / AMD 1",
+          "cross_references": [
+            "IS 13920:2016"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-1-SEC-2",
+          "code": "IS 13920:2016 / AMD 1",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 1,
+          "issue_date": "September 2017",
+          "clause_number": "AMD-1.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: September 2017.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-1-SEC-3",
+          "code": "IS 13920:2016 / AMD 1",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 1,
+          "issue_date": "September 2017",
+          "clause_number": "5.3",
+          "title": "Page 2, Clause 5.3: Only mechanical couplers conforming to IS 16172 capable of developing full tensile strength",
+          "content": "of bar shall be permitted in seismic zones III, IV and V.\nNot more than 50% of bars shall be spliced at any one cross-section.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-1-SEC-4",
+          "code": "IS 13920:2016 / AMD 1",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 1,
+          "issue_date": "September 2017",
+          "clause_number": "6.3.3",
+          "title": "Page 5, Clause 6.3.3: Over a length equal to 2d from the face of each support:",
+          "content": "a) Spacing of closed hoops shall not exceed min(d/4, 8*db, 100 mm).\nb) First hoop shall be at not more than 50 mm from support face.\nc) Hoops shall have 135 degree hooks with at least 10*db extension (min 65 mm).",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-1-SEC-5",
+          "code": "IS 13920:2016 / AMD 1",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 1,
+          "issue_date": "September 2017",
+          "clause_number": "7.6.1",
+          "title": "Page 7, Clause 7.6.1: Special confining reinforcement shall be provided over length lo from column joints:",
+          "content": "lo >= max(larger column dimension D, H_clear / 6, 450 mm).\nPitch of ties shall not exceed min(b/4, 100 mm, 6*db).",
+          "cross_references": [],
+          "equations": [
+            "lo >= max(larger column dimension D, H_clear / 6, 450 mm)."
+          ],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "affected_clauses": [
+        "Cl. 5.2",
+        "Cl. 6.1.1",
+        "Cl. 7.1",
+        "Cl. 8.1"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-2-SEC-1",
+          "code": "IS 13920:2016 / AMD 2",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 2,
+          "issue_date": "December 2020",
+          "clause_number": "AMD-2.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (DECEMBER 2020) TO IS 13920:2016 DUCTILE DESIGN AND DETAILING OF RC STRU\nCode Reference: IS 13920:2016 / AMD 2",
+          "cross_references": [
+            "IS 13920:2016"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-2-SEC-2",
+          "code": "IS 13920:2016 / AMD 2",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 2,
+          "issue_date": "December 2020",
+          "clause_number": "AMD-2.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: December 2020.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-2-SEC-3",
+          "code": "IS 13920:2016 / AMD 2",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 2,
+          "issue_date": "December 2020",
+          "clause_number": "6.1.1",
+          "title": "Page 3, Clause 6.1.1: For RC beams in Seismic Zones III, IV, and V:",
+          "content": "a) Minimum beam width b shall not be less than 200 mm.\nb) The width-to-depth ratio b/D shall not be less than 0.30.\nc) Clear span shall not be less than 4 times effective depth.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-2-SEC-4",
+          "code": "IS 13920:2016 / AMD 2",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 2,
+          "issue_date": "December 2020",
+          "clause_number": "7.1",
+          "title": "Page 6, Clause 7.1: For columns resisting seismic lateral forces:",
+          "content": "a) Minimum cross-sectional dimension shall be 300 mm.\nb) In frame buildings with beams framing into column, column dimension shall be at least 20 times\nthe diameter of largest longitudinal beam bar.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-13920-2016-/-AMD-2-SEC-5",
+          "code": "IS 13920:2016 / AMD 2",
+          "standard_code": "IS 13920:2016",
+          "amendment_number": 2,
+          "issue_date": "December 2020",
+          "clause_number": "8.1",
+          "title": "Page 8, Clause 8.1: Confining hoops as specified for special confining length lo shall continue through",
+          "content": "the beam-column joint core unless restrained by beams on all four vertical faces.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "affected_clauses": [
+        "Cl. 6.4.2",
+        "Table 2",
+        "Cl. 7.1",
+        "Cl. 7.2.1",
+        "Cl. 7.6.2"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-1",
+          "code": "IS 1893 (Part 1):2016 / AMD 1",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 1,
+          "issue_date": "January 2017",
+          "clause_number": "AMD-1.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JANUARY 2017) TO IS 1893 (PART 1):2016 EARTHQUAKE RESISTANT DESIGN OF S\nCode Reference: IS 1893 (Part 1):2016 / AMD 1",
+          "cross_references": [
+            "IS 1893",
+            "IS 1893 (Part 1):2016"
+          ],
+          "equations": [],
+          "is_table": true
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-2",
+          "code": "IS 1893 (Part 1):2016 / AMD 1",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 1,
+          "issue_date": "January 2017",
+          "clause_number": "AMD-1.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: January 2017.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-3",
+          "code": "IS 1893 (Part 1):2016 / AMD 1",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 1,
+          "issue_date": "January 2017",
+          "clause_number": "6.4.2",
+          "title": "Page 10, Clause 6.4.2 (Table 2): Zone factors for Maximum Considered Earthquake (MCE):",
+          "content": "- Seismic Zone II: Z = 0.10 (Low intensity)\n- Seismic Zone III: Z = 0.16 (Moderate intensity)\n- Seismic Zone IV: Z = 0.24 (Severe intensity)\n- Seismic Zone V: Z = 0.36 (Very severe intensity)\nDesign Basis Earthquake (DBE) factor is taken as Z / 2.",
+          "cross_references": [],
+          "equations": [
+            "- Seismic Zone II: Z = 0.10 (Low intensity)",
+            "- Seismic Zone III: Z = 0.16 (Moderate intensity)",
+            "- Seismic Zone IV: Z = 0.24 (Severe intensity)",
+            "- Seismic Zone V: Z = 0.36 (Very severe intensity)"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-4",
+          "code": "IS 1893 (Part 1):2016 / AMD 1",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 1,
+          "issue_date": "January 2017",
+          "clause_number": "7.2.1",
+          "title": "Page 16, Clause 7.2.1: Factored seismic base shear VB = Ah * W.",
+          "content": "Ah = (Z / 2) * (I / R) * (Sa / g)\nwhere Z is Zone factor, I is Importance factor, R is Response reduction factor, and Sa/g is design spectral acceleration.",
+          "cross_references": [],
+          "equations": [
+            "Ah = (Z / 2) * (I / R) * (Sa / g)"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-5",
+          "code": "IS 1893 (Part 1):2016 / AMD 1",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 1,
+          "issue_date": "January 2017",
+          "clause_number": "7.6.2",
+          "title": "Page 19, Clause 7.6.2: Fundamental period of building frame:",
+          "content": "a) Bare RC frame: Ta = 0.075 * h^0.75\nb) Bare Steel frame: Ta = 0.085 * h^0.75\nc) RC frames with masonry infills: Ta = 0.09 * h / sqrt(d)",
+          "cross_references": [],
+          "equations": [
+            "a) Bare RC frame: Ta = 0.075 * h^0.75",
+            "b) Bare Steel frame: Ta = 0.085 * h^0.75",
+            "c) RC frames with masonry infills: Ta = 0.09 * h / sqrt(d)"
+          ],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "affected_clauses": [
+        "Table 6",
+        "Table 7",
+        "Cl. 7.11.1"
+      ],
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-1",
+          "code": "IS 1893 (Part 1):2016 / AMD 2",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 2,
+          "issue_date": "March 2020",
+          "clause_number": "AMD-2.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (MARCH 2020) TO IS 1893 (PART 1):2016 EARTHQUAKE RESISTANT DESIGN OF STR\nCode Reference: IS 1893 (Part 1):2016 / AMD 2",
+          "cross_references": [
+            "IS 1893",
+            "IS 1893 (Part 1):2016"
+          ],
+          "equations": [],
+          "is_table": true
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-2",
+          "code": "IS 1893 (Part 1):2016 / AMD 2",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 2,
+          "issue_date": "March 2020",
+          "clause_number": "AMD-2.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: March 2020.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-3",
+          "code": "IS 1893 (Part 1):2016 / AMD 2",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 2,
+          "issue_date": "March 2020",
+          "clause_number": "AMD-2.3",
+          "title": "Page 14, Table 6: Structure Importance Factors:",
+          "content": "- Critical lifelines, hospitals, schools, emergency stations: I = 1.5\n- High occupancy commercial buildings, cinema halls, transit terminals: I = 1.2\n- All other residential and normal commercial buildings: I = 1.0",
+          "cross_references": [],
+          "equations": [
+            "- Critical lifelines, hospitals, schools, emergency stations: I = 1.5",
+            "- High occupancy commercial buildings, cinema halls, transit terminals: I = 1.2",
+            "- All other residential and normal commercial buildings: I = 1.0"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-4",
+          "code": "IS 1893 (Part 1):2016 / AMD 2",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 2,
+          "issue_date": "March 2020",
+          "clause_number": "AMD-2.4",
+          "title": "Page 15, Table 7: Structural System Response Reduction Factors:",
+          "content": "- Special Moment Resisting RC Frame (SMRF conforming to IS 13920): R = 5.0\n- Ordinary Moment Resisting RC Frame (OMRF): R = 3.0\n- Steel Special Concentrically Braced Frame (SCBF): R = 4.5",
+          "cross_references": [
+            "IS 13920"
+          ],
+          "equations": [
+            "- Ordinary Moment Resisting RC Frame (OMRF): R = 3.0",
+            "- Steel Special Concentrically Braced Frame (SCBF): R = 4.5"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-5",
+          "code": "IS 1893 (Part 1):2016 / AMD 2",
+          "standard_code": "IS 1893 (Part 1):2016",
+          "amendment_number": 2,
+          "issue_date": "March 2020",
+          "clause_number": "7.11.1",
+          "title": "Page 22, Clause 7.11.1: The storey drift in any storey due to minimum specified design lateral force",
+          "content": "with partial load factor 1.0 shall not exceed 0.004 times the storey height (Delta <= 0.004 * hi).",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "affected_clauses": [
+        "Cl. 7.1.2",
+        "Table 10",
+        "Table 12"
+      ],
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-800-2007-/-AMD-1-SEC-1",
+          "code": "IS 800:2007 / AMD 1",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 1,
+          "issue_date": "January 2012",
+          "clause_number": "AMD-1.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JANUARY 2012) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PR\nCode Reference: IS 800:2007 / AMD 1",
+          "cross_references": [
+            "IS 800:2007"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-1-SEC-2",
+          "code": "IS 800:2007 / AMD 1",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 1,
+          "issue_date": "January 2012",
+          "clause_number": "AMD-1.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: January 2012.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-1-SEC-3",
+          "code": "IS 800:2007 / AMD 1",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 1,
+          "issue_date": "January 2012",
+          "clause_number": "7.1.2",
+          "title": "Page 28, Clause 7.1.2: Design compressive strength fcd = (fy / gamma_m0) / (phi + (phi^2 - lambda^2)^0.5)",
+          "content": "where phi = 0.5 * (1 + alpha * (lambda - 0.2) + lambda^2)\nand lambda is non-dimensional slenderness ratio sqrt(fy / fcc).",
+          "cross_references": [],
+          "equations": [
+            "where phi = 0.5 * (1 + alpha * (lambda - 0.2) + lambda^2)"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-1-SEC-4",
+          "code": "IS 800:2007 / AMD 1",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 1,
+          "issue_date": "January 2012",
+          "clause_number": "AMD-1.4",
+          "title": "Page 35, Table 10: Classification of rolled I-sections, built-up I-sections, and hollow sections",
+          "content": "into buckling curves a, b, c, or d based on flange thickness and axis of buckling.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "affected_clauses": [
+        "Cl. 8.2.2",
+        "Section 10"
+      ],
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-800-2007-/-AMD-2-SEC-1",
+          "code": "IS 800:2007 / AMD 2",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 2,
+          "issue_date": "August 2013",
+          "clause_number": "AMD-2.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (AUGUST 2013) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PRA\nCode Reference: IS 800:2007 / AMD 2",
+          "cross_references": [
+            "IS 800:2007"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-2-SEC-2",
+          "code": "IS 800:2007 / AMD 2",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 2,
+          "issue_date": "August 2013",
+          "clause_number": "AMD-2.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: August 2013.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-2-SEC-3",
+          "code": "IS 800:2007 / AMD 2",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 2,
+          "issue_date": "August 2013",
+          "clause_number": "8.2.2",
+          "title": "Page 53, Clause 8.2.2: Design bending compressive stress for lateral-torsional buckling fbd:",
+          "content": "fbd = chi_LT * (fy / gamma_m0)\nwhere chi_LT is reduction factor for lateral-torsional buckling.",
+          "cross_references": [],
+          "equations": [
+            "fbd = chi_LT * (fy / gamma_m0)"
+          ],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-2-SEC-4",
+          "code": "IS 800:2007 / AMD 2",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 2,
+          "issue_date": "August 2013",
+          "clause_number": "AMD-2.4",
+          "title": "3. Section 10 Connections",
+          "content": "Page 74, Section 10: Slip resistance for High Strength Friction Grip (HSFG) bolts:\nV_nsf = mu_f * n_e * K_h * F_0\nDesign slip resistance V_dsf = V_nsf / gamma_mf.",
+          "cross_references": [],
+          "equations": [
+            "V_nsf = mu_f * n_e * K_h * F_0"
+          ],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "affected_clauses": [
+        "Table 20",
+        "Cl. 10.5"
+      ],
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IS-800-2007-/-AMD-3-SEC-1",
+          "code": "IS 800:2007 / AMD 3",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 3,
+          "issue_date": "September 2015",
+          "clause_number": "AMD-3.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 3 (SEPTEMBER 2015) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF\nCode Reference: IS 800:2007 / AMD 3",
+          "cross_references": [
+            "IS 800:2007"
+          ],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-3-SEC-2",
+          "code": "IS 800:2007 / AMD 3",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 3,
+          "issue_date": "September 2015",
+          "clause_number": "AMD-3.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: September 2015.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-3-SEC-3",
+          "code": "IS 800:2007 / AMD 3",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 3,
+          "issue_date": "September 2015",
+          "clause_number": "AMD-3.3",
+          "title": "Page 75, Table 20: Minimum edge distance from center of hole to edge of plate:",
+          "content": "- Sheared or hand flame cut edges: 1.7 * hole diameter\n- Rolled, machine flame cut, sawn, or planed edges: 1.5 * hole diameter.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-800-2007-/-AMD-3-SEC-4",
+          "code": "IS 800:2007 / AMD 3",
+          "standard_code": "IS 800:2007",
+          "amendment_number": 3,
+          "issue_date": "September 2015",
+          "clause_number": "10.5",
+          "title": "Page 82, Clause 10.5: Effective throat thickness t = K * s, where K is a constant depending on angle between fusion faces",
+          "content": "(K = 0.70 for 60 to 90 degrees). Design strength of fillet weld f_wd = f_wn / gamma_mw = fu / (sqrt(3) * gamma_mw).",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        }
+      ]
+    },
+    {
+      "code": "IS 875 (Part 3):2015 / AMD 1",
+      "standard_code": "IS 875 (Part 3):2015",
+      "amendment_number": 1,
+      "issue_date": "March 2016",
+      "affected_clauses": [
+        "Cl. 6.3",
+        "Cl. 6.3.4"
+      ],
+      "total_chunks": 3,
+      "chunks": [
+        {
+          "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-1",
+          "code": "IS 875 (Part 3):2015 / AMD 1",
+          "standard_code": "IS 875 (Part 3):2015",
+          "amendment_number": 1,
+          "issue_date": "March 2016",
+          "clause_number": "AMD-1.1",
+          "title": "General Overview & Scope",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (MARCH 2016) TO IS 875 (PART 3):2015 DESIGN LOADS (OTHER THAN EARTHQUAK\nCode Reference: IS 875 (Part 3):2015 / AMD 1",
+          "cross_references": [
+            "IS 875",
+            "IS 875 (Part 3):2015"
+          ],
+          "equations": [],
+          "is_table": true
+        },
+        {
+          "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-2",
+          "code": "IS 875 (Part 3):2015 / AMD 1",
+          "standard_code": "IS 875 (Part 3):2015",
+          "amendment_number": 1,
+          "issue_date": "March 2016",
+          "clause_number": "AMD-1.2",
+          "title": "1. Sectional Committee & Scope",
+          "content": "Structural Safety Sectional Committee, CED 37.\nDate of Publication: March 2016.",
+          "cross_references": [],
+          "equations": [],
+          "is_table": false
+        },
+        {
+          "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-3",
+          "code": "IS 875 (Part 3):2015 / AMD 1",
+          "standard_code": "IS 875 (Part 3):2015",
+          "amendment_number": 1,
+          "issue_date": "March 2016",
+          "clause_number": "6.3",
+          "title": "Page 9, Clause 6.3: Design wind speed at any height z:",
+          "content": "Vz = Vb * k1 * k2 * k3 * k4\nwhere:\nVb = basic wind speed (33 to 55 m/s per Fig. 1)\nk1 = risk coefficient (Table 1)\nk2 = terrain and height factor (Table 2)\nk3 = topography factor (Cl. 6.3.3)\nk4 = cyclonic factor for structures located within 60 km of east coast (k4 = 1.15 to 1.30).",
+          "cross_references": [
+            "Fig. 1",
+            "Table 1",
+            "Table 2",
+            "Cl. 6.3.3"
+          ],
+          "equations": [
+            "Vz = Vb * k1 * k2 * k3 * k4",
+            "Vb = basic wind speed (33 to 55 m/s per Fig. 1)",
+            "k1 = risk coefficient (Table 1)",
+            "k2 = terrain and height factor (Table 2)",
+            "k3 = topography factor (Cl. 6.3.3)"
+          ],
+          "is_table": true
+        }
+      ]
+    }
+  ],
+  "all_chunks": [
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-1",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "AMD-1.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JUNE 2001) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 1",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-2",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "AMD-1.2",
+      "title": "1. Sectional Committee & Authority",
+      "content": "Cement and Concrete Sectional Committee, CED 2.\nNotified under the Bureau of Indian Standards Act, 1986.\nDate of Publication: June 2001.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-3",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "5.3",
+      "title": "Page 2, Clause 5.3: Substitute 'IS 383' for 'IS 383:1970'.",
+      "content": "Coarse and fine aggregates shall comply with the requirements of IS 383.\nAggregate nominal maximum size for reinforced concrete shall be 20 mm unless otherwise specified.",
+      "cross_references": [
+        "IS 383"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-4",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "AMD-1.4",
+      "title": "Page 13, Table 2: Note under Table 2 shall read:",
+      "content": "'In the designation of concrete mix M refers to the mix and the number to the specified characteristic compressive\nstrength of 150 mm size cube at 28 days, expressed in N/mm2.'",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-5",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "AMD-1.5",
+      "title": "Page 20, Table 5: In column 3 under 'Moderate Exposure', substitute '0.50' for '0.55' for reinforced concrete.",
+      "content": "Minimum cement content for reinforced concrete under Moderate exposure shall be 300 kg/m3.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-1-SEC-6",
+      "code": "IS 456:2000 / AMD 1",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 1,
+      "issue_date": "June 2001",
+      "clause_number": "26.5.1.1(a)",
+      "title": "Page 47, Clause 26.5.1.1(a): Clarification for T-beams and L-beams:",
+      "content": "'For flanged beams, breadth of beam (b) shall be considered as breadth of web (bw) for minimum tension steel: As / (bw * d) >= 0.85 / fy.'",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-2-SEC-1",
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "clause_number": "AMD-2.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (SEPTEMBER 2002) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF\nCode Reference: IS 456:2000 / AMD 2",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-2-SEC-2",
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "clause_number": "AMD-2.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: September 2002.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-2-SEC-3",
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "clause_number": "5.1.1",
+      "title": "Page 2, Clause 5.1.1: Cement shall conform to the following:",
+      "content": "a) 33 Grade ordinary Portland cement conforming to IS 269.\nb) 43 Grade ordinary Portland cement conforming to IS 8112.\nc) 53 Grade ordinary Portland cement conforming to IS 12269.\nd) Portland pozzolana cement conforming to IS 1489 (Part 1 and Part 2).",
+      "cross_references": [
+        "IS 269",
+        "IS 8112",
+        "IS 12269",
+        "IS 1489"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-2-SEC-4",
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "clause_number": "AMD-2.4",
+      "title": "Page 47, Table 16: Note 1 shall be modified as follows:",
+      "content": "'For main reinforcement up to 12 mm diameter bar size for mild exposure the nominal cover may be reduced by 5 mm.\nFor longitudinal bars in columns, nominal cover shall not be less than 40 mm, nor less than the bar diameter.'",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-2-SEC-5",
+      "code": "IS 456:2000 / AMD 2",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 2,
+      "issue_date": "September 2002",
+      "clause_number": "40.2.3",
+      "title": "Page 72, Clause 40.2.3: Reaffirms strict ceiling:",
+      "content": "'Under no circumstances, even with shear reinforcement, shall the nominal shear stress tau_v exceed tau_c,max given in Table 20.\nIf tau_v > tau_c,max, the cross-sectional dimensions must be redesigned.'",
+      "cross_references": [
+        "Table 20"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-3-SEC-1",
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "clause_number": "AMD-3.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 3 (AUGUST 2004) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PR\nCode Reference: IS 456:2000 / AMD 3",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-3-SEC-2",
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "clause_number": "AMD-3.2",
+      "title": "1. Sectional Committee & Authority",
+      "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: August 2004.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-3-SEC-3",
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "clause_number": "5.2.1",
+      "title": "Page 2, Clause 5.2.1: Fly ash conforming to IS 3812 (Part 1) may be used as part replacement of OPC provided",
+      "content": "the percentage does not exceed 35% by mass of total cementitious content.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-3-SEC-4",
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "clause_number": "26.5.1.5",
+      "title": "Page 48, Clause 26.5.1.5: 'The maximum spacing of shear reinforcement measured along the axis of the member",
+      "content": "shall not exceed 0.75 d for vertical stirrups and d for inclined stirrups at 45 degrees, where d is the effective depth.\nIn no case shall the spacing exceed 300 mm.'",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-3-SEC-5",
+      "code": "IS 456:2000 / AMD 3",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 3,
+      "issue_date": "August 2004",
+      "clause_number": "AMD-3.5",
+      "title": "Page 73, Table 19: Note 1 shall read:",
+      "content": "'The values of tau_c given in Table 19 are for design concrete shear strength. The value of As is that of tension reinforcement\nwhich continues for a distance of at least effective depth d plus bar diameter beyond the section.'",
+      "cross_references": [
+        "Table 19"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-4-SEC-1",
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "clause_number": "AMD-4.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 4 (MAY 2013) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 4",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-4-SEC-2",
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "clause_number": "AMD-4.2",
+      "title": "1. Sectional Committee & Authority",
+      "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: May 2013.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-4-SEC-3",
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "clause_number": "6.1",
+      "title": "Page 12, Clause 6.1: High Strength Concrete group shall include concrete grades M65, M70, M75, M80, M85, M90, M95, and M100.",
+      "content": "Target mean strength formula: f'ck = fck + 1.65 * s.",
+      "cross_references": [],
+      "equations": [
+        "Target mean strength formula: f'ck = fck + 1.65 * s."
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-4-SEC-4",
+      "code": "IS 456:2000 / AMD 4",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 4,
+      "issue_date": "May 2013",
+      "clause_number": "AMD-4.4",
+      "title": "Page 73, Table 20: For concrete grades M45, M50, M55, M60 and above:",
+      "content": "tau_c_max = 4.0 N/mm2 for M45 and higher grades (unless detailed testing validates higher values).\nLimit state shear design shall enforce this upper bound.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-5-SEC-1",
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "clause_number": "AMD-5.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 5 (JULY 2019) TO IS 456:2000 PLAIN AND REINFORCED CONCRETE · CODE OF PRACT\nCode Reference: IS 456:2000 / AMD 5",
+      "cross_references": [
+        "IS 456:2000"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-5-SEC-2",
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "clause_number": "AMD-5.2",
+      "title": "1. Sectional Committee & Authority",
+      "content": "Cement and Concrete Sectional Committee, CED 2.\nDate of Publication: July 2019.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-5-SEC-3",
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "clause_number": "26.2.1.1",
+      "title": "Page 46, Clause 26.2.1.1: Development length Ld is given by:",
+      "content": "Ld = (phi * sigma_s) / (4 * tau_bd)\nwhere phi is nominal bar diameter, sigma_s is stress in bar at design load (0.87 * fy), and tau_bd is design bond stress.\nFor deformed bars conforming to IS 1786, tau_bd values shall be increased by 60%.",
+      "cross_references": [
+        "IS 1786"
+      ],
+      "equations": [
+        "Ld = (phi * sigma_s) / (4 * tau_bd)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-456-2000-/-AMD-5-SEC-4",
+      "code": "IS 456:2000 / AMD 5",
+      "standard_code": "IS 456:2000",
+      "amendment_number": 5,
+      "issue_date": "July 2019",
+      "clause_number": "26.5.1.1",
+      "title": "Page 47, Clause 26.5.1.1: Tension reinforcement percentage floor and ceiling:",
+      "content": "Minimum tension steel: As / (b * d) >= 0.85 / fy\nMaximum tension steel: As <= 0.04 * b * D\nMaximum compression steel: Asc <= 0.04 * b * D.",
+      "cross_references": [],
+      "equations": [
+        "Minimum tension steel: As / (b * d) >= 0.85 / fy",
+        "Maximum tension steel: As <= 0.04 * b * D",
+        "Maximum compression steel: Asc <= 0.04 * b * D."
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-1-SEC-1",
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "clause_number": "AMD-1.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (SEPTEMBER 2017) TO IS 13920:2016 DUCTILE DESIGN AND DETAILING OF RC STR\nCode Reference: IS 13920:2016 / AMD 1",
+      "cross_references": [
+        "IS 13920:2016"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-1-SEC-2",
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "clause_number": "AMD-1.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: September 2017.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-1-SEC-3",
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "clause_number": "5.3",
+      "title": "Page 2, Clause 5.3: Only mechanical couplers conforming to IS 16172 capable of developing full tensile strength",
+      "content": "of bar shall be permitted in seismic zones III, IV and V.\nNot more than 50% of bars shall be spliced at any one cross-section.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-1-SEC-4",
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "clause_number": "6.3.3",
+      "title": "Page 5, Clause 6.3.3: Over a length equal to 2d from the face of each support:",
+      "content": "a) Spacing of closed hoops shall not exceed min(d/4, 8*db, 100 mm).\nb) First hoop shall be at not more than 50 mm from support face.\nc) Hoops shall have 135 degree hooks with at least 10*db extension (min 65 mm).",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-1-SEC-5",
+      "code": "IS 13920:2016 / AMD 1",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 1,
+      "issue_date": "September 2017",
+      "clause_number": "7.6.1",
+      "title": "Page 7, Clause 7.6.1: Special confining reinforcement shall be provided over length lo from column joints:",
+      "content": "lo >= max(larger column dimension D, H_clear / 6, 450 mm).\nPitch of ties shall not exceed min(b/4, 100 mm, 6*db).",
+      "cross_references": [],
+      "equations": [
+        "lo >= max(larger column dimension D, H_clear / 6, 450 mm)."
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-2-SEC-1",
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "clause_number": "AMD-2.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (DECEMBER 2020) TO IS 13920:2016 DUCTILE DESIGN AND DETAILING OF RC STRU\nCode Reference: IS 13920:2016 / AMD 2",
+      "cross_references": [
+        "IS 13920:2016"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-2-SEC-2",
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "clause_number": "AMD-2.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: December 2020.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-2-SEC-3",
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "clause_number": "6.1.1",
+      "title": "Page 3, Clause 6.1.1: For RC beams in Seismic Zones III, IV, and V:",
+      "content": "a) Minimum beam width b shall not be less than 200 mm.\nb) The width-to-depth ratio b/D shall not be less than 0.30.\nc) Clear span shall not be less than 4 times effective depth.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-2-SEC-4",
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "clause_number": "7.1",
+      "title": "Page 6, Clause 7.1: For columns resisting seismic lateral forces:",
+      "content": "a) Minimum cross-sectional dimension shall be 300 mm.\nb) In frame buildings with beams framing into column, column dimension shall be at least 20 times\nthe diameter of largest longitudinal beam bar.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-13920-2016-/-AMD-2-SEC-5",
+      "code": "IS 13920:2016 / AMD 2",
+      "standard_code": "IS 13920:2016",
+      "amendment_number": 2,
+      "issue_date": "December 2020",
+      "clause_number": "8.1",
+      "title": "Page 8, Clause 8.1: Confining hoops as specified for special confining length lo shall continue through",
+      "content": "the beam-column joint core unless restrained by beams on all four vertical faces.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-1",
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "clause_number": "AMD-1.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JANUARY 2017) TO IS 1893 (PART 1):2016 EARTHQUAKE RESISTANT DESIGN OF S\nCode Reference: IS 1893 (Part 1):2016 / AMD 1",
+      "cross_references": [
+        "IS 1893",
+        "IS 1893 (Part 1):2016"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-2",
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "clause_number": "AMD-1.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: January 2017.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-3",
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "clause_number": "6.4.2",
+      "title": "Page 10, Clause 6.4.2 (Table 2): Zone factors for Maximum Considered Earthquake (MCE):",
+      "content": "- Seismic Zone II: Z = 0.10 (Low intensity)\n- Seismic Zone III: Z = 0.16 (Moderate intensity)\n- Seismic Zone IV: Z = 0.24 (Severe intensity)\n- Seismic Zone V: Z = 0.36 (Very severe intensity)\nDesign Basis Earthquake (DBE) factor is taken as Z / 2.",
+      "cross_references": [],
+      "equations": [
+        "- Seismic Zone II: Z = 0.10 (Low intensity)",
+        "- Seismic Zone III: Z = 0.16 (Moderate intensity)",
+        "- Seismic Zone IV: Z = 0.24 (Severe intensity)",
+        "- Seismic Zone V: Z = 0.36 (Very severe intensity)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-4",
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "clause_number": "7.2.1",
+      "title": "Page 16, Clause 7.2.1: Factored seismic base shear VB = Ah * W.",
+      "content": "Ah = (Z / 2) * (I / R) * (Sa / g)\nwhere Z is Zone factor, I is Importance factor, R is Response reduction factor, and Sa/g is design spectral acceleration.",
+      "cross_references": [],
+      "equations": [
+        "Ah = (Z / 2) * (I / R) * (Sa / g)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-1-SEC-5",
+      "code": "IS 1893 (Part 1):2016 / AMD 1",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 1,
+      "issue_date": "January 2017",
+      "clause_number": "7.6.2",
+      "title": "Page 19, Clause 7.6.2: Fundamental period of building frame:",
+      "content": "a) Bare RC frame: Ta = 0.075 * h^0.75\nb) Bare Steel frame: Ta = 0.085 * h^0.75\nc) RC frames with masonry infills: Ta = 0.09 * h / sqrt(d)",
+      "cross_references": [],
+      "equations": [
+        "a) Bare RC frame: Ta = 0.075 * h^0.75",
+        "b) Bare Steel frame: Ta = 0.085 * h^0.75",
+        "c) RC frames with masonry infills: Ta = 0.09 * h / sqrt(d)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-1",
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "clause_number": "AMD-2.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (MARCH 2020) TO IS 1893 (PART 1):2016 EARTHQUAKE RESISTANT DESIGN OF STR\nCode Reference: IS 1893 (Part 1):2016 / AMD 2",
+      "cross_references": [
+        "IS 1893",
+        "IS 1893 (Part 1):2016"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-2",
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "clause_number": "AMD-2.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Earthquake Engineering Sectional Committee, CED 39.\nDate of Publication: March 2020.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-3",
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "clause_number": "AMD-2.3",
+      "title": "Page 14, Table 6: Structure Importance Factors:",
+      "content": "- Critical lifelines, hospitals, schools, emergency stations: I = 1.5\n- High occupancy commercial buildings, cinema halls, transit terminals: I = 1.2\n- All other residential and normal commercial buildings: I = 1.0",
+      "cross_references": [],
+      "equations": [
+        "- Critical lifelines, hospitals, schools, emergency stations: I = 1.5",
+        "- High occupancy commercial buildings, cinema halls, transit terminals: I = 1.2",
+        "- All other residential and normal commercial buildings: I = 1.0"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-4",
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "clause_number": "AMD-2.4",
+      "title": "Page 15, Table 7: Structural System Response Reduction Factors:",
+      "content": "- Special Moment Resisting RC Frame (SMRF conforming to IS 13920): R = 5.0\n- Ordinary Moment Resisting RC Frame (OMRF): R = 3.0\n- Steel Special Concentrically Braced Frame (SCBF): R = 4.5",
+      "cross_references": [
+        "IS 13920"
+      ],
+      "equations": [
+        "- Ordinary Moment Resisting RC Frame (OMRF): R = 3.0",
+        "- Steel Special Concentrically Braced Frame (SCBF): R = 4.5"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-1893-(Part-1)-2016-/-AMD-2-SEC-5",
+      "code": "IS 1893 (Part 1):2016 / AMD 2",
+      "standard_code": "IS 1893 (Part 1):2016",
+      "amendment_number": 2,
+      "issue_date": "March 2020",
+      "clause_number": "7.11.1",
+      "title": "Page 22, Clause 7.11.1: The storey drift in any storey due to minimum specified design lateral force",
+      "content": "with partial load factor 1.0 shall not exceed 0.004 times the storey height (Delta <= 0.004 * hi).",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-1-SEC-1",
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "clause_number": "AMD-1.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (JANUARY 2012) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PR\nCode Reference: IS 800:2007 / AMD 1",
+      "cross_references": [
+        "IS 800:2007"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-1-SEC-2",
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "clause_number": "AMD-1.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: January 2012.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-1-SEC-3",
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "clause_number": "7.1.2",
+      "title": "Page 28, Clause 7.1.2: Design compressive strength fcd = (fy / gamma_m0) / (phi + (phi^2 - lambda^2)^0.5)",
+      "content": "where phi = 0.5 * (1 + alpha * (lambda - 0.2) + lambda^2)\nand lambda is non-dimensional slenderness ratio sqrt(fy / fcc).",
+      "cross_references": [],
+      "equations": [
+        "where phi = 0.5 * (1 + alpha * (lambda - 0.2) + lambda^2)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-1-SEC-4",
+      "code": "IS 800:2007 / AMD 1",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 1,
+      "issue_date": "January 2012",
+      "clause_number": "AMD-1.4",
+      "title": "Page 35, Table 10: Classification of rolled I-sections, built-up I-sections, and hollow sections",
+      "content": "into buckling curves a, b, c, or d based on flange thickness and axis of buckling.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-2-SEC-1",
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "clause_number": "AMD-2.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 2 (AUGUST 2013) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF PRA\nCode Reference: IS 800:2007 / AMD 2",
+      "cross_references": [
+        "IS 800:2007"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-2-SEC-2",
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "clause_number": "AMD-2.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: August 2013.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-2-SEC-3",
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "clause_number": "8.2.2",
+      "title": "Page 53, Clause 8.2.2: Design bending compressive stress for lateral-torsional buckling fbd:",
+      "content": "fbd = chi_LT * (fy / gamma_m0)\nwhere chi_LT is reduction factor for lateral-torsional buckling.",
+      "cross_references": [],
+      "equations": [
+        "fbd = chi_LT * (fy / gamma_m0)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-2-SEC-4",
+      "code": "IS 800:2007 / AMD 2",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 2,
+      "issue_date": "August 2013",
+      "clause_number": "AMD-2.4",
+      "title": "3. Section 10 Connections",
+      "content": "Page 74, Section 10: Slip resistance for High Strength Friction Grip (HSFG) bolts:\nV_nsf = mu_f * n_e * K_h * F_0\nDesign slip resistance V_dsf = V_nsf / gamma_mf.",
+      "cross_references": [],
+      "equations": [
+        "V_nsf = mu_f * n_e * K_h * F_0"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-3-SEC-1",
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "clause_number": "AMD-3.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 3 (SEPTEMBER 2015) TO IS 800:2007 GENERAL CONSTRUCTION IN STEEL · CODE OF\nCode Reference: IS 800:2007 / AMD 3",
+      "cross_references": [
+        "IS 800:2007"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-3-SEC-2",
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "clause_number": "AMD-3.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Structural Engineering and Structural Sections Sectional Committee, CED 7.\nDate of Publication: September 2015.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-3-SEC-3",
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "clause_number": "AMD-3.3",
+      "title": "Page 75, Table 20: Minimum edge distance from center of hole to edge of plate:",
+      "content": "- Sheared or hand flame cut edges: 1.7 * hole diameter\n- Rolled, machine flame cut, sawn, or planed edges: 1.5 * hole diameter.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-800-2007-/-AMD-3-SEC-4",
+      "code": "IS 800:2007 / AMD 3",
+      "standard_code": "IS 800:2007",
+      "amendment_number": 3,
+      "issue_date": "September 2015",
+      "clause_number": "10.5",
+      "title": "Page 82, Clause 10.5: Effective throat thickness t = K * s, where K is a constant depending on angle between fusion faces",
+      "content": "(K = 0.70 for 60 to 90 degrees). Design strength of fillet weld f_wd = f_wn / gamma_mw = fu / (sqrt(3) * gamma_mw).",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-1",
+      "code": "IS 875 (Part 3):2015 / AMD 1",
+      "standard_code": "IS 875 (Part 3):2015",
+      "amendment_number": 1,
+      "issue_date": "March 2016",
+      "clause_number": "AMD-1.1",
+      "title": "General Overview & Scope",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nAMENDMENT NO. 1 (MARCH 2016) TO IS 875 (PART 3):2015 DESIGN LOADS (OTHER THAN EARTHQUAK\nCode Reference: IS 875 (Part 3):2015 / AMD 1",
+      "cross_references": [
+        "IS 875",
+        "IS 875 (Part 3):2015"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-2",
+      "code": "IS 875 (Part 3):2015 / AMD 1",
+      "standard_code": "IS 875 (Part 3):2015",
+      "amendment_number": 1,
+      "issue_date": "March 2016",
+      "clause_number": "AMD-1.2",
+      "title": "1. Sectional Committee & Scope",
+      "content": "Structural Safety Sectional Committee, CED 37.\nDate of Publication: March 2016.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS-875-(Part-3)-2015-/-AMD-1-SEC-3",
+      "code": "IS 875 (Part 3):2015 / AMD 1",
+      "standard_code": "IS 875 (Part 3):2015",
+      "amendment_number": 1,
+      "issue_date": "March 2016",
+      "clause_number": "6.3",
+      "title": "Page 9, Clause 6.3: Design wind speed at any height z:",
+      "content": "Vz = Vb * k1 * k2 * k3 * k4\nwhere:\nVb = basic wind speed (33 to 55 m/s per Fig. 1)\nk1 = risk coefficient (Table 1)\nk2 = terrain and height factor (Table 2)\nk3 = topography factor (Cl. 6.3.3)\nk4 = cyclonic factor for structures located within 60 km of east coast (k4 = 1.15 to 1.30).",
+      "cross_references": [
+        "Fig. 1",
+        "Table 1",
+        "Table 2",
+        "Cl. 6.3.3"
+      ],
+      "equations": [
+        "Vz = Vb * k1 * k2 * k3 * k4",
+        "Vb = basic wind speed (33 to 55 m/s per Fig. 1)",
+        "k1 = risk coefficient (Table 1)",
+        "k2 = terrain and height factor (Table 2)",
+        "k3 = topography factor (Cl. 6.3.3)"
+      ],
+      "is_table": true
+    }
+  ]
+}

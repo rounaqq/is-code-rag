@@ -1,5 +1,5 @@
 {
-  "evaluation_timestamp": "2026-10-28T10:01:47Z",
+  "evaluation_timestamp": "2026-10-28T16:22:03Z",
   "total_scenarios": 5,
   "scenarios_passed": 5,
   "scenario_pass_rate_pct": 100.0,
@@ -7,7 +7,7 @@
   "total_checks_passed": 35,
   "self_consistency_checks_passed": "35/35",
   "dxf_exports_verified": 5,
-  "avg_latency_ms": 13.78,
+  "avg_latency_ms": 6.21,
   "stirrups_designed_count": 5,
   "minimum_shear_steel_count": 0,
   "shear_spacing_violations": [],
@@ -34,7 +34,7 @@
       "checks_passed": "7/7",
       "self_consistency_checks": "7/7",
       "dxf_generated": true,
-      "latency_ms": 13.03,
+      "latency_ms": 6.12,
       "independent_shear": {
         "tau_v": 0.755,
         "tau_c": 0.56,
@@ -79,7 +79,7 @@
       "checks_passed": "7/7",
       "self_consistency_checks": "7/7",
       "dxf_generated": true,
-      "latency_ms": 14.76,
+      "latency_ms": 6.09,
       "independent_shear": {
         "tau_v": 0.937,
         "tau_c": 0.57,
@@ -124,7 +124,7 @@
       "checks_passed": "7/7",
       "self_consistency_checks": "7/7",
       "dxf_generated": true,
-      "latency_ms": 12.54,
+      "latency_ms": 5.66,
       "independent_shear": {
         "tau_v": 1.12,
         "tau_c": 0.59,
@@ -169,7 +169,7 @@
       "checks_passed": "7/7",
       "self_consistency_checks": "7/7",
       "dxf_generated": true,
-      "latency_ms": 12.11,
+      "latency_ms": 6.28,
       "independent_shear": {
         "tau_v": 0.767,
         "tau_c": 0.57,
@@ -214,7 +214,7 @@
       "checks_passed": "7/7",
       "self_consistency_checks": "7/7",
       "dxf_generated": true,
-      "latency_ms": 16.44,
+      "latency_ms": 6.87,
       "independent_shear": {
         "tau_v": 1.143,
         "tau_c": 0.67,

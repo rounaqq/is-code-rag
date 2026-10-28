@@ -1,0 +1,415 @@
+{
+  "category": "design_examples",
+  "total_documents": 3,
+  "total_chunks": 13,
+  "documents": [
+    {
+      "code": "IITK-GSDMA EQ26",
+      "title": "IITK-GSDMA Guidelines for Seismic Design of RC Buildings — Worked Design Example of a Six-Storey Building",
+      "category": "design_examples",
+      "total_chunks": 5,
+      "chunks": [
+        {
+          "chunk_id": "IITK-GSDMA-EQ26-EX-1",
+          "code": "IITK-GSDMA EQ26",
+          "title": "Overview & Geometry",
+          "category": "design_examples",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nIITK-GSDMA GUIDELINES FOR SEISMIC DESIGN OF RC BUILDINGS · WORKED DESIGN EXAMPLE OF A S\nCode Reference: IITK-GSDMA EQ26",
+          "cross_references": [],
+          "equations": [],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ26-EX-2",
+          "code": "IITK-GSDMA EQ26",
+          "title": "1. Problem Statement & Building Geometry",
+          "category": "design_examples",
+          "content": "Six-storey reinforced concrete office building located in Seismic Zone IV.\n- Plan Dimensions: 4 bays @ 5.0 m in X-direction, 3 bays @ 4.0 m in Y-direction.\n- Storey Height: 3.5 m typical, ground storey 4.0 m (Total building height = 21.5 m).\n- Materials: Concrete Grade M25 (fck = 25 N/mm2), Reinforcement Fe 415 / Fe 500.\n- Soil Condition: Medium soil (Type II), Foundation: Isolated footings with tie beams.",
+          "cross_references": [],
+          "equations": [
+            "- Storey Height: 3.5 m typical, ground storey 4.0 m (Total building height = 21.5 m).",
+            "- Materials: Concrete Grade M25 (fck = 25 N/mm2), Reinforcement Fe 415 / Fe 500."
+          ],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ26-EX-3",
+          "code": "IITK-GSDMA EQ26",
+          "title": "2. Gravity Load Evaluation",
+          "category": "design_examples",
+          "content": "Floor Dead Loads per IS 875 (Part 1):\n- Slab thickness: 150 mm (Dead load = 0.15 * 25.0 = 3.75 kN/m2)\n- Floor finishes and partitions: 1.50 kN/m2 (Total floor DL = 5.25 kN/m2)\nImposed Loads per IS 875 (Part 2):\n- Typical floors: 3.0 kN/m2 (Office occupancy per Table 1)\n- Roof floor: 1.5 kN/m2.",
+          "cross_references": [
+            "IS 875",
+            "Table 1"
+          ],
+          "equations": [
+            "- Slab thickness: 150 mm (Dead load = 0.15 * 25.0 = 3.75 kN/m2)",
+            "- Floor finishes and partitions: 1.50 kN/m2 (Total floor DL = 5.25 kN/m2)"
+          ],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ26-EX-4",
+          "code": "IITK-GSDMA EQ26",
+          "title": "3. Seismic Base Shear Calculation per IS 1893 (Part 1):2016",
+          "category": "design_examples",
+          "content": "Seismic Weight W = Sum of dead loads + 25% of live loads (since LL <= 3.0 kN/m2 per Table 10).\nTotal Seismic Weight W = 16,850 kN.\nFundamental Natural Period:\nTa = 0.075 * h^0.75 = 0.075 * (21.5)^0.75 = 0.748 seconds.\nFor Medium Soil (Type II) with T = 0.748 s: Sa / g = 1.36 / T = 1.36 / 0.748 = 1.818.\nSeismic Zone IV: Z = 0.24, Importance Factor I = 1.2 (Commercial), SMRF System R = 5.0.\nDesign Horizontal Acceleration Coefficient:\nAh = (Z / 2) * (I / R) * (Sa / g) = (0.24 / 2) * (1.2 / 5.0) * 1.818 = 0.05236.\nTotal Design Base Shear:\nVB = Ah * W = 0.05236 * 16,850 = 882.2 kN.",
+          "cross_references": [
+            "Table 10"
+          ],
+          "equations": [
+            "Total Seismic Weight W = 16,850 kN.",
+            "Ta = 0.075 * h^0.75 = 0.075 * (21.5)^0.75 = 0.748 seconds.",
+            "Ah = (Z / 2) * (I / R) * (Sa / g) = (0.24 / 2) * (1.2 / 5.0) * 1.818 = 0.05236.",
+            "VB = Ah * W = 0.05236 * 16,850 = 882.2 kN."
+          ],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ26-EX-5",
+          "code": "IITK-GSDMA EQ26",
+          "title": "4. Ductile Detailing Provisions per IS 13920:2016",
+          "category": "design_examples",
+          "content": "Beams: Width b = 300 mm, Depth D = 500 mm (d = 450 mm).\nb >= 200 mm and b/D = 0.60 >= 0.30 (Complies with Cl. 6.1.1).\nSupport Plastic Hinge Confinement Zone (length 2d = 900 mm):\nStirrups spacing s <= min(d/4 = 112.5 mm, 8*db = 8*16 = 128 mm, 100 mm) => Use 100 mm c/c.\nTies have 135 degree hooks with 75 mm extension (>= 10*db per Cl. 5.2).",
+          "cross_references": [
+            "Cl. 6.1.1",
+            "Cl. 5.2"
+          ],
+          "equations": [
+            "Beams: Width b = 300 mm, Depth D = 500 mm (d = 450 mm).",
+            "b >= 200 mm and b/D = 0.60 >= 0.30 (Complies with Cl. 6.1.1).",
+            "Support Plastic Hinge Confinement Zone (length 2d = 900 mm):",
+            "Stirrups spacing s <= min(d/4 = 112.5 mm, 8*db = 8*16 = 128 mm, 100 mm) => Use 100 mm c/c."
+          ],
+          "is_calculation": true
+        }
+      ]
+    },
+    {
+      "code": "IITK-GSDMA EQ06",
+      "title": "IITK-GSDMA Explanatory Commentary and Proposed Draft Provisions on Ductile Detailing of RC Structures",
+      "category": "explanatory_notes",
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "IITK-GSDMA-EQ06-EX-1",
+          "code": "IITK-GSDMA EQ06",
+          "title": "Overview & Geometry",
+          "category": "explanatory_notes",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nIITK-GSDMA EXPLANATORY COMMENTARY AND PROPOSED DRAFT PROVISIONS ON DUCTILE DETAIL\nCode Reference: IITK-GSDMA EQ06",
+          "cross_references": [],
+          "equations": [],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ06-EX-2",
+          "code": "IITK-GSDMA EQ06",
+          "title": "1. Purpose & Structural Philosophy",
+          "category": "explanatory_notes",
+          "content": "Provides technical commentary for ductile detailing of reinforced concrete structures subjected to seismic forces.\nEmphasizes capacity design principle: strong column - weak beam behavior to ensure energy dissipation\nthrough flexural yielding of beams before column buckling or shear failure occurs.",
+          "cross_references": [],
+          "equations": [],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ06-EX-3",
+          "code": "IITK-GSDMA EQ06",
+          "title": "2. Beam Flexural Steel Envelope Rationale",
+          "category": "explanatory_notes",
+          "content": "Commentary on Cl. 6.2: Restricting maximum tension steel ratio to 2.5% prevents brittle compression failure\nof concrete under extreme cyclic strain reversals.\nMinimum steel ratio ensures distributed micro-cracking rather than a single catastrophic fracture crack.",
+          "cross_references": [
+            "Cl. 6.2"
+          ],
+          "equations": [],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "IITK-GSDMA-EQ06-EX-4",
+          "code": "IITK-GSDMA EQ06",
+          "title": "3. Confinement Ties Mechanics",
+          "category": "explanatory_notes",
+          "content": "Commentary on Cl. 7.6: Rectangular confining hoops provide passive lateral pressure when core concrete dilates,\ndramatically enhancing ultimate compressive strain from 0.0035 to over 0.008.\n135 degree seismic hooks embedded in core prevent ties from bursting outward after cover spalling.",
+          "cross_references": [
+            "Cl. 7.6"
+          ],
+          "equations": [],
+          "is_calculation": true
+        }
+      ]
+    },
+    {
+      "code": "SP:16 Worked Examples",
+      "title": "Design Aids to IS 456:1978 / SP:16 Worked Design Examples for Beams, Columns, and Slabs",
+      "category": "design_examples",
+      "total_chunks": 4,
+      "chunks": [
+        {
+          "chunk_id": "SP-16-Worked-Examples-EX-1",
+          "code": "SP:16 Worked Examples",
+          "title": "Overview & Geometry",
+          "category": "design_examples",
+          "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nDESIGN AIDS TO IS 456:1978 / SP:16 WORKED DESIGN EXAMPLES FOR BEAMS, COLUMNS, AND SLABS\nCode Reference: SP:16 Worked Examples",
+          "cross_references": [
+            "IS 456:1978"
+          ],
+          "equations": [],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "SP-16-Worked-Examples-EX-2",
+          "code": "SP:16 Worked Examples",
+          "title": "1. Example 1: Singly Reinforced Rectangular Beam Flexure",
+          "category": "design_examples",
+          "content": "Design a simply supported rectangular beam over an effective span of 5.0 m.\nFactored bending moment Mu = 120 kNm. Concrete M25 (fck = 25 N/mm2), Steel Fe 415 (fy = 415 N/mm2).\n- Assumed beam width b = 250 mm.\n- From SP:16 Table 2: Mu,lim / (b * d^2) = 3.45 N/mm2.\n- Required effective depth d = sqrt(120 * 10^6 / (3.45 * 250)) = 373 mm. Adopt d = 400 mm, D = 450 mm.\n- Required Ast = 982 mm2. Provide 3 bars of 20 mm diameter (Ast = 942 mm2 + 1 bar of 12 mm = 1055 mm2).\n- Section is under-reinforced: xu < xu,max.",
+          "cross_references": [
+            "Table 2"
+          ],
+          "equations": [
+            "Factored bending moment Mu = 120 kNm. Concrete M25 (fck = 25 N/mm2), Steel Fe 415 (fy = 415 N/mm2).",
+            "- Assumed beam width b = 250 mm.",
+            "- From SP:16 Table 2: Mu,lim / (b * d^2) = 3.45 N/mm2.",
+            "- Required effective depth d = sqrt(120 * 10^6 / (3.45 * 250)) = 373 mm. Adopt d = 400 mm, D = 450 mm."
+          ],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "SP-16-Worked-Examples-EX-3",
+          "code": "SP:16 Worked Examples",
+          "title": "2. Example 2: Short Axially Loaded RC Column",
+          "category": "design_examples",
+          "content": "Design a short square column to carry factored axial load Pu = 1,500 kN.\nConcrete M25, Steel Fe 500. Unsupported length L = 3.0 m.\n- Minimum eccentricity: emin = L/500 + D/30 = 3000/500 + 400/30 = 19.3 mm <= 20 mm (Governs emin = 20 mm).\n- Clause 39.3 axial capacity: Pu = 0.40 * fck * Ac + 0.67 * fy * Asc.\n- Assume 1.2% longitudinal steel: Asc = 0.012 * Ag, Ac = 0.988 * Ag.\n- 1500 * 10^3 = [0.40 * 25 * 0.988 + 0.67 * 500 * 0.012] * Ag = [9.88 + 4.02] * Ag = 13.90 * Ag.\n- Required Ag = 107,913 mm2. Provide 350 mm x 350 mm column (Ag = 122,500 mm2).\n- Required Asc = 1,470 mm2. Provide 4 bars of 20 mm diameter + 4 bars of 16 mm diameter (Asc = 2060 mm2).\n- Lateral ties: dia >= max(20/4 = 5 mm, 8 mm) => Use 8 mm ties @ min(350 mm, 16*16 = 256 mm, 300 mm) => 250 mm c/c.",
+          "cross_references": [
+            "Clause 39.3"
+          ],
+          "equations": [
+            "Concrete M25, Steel Fe 500. Unsupported length L = 3.0 m.",
+            "- Minimum eccentricity: emin = L/500 + D/30 = 3000/500 + 400/30 = 19.3 mm <= 20 mm (Governs emin = 20 mm).",
+            "- Clause 39.3 axial capacity: Pu = 0.40 * fck * Ac + 0.67 * fy * Asc.",
+            "- Assume 1.2% longitudinal steel: Asc = 0.012 * Ag, Ac = 0.988 * Ag.",
+            "- 1500 * 10^3 = [0.40 * 25 * 0.988 + 0.67 * 500 * 0.012] * Ag = [9.88 + 4.02] * Ag = 13.90 * Ag.",
+            "- Required Ag = 107,913 mm2. Provide 350 mm x 350 mm column (Ag = 122,500 mm2).",
+            "- Lateral ties: dia >= max(20/4 = 5 mm, 8 mm) => Use 8 mm ties @ min(350 mm, 16*16 = 256 mm, 300 mm) => 250 mm c/c."
+          ],
+          "is_calculation": true
+        },
+        {
+          "chunk_id": "SP-16-Worked-Examples-EX-4",
+          "code": "SP:16 Worked Examples",
+          "title": "3. Example 3: Shear Reinforcement in Beams",
+          "category": "design_examples",
+          "content": "Beam breadth b = 300 mm, d = 450 mm, factored shear force Vu = 140 kN, M25 concrete, Fe 415 stirrups.\n- Nominal shear stress tau_v = Vu / (b * d) = 140 * 10^3 / (300 * 450) = 1.037 N/mm2.\n- tau_c,max for M25 = 3.1 N/mm2 per Table 20. tau_v < tau_c,max (Safe in shear compression).\n- Concrete shear strength for pt = 1.0%: tau_c = 0.64 N/mm2 per Table 19.\n- Since tau_v > tau_c, shear reinforcement is required:\nVus = Vu - tau_c * b * d = 140 - (0.64 * 300 * 450 / 1000) = 140 - 86.4 = 53.6 kN.\n- Required spacing for 2-legged 8 mm stirrups (Asv = 100.5 mm2):\nsv = 0.87 * fy * Asv * d / Vus = 0.87 * 415 * 100.5 * 450 / (53.6 * 10^3) = 304 mm.\n- Maximum spacing limit per Cl. 26.5.1.5 = min(0.75 * 450 = 337 mm, 300 mm) => 300 mm.\n- Minimum shear steel per Cl. 26.5.1.6: sv <= 0.87 * 415 * 100.5 / (0.4 * 300) = 302 mm.\n- Provide 2-legged 8 mm stirrups @ 280 mm c/c.",
+          "cross_references": [
+            "Table 20",
+            "Table 19",
+            "Cl. 26.5.1.5",
+            "Cl. 26.5.1.6"
+          ],
+          "equations": [
+            "- Nominal shear stress tau_v = Vu / (b * d) = 140 * 10^3 / (300 * 450) = 1.037 N/mm2.",
+            "- tau_c,max for M25 = 3.1 N/mm2 per Table 20. tau_v < tau_c,max (Safe in shear compression).",
+            "- Concrete shear strength for pt = 1.0%: tau_c = 0.64 N/mm2 per Table 19.",
+            "Vus = Vu - tau_c * b * d = 140 - (0.64 * 300 * 450 / 1000) = 140 - 86.4 = 53.6 kN.",
+            "- Required spacing for 2-legged 8 mm stirrups (Asv = 100.5 mm2):",
+            "sv = 0.87 * fy * Asv * d / Vus = 0.87 * 415 * 100.5 * 450 / (53.6 * 10^3) = 304 mm.",
+            "- Maximum spacing limit per Cl. 26.5.1.5 = min(0.75 * 450 = 337 mm, 300 mm) => 300 mm.",
+            "- Minimum shear steel per Cl. 26.5.1.6: sv <= 0.87 * 415 * 100.5 / (0.4 * 300) = 302 mm."
+          ],
+          "is_calculation": true
+        }
+      ]
+    }
+  ],
+  "all_chunks": [
+    {
+      "chunk_id": "IITK-GSDMA-EQ26-EX-1",
+      "code": "IITK-GSDMA EQ26",
+      "title": "Overview & Geometry",
+      "category": "design_examples",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nIITK-GSDMA GUIDELINES FOR SEISMIC DESIGN OF RC BUILDINGS · WORKED DESIGN EXAMPLE OF A S\nCode Reference: IITK-GSDMA EQ26",
+      "cross_references": [],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ26-EX-2",
+      "code": "IITK-GSDMA EQ26",
+      "title": "1. Problem Statement & Building Geometry",
+      "category": "design_examples",
+      "content": "Six-storey reinforced concrete office building located in Seismic Zone IV.\n- Plan Dimensions: 4 bays @ 5.0 m in X-direction, 3 bays @ 4.0 m in Y-direction.\n- Storey Height: 3.5 m typical, ground storey 4.0 m (Total building height = 21.5 m).\n- Materials: Concrete Grade M25 (fck = 25 N/mm2), Reinforcement Fe 415 / Fe 500.\n- Soil Condition: Medium soil (Type II), Foundation: Isolated footings with tie beams.",
+      "cross_references": [],
+      "equations": [
+        "- Storey Height: 3.5 m typical, ground storey 4.0 m (Total building height = 21.5 m).",
+        "- Materials: Concrete Grade M25 (fck = 25 N/mm2), Reinforcement Fe 415 / Fe 500."
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ26-EX-3",
+      "code": "IITK-GSDMA EQ26",
+      "title": "2. Gravity Load Evaluation",
+      "category": "design_examples",
+      "content": "Floor Dead Loads per IS 875 (Part 1):\n- Slab thickness: 150 mm (Dead load = 0.15 * 25.0 = 3.75 kN/m2)\n- Floor finishes and partitions: 1.50 kN/m2 (Total floor DL = 5.25 kN/m2)\nImposed Loads per IS 875 (Part 2):\n- Typical floors: 3.0 kN/m2 (Office occupancy per Table 1)\n- Roof floor: 1.5 kN/m2.",
+      "cross_references": [
+        "IS 875",
+        "Table 1"
+      ],
+      "equations": [
+        "- Slab thickness: 150 mm (Dead load = 0.15 * 25.0 = 3.75 kN/m2)",
+        "- Floor finishes and partitions: 1.50 kN/m2 (Total floor DL = 5.25 kN/m2)"
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ26-EX-4",
+      "code": "IITK-GSDMA EQ26",
+      "title": "3. Seismic Base Shear Calculation per IS 1893 (Part 1):2016",
+      "category": "design_examples",
+      "content": "Seismic Weight W = Sum of dead loads + 25% of live loads (since LL <= 3.0 kN/m2 per Table 10).\nTotal Seismic Weight W = 16,850 kN.\nFundamental Natural Period:\nTa = 0.075 * h^0.75 = 0.075 * (21.5)^0.75 = 0.748 seconds.\nFor Medium Soil (Type II) with T = 0.748 s: Sa / g = 1.36 / T = 1.36 / 0.748 = 1.818.\nSeismic Zone IV: Z = 0.24, Importance Factor I = 1.2 (Commercial), SMRF System R = 5.0.\nDesign Horizontal Acceleration Coefficient:\nAh = (Z / 2) * (I / R) * (Sa / g) = (0.24 / 2) * (1.2 / 5.0) * 1.818 = 0.05236.\nTotal Design Base Shear:\nVB = Ah * W = 0.05236 * 16,850 = 882.2 kN.",
+      "cross_references": [
+        "Table 10"
+      ],
+      "equations": [
+        "Total Seismic Weight W = 16,850 kN.",
+        "Ta = 0.075 * h^0.75 = 0.075 * (21.5)^0.75 = 0.748 seconds.",
+        "Ah = (Z / 2) * (I / R) * (Sa / g) = (0.24 / 2) * (1.2 / 5.0) * 1.818 = 0.05236.",
+        "VB = Ah * W = 0.05236 * 16,850 = 882.2 kN."
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ26-EX-5",
+      "code": "IITK-GSDMA EQ26",
+      "title": "4. Ductile Detailing Provisions per IS 13920:2016",
+      "category": "design_examples",
+      "content": "Beams: Width b = 300 mm, Depth D = 500 mm (d = 450 mm).\nb >= 200 mm and b/D = 0.60 >= 0.30 (Complies with Cl. 6.1.1).\nSupport Plastic Hinge Confinement Zone (length 2d = 900 mm):\nStirrups spacing s <= min(d/4 = 112.5 mm, 8*db = 8*16 = 128 mm, 100 mm) => Use 100 mm c/c.\nTies have 135 degree hooks with 75 mm extension (>= 10*db per Cl. 5.2).",
+      "cross_references": [
+        "Cl. 6.1.1",
+        "Cl. 5.2"
+      ],
+      "equations": [
+        "Beams: Width b = 300 mm, Depth D = 500 mm (d = 450 mm).",
+        "b >= 200 mm and b/D = 0.60 >= 0.30 (Complies with Cl. 6.1.1).",
+        "Support Plastic Hinge Confinement Zone (length 2d = 900 mm):",
+        "Stirrups spacing s <= min(d/4 = 112.5 mm, 8*db = 8*16 = 128 mm, 100 mm) => Use 100 mm c/c."
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ06-EX-1",
+      "code": "IITK-GSDMA EQ06",
+      "title": "Overview & Geometry",
+      "category": "explanatory_notes",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nIITK-GSDMA EXPLANATORY COMMENTARY AND PROPOSED DRAFT PROVISIONS ON DUCTILE DETAIL\nCode Reference: IITK-GSDMA EQ06",
+      "cross_references": [],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ06-EX-2",
+      "code": "IITK-GSDMA EQ06",
+      "title": "1. Purpose & Structural Philosophy",
+      "category": "explanatory_notes",
+      "content": "Provides technical commentary for ductile detailing of reinforced concrete structures subjected to seismic forces.\nEmphasizes capacity design principle: strong column - weak beam behavior to ensure energy dissipation\nthrough flexural yielding of beams before column buckling or shear failure occurs.",
+      "cross_references": [],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ06-EX-3",
+      "code": "IITK-GSDMA EQ06",
+      "title": "2. Beam Flexural Steel Envelope Rationale",
+      "category": "explanatory_notes",
+      "content": "Commentary on Cl. 6.2: Restricting maximum tension steel ratio to 2.5% prevents brittle compression failure\nof concrete under extreme cyclic strain reversals.\nMinimum steel ratio ensures distributed micro-cracking rather than a single catastrophic fracture crack.",
+      "cross_references": [
+        "Cl. 6.2"
+      ],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "IITK-GSDMA-EQ06-EX-4",
+      "code": "IITK-GSDMA EQ06",
+      "title": "3. Confinement Ties Mechanics",
+      "category": "explanatory_notes",
+      "content": "Commentary on Cl. 7.6: Rectangular confining hoops provide passive lateral pressure when core concrete dilates,\ndramatically enhancing ultimate compressive strain from 0.0035 to over 0.008.\n135 degree seismic hooks embedded in core prevent ties from bursting outward after cover spalling.",
+      "cross_references": [
+        "Cl. 7.6"
+      ],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "SP-16-Worked-Examples-EX-1",
+      "code": "SP:16 Worked Examples",
+      "title": "Overview & Geometry",
+      "category": "design_examples",
+      "content": "MANAK BHAVAN, 9 BAHADUR SHAH ZAFAR MARG, NEW DELHI 110002\nDESIGN AIDS TO IS 456:1978 / SP:16 WORKED DESIGN EXAMPLES FOR BEAMS, COLUMNS, AND SLABS\nCode Reference: SP:16 Worked Examples",
+      "cross_references": [
+        "IS 456:1978"
+      ],
+      "equations": [],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "SP-16-Worked-Examples-EX-2",
+      "code": "SP:16 Worked Examples",
+      "title": "1. Example 1: Singly Reinforced Rectangular Beam Flexure",
+      "category": "design_examples",
+      "content": "Design a simply supported rectangular beam over an effective span of 5.0 m.\nFactored bending moment Mu = 120 kNm. Concrete M25 (fck = 25 N/mm2), Steel Fe 415 (fy = 415 N/mm2).\n- Assumed beam width b = 250 mm.\n- From SP:16 Table 2: Mu,lim / (b * d^2) = 3.45 N/mm2.\n- Required effective depth d = sqrt(120 * 10^6 / (3.45 * 250)) = 373 mm. Adopt d = 400 mm, D = 450 mm.\n- Required Ast = 982 mm2. Provide 3 bars of 20 mm diameter (Ast = 942 mm2 + 1 bar of 12 mm = 1055 mm2).\n- Section is under-reinforced: xu < xu,max.",
+      "cross_references": [
+        "Table 2"
+      ],
+      "equations": [
+        "Factored bending moment Mu = 120 kNm. Concrete M25 (fck = 25 N/mm2), Steel Fe 415 (fy = 415 N/mm2).",
+        "- Assumed beam width b = 250 mm.",
+        "- From SP:16 Table 2: Mu,lim / (b * d^2) = 3.45 N/mm2.",
+        "- Required effective depth d = sqrt(120 * 10^6 / (3.45 * 250)) = 373 mm. Adopt d = 400 mm, D = 450 mm."
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "SP-16-Worked-Examples-EX-3",
+      "code": "SP:16 Worked Examples",
+      "title": "2. Example 2: Short Axially Loaded RC Column",
+      "category": "design_examples",
+      "content": "Design a short square column to carry factored axial load Pu = 1,500 kN.\nConcrete M25, Steel Fe 500. Unsupported length L = 3.0 m.\n- Minimum eccentricity: emin = L/500 + D/30 = 3000/500 + 400/30 = 19.3 mm <= 20 mm (Governs emin = 20 mm).\n- Clause 39.3 axial capacity: Pu = 0.40 * fck * Ac + 0.67 * fy * Asc.\n- Assume 1.2% longitudinal steel: Asc = 0.012 * Ag, Ac = 0.988 * Ag.\n- 1500 * 10^3 = [0.40 * 25 * 0.988 + 0.67 * 500 * 0.012] * Ag = [9.88 + 4.02] * Ag = 13.90 * Ag.\n- Required Ag = 107,913 mm2. Provide 350 mm x 350 mm column (Ag = 122,500 mm2).\n- Required Asc = 1,470 mm2. Provide 4 bars of 20 mm diameter + 4 bars of 16 mm diameter (Asc = 2060 mm2).\n- Lateral ties: dia >= max(20/4 = 5 mm, 8 mm) => Use 8 mm ties @ min(350 mm, 16*16 = 256 mm, 300 mm) => 250 mm c/c.",
+      "cross_references": [
+        "Clause 39.3"
+      ],
+      "equations": [
+        "Concrete M25, Steel Fe 500. Unsupported length L = 3.0 m.",
+        "- Minimum eccentricity: emin = L/500 + D/30 = 3000/500 + 400/30 = 19.3 mm <= 20 mm (Governs emin = 20 mm).",
+        "- Clause 39.3 axial capacity: Pu = 0.40 * fck * Ac + 0.67 * fy * Asc.",
+        "- Assume 1.2% longitudinal steel: Asc = 0.012 * Ag, Ac = 0.988 * Ag.",
+        "- 1500 * 10^3 = [0.40 * 25 * 0.988 + 0.67 * 500 * 0.012] * Ag = [9.88 + 4.02] * Ag = 13.90 * Ag.",
+        "- Required Ag = 107,913 mm2. Provide 350 mm x 350 mm column (Ag = 122,500 mm2).",
+        "- Lateral ties: dia >= max(20/4 = 5 mm, 8 mm) => Use 8 mm ties @ min(350 mm, 16*16 = 256 mm, 300 mm) => 250 mm c/c."
+      ],
+      "is_calculation": true
+    },
+    {
+      "chunk_id": "SP-16-Worked-Examples-EX-4",
+      "code": "SP:16 Worked Examples",
+      "title": "3. Example 3: Shear Reinforcement in Beams",
+      "category": "design_examples",
+      "content": "Beam breadth b = 300 mm, d = 450 mm, factored shear force Vu = 140 kN, M25 concrete, Fe 415 stirrups.\n- Nominal shear stress tau_v = Vu / (b * d) = 140 * 10^3 / (300 * 450) = 1.037 N/mm2.\n- tau_c,max for M25 = 3.1 N/mm2 per Table 20. tau_v < tau_c,max (Safe in shear compression).\n- Concrete shear strength for pt = 1.0%: tau_c = 0.64 N/mm2 per Table 19.\n- Since tau_v > tau_c, shear reinforcement is required:\nVus = Vu - tau_c * b * d = 140 - (0.64 * 300 * 450 / 1000) = 140 - 86.4 = 53.6 kN.\n- Required spacing for 2-legged 8 mm stirrups (Asv = 100.5 mm2):\nsv = 0.87 * fy * Asv * d / Vus = 0.87 * 415 * 100.5 * 450 / (53.6 * 10^3) = 304 mm.\n- Maximum spacing limit per Cl. 26.5.1.5 = min(0.75 * 450 = 337 mm, 300 mm) => 300 mm.\n- Minimum shear steel per Cl. 26.5.1.6: sv <= 0.87 * 415 * 100.5 / (0.4 * 300) = 302 mm.\n- Provide 2-legged 8 mm stirrups @ 280 mm c/c.",
+      "cross_references": [
+        "Table 20",
+        "Table 19",
+        "Cl. 26.5.1.5",
+        "Cl. 26.5.1.6"
+      ],
+      "equations": [
+        "- Nominal shear stress tau_v = Vu / (b * d) = 140 * 10^3 / (300 * 450) = 1.037 N/mm2.",
+        "- tau_c,max for M25 = 3.1 N/mm2 per Table 20. tau_v < tau_c,max (Safe in shear compression).",
+        "- Concrete shear strength for pt = 1.0%: tau_c = 0.64 N/mm2 per Table 19.",
+        "Vus = Vu - tau_c * b * d = 140 - (0.64 * 300 * 450 / 1000) = 140 - 86.4 = 53.6 kN.",
+        "- Required spacing for 2-legged 8 mm stirrups (Asv = 100.5 mm2):",
+        "sv = 0.87 * fy * Asv * d / Vus = 0.87 * 415 * 100.5 * 450 / (53.6 * 10^3) = 304 mm.",
+        "- Maximum spacing limit per Cl. 26.5.1.5 = min(0.75 * 450 = 337 mm, 300 mm) => 300 mm.",
+        "- Minimum shear steel per Cl. 26.5.1.6: sv <= 0.87 * 415 * 100.5 / (0.4 * 300) = 302 mm."
+      ],
+      "is_calculation": true
+    }
+  ]
+}

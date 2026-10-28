@@ -1,0 +1,1556 @@
+{
+  "code": "IS 875 (Part 3)",
+  "title": "Design Loads - Part 3: Wind Loads",
+  "source_pdf": "is_875_part_3_2015.pdf",
+  "total_pages": 69,
+  "total_clauses_extracted": 122,
+  "chunks": [
+    {
+      "chunk_id": "IS875-P3-CL-1.5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.5",
+      "title": "m and 10 m. The equivalent aerodynamic",
+      "content": "roughness height, (ZO,2) for this terrain is\n0.02m.\nIndian Standard\nDESIGN LOADS (OTHER THAN EARTHQUAKE)\nFOR BUILDINGS AND STRUCTURES -\nCODE\nOF PRACTICE\nPART 3 WIND LOADS\n(Third Revision)\n1 SCOPE",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.1",
+      "title": "This standard (Part 3) specifies wind forces and",
+      "content": "their effects (static and dynamic) that should be taken\ninto account when designing buildings, structures and\ncomponents thereof.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.2",
+      "title": "Wind speeds vary randomly both in time and space",
+      "content": "and hence assessment of wind loads and response\npredictions are very important in the design of several\nbuildings and structures. A large majority of structures\nmet with in practice do not however, suffer wind\ninduced oscillations and generally do not require to be\nexamined for the dynamic effects of wind. For such\nnormal, short and heavy structures, estimation ofloads\nusing static wind analysis has proved to be satisfactory.\nThe details of this method involving important wind\ncharacteristics such as the basic wind speeds, terrain\ncategories, modification factors, wind pressure and\nforce coefficients, etc, are given in 6 and 7.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.3",
+      "title": "Nevertheless, there are various types of structures",
+      "content": "or their components such as some tall buildings,\nchimneys, latticed towers, cooling towers, transmission\ntowers, guyed masts, communication towers, long span\nbridges, partially or completely solid faced antenna\ndish, etc, which require investigation of wind induced\noscillations. The influence of dynamic velocity\nfluctuations on the along wind loads (drag loads) for\nthese structures shall be determined using Gust Factor\nMethod, included in 10. A method for calculation of\nacross wind response of tall buildings and towers is\nincluded in 10.3.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.4",
+      "title": "This standard also applies to buildings or other",
+      "content": "structures during erection/construction and the same\nshall be considered carefully during various stages of\nerection/construction. In locations where the strongest\nwinds and icing may occur simultaneously, loads on\nstructural members, cables and ropes shall be\ncalculated by assuming an ice covering based on\nclimatic and local experience.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.5",
+      "title": "In the design of special structures, such as",
+      "content": "chimneys, overhead transmission line towers, etc,\nspecific requirements as specified in the respective\nCodes shall be adopted in conjunction with the\nprovisions of this Code as far as they are applicable.\nSome of the Indian Standards available for the design\nof special structures are:\nIS No.\n4998 : 2015\n(Part 1) : 1989\n(Part 2) : 1989\n5613 (Part 21\nSec 1) :1985\n802 (Part II\nSec 1) : 201 *\n11504 : 1985\n14732 : 2000\nNOTES\nTitle\nCriteria for design of reinforced\nconcrete chimneys : Part 1,\nAssessment of loads (third revision)\n(under print)\nCode of practice for design and\nconstruction of steel chimneys\nMechanical aspects\nStructural aspects\nCode of practice for design,\ninstallation and maintenance of\noverhead power lines: Part 2 Lines\nabove 11 kV, and up to and including\n220 kV, Section 1 Design\nCode of practice for use of structural\nsteel in overhead transmission line\ntowers: Part 1 Materials, Loads and\npermissible stresses, Section 1\nMaterials and Loads (fourth revision)\n(under print)\nCriteria for structural design of\nreinforced concrete natural draught\ncooling towers\nGuidelines for the evaluation of the\nresponse of occupants of fixed\nstructures, especially buildings and\noff-shore structures, to low-\nfrequency horizontal motion (0.063\nto 1 Hz)\n1 This standard does not apply to buildings or structures with\nunconventional shapes, unusual locations, and abnonnal\nenvironmental conditions that have not been covered in this\nCode. Special investigations are necessary in such cases to\nestablish wind loads and their effects. Wind tunnel studies may\nalso be required in such situations.\n2 In the case of tall structures with unsymmetrical geometry,\nthe designs may have to be checked for torsional effects due to\nwind pressure.\n2 REFERENCES\nThe following standard contains provisions; which\nthrough reference in this text, constitute provisions of\nthis standard. At the time of publication, the edition\nindicated was valid. All standards are subject to\nrevision, and parties to agreements based on this\nstandard are encouraged to investigate the possibility\nof applying the most recent edition of the standard\nindicated.\nTitle\nIS No.\n15498: 2004\nGuidelines for improving the\ncyclonic resistance of low rise houses\nand other buildings/structures\n3 NOTATIONS",
+      "cross_references": [],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-3.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "3.1",
+      "title": "The following notations shall be followed unless",
+      "content": "otherwise specified in relevant clauses. Notations have\nbeen defined in the text at their fit:st appearance. A few\nof the notations have more than one definition, having\nbeen used for denoting different variables:\nA = surface area of a structure or part of a\nstructure;\nAe\neffective frontal area; .\nAz = the effective frontal area of the building at\nheight z;\nb = breadth of a structure or structural member\nnormal to the wind stream in the horizontal\nplane;\nBs\nbackground factor;\nCd\ndrag coefficient;\nCfd ,\nforce coefficient;\nCfn\nnormal force coefficient;\nCft = transverse force coefficient;\nCr' = frictional drag coefficient;\nCp = pressure coefficient;\nCpe = external pressure coefficient;\nCpi = internal pressure coefficient;\nCfs = cross-wind force spectrum coefficient;\nC,. z = drag force coefficient of the building\ncorresponding to the area Az;\nC = coefficient, which depends on as' used in the\nevaluation of k3 factor;\nd = depth of a structure or structural member\nparallel to wind stream in the horizontal\nplane;\ndw = wake width;\nD =\nE\ndiameter of cylinder or sphere;\nwind energy factor;\nFz = along wind load on the building/structure at\nany height z;\nF = force normal to the surface;\nfa = first mode natural frequency of the buildingl\nstructure in along wind direction in Hz;\nfc\nfirst mode natural frequency of the building/\nstructure in across wind direction in Hz;\nIs = vortex shedding frequency;\nFn = normal force;\nFt = transverse force;\nF' = frictional force;\nG = gust factor;\npeak factor for resonant response;\ngv = peak factor for upwind velocity fluctuations;\nh\nheight of structure above mean ground level;\nhll = height of development of a velocity profile\nat a distance x down wind from a change in\nterrain category;\nHs\nheight factor for resonant response;\nH\nheight above mean ground level on the\ntopography feature;\nturbulence intensity;\nlh.i = turbulence intensity at height h in terrain\ncategory i;\nlz.i = turbulence intensity at height z in terrain\ncategory i;\nIF = interference factor;\nk = mode shape power exponent;\nkl' k2' = wind speed modification factors;\nk3' k4\nk2,; = hourly mean wind speed factor;\nK\nforce coefficient multiplication factor for\nindividual members of finite length;\nKa\narea averaging factor;\nKe = combination factor;\nKd = wind directionality factor;\nI = length of the member or larger horizontal\ndimension of a building;\nL = actual length of upwind slope;\nLe\neffective length of upwind slope;\nLh = integral turbulence length scale at the height\nh;\nrno = average mass per unit height of the structure;\nMa = design peak along wind base bending\nmoment;\nMe = design peak across wind base bending\nmoment;\nN = effective reduced frequency;\ndesign wind pressure;\npz = design wind pressure at height z;\nPI! = design hourly mean wind pressure\ncorresponding to V\nz,d ;\nP e = external pressure;\nPi = internal pressure;\nr = roughness factor which is twice the\nlongitudinal turbulence intensity at height h;\nRe = Reynolds number;\ns == level on a building/structure for the\nevaluation of along wind load effects;\nSo = factor, which depends on H and X, used for\nthe evaluation of ~ factor;\nSt = strouhal number;\nS = size reduction factor;\nVb = regional basic wind speed;\nVz == design wind speed at height z;\n~\ndesign hourly mean wind speed;\nV\nd,%\ndesign hourly mean wind speed at height z;\nV\nz,H\nhourly mean wind speed at height z;\nw = lesser horizontal dimension of a building,\nor a structural member;\nw' = bay width in multi-bay building;\ni = peak acceleration at the top of the building!\nstructure in along wind direction, in mls2;\nx = distance down wind from a change in terrain\ncategory;\nX = distance from the summit or crest of\ntopography feature relative to the effective\nlength, Le;\n.. y\npeak acceleration at the top of the building!\nstructure in across wind direction;\nz = a height or distance above the ground;\nlo,i = aerodynamic roughness height for itb\nterrain;\nZ == effective height of the topography feature;\na. =\n~\n11 •\n<t»\n~e\ns\n9. =\ninclination of the roof to the horizontal;\ndamping coefficient of the buildingl\nstructure;\nshielding factor;\nfactor to account for the second order\nturbulence intensity;\nsolidity ratio;\neffective solidity ratio;\naverage height of the surface roughness;\nupwind slope of the topography feature in\nthe wind direction; and\nwind angle from a given axis.\n4 TERMINOLOGY\nFor the purpose of this standard, the following\ndefmitions shall apply.",
+      "cross_references": [],
+      "equations": [
+        "kl' k2' = wind speed modification factors;",
+        "k2,; = hourly mean wind speed factor;",
+        "9. ="
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.1",
+      "title": "Angle of Attack -",
+      "content": "An angle between the direction\nof wind and a reference axis of the structure.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.2",
+      "title": "Breadth. -",
+      "content": "It means horizontal dimension of the\nbuilding measured normal to the direction of wind.\nNOTE -\nBreadth and depth are dimensions measured in\nrelation to the direction of wind, whereas length and width are\ndimensions related to the plan.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.3",
+      "title": "Depth -",
+      "content": "It means the horizontal dimension of\nthe building measured in the direction of the wind.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.4",
+      "title": "Developed Height -",
+      "content": "It is the height of upward\npenetration of the velocity profile lli a new terrain. At\nlarge fetch lengths, such penetration reaches the\ngradient height, above which the wind speed may be\ntaken to be constant. At lesser fetch lengths, a velocity\nprofile of a smaller height but similar to that of the\nfully developed profile of that terrain category has to\nbe taken, with the additional provision that the velocity\nat the top of this shorter profile equal to that of the un-\npenetrated earlier velocity profile at that height.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.5",
+      "title": "Effedive Frontal Area -",
+      "content": "The projected area of\nthe structure nonnal to the direction of wind.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.6",
+      "title": "Element of Surfaee Area -",
+      "content": "The area of surface\nover which the pressure coefficient is taken to be\nconstant.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.7",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.7",
+      "title": "Foree Coefficient -",
+      "content": "A non-dimensional\ncoefficient such that the total wind force on a body is\nthe product of the force coefficient, the dynamic\npressure of the incident design wind speed and the\nreference area over which the force is required.\nNOTE -\nWhen the force is in the direction of the incident\nwind, the non-dimensional coefficient will be called as • drag\ncoefficient'. When the force is perpendicular to the direction\nof incident wind, the non-dimen.sional coefficient will be called\nas 'lift coefficientt •",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.1",
+      "title": "Ground Roughness -",
+      "content": "The natw'e of the earth's\nsurface as influenced by small scale obstructions such\nas trees and buildings (as distinct from topography) is\ncalled ground roughness.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.9",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.9",
+      "title": "Gust -",
+      "content": "A positive or negative departure of wind\nspeed from its mean value, lasting for not more than,\nsay t 2 min over a specified interval of time.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.10",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.10",
+      "title": "Peak Gut -",
+      "content": "A peak gust or peak gust speed is\nthe wind speed associated with the maximum\namplitude.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.11",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.11",
+      "title": "Feteh Length -",
+      "content": "It is the distance measured\nalong the wind from a boundary at which a change in\nthe type oftemtin occurs. When the changes in terrain\nt}cpes are encountered (such as, the boundary of a town\nor city, forest, etc), the wind profile changes in\ncharacter but such changes are gradual and start at\nground level, spreading or penetrating upwards with\nincreasing fetch length.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.12",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.12",
+      "title": "Gradient Height -",
+      "content": "It is the height above the\nmean ground level at which the gradient wind blows\nas a result of balance among pressure gradient force,\ncoriolis force and centrifugal force. For the purpose of\nthis Code, the gradient height is taken as the height\nabove the mean ground level, above which the variation\nof wind speed with height need not be considered.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.13",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.13",
+      "title": "Higb Rise Building (Tall Building) -",
+      "content": "A\nbuilding with a height more than or equal to 50 m or\nhaving a height to sm'aUer dimension more than 6.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.14",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.14",
+      "title": "Low Rise Building -",
+      "content": "A building having its\nheight less than 20 m.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.15",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.15",
+      "title": "Mean Ground Level- The mean ground level",
+      "content": "is the average horizontal plane of the area enclosed by\nthe boundaries of the structure.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.16",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.16",
+      "title": "Pressure Coefficient -",
+      "content": "It is the ratio of the\ndifference between the pressure acting at a point on\nthe surface and the static pressure of the incident wind\nto the design wind pressure, where the static and design\nwind pressures are detennined at the height ofthe point\nconsidered after taking into account the geographical\nlocation, terrain conditions and shielding effect. The\npressure coefficient is also equal to [1-( V / V J2], where\nVp is the actual wind speed at any point on the structure\nat a height corresponding to that of Vz•\nNOTE -\nPositive sign of the pressure coefficient indicates\npressure acting towards the surface and negative sign indicates\npressure acting away from the surface,",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.17",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.17",
+      "title": "Return Period -",
+      "content": "It is the number of years,\nreciprocal of which gives the probability of extreme\nwind exceeding a given wind speed in anyone year.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.18",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.18",
+      "title": "Shielding Effect -",
+      "content": "Shielding effect or shielding\nrefers to the condition where wind has to pass along\nsome structure(s) or structural element(s) located on\nthe upstream wind side, before meeting the structure\nor structural element under consideration. A factor\ncalled 'shielding factor' is used to account for such\neffects in estimating the force on the shielded structures.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.19",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.19",
+      "title": "Suction -",
+      "content": "It means pressure less than the\natmospheric (static) pressure and is taken to act away\nfrom the surface.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.20",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.20",
+      "title": "Solidity Ratio -",
+      "content": "It is equal to the effective area\n(projected area of all the individual elements) of a\nframe nonnal to the wind direction divided by the area\nenclosed by the boundary of the frame nonnal to the\nwind direction.\nNOTE -\nSolidity ratio is to be calculated for individual frames.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.21",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.21",
+      "title": "Terrain Category -",
+      "content": "It means the characteristics\nof the surface irregularities ofan area which arise from\nnatural or constructed features. The categories are\nnumbered in increasing order of roughness.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.22",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.22",
+      "title": "Topography -",
+      "content": "The nature of the earth's surface\nas influenced by the hill and vaHey configurations.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.23",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.23",
+      "title": "Velocity Profile -",
+      "content": "The variation of the horizontal\ncomponent of the atmospheric wind speed at different\nheights above the mean ground level is termed as\nvelocity profile.\n5 GENERAL",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.1",
+      "title": "Wind is air in motion relative to the surface oftne",
+      "content": "earth. The primary cause of wind is traced to earth's\nrotation and differences in terrestrial radiation. The\nradiation effects are p.rimarily responsible for\nconvection either upwards or downwards. The wind\ngenerally blows horizontal to the ground at high wind\nspeeds. Since vertical components of atmospheric\nmotion are relatively small, the tenn 'wind' denotes\nalmost exclusively the horizontal wind; vertical winds\nare always identified as such. The wind speeds are\nassessed with the aid of anemometers or anemographs\nwhich are installed at meteorological observatories at\nheights generally varying' from 10 to 30 m above\nground.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.2",
+      "title": "Very strong winds (more than 80 kmph) are",
+      "content": "generally associated with cyclonic ,storms,\nthunderstonns, dust storms or vigorous monsoons. A\nfeature of the cyclonic storms over the Indian area is\nthat they rapidly weaken after crossing the coasts and\nmove as depressions/lows inland. The influence of a\nsevere storm after striking the coast does not; in general\nexceed about 60 km, though sometimes, it may extend\neven up to 120 km. Very short duration hurricanes of\nvery high wind speeds called Kal Baisaki or Norwesters\noccur fairly frequently during summer months over\nNorth East India.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.3",
+      "title": "The wind speeds recorded at any iocaiity are",
+      "content": "extremely variable and in addition to steady wind at\nany time, there are effects of gusts which may last for\na few seconds. These gusts cause increase in air\npressure but their effect on stability of the building may\nnot be so important; often, gusts affect only part of the\nbuilding and the increased local pressures may be more\nthan balanced by a momentary reduction in the pressure\nelsewhere. Because of the inertia of the building, short\nperiod gusts may not CRuse any appreciable increase\nin stress in main components of the building although\nthe walls, roof sheeting and individual cladding units\n(glass panels) and their supporting members such as\npurlins, sheeting rails and glazing bars may be more\nseriously affected. Gusts can also be extremelv\nimportant for design of structures with high slenderne;s\nratios.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.4",
+      "title": "The liability of a building to high wind pressures",
+      "content": "depends not only upon the geographical location and\nproximity of other obstructions to air flow but also upon\nthe characteristics of the structure itself.\n5.S The effect of wind on the structure as a whole is\ndetermined by the combined action of external and\ninternal pressures acting upon it. In all cases, the\ncalculated wind loads act normal to the surface to which\nthey apply.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.6",
+      "title": "The stability calculations as a whole shall be done",
+      "content": "considering the combined effect, as well as separate\neffects of imposed loads and wind loads on vertical\nsurfaces, roofs and other part of the building above\ngeneral roof level.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-5.7",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "5.7",
+      "title": "Buildings shaH also be designed with due attention",
+      "content": "to the effects of wind on the comfort of people inside\nand outside the buildings.\n6 \\VIND SPEED",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.1",
+      "title": "Nature of Wind in Atmosphere",
+      "content": "In general, wind speed in the atmospheric boundary\nlayer increases with height from zero at ground level\nto maximum at a height called the gradient height.\nThere is usually a slight change in direction (Ekman\neffect) but this is ignored in this standard. The\nvariation with height depends primarily on the terrain\nconditions. However, the wind speed at any height\nnever remains constant and it has been found\nconvenient to resolve its instantaneous magnitUde into\nan average or mean value and a fluctuating component\naround this average value. The average value depends\non the average time employed in analyzing the\nmeteorological data and this averaging time varies\nfrom few seconds to several minutes. The magnitude\nof fluctuating component of the wind speed which is\ncalled gust, depends on the averaging time. In general,\nsmaller the averaging interval, more is the magnitude\nof the gust speed.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.2",
+      "title": "BASIC WIND SPEED",
+      "content": "Figure 1 gives basic wind speed map of India, as\napplicable to 10m height above mean ground level\nfor different zones of the country. Basic wind speed is\nbased on peak gu~t velocity averaged over a short time\ninterval of about 3 s and corresponds to mean heights\nabove ground level in an open terrain (Category 2).\nBasic wind speeds presented in Fig. 1 have been\nworked out for a 50 year return period. Basic wind\nspeed for some important cities/towns is also given in\nAnnexA.\n.",
+      "cross_references": [
+        "Figure 1",
+        "Fig. 1",
+        "AnnexA"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.3",
+      "title": "Design Wind Speed (Vrl)",
+      "content": "The basic wind speed (Vb) for any site shall be obtained\nfrom Fig. 1 and shall be modified to include the\nfollowing effects to get design wind speed, Vz at any\nheight z, for the chosen structure:\na) Risk level,\nb) Terrain roughness and height of structure,\nc) Localtopography,and\nd) Importance factor for the cyclonic region.\nIt can be mathematically expressed as follows:\nVz = Vb kl ~ k, k.:;\nwhere\nV:\n::: design wind speed at height z, in m/s;\nk!\n= probability factor (risk coefficient) (see\n6.3.1);\nkz\nterrain roughness and height factor (see\n6.3.2);\ntopography factor (see 6.3.3); and\nimportance factor for the cyc Ionic region\n(see 6.3.4).\nNOTE -\nWind speed may be taken as constant up to a height\nof W m. Hawever, pressures for buildings less than 10 m high\nmay be reduced by 20 percent for evaluating stability and\ndesign of the framing.",
+      "cross_references": [
+        "Fig. 1"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.3.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.3.1",
+      "title": "Risk Coefficient (leI Factor) -",
+      "content": "Figure 1 gives\nbasic wind speeds fur terrain Category 2 as applicable\nat 10m above ground level based on 50 years mean\nreturn period. The suggested life period to be assumed\nin design and the corresponding kj factors for different\nclass of structures for the purpose of design are given\nin Table 1. In the design of buildings and structures, a\nregional basic wind speed having a mean return period\nof 50 years shaH be used except as specified in the\nnote of Table 1.",
+      "cross_references": [
+        "Figure 1",
+        "Table 1"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.3.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.3.2",
+      "title": "Terrain, Height Factor (k2 Factor)",
+      "content": "6.3.2.1 Terrain\nSelection of terrain categories shall be made with due\nregard to the effect of obstructions which constitute\nthe ground surface roughness. The terrain category\nused in the design of a structure may vary depending\non the direction of wind under consideration. Wherever\nsufficient meteorological information is available about\nthe nature of wind direction, the orientation of any\nbuilding or structure may be suitably planned.\nTerrain in which a specific structure stands shaH be\nassessed as being one of the foHowing terrain\ncategories:\naJ Category 1 -\nExposed open terrain with few\nor no obstructions and in which the average\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nj\nThis is the criterion for measurement of\nregional basic wind speeds and represents\nairfields, open park lands and undeveloped\nsparsely built-up outskirts of towns and\nsuburbs. Open land adj~cent to sea coast may\nalso be classified as Category 2 due to\nroughness of large sea waves at high winds.\nc) Category 3 -\nTerrain with numerous closely\nspaced obstructions having the size of\nbuildings/structures up to 10m in height with\nor without a few isolated taU structures. The\nequivalent aerodynamic roughness height,\n(ZO,3) for this terrain is 0.2 m.\nThis category represents well wooded areas,\nand shrubs, towns and industrial areas full or\npartially developed.\nIt is likely that the, next higher category than\nthis will not exist in most design situations",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 1",
+      "title": "Risk Coefficients for Different Classes of Structures in Different Wind Speed Zones",
+      "content": "(Clause 6.3.1 )\nSI\nNo.\n(I)\nClass of Structure\n(2)\ni)\nAll general buildings and structures\nii)\nTemporary sheds, structures such as those used during\nconstruction operations (for example, fonnwork and false\nwork), structures during construction stages and boundary\nwalls\niii)\nBuildings and structures presenting a low degree of hazard\nto life and property in the event of fuilure, such as isolated\ntowers in wooded areas, farm buildings other than\nresidential buildings\niv)\nImportant buildings and structures such as hospitals\ncommunication buildings/towers, povv-er plant structures\nMean Probable\nDesign Life of\nStructure ill Years\n(3)\n2S\n,.-\nkl Factor for Basic Wind Speed\nmls\n4;\n.....\n(4)\n(5)\n(6)\n(7)\n(8)\n(9)\n1.0\n1.0\nLO\n1.0\nLO\n1.0\n0.82\n0.76\n0.73\n0.71\n0.70\n0.67\n0.94\n0.92\n0.91\n0.90\n0.90\n0.89\n1.05\n1.06\n1.07\n1.07\nLOS\n1.08\nNOTE -\nThe factor k} is based on statistical concepts which take into account the degree ofreliability required and period oftime in\nyears during which these will be exposed to wind, that is, life of the structure. Whatever wind speed is adopted for design purposes,\nthere is always a probability (however small) that it may exceed in a stonn of exceptional violence~ more the period of years over\nwhich there is exposure to the wind. more is the probability. Larger return periods ranging from 100 to 1 000 years (implying lower\nrisk level) in association with larger periods of exposure may have to be selected for exceptionally important structures, such as,\nnuclear power reactors and satellite communication towers. Equation given below may be used in such cases to estimate kl factors for\ndifferent periods of exposure and chosen probability of exceedance (risk level). The probability level of 0.63 is normally considered\nsufficient for design of buildings and structures against wind effects and the values of k, corresponding to this risk level are given\nabove.\nr 1\n)\nX\nA-B In1--ln(1-~I()~\n~=--1!.L.=\n' N\nJ\nXSC,o.63\nA +48\nwhere\nN::: mean probable design life of structure in years;\nPN\nrisk level in N consecutive years (probability that the design wind speed is exceeded at least once in N successive years),\nnominal value'\" 0.63;\nXN'p\nextreme wind speed for given values of Nand PN; and\nXSO,063\nextreme wind speed for N::: 50 years and PN == 0.63\nA and B have the following values for different basic wind speed zones:\nZone\nmls\nSS\n• Values of A and B, in kmph. are given in bracket.\nA·\nmls\n23. t (83.2)",
+      "cross_references": [
+        "Clause 6.3.1"
+      ],
+      "equations": [
+        "~=--1!.L.=",
+        "extreme wind speed for N::: 50 years and PN == 0.63"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.6",
+      "title": "(27.3)",
+      "content": "and that selection of a more severe category\nwill be deliberate.\nd) Category 4 -\nTerrain with numerous large\nhigh closely spaced obstructions. The\nequivalent aerodynamic roughness height,\n(ZO,4) for this terrain is 2.0 m.\nThis category represents large city centers, generally\nwith obstructions above 25 m and well developed\nindustrial complexes.\n6.3.2.2 Variation o/wind speed with height in difforent\nterrains (kJ/actor)",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 2",
+      "title": "gives multiplying factors (k:z) by which the basic",
+      "content": "wind speed given in Fig. 1 shall be multiplied to obtain\nthe wind speed at different heights, in each terrain\ncategory.",
+      "cross_references": [
+        "Fig. 1"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 2",
+      "title": "Factors to Obtain Design Wind Speed",
+      "content": "Variation with Height in Different Terrains\n(Clause 6.3.2.2)\nSI\nHeigbt\nTerrain and Height Multiplier (12)\nNo.\nz\n,..\n....\nm\nTerrain\nTerrain\nTerrain\nTerrain\nCategory 1 Category 2 Category 3 Category 4\n(1 )\n(2)\n(3)\n(4)\n(5)\n(6)\ni)\nLOS\n1.00\n0.91\n0.80\nii)\n1.09\nLOS\n0.97\n0.80\niii)\n1.12\n1.07\n1.01\n0.80\niv)\nUS\nU2\n1.06\n0.97\nv)\n1.20\n1.17\n1.12\n1.10\nvi)\n1.26\n1.24\n1.10\n1.20\nvii)\n1.30\n1.28\n1.24\n1.24\nviiO\n1.32\n1.30\n1.27\n1.27\nix)\n1.34\n1.32\n1.29\n1.28\nx)\n1.35\n1.34\n1.31\n1.30\nxi)\n1.35\n1.35\n1.32\n1.31\nxii)\n1.35\n1.35\n1.34\n1.32\nxiii)\n1.35\n1.35\n1.35\n1.33\nxiv)\n1.35\n1.35\n1.35\n1.34\nNOTE -\nFor intennediate values of height z in a given terrain\ncategory, use linear interpolation.\n6.3.2.3 Terrain categories in relation to the direction\no/wind\nThe terrain category used in the design of a structure\nmay vary depending on the direction of wind under\nconsideration. Where sufficient meteorological\ninformation is available, the basic wind speed may be\nvaried for specific wind direction.\n6.3.2.4 Changes in terrain categories\nThe velocity profile for a given terrain category does\nnot develop to full height immediately with the\ncommencement of that terrain category but develop\ngradually to height (h,,.) which increases with the fetch\nor upwind distance (x).\na) Fetch and developed height relationship -\nThe relation between the developed height\n(hx) and the fetch (x) for wind-flow over each\nof the four terrain categories may be taken as\ngiven in Table 3.\nb) For structures of heights more than the\ndeveloped height (hJ in Table 3, the velocity\nprofile may be determined in accordance with\nthe following:\n1) The less or least rough terrain, or\n2) The method described in Annex B.",
+      "cross_references": [
+        "Clause 6.3.2.2",
+        "Table 3",
+        "Annex B"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 3",
+      "title": "Fetch and Developed Height R.elationship",
+      "content": "( Clause 6.3.2.4 )\nSI\nFetcb\nDeveloped Hefgbt, h.\nNo.\n(x)\nm\nkm\n,...\n--\n.....\nTerrain\nTerrain\nTerrain\nTerrain\nCategory I\nCategory 2 Category 3 Category 4\n(I)\n(2)\n(3)\n(4)\n(5)\n(6)\ni)\n0.2\n·12\nii)\n0.5\niii)\nI\niv)\nlIO\nv)\nvi)\nto\ni40\nvii)\nviii)",
+      "cross_references": [
+        "Clause 6.3.2.4"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.3.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.3.3",
+      "title": "Topography (~Factor)",
+      "content": "The basic 'wind speed Vb given in Fig. 1 takes into\naccount the general level of site above sea level. This\ndoes not allow for local topographic features such as\nhills, valleys, cliffs, escarpments, or ridges which can\nsignificantly affect wind spe,ed in their vicinity. The\neffect of topography is to accelerate wind near the\nsummits of hills or crests of cliffs, escarpments or\nridges and decelerate the wind in valleys or near the\nfoot of cliffs, steep escarpments, or ridges.\n6.3.3.1 The effect of topography shall be significant at\na site when the upwind slope (9) is more than about\n3°, and below that, the value of Is may be taken to be\nequal to 1.0. The value of k3 is confined in the range of",
+      "cross_references": [
+        "Fig. 1"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.0",
+      "title": "to 1.36 for slopes more than 3°. A method of",
+      "content": "evaluating the value of ~ for values more than 1.0 is\ngiven in Annex C. It may be noted that the value of ~\nvaries with height above ground level, at a maximum\nnear the ground, and reducing to 1.0 at higher levels.",
+      "cross_references": [
+        "Annex C"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.3.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.3.4",
+      "title": "Importance Factor for Cyclonic Region (kJ",
+      "content": "The east coast of India is· relatively more vulnerable\nfor occurrences of severe cyclones. On the west coast,\nGujarat is vulnerable for severe cyclones. Studies of\nwind speed and damage to buildings and structures\npoint to the fact that the speeds given in the basic wind\nspeed map are often exceeded during the cyclones. The\neffect of cyclonic storms is largely felt in a belt of\napproximately 60 km width at the coast. In order to\nensure better safety of structures in this region (60 km\nwide on the east coast as wen as on the Gujarat Coast),\nthe following values of k4 (as recommended in IS\n~ 5498) are stipulated as applicable according to the\nunportance of the structure:\nk4\nStructures of post-cyclone importance for\n1.30\nemergency services (such as cyclone shelters,\nhospitals, schools, communication towers, etc)\nIndustrial structures\n1.15\nAll other structures\n1. 00",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.4",
+      "title": "Hourly Mean Wind Speed",
+      "content": "The hourly mean wind speed at height z, for different\nterrains can be obtained as\nV z,H = k2,j p;,\nwhere\nk2,1 = hourly mean wind speed factor for terrain\ncategory 1\n[\n(z ,]\n= 0.1423 lnlzi),J (zo,JO.\nThe design hourly mean wind speed at height z can be\nobtained as:\nV z,d = V z){1G~k4\n= V IIkl k2,i~k4",
+      "cross_references": [],
+      "equations": [
+        "V z,H = k2,j p;,",
+        "k2,1 = hourly mean wind speed factor for terrain",
+        "= 0.1423 lnlzi),J (zo,JO.",
+        "V z,d = V z){1G~k4",
+        "= V IIkl k2,i~k4"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.5",
+      "title": "Turbulence Intensity",
+      "content": "T~e turbulence intensity variations with height for\ndifferent terrains can be obtained using the relations\ngiven below:\na) Terrain category 1\nI,~ = 0.3507 - 0.053510810 (..L)\nZO,l\nb) Te\"ain category 2\nI r). =11). +,(/,.4 -1,,1)\nc) Te\"ain category 3\nlzJ = Iz.l + ,(1'1.4 -Iz,l)\nd) Terrain category 4\n1%.4 = 0.466 - 0.135 8 10g10 (-=-J\nZO,4",
+      "cross_references": [],
+      "equations": [
+        "I,~ = 0.3507 - 0.053510810 (..L)",
+        "I r). =11). +,(/,.4 -1,,1)",
+        "lzJ = Iz.l + ,(1'1.4 -Iz,l)",
+        "1%.4 = 0.466 - 0.135 8 10g10 (-=-J"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-6.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "6.6",
+      "title": "OffShore Wind Velocity",
+      "content": "Cyclonic storms form far away from the sea coast and\ngradually reduce in speed as they approach the sea\ncoast Cyclonic storms generally extend up to about\n60 km inland after striking the coast Their effect on\nland is already reflected in basic wind speeds specified\nin Fig. 1. The influence of wind speed off the coast up\nto a distance of about 200 km may be taken as 1.15\ntimes the value on the nearest coast in the absence of\nany definite wind data. The factor 1.15 shall be used\nin addition to k4•\n7 WIND PRESSURES AND FORCES ON\nBUILDINGS/STRUCTIJRES",
+      "cross_references": [
+        "Fig. 1"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.1",
+      "title": "General",
+      "content": "The wind load on a building shall be calculated for:\na) Building as a whole,\nb) Individual structural elements as roofs and\nwalls, and\nc) Individual cladding units including glazing\nand their fiXings.\n7.'1. Design Wind Pressure\nThe wind pressure at any height above mean ground\nlevel shall be obtained by the following relationship\nbetween wind pressure and wind speed:\nPz= 0.6 Vi\nwhere\nPz = wind pressure at height z, in N/m2; and\nVz = design wind speed at height z, in mfs.\nThe design wind pressure P d can be obtained as,\nPd = KdK..KcPz\nwhere\nKd = wind directionality factor,\nKa = area averaging factor, and\nKI; = combination factor (see 7.3.3.13).\nThe value of P d' however shall not be taken as less\nthan 0.70 Pz.\nNOTES\n1 The coefficient 0.6 (in SI units) in the above formula. depends\non a number of factors and mainly on the atmospheric pressure\nand air temperature. The value chosen corresponds to the\naverage Indian atmospheric conditions.\n2 K. should be taken as 1.0 when considering local pressure\ncoefficients.\n7.'1..1 Wmd Directionality Factor, Kd\nConsidering the randomness in the directionality of\nwind and recognizing the fact that pressure or force\n~efficients are determined for specific wind directionst\nIt 18 specified that for buildings, solid signs, open signs,\nIS 875 (Part 3): 2~15\nlattice frameworks, and trussed towers (triangular,\nsquare. rectangular) a factor of 0.90 may be used on\nthe design wind pressure. For circular or near-circular\nforms this factor may be taken as 1.0.\nFor the cyclone affected regions also the factor Kd shall\nbe taken as 1.0.",
+      "cross_references": [
+        "IS 875"
+      ],
+      "equations": [
+        "Pz= 0.6 Vi",
+        "Pz = wind pressure at height z, in N/m2; and",
+        "KI; = combination factor (see 7.3.3.13)."
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.1.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.1.1",
+      "title": "Area Averaging Factor, Ka",
+      "content": "Pressure coefficients given in 7.3 are a result of\naveraging the measured pressure values over a given\narea. As the area becomes larger, the correlation of\nmeasured values decrease and vice-versa. The decrease\nin pressures due to larger areas may be taken into\naccount as given in Table 4.",
+      "cross_references": [
+        "Table 4"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 4",
+      "title": "Area Averaging Factor (KJ",
+      "content": "(Clause 7.2.2)\nSI No.\nTributary Area (A)\nm1\n(1)\n(2)\nArea Averaging Factor\n(Ka)*\n(3)\ni)\n$10\n1.0\nit)\n0.9\niii)\n~100\n0.8\n;I: Unear interpolation for int.ennediate values of a is permitted.\n7.2.2.1 Tributary area\na) Overall structure -\nFor evaluating loads on\nframes the tributary area shall be taken as the\ncentre to centre distances between frames\nmultiplied by the individual panel dimension\nin the other direction together with overall\npressure coefficients.\nb) Individual elements -\nFor beam type\nelements, purlins, etc, the tributary area shall\nbetaken as effective span multiplied by\nspacing. The effective span is the actual span\nfor mid span and cantilever load effects; and\nhalf the sum of adjacent spans for support\nmoments and reactions.\nFor plate type elements, the area of individual plates\nbetween supports is taken as the tributary area.\nFor glass cladding, individual pane area of glass is the\ntributary area.",
+      "cross_references": [
+        "Clause 7.2.2"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.3",
+      "title": "Pressure Coefficients",
+      "content": "The pressure coefficients are always given for a\nparticular surface or part of the surface of a bUilding.\nThe wind load acting normal to a surface is obtained\nby multiplying the area of that surface or its appropriate\nportion by the pressure coefficient (Cp) and the design\nwind pressure at the height of the surface from the\nground. The average values of these pressure\ncoefficients for some building shapes are given in 7.3.2\nand 7.3.3.\nAverage values of pressure coefficients are given for\ncritical wind directions in one or more quadrants. In\norder to determine the maximum wind load on the\nbuilding, the total load should be calculated for each\nof the critical directions shown from all quadrants.\nWhere considerable variation of pressure occurs over\na surface, it has been sub-divided and mean pressure\ncoefficients given for each of its several parts.\nIn addition, areas of high local suction (negative\npressure concentration) frequently occurring near the\nedges of walls and roofs are separately shown.\nCoefficients for the local effects should only be used\nfor calculation of forces on these local areas affecting\nroof sheeting, glass panels, and individual cladding\nunits including their fixtures. They should not be used\nfor calculating force on entire structural elements such\nas roof, walls or structure as a whole.\nNOTES\nt The pressure coefficients given in different tables have been\nobtained mainly from measurements on models in wind tunnels,\nand the great majority of data available has been obtained in\nconditions· of relatively smooth flow. Where sufficient field\ndata exists as in the case of rectangular buildings, values have\nbeen obtained to aHow for turbulent flow.\n2 In recent years, wall glazing and cladding design has been a\nsource of major concern. Aithough of less consequence than\nthe collapse of main structures, damage to glass can be\nhazardous and cause considerable· financial losses.\n3 For pressure coefficients for structures not covered here,\nreference may be made to specialist literature on the subject\nor advice may ?e sought from specialists in the subject.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.3.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.3.1",
+      "title": "Wind Load on Individual Members",
+      "content": "When calculating the wind load on individual structural\nelements such as roofs and walls, and individual\ncladding units and their fittings, it is essential to take\naccount of the pressure difference between opposite\nfaces of such elements or units. For clad structures, it\nis, therefore, necessary to know the internal pressure\nas well as the external pressure. Then the wind load, F,\nacting in a direction normal to the individual structural\nelement or cladding unit is:\nF = (Cpe - Cp) A Pd\nwhere\nCpe = external pressure coefficient,\nCpi\ninternal pressure coefficient,\nA\nsurface area of structural elem~nt or\ncladding unit, and\nP d\n= design wind pressure.\nNOTES\n1 If the surface design pressure varies with height, the surface\nareas of the structural element may be sub-divided so that the\nspecified pressures are taken over appropriate areas.\n2 Positive wind load indicates the force acting towards the\nstructural element and negative away from it.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.3.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.3.2",
+      "title": "Internal Pressure Coefficients",
+      "content": "Internal air pressUre in a building depends upon the\ndegree of permeability of cladding to the flow of air.\nThe internal air pressure may be positive or negative\ndepending on the direction of flow of air in relation to\nopenings in the buildings.\n7.3.2.1 In the case of buildings where the claddings\npermit the flow of air with openings not more than\nabout 5 percent of the waH area but where there are no\nlarge openings, it is necessary to consider the possibility\nofthe internal pressure being positive or negative. Two\ndesign conditions shall be examined, one with an\ninternal pressure coefficient of +0.2 and another with\nan internal pressure coefficient of -0.2.\nThe internal pressure coefficient is algebraically added\nto the external pressure coefficient and the analysis\nwhich indicates greater distress of the member shaH\nbe adopted. In most situations a simple inspection of\nthe sign of external pressure will at once indicate the\nproper sign of the internal pressure coefficient to be\ntaken for design.\nNOTE -\nThe tenn normal permeability relates to the flow of\nair commonly afforded by claddings not only through open\n\\\\\"indows and doors, but also through the slits round the closed\nwindows and doors and through chimneys, ventilators and\nthrough the joints between roof coverings. the total open area\nbeing less than 5 percent of area of the walls having the\nopenings.\n7.3.2.2 Buildings with medium and large openings\nBuildings with medium and large openings may also\nexhibit either positive or negative internal pressure\ndepending upon the direction of wind. Buildings with\nmedium openings between about 5 and 20 percent of\nwall area shall be examined for an internal pressure\ncoefficient of +0.5 and later with an internal pressure\ncoefficient of -0.5, and the analysis which produces\ngreater distress of the member shall be adopted.\nBuildings with large openings, that is, openings larger\nthan 20 percent of the wall area shaH be examined once\nwith an internal pressure coefficient of +0.7 and again\nwith an internal pressure coefficient of -0.7, and the\nanalysis which produces greater distress of the member\nshall be adopted.\nBuildings with one open side or opening exceeding 20\npercent of wall area may be assumed to be subjected\nto internal positive pressure or suction similar to those\nof buildings with large openings. A few examples of\nbuildings with one side openings are shown in Fig. 2\nindicating values of internal pressure coefficients with\nrespect to the direction of wind.",
+      "cross_references": [
+        "Fig. 2"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.3.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.3.3",
+      "title": "External Pressure Coefficients",
+      "content": "7.3.3.1 Walls\nThe average external pressure coefficient for the walls\nof clad buildings of rectangular plan shall be as given\nin Table 5. In addition, local pressure concentration\ncoefficient! are also given.\n7.3.3.2 Pitched, hipped and mono slope roofs of clad\nbuildings\nThe average external pressure coefficients and pressure\nconcentration coefficients. for pitched roofs of\nrectangular clad building shaH be as given in Table 6.\nWhere no pressure concentration coefficients are given,\nthe average coefficients shalt apply. The pressure\ncoefficients on the under-side of any overhanging roof\nshall be taken in accordance with 7.3.3.5.\nFor mono slope roofs of rectangular clad buildings,\nthe average pressure coefficient and pressure\nconcentration coefficient for mono slope (lean-to) roofs\nof rectangular clad buildings shaH be as given in\nTable 7.\nNOTES\n1 The pressure concentration shaH be assumed to act out\\\\'8rd\n(suction pressure) at the ridges, eaves, cornices and 90\" comers\nof roofs.\n2 The pressure concentration shall !10t be included with the\nnet external pressure when computing overall load.\n3 For hipped roofs, pressure coefficients (including local\nvalues) may be taken on all the fOur slopes, as appropriate\nfrom Table 6, and be redu~ed by 20 percent for the hip slope.\n7.3.3.3 Canopy roofs with (1/4 < h/w < 1 and 1 <\nLlw < 3)\nThe pressure coefficients are given in Tables 8 and 9\nseparately for mono.pitch and double pitch canopy roofs\nsuch as open-air parking garages, shelter areas, outdoor\nareas, railway platforms, stadia and theatres. The\ncoefficients take into account of the combined effect of\nthe wind exerted on and under the roof for all wind\ndirections; the resultant is to be taken nonnal to the\ncanopy. Where the local coefficients overlap, the greater\nof the two given values should be taken. However, the\neffect of partial closures of one side and or both sides.\nsuch as those due to trains, buses and stored materials\nshall be foreseen and taken into account.\nThe solidity ratio f is equal to the area of obstructions\nunder the canopy divided by the gross area under the\ncanopy, both areas normal to the wind direction. f = 0\nrepresents a canopy with no obstructions underneath. .\nf= 1 represents the canopy fully blocked with contents\nto the downwind eaves. Values of Cp for intennediate\nsolidities may be linearly interpolated between these\ntwo extremes, and apply upwind of the position of\nmaximum blockage only. For downwind ofthe position\nof maximum blockage, the coefficients for f:; 0 may\nbe used.\nIn addition to the forces due to the pressures nonnal to\nthe canopy, there will be horizontal loads on the canopy\nWIND\nl\n~ (3\nL\n~J\nc;>\nL\n~~J\nr..\nB\n1.-1\n.. -e--..\n.. 1\nt\n(a) FOR\n~ <: 1\n(b) FOR\n~ > 1\n(c) FOR\n~ = i. USE AVERAGE VALUES\n(ARROWS INDICATE DIRECTION OF WtNO FLOW)\nFIG. 2 BUILDINGS WITH ONE SIDE OPENINGS\nIS 87S (Part 3) : 201S\nEMLmNG\nHElQHT\nRATIO\nh.:Ifj.1.\n'II\n.l<.!.~3\n2 w 2\n.!<.!!..<e\n2 w\n~~4$\nNOTE",
+      "cross_references": [
+        "Table 5",
+        "Table 6",
+        "Table 7"
+      ],
+      "equations": [
+        "canopy, both areas normal to the wind direction. f = 0",
+        "f= 1 represents the canopy fully blocked with contents"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 5",
+      "title": "Extemal PreSsure Coefficients (C,J for Walls of Rectangular Clad Buildings",
+      "content": "(Clause 7.3.3.1)\nIUlLDING\na!VATlON\nPtAN\nW'I\\ID\nC PI FOR SURFACE\nPf.AN\nANGLE\nRAllO\nED\nA\na\nc\n!OJ-;\nr;C\n~\nI\n\\1i 1\n8 I'\n+0.1\n.. 0..2\n·0.5\n,,0.5\n1<-$-\ngo\n-0.6\n-0.6\n+0.7\n-0.2\nw\n.2\nC\n1.<..L<4\nB\n_(]a\n+0.7 ·0.26 . -Q.8\n-0.8\n'II\n,\neo\n.. 0.5\n·0.5\n+0.7\n.. (U\nD\n1~.!.<.! 0\n-01 c la\n+0..7 -0,25 -0.6\n·0.6\n1.17-2\n~\n.. 0.8 -0.8\n+0.7 .. 0.25\nC\nJ 0\n(}\n+0.1 -0.3\n·0.7\n·0.7 .\n\"i:§'W<4\n·0.6\n.. 0.5\n+0.7\n-0.1\nI)\n1<1.:s.!. 0\n8~ C\n+O.S\n.. 0.25\n.. 0.8\n.. O.S\n.. 2\n\\A\nB\n-0.8 -0.8\n+0.8\n·0.28\nC\nI\n\\~8\nT:5'W<4\n+0.1\n.. 0.4\n-0.1\n-0.1\n.. 0.5\n.. 0.5\n+O.S\n·0.1\nl)\ni.!. 0\nc\n~o .• -1.as\n.. 0.9\n·0.9\nw .2\n~8\neo\n-0.8\n.. 0.8\n+0.9 -0.\n.A\nII\"\nJ\n+0 .• -1.25 .0.7\n-0.1\nW·t()\n.. 0.7\n.. 0.1\n+0 .• ·1.25\nD\n.L.2\n+0.. -0.75 -0.75 .. 0.75\nw\n-0.15 -0.15 ito .• -0.75\nLOCAL\nCpo -\n)-0.8\n} .. 1.0\n) .. 1.1\n) .. 1.1\n} .. 1.2\n}-1.2\n} 1.26\n} 1 .•\n}1.Z\nh is the height to eaves or parapet, I is the greater horizontal dimensions of Ii building and w is the lesser horizontal dimensions of a\nbuilding.\n.\nTable (» External Pressure Coefficients (Cpe) for Pitched Roofs of Rectangular Clad Buildings\n(Clause 7.3.3.2)\n~\nROOf'\nWlmAH<l.lG\nWINOANUe\nLOCALCOi~\nHIIGHf\nN4G&.E\no·\neo-\nllAno\nCIt\nifI'\nGt;\nEG\nFH ..\n8111 -\n~\nQ\n·0 .•\nl!.. 1\nS\n~o.t\n'to\n-1.2\nw T\n·0.4\nso\n+0.'\neo\n+c'1'\nEb\n·0.8\ne\n• 0.'\nt:S';'$t\n.1.1\n'\"\n.0.7\n.0..2.\n..\n+02\nem\n+0 ••\nn\n-0.7\n·0.7\n.!.C.!.CI\n-0.1\n-0.8\n2 \"\n-1.0\n.0.2\neo\n+0.2\nGO\n.0.1\nNOTE\nI\nI\nI\nI\nI\nI\nI\nI\n.. 0,4\n.QA\n.. 0,04\n·004\n.0..0\n-e.G\n-OJ!\n-0.1\n.0.. •\n-0 .•\n.0..$\n-0.3\n-G.6\n-0.5\n-u\n. 116\n·0.1\n-c.,\n• C!.iS\n.. cu\n-0.5\n-o.G\naU\n.0...\n• lUll\n.. o.r\n·0.1\n·CU'\n.0.7\n.1.0\n.0.9\n·u\n.0...\n. ruB\n·0.'\n-0.8\n.Ilt\n• IUS\n-0.111\n.0.1\n• e.G\n-Ill\n-0.'\n-0.'\n.0.4\n.. ao\n.0..4\n.'1.04\n·o.e\n.1,4\n.0..\n·1.0\n-0.'\n.0..\n-0.&\n.. o.e\n.0.1\n·2.0\n.. u\n-2.0\n-0.6\n-2.0\n-0 ••\n-Ui\n·0.8\n-1.0\n·G.I\n.tUI\n·0.7\n.2.0\n·0.8\n·1.0\n·0,8\n-2.0\n-cUt\n-1.15\n. fU\n·u\n-0.1\n-1.0\n-0.7\n-0.1\nI ........................... __\n..a.+-_-L\nI.\nW\n• .1\nKEY PLAN\ny= horO.16w\nWhichewf i8 the ....\n1 h is the height to eaves or parapet and w is the lesser horizontal dimension of a building.\n1 Where no local coefficients are given, the overall coefficient apply.\n·2.0\n-10\naU\n-1.2\n• t.\"\n-2.0\n-2.0\n·2,0\n.1.$\n.2.0\n.. 1.6\n..1.5\n.. Ul\n·2.0\n·a.o\n·1.0\n.1.1\n-2,0\n-1.$\n.1.5\n-1.5\n3 For hipped roofs the local coefficient for the hip ridge may be conservatively taken as the the appropriate ridge value.\n4 w and I are dimensions between the walls excluding overhangs.\n..\n-\n-i.e\n.1.2\n.1.2\n.. 1.1\n-1.1\n-1.1\n-\n.1JJ\n·u\n-1.0\n.u,\n-·u\n.1.2\n.1.2\nROOF\nANGlE\na\nM\nDes\"\"\n... 1.0\n-1.0\n-0.9\n-0.8\nRO.7\n-0.5",
+      "cross_references": [
+        "Clause 7.3.3.1",
+        "Clause 7.3.3.2"
+      ],
+      "equations": [
+        "y= horO.16w"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-7",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 7",
+      "title": "Extemal Pressure Coefficients (Cpe) for Monoslope Roofs of",
+      "content": "Rectangular Clad Buildings ~ < 2\nCO\nL\nH\n·0.5 -1.0\n-0.& .. 1.0\n-0.5 -1.0\n·0.5 .1.0\n.. O.! .. 1.0\n.. O.S -1.0\n'W\n.(~lause 7.3.3.2)\nI\nI\nl\n'II\nt\nWIND\nI\n4&-\nL\n-0.9\n.. 0.8\n.. 0.7\n.. 0.8\n-0.8\n-0.8\nN\nI\n.\nI\nI\ni\nI\n!\nI\ni\nI\nj\nI\nI\n!\nt\nI\nI\nL_~ __ J\nI\nI.\n\"II\ny=horO.15w\nWhiChever i$ the lesser.\nWlNDANQLE8\n135-\n180·\nHI!. HIL M\nL\nH\nL\n.. **\n·1.0\n.. 0.5 -0.9\n.. 1.0 .. 0.5 ·1.0\n.. 1.0\n.. 0.5 .. 0.8\n.. 1.0 .. 0.4 -1.0\n.. 1.0\n.. 0.5 .. 0.6\n.. 1.0 -0.3\n.. 1.0\n.. 0.9\n.. 0.5 -0.5\n-1.0 -02 -1.0\n-0.8\n.. 0.5 -0.3\n.. 0.9 .. 0.1\n.. 0.9\n-O.S\n-0.5 -0.1\n.. 0.1\n-0.6\nlOCAL COEfFICIENTS\nHf\nH2\nL.'1\n1..2\n.. 2.0 -1.5 -,2.0\n.. 1.5\n.. 2.0\n.. 1.5 .. 2.0 -1.5\n-1.8 .. 0.9 .. US\n.. 1.4\n.. 1.8 .. 0.8 .. 1.8\n.. t.4\n·1.8 .. 0.7 .. 0.1 -0.1\n-1.8 .. 0.5 -0.5 -0.5\n• Applied to length w/2 from wind~ward end.\nNOTE\n.. Applies to remainder\n(epe)\nHe\nt..\n.. 2.0 -2.0\n·2.0 -2.0\n·2.0 .. 2.0\n-2.0 -2.0\n-2.0 -2.0\n·2.0 -2.0\n1 h is the height of eaves at lower side, is the greater horizontal dimensions of a building and w is the lesser horizontal dimension of\nIi building.\n:2 I and w are overall length and width including overhangs.\ndue to the wind pressure on any fascia and to mction\nover the surface of the canopy. For any wind direction,\nonly the greater of these two forces need to be taken\ninto account. Fascia loads should be calculated on the\narea of the surface facing the wind, using a force\ncoefficient of 1.3. Frictional drag should be calculated\nusing the coefficients given in 7.4.1.\nNOTE -\nTables 10 to 15 may be used to get internal and\nexternal pressure coefficients for pitches and troughed free roofs\nfor some specific cases for which aspect ratios and roof slopes\nhave been specified. However, while using Tables 10 to 15\nany significant departure from it should be investigated\ncarefully. No increase shall be made for local effects except as\nindicated.\n7.3.3.4 Pitched and saw-tooth roofs multi~span\nbuildings\nFor pitched and sawetooth roofs of multi-span\nbuildings, the external average pressure coefficients\nshall be as given in Tables 16 and 17 respectively\nprovided that all the spans shaH be equal and the height\nto the eaves shall not exceed the span.\n7.3.3.5 Pressure coefficients on overhangsfrom rooft\nThe pressure coefficients on the top over-hanging\nportion of the roofs shaH be taken to be the same as\nthat of the nearest top portion of the non .. overhanging\nportion of the roofs. The pressure coefficients for the\nunderside surface of the over-hanging portions shall\nbe taken as follows and shaH betaken as positive if the\noverhanging portion is on the windward side:\na)\n1.25, if the overhanging slopes, down~ards;\nb) 1.00, if the overhanging is horizontal; and\nc) 0.75, if the overhanging slopes upwards.\nFor overhanging portions on sides other than windward\nside, the ayerage pressure coefficients on adjoining\nwalls may be used.\n7.3.3.6 Curved roofs\nFor curved roofs the external pressure coefficients shall\nbe as given in Table 18. Allowance for local effects\nshall be made in accordance with Table 6. Two values\nof C2 have been given for elevated curved roofs. Both\nthe load cases have to be analyzed, and critical load\neffects are to be considered in design.\n7.3.3.7 Cylindrical structures\nFor the purpose of calculating the wind pressure\ndistribution around a cylindrical structure of circular\ncross-section, the value of external pressure coefficients\ngiven in Table 19 may be used, provided that the\nReynolds number is more than 10 000. They may be\nused for wind blowing normal to the axis of cylinders\nhaving axis normal to the ground plane (that is,\n, chimneys and silos) and cylinders having their axis\nparallel to the ground plane (that is, horizontal tanks),\nprovided that the clearance between the tank and the\nground is not less than the diameter of the cylinder. h\nis height of a vertical cylinder or length of a horizontal\ncylinder. Where there is a free flow of air around both\nends, h is to be taken as half the length when calculating\nhiD ratio.\nIn the calculation of resultant load on the periphery of\nthe cylinder, the value of Cpi shall be taken into account.\nFor open ended cylinders, Cpi shall be taken as follows:\na) - 0.8, where hiD is more than or equal to 0.3;\nand\nb) - 0.5, where hiD is less than 0.3.\n7.3.3.8 Roofs and bottoms of cylindrical elevated\nstructures\nThe external pressure coefficients for roofs and bottoms\nof cylindrical elevated structures shall be as given in\nTable 20.\nAlternately, the pressure distribution given in Fig. 3\ncan be used together with the force coefficients given\nin Table 25 for the cylindrical portion.\n7.3.3.9 Combined rooft\nThe average external ,pressure coefficients for\ncombined roofs are shown in Table 21.\n7.3.3.10 Roofs with skylight\nThe average external pressure coefficients for roofs\nwith skylight are shown in TabJe 22.\n'.3.3.1.1 Grandstands\nThe pressure coefficients on the roof{top and bottom)\nand rear wall ofa typical grandstand roofwhich is open\non three sides are given in Table 23. The pressure\ncoefficients are valid for a particular ratio of dimensions\nas specified in Table 21 but may be used for deviations\nup to 20 percent. In general, the maximum wind load\noccurs when the wind is blowing into the open front\nof the stand, causing positive pressUre under the roof\nand negative.pressure on the roof.\n7.3.3.12 Spheres\nThe external pressure coefficients for spheres shall be\nas given in Thble 24.\n7.3.3.13 Frames\nWhen taking wind loads on frames of clad buildings it\nis reasonable to assume that the pressures or suctiom\ninside and outside the structure shaH not be fully\ncorrelated. Therefore when taking the combined effect\nof wind loads on the frame, a reduction factor of\nKc = 0.90 may be used over the building envelope when\nroof is subjected to pressure and internal pressure is\nsuction, or vice-versa.",
+      "cross_references": [
+        "Table 18",
+        "Table 6",
+        "Table 19",
+        "Table 20",
+        "Fig. 3",
+        "Table 25",
+        "Table 21",
+        "Table 23"
+      ],
+      "equations": [
+        "y=horO.15w"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-8",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 8",
+      "title": "Pressure Coefficients for Monoslope Free Roofs",
+      "content": "(Clause 7.3.3.3)\nl\n-ep ~. \\. ---=~ .....\nq\n!\n__\n+Cp __ J\nW/10~~~.\nL---...........,w ~\nROOf\nSOliDITY RATIO\nMAXIMUM (LARGEST + vel AND MINIMUM (t..ARGEST - ve)\nANGLE\n¢t\nPRESSURE COEFFICIENTS\n(Degree)\nOVERAll\na\nCOEFfiCiENTS\nLOCAL. COEFFICIENTS\nc:::J\nfllIJ\n+0.2\n... 0.5\n... 1.8\nAll values of 4t\n+0.4\n+0.8\n+2.1\n+0.5\n+1.2\n+2.4\n+0.1\n+ 1.4\n+2.1\n+0.8\n.. 1.1\n+2.9\n+ 1.0\n+2.0\n+3.1\n+1.2\n+2.2\n+3.2\n¢t :: 0\n-0.5\n-0.6\n-1.3\n¢t -= 1\n.. 1.0\n.1.2\n-1.8\n¢t :: 0\n.. 0.1\n-1.1\n.. 1,1\n¢t :::: 1\n- 1.1\n-1.6\n-2.2\n¢t =0\n·0.9\n-1.5\n-2.0\n$ =1\n.. 1.3\n.. 2.1\n-2.6\n$ =sO\n·1.1\n-1.8\n-2.4\n¢t = 1\n.. 1.4\n-2.3\n-2.9\n~=O\n.. 1.3\n-2.2\n.. 2.8\n• =1\n.. 1.5\n.. 2.8\n.. 3.1\n~=O\n-1.6\n-2.6\n.. 3.2\n4' :: 1\n-1.1\n.. 2.8\n.. 3.5\n¢t:: 0\n-1.8\n.. 3.0\n·3.8\n• =.1\n-1.8\n- 3.0\n.. 3.8\nNOTES\ni For monopitch canopies the centre of pressure should be taken to act at OJ w from the windward edge.\n1 W and L are overall width and length including overhangs.\n~\n... 1.1\n+- 1.3\n+- 1.6\n+- 1.8\n+2.1\n+2.3\n+2.4\n-1.4\n.. 1.9\n.. 1.8\n.. 2.3\n-2.1\n.2.1\n-2.5\n.. 3.0\n.. 2.9\n.. 3.2\n.. 3.2\n.. 3.5\n.. 3.8\n-3.6\n,Table 9 Pressure Coefficients for Free Standing Double Sloped Roofs\n(Clause 7.3.3.3)\n~(J\n+C_P ___\n+_Cp __ l\nL ~\nt\n.. WI ROOF ANGLE\nROOF\nSOUDrrY RA110\nMAJOMUM (LARGEST'\" va) AND MIN'MUM (LARGEST v ve)\nANGle\n~\nPRESSURE COEFFICIENTS\n(~)\nOVERAlL\nlOCAl.. COEFFIOENTS\na\nCOEFFlCIENTS\nc:::J\nVllf'lA\n~\n-20\n+0.7\n+0.8\n+1.6\n+0.6\n.15\nMwlUlSaf~\n+ CUi\n+OJ~\n+1.&\n+0.7\n-10\n+0.4\n+0.6\n-+ 1.4\n+0.8\n- 5\n+0.3\n+0.5\n+1.5\n+0.&\"\n+5\n+0.3\n+0.6\n+ 1.8\n. +1.3\n+10\n+0.4\n+0.7\n+1.8\n+1.4\n+15\n+0.4\n+0.9\n+1.9\n+1.4\n+20\n+0.&\n+ 1.1\n+1.9\n+1.6\n+25\n+0.7\n+ 1.2\n+1.1\n+US\n+30\n+0.9\n+ 1.3\n+1.9\n+1.8\n-20\n• =0\n-0.7\n.. 0.9\n.. 1.3\n.. US\n4> =1\n-0.9\n-1.2\n-1.7\n-1.9\n.=0\n-0.6\n-0..8\n·1.3\n.. 1.8\n-15\nCII =1\n-0.1\n-1.1\n-1.7\n·1.9\n-10\n.=0\n·0.8\n.. O.S\n.. 1.3\n·US\n• =1\n-0.8\n-1.1\n-1.7\n-1.9\n-5\n4> .0\n.. 0.5\n.. 0.7\n·1.3\n.. 1.6\n4> = 1\n-O.S\n·1.5\n-1.1\n-1.9\n+5\nlit -0\n.. 0.8\n-O.G\n-1.4\n.. 1.4\ntSHr1\n.. 0.9\n.. 1,3\n·1.8\n.. 1.8\n+10\n.-0\n.. 0.1\n-0.1\n.. 1.5\n-1.4\n• =1\n.. 1.1\n-'.4\n-2.0\n-1.8\n.-0\n.o..a\n· .. (tl·\n.. 1.7\n.. 1.4\n+15\n• =1\n-1.2\n.. 1.5\n-2.2\n-1.9\n+20\n-0.9\n.. 12\n-1.8\n.. 1,4\n·\n.,\n.. 1.3\n.. 1.7\n.. 2.3\n·1.9\n+25\n• -0\n' .. 1.0\n-1.4\n.. 1.1\n.. 1.4\n• =1\n.. 1.4\n.. 1.9\n-2.4\n-2.1\n+30\n0=0\n-1.0\n-1.4\n.. Ut\n-1.4\n11)II1II1\n-1~'\n.. 2.1\n.. 2.6\n.. 2.2\nNOTES\nEiI!I\n+1.7\n+ 1.4\n+ 1.1\n+0.8 .\n+004\n+0.4\n+0.4\n+0.4\n+0.5\n+0.7\n.. 0.6\n.. 1.2\n-0.6\n.. 1.2\n-0.8\n-1.3\n.. 0.6\n-1.4\n.. 1.1\n.. :;!.1\n-1.4\n.. 2.4\n.. 1.8\n.. ~.8\n.. 2.0\n-S.O\n.. 2.0\n.. :S.O\n.. 2.0\n.. 3.0\n1 Each slope of a duopitch canopy should be able to withstand forces using both the maximum and the minimum coefficients. and the\nwhole canopy should be able to support forces using one slope at the maximum coefficient with the other slope at the minimum\ncoefficient. For duoptich canopies the centre of pressure should be taken to act at the centre of each slope.\n2 Wand L are overall width and length including overhangs",
+      "cross_references": [
+        "Clause 7.3.3.3",
+        "Table 9"
+      ],
+      "equations": [
+        "¢t -= 1",
+        "¢t =0",
+        "$ =1",
+        "¢t = 1",
+        "• =1",
+        "• =.1",
+        "• =0",
+        "4> =1",
+        "CII =1",
+        "• =1",
+        "4> = 1",
+        "• =1",
+        "• =1",
+        "• =1"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-10",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 10",
+      "title": "Pressure Coefftdents (Top and Bottom) for Pitched Roof Sot Roof Slope ex = 300",
+      "content": "(Clause 7.3.3.3)\ne\n0-\n45-\nW\nFor 81'\nvalue\nofe\ntl\nh=O.5d I\nC' &Go\n~l~\n~---------r~~~\n11-oII\n.... ---d--~\n0'\nd\nRoof.Slope a == SO\"\ne == 00 .. 45°, D, D~ IE, E' fWllength.\ne == 00·. D, D', E, E' part length.\nb',~Cp=O\n.1\nPRESSURE COEFFlCIENTS. C p\nEND SURFACES\nD'\nE\ne\nc\nc\nG\n+0.6\n·1.0\n-0~5\n-0.9\n+0.1·\n.. 0.3\n-0.8\n... 0.3\n·0.3\n-0.8\n·0.3\n-0.3\n-0.4\n.. 0.3\n-o.~\nFor J: Cp Top == 1.0. Cp bottom = -0.2\nT~lyadingfridon: RW=O.05Pd bd\nGf\n.. 0.4\nIS 875 (Part 3) : 201S",
+      "cross_references": [
+        "Clause 7.3.3.3",
+        "IS 875"
+      ],
+      "equations": [
+        "h=O.5d I",
+        "e == 00 .. 45°, D, D~ IE, E' fWllength.",
+        "e == 00·. D, D', E, E' part length.",
+        "For J: Cp Top == 1.0. Cp bottom = -0.2",
+        "T~lyadingfridon: RW=O.05Pd bd"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-11",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 11",
+      "title": "Pressure Coeffteient5 (Top and Bottom) for Pitched Roofs, Roof a == 300",
+      "content": "with effects of Train or Stored Material\ne\nO·\nW\n180\"\nford\nvalue\nof8\n(Clause 7.3.3.3)\nII\n~ ... '\" i\nC'IeG'\nL~' -----r-~~\nl~aIII -d~.1\nE\nd\n.1\nRod stope (I :0: 30D\nEffects of trains Of stored ~\n8 II: 0° .. 45°, or 136° .. 1st:r, D, D~ E: E' fulilength.\ne := 9Cr, D, Ct, E, e' part length.\nb', thereafter Cp= 0\nPReSSURE COEFfICIENTS, c p\nEND SURFACES\n{J\n0'\nE\nE'\nC\nC'\nG\n+0.1\n+0.8\n-OJ'\n+0.9\n-0.1\n+0.5\n-0.8\n+0.5\n-0.3\n-0.4\n.. O.S\n-0.4\n.. 0.5\n+O.B\n+0.3\n.. 0.3\n-0.8\n+0.4\n-0.8\nFor J : Cp Top == -1.6, Cp bottom:= 0.6\nTqentialiy acting friction : R 90° I: 0.05 Pd bet\nG'\n-0.4",
+      "cross_references": [
+        "Clause 7.3.3.3"
+      ],
+      "equations": [
+        "e := 9Cr, D, Ct, E, e' part length.",
+        "b', thereafter Cp= 0",
+        "For J : Cp Top == -1.6, Cp bottom:= 0.6"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-12",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 12",
+      "title": "Pressure Coefficients (Top and Bottom) for Pitched R.oofs, a = 10°",
+      "content": "(Clause 7.3.3.3)\ne\no·\n45·\ngoo\n·Ford\nvalue\nde\nt\nh=O.5d\nC'&G'\nL.~_~\n1 .\n. 1\nc·\nRoof stope a ;: 10·\ne :: 0· .. 45-, 0, O~ E. IE' fUR length.\ne == eo·, D, 0\n, E. E' pari length.\nb'J~Cp=O\nPRESSURE COEFFICIENTS, Cp\nEND SURFACES\nD\nD'\nE\nE'\nC\nC'\nG\n-1.0\n+0.3\n-0.5\n+0.2\n-0.3\n+0.1\n- 0.3\n+0.1\n.. 0.4\n+0.8\n+0.3\n-O.S\n-0.3\nFor f : Cp Top :: - 1.0. Cp bottom. 0.4\nTangentially acting friction: R go- :: 0.1 Pd bd\nSf\n-0.6",
+      "cross_references": [
+        "Clause 7.3.3.3"
+      ],
+      "equations": [
+        "h=O.5d",
+        "e == eo·, D, 0"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-13",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 13",
+      "title": "Pressu.re Coefftcients (Top and Bottom) for Pitched Free Roofs, ex:; 100",
+      "content": "with effects of Train or Stored Materials\ne\n45°\ngoo\n1etr\nForafl\nvatue\neta\n(Clause 7.3.3.3)\nh'=O.Sh\n'-':1 'I-~~-t\nh II 0.5 d t\nC' \" G'\nLi-t ___ ~~~\nI.\nb'=d\nRoofs. a :11110·\nEffects of hins or stored m~.\ne == 011 .. 45·, or 135· .. 180·, D, D~ E, IE' fuH length.\nS 81 90·, D, D~ E., E' pari length.\nb\n, ~erCp== 0\nPRESSURE COEFFiCIeNTS, Cp\nEND SURFACES\n0'\nE\nE'\nC\na-\nS\n~ 1.3\n+0.8\n-o.e\n0.7\n-0.5.\n+0.4\n..0.3\n+0.3\n.. 0.3\n-0.3\n-0.4\n... (18\n+0.3\n.. 0.4\n-0.3\n.. o.e\n.. 0,3\nFor' : Cp Top = -1.6, Cp bottom = -0.9\nTangentially acting fridion; R go- III 0.1 Pd bd\nG'\n.. 0.8",
+      "cross_references": [
+        "Clause 7.3.3.3"
+      ],
+      "equations": [
+        "e == 011 .. 45·, or 135· .. 180·, D, D~ E, IE' fuH length.",
+        ", ~erCp== 0",
+        "For' : Cp Top = -1.6, Cp bottom = -0.9"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-14",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 14",
+      "title": "Pressure Coefficients for Trouped Free Roofs, a = 100",
+      "content": "(Clause 7.3.3.3)\n,\nD\nE\n~\nh=E~\nI~\nd\n.1\nE\nL\nd\nRoof slope a == 100\ne =: 0\"'- 45°1 D. D~ IE, E' fuM length.\nS • 90°. D, D~ E. E' part length.\nttl therufter Cp= 0\nPRESSURE COEfACJENTS. C P\ne\nD\n0'\nE\nO·\n+0.3\n-0.1\n+0.2\n~\n.. 0.2\n+0.1\n.0.1\n0.1\n- 0.1\nI\nI\nb=d\nIS'\n·0.9\n-0.3\n+0.1\nForan\nfor': Cp Top:: 0.4. Cp bottom == .. 1.5\nvalue\neta\nT~\nacting friction; R goa = 0.1 I'd bd",
+      "cross_references": [
+        "Clause 7.3.3.3"
+      ],
+      "equations": [
+        "Roof slope a == 100",
+        "e =: 0\"'- 45°1 D. D~ IE, E' fuM length.",
+        "ttl therufter Cp= 0",
+        "for': Cp Top:: 0.4. Cp bottom == .. 1.5",
+        "acting friction; R goa = 0.1 I'd bd"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-15",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 15",
+      "title": "Pressure Coefficients (Top ad Bo_m) for 1roughed Free Roofs, a. == 100",
+      "content": "with Effeets of Train or Stored Materials\nO·\n46-\n90\"\n18(t\nll\nForlU\nvalue\nde\n{(;lause 7.3.3.3)\nE\nRoof slope a ;; 10·\nEffects of trains or stcnd material$.\ne ;; 0·· 45-f or 135\n0 .. 180·$ D. D', IE, Et fWl length.\nS a 90·. 0, Dtf E, E' part length.\nb~ thereafter Cp =: 0\nPRESSURE COEFFICIENTS. C p\no·\nE\nE'\n-0.7\n+0.8\n• (US\n+0.6\n.. 0.\"\n+0.3\n-0.2\n+0.2\n-0.1\n+0.1\n-0.1\n+0.1\n.. 0.\"\n.. 0.2\n.. o.e\n... 0.3\nFor f: Cp Top II .. 1.1. Cp bottom = 0.9\nTengentJlIJy acting frlction: R 900 III 0.1 Pd bd",
+      "cross_references": [],
+      "equations": [
+        "b~ thereafter Cp =: 0",
+        "For f: Cp Top II .. 1.1. Cp bottom = 0.9"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-16",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 16",
+      "title": "External Pressure Coeffidents (Cpel for Pitched Roofs of Muitispan Buildings",
+      "content": "(AU Spans Equal) with h < w·\n(Clause 7.3.3.4)\nROOF PLAN\nSECTION\nROOF\nWIND\nARSTSPAN FIRST\nOTHER\nANGLE\nANGLE\nINTERME ..\nINTERME ..\nDlATESPAN DfATESPANS\n~\n,\n....\n\\\nt\nto!.\n,\na\n,\na\nb\nc\nd\nm\nn\nDegrees oeg ....\n·0.9 ..0.6\n~O.4 .. 0.3\n·0.3\n-0.3\n- 1.1\n-0.6 -0.4 -0.3\n-o.S\n-0.3\n.. 0.7 -O.s\n.. 0.-4\n-0.3\n-O.S\n-0.3\n.. 0.2\n-0.6\n.. 0.4\n-0.3\n-0,2\n-0.3\n+0.3 -0.6 -0.6 -OA\n-0.2\n.. 0.4\nDISTANCE\nROOF\nWiND\nANGlE\nANGlE\nh1\nh2\na\ne\nOEGREES\nDEGREES\nUPTQ4S\n.. 0.8\n·0.6\nEND SPAN\n~\nx\nz\n.. 0.3\n-0.3\n-0.3\n-0.4\n.. 0.3\n- 0.5\n-0.2\n.. 0.5\n.. 0.2\n.. 0.5\nhS\n-0.2\ny=horO.1w\nVVHICHEVER\nIS lESS\n\",;: h2 =h\nlOCAl\nCOEFFICIENT\n~ m\n-2.0\n-1.5\nFrictional drag : When wind angle 9::::; 0°, horizontal forces due to frictional drag are allowed for in the above values. and\nWhen wind angle 9 = 90°, allow for frictional drag in accordance with 7.4. t\nNOTE -\nEvidence on these buidings is fragmentary and any departure from the cases given should be investigated separately.",
+      "cross_references": [
+        "Clause 7.3.3.4"
+      ],
+      "equations": [
+        "y=horO.1w",
+        "\",;: h2 =h"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-17",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 17",
+      "title": "External Pressure Coefficients (C,J fol\" Saw Tooth Roofs of Muldspan Sundiags",
+      "content": ",\n(AU Spans Equal.) with It < w'\n(Clause 7.3.3.4)\nROOF PlAN\ny=horO.1w\n\\lVHiCHEVER\nb\nd\nn\nn\nn\nz\nIS LESS\na, C\nm\nm,\nm\nx .h'\nBtZ · h\nI t\nSECTION\nWIND\nARST\nOTHER\nEND SPAN\nLOCAL\nANGLE\nFIRST SPAN INTERMe ..\nINTEAME ..\nCOEfFtaENT\nDlATESPAN OtATESPANS\n...\n...\n\".\n,\n...\n\\ ~\n,\n•\nr\n..\nf\nv\n~\nOegreu\nIII\nb\nc\nd\nm\nn\n)(\nz\n+0.6 ·0.7\n.. 0.7\n.. 0.4\n·0.3\n-0.2 -0.1\n-0.3\n·0.5 .. 0.3\n.. 0.3\n.. 0.3\n.. 0,4\n.. O.S\n.. O.S\n.. 0,1\n-2.0\n-1.5\nDlSTANCE\nWIND\nANGlE\n\"'1\nh2\nh3\ne\nDEGREES\n.. 0.8\n.. o.e\n-0.2\nSimilar to W\nt \"1. 1\\2. h 3. are needed to be rockoMd from the windwoftI\nedge In the same 0R:fIf\nFrictional drag : When wing angle e = 0\", horizontal forces due to ftictional drag are allowed for in the above values, and\nWhen wind angle 8 ... 900 , allow for frictional drag in accordance with 7.4.1.\nNOTE -\nEvidence on these buidinp is fragmentary and any departure from the cues given should be investigated separately.",
+      "cross_references": [
+        "Clause 7.3.3.4"
+      ],
+      "equations": [
+        "y=horO.1w"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-18",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 18",
+      "title": "External Pressure Coemcients (CP) for Curved Roofs",
+      "content": "(Clause 7.3.3.6)\nPORTION OF ROOF\nSaOWTHIS LINE\nTO 8E TREATEO AS\nAN EXTENSfON OF\nVERT'ICAl SUPPORTS\nc\n--.--........c\na) ROOF SPRl~\nFROM GROUND lEVEl\nC\n+0.8\n+0.8\nL---~\n.0.8\nlEEWARD\nQUAR'T£R (0-4)\nh\nC) 00UBlE CURVED ROOfS\nVAlUES OF C, C1 and Ca\nHII\nC\nC1\nC2\n0.1\n-0.8\n+0.1 +0.05\n0.2\n.. 0.9\n+0.3 +0.1\n0.3\n.. 1.0\n+0.4 +0.15\n0.4\n... 1.1\n+0.6\n..\n0.5\n-1.2\n+0.1\n...\nNOTE -\nWhen the wind is blowing nonnal to gable ends, Cpe may be taken as equal to -0.7 for the full width of the roof over a length\nof 112 from the gable ends and -0.5 for the remaining portion.\nIS 875 (Plrt 3) : lOIS\nh\nTlble 19 Externll Pressure Coemeients Around Cylindrical Structures\n(Clause 7.3.3.7)\n-\"\n~\nPOSmONOF\nPRESSURE COEFfiCIENTS Cpt\nPERIPHERY! 6\nIN DEGREES\nhID=25\nh1D-1\nIIID-1\n1.0\n1.0\n1.0\n0.8\n0.8\n0.8\n0.1\n0.1\n0.1\nwO.9\n.. 0.8\n... 0.7\n.. Ui\n.. 1.7'\n-1.2\n-2.5\n-2.2\n.. 1.6\n-2.6\n·2.2\n.. '.1\n-1.9\n.. 1.1\n·1.2\n-0.9\n·0.8\n-0.1\n-0.7\n-0.6\n.. 0.6\n.. 0.8\n.. 0.5\n-0.4\n.. 0.6\n-O.S\n-0.4\n-0.8\n.. 0.5\n.. 0.4\nalii 0.5 0 FOR 2 <hI0<3\nO.16h+O,2 0 FOR 0.2 <hiD <2\nSECTIONAA\nPlAN\n[For force coefficient corresponding to shell portion (See Table 2S)l\nFIG. 3 EXTERNAL PRESSURE COEFFICIENTS ON THE UPPER ROOF SURFACE OF CYCLINDRICAL STRUCTURES\n. STANDING ON THE GROUND\nIS 875 (Part 3) : lOIS",
+      "cross_references": [
+        "Clause 7.3.3.6",
+        "IS 875",
+        "Clause 7.3.3.7",
+        "Table 2S"
+      ],
+      "equations": [
+        "hID=25"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-20",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 20",
+      "title": "Extental Pressure Coefficients for Roofs and Bottoms of CyUndrleal Strudures",
+      "content": "«(;lause7.3.3.8)\nP\nDlRECTtON\nCpa\nOF WIND\n~\n<a>\n(b)\n(0)\n~\n(d)\ni i\n:::(Cpe\n~\nI\nI\nCpt\nH\n...........\n1 -0---,1\nCOEFf'ICtENTS OF EXTERNAl PRESSURE Cpt!\nSTRUCTURE ACCORDING TO SHAPE\nI, blndc\nd\nHID\nROOF\n(tIH) .. 1\nROOF\nBOTTOM\n0.5\n-0.65\n1.00\n.. 0.75\n-0.8\n1.00\n.1.00\n1.25\n.. 0.75\n... 0.1\n2.00\n·1.00\n1.50\n.. 0.75\n.. o.e\nTotal force acting on the roof of the 8trudure. P == 0.785 D 2 (0 pi'\" Cpe) Pet\nThe fMUltant of P liM eccentrieally. , = 0.10\nH\nz\n-I\nB\nm\ny\nIt\n~",
+      "cross_references": [],
+      "equations": [
+        "The fMUltant of P liM eccentrieally. , = 0.10"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-21",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 21",
+      "title": "External Pres.l1ft Coeftieients. (C,J for Combined Roofs",
+      "content": "«(;lause 7.3.3.9)\n0.8\nDIRE~1~\nDlREC00N2\n<?\n~ ·f\nCI1 ,,30'\" L\nbt\nba\nV\n, n\nh,\nt~\nV\n.. \"\"'V, \"\"\",,, \" .. \" . lY\n-b~\nb~\n0.8\n0.4\nlA\n/\n~ Cpe III 0.4 .!!1 .. 0.8\n~- 1------ -II\" \"' ...... iM ....\nt\nh2\n0.2\n. 0.13\n.\n1.2t\nJ\n~ .\n0.5",
+      "cross_references": [],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.0",
+      "title": "i",
+      "content": "US /1.8 2.0\n2~5\n3~0\n3.5\nt\nI\ni\nt\nA\nI a\n~ I \\..\nh'\nI\nCpeIllJ;'-1.7\n..0.2\nrl\n~\nDIRECTION 1 ~\nDiRECT!\n~\n<?\nA\na\nb,,-\n_ I\nC_1II2 ~.~t9...1\ne\nJ j'\nj2\na ,\nON2\n.0.4\n.0.6\n..0.8\n.. 1.0\nVAlUES OF COEFAOENiS (C pe)\nPORTION\nDIRECTION 1\nDIRECTION 2\n\"\nFROM THE DIAGRAM\nh1\nC pe ='·0.5. ;;;:11111.5\n.. 0.4\nb\nl!J\nCpe==+O.7; h ~1.5\n.\ncandd\nSMTabte\"\ne\nSee Cf-..-1.S.S.5",
+      "cross_references": [],
+      "equations": [
+        "C pe ='·0.5. ;;;:11111.5",
+        "Cpe==+O.7; h ~1.5"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-11",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 11",
+      "title": "External Pressure Coefficients (Cpel for Roofs with a Sky Ligbt",
+      "content": "(Clause 7.3.3.10)\nDIRECTION\nOF'MND\n-0.8\n~\nb\n-0.6\nb) ROOFS WTH A. SKY UGHT\nVAlUES OF COEFFICIENTS (Ope)\nb1>bz\nPORTION\n•\nCpe\n·0.6",
+      "cross_references": [
+        "Clause 7.3.3.10"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.4",
+      "title": "Force Coefficients",
+      "content": "The value of force coefficients (Cf) apply to a building\nor structure as a whole, and when multiplied by the\neffective frontal area Ae of the building or structure\nand design wind pressure, Pd gives the total wind load\n(F) on that particular building or structure.\nF.:::. CfAePd\nwhere F is the force acting in a direction specified in\nthe respective tables and Cf is the force coefficient for\nthe building.\nbU'~U)2\nb\naandb\n+0.7\nSee Tabfe for combmed\nroofs\nNOTES\n1 The value of the force coefficient differs for the wind acting\non different faces of a building or structure. In order to\ndetermine the critical load, the total wind load should be\ncalculated for each wind direction.\n.2 If surface design pressure varies with height, the surface area\nof the building/structure may be sub-divided so that specified\npressures are taken over appropriate areas.\n3 In tapered buildings/structures, the force coefficients shall\nbe applied after sub-dividing the building/structure into suitable\nnumber of strips and the load on each strip calculated\nindividually, taking the area of each strip as Ae-\n4 For force coefficients for structures not covered above\nreference may be made specialist literature on the subject or\nadvice may be sought from specialist in the subject.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-23",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 23",
+      "title": "Pressure Coefficients at Top and Bottom Roof of Grand Stands",
+      "content": "Open Three Sides (Roof Angle Upto 5°)\n(Clause 7.3.3.11)\nA\nE I ~\ni\nWiND\n® ®:\nI\nJI\nK\nI\n-I\nc\nG I I\nLI\n!VI\nI\n@\n@I\nI I,\nb---J\n( Shaded Ilea to 8CSfe )\nFRONT AND BACK OF WALL.\ne\nJ\nK\nL\nItA\ncr\n+0.9\n- 0.5\n+0.9\n-0.5\n45'\"\n+ (US\n\"-o.e\n+0.4\n.. 0.4\n135-\n• t.1\n+0.15\n-1.0\n+0.\"\niea'\n.. 0.3\n+0.9\n·0.3\n+0.9\neo-\nMw-CDofKIII.1.0\neo·\nMw • Cp of J .... 1.0\nTOP AND IOTTOM ROOF\nA\nB\nC\nD\nE\nF\nG\nH\ncr\n.. 1.0\n+0.9\n-1.0\n+O.l~\n-0:1\n+0.9\n+0.1\n+O.t\nW\n.. 1.0\n+0.7\n-0.1\n+0.4\n.. 0.5\n+0.8\n.. 0.6\n+0.3.\n136-\n-0.4\n-1.1\n.. 0.1\n·1.0\n.0.9\n.. t,1\n.. 0.9\n.. 1.0\n1W\n-0.8\n.. 0.3\n.. 0.8\n-0.3\n-o.e\n.. 0.3\n·0.8\n.. O.S\nW\n'M,t .. Cp (top) 1111 .. 2.0\n4S·\n'MR' .. C P (bottom) 1111 ... 1.0",
+      "cross_references": [
+        "Clause 7.3.3.11"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-14",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 14",
+      "title": "External Pressure Distribution Coefficients Around Spberical Structures",
+      "content": "(Clause 7.3.3.12)\nPOSITJONOF\nPERIPHERJt e\njNDEGRE\n.&16\neo\n,15",
+      "cross_references": [
+        "Clause 7.3.3.12"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.4.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.4.1",
+      "title": "Frictional Drag",
+      "content": "In certain buildings of special shape, a force due to\nfrictional drag shall be taken into account in addition\nto those loads specified in 7.3. For rectangular clad\nbuildings, this addition is necessary only where the\nratio dlh or dI b is more than 4. The frictional drag force,\nF~ in the direction of the wind is given by the following\nfonnulae:\na) If h $. b, F'= C; (d- 4h) bPd + C/ (d- 4b) 2h\nPcP and\nCpe\n... 1.0\nI\n+0.9\n+0.5\n-0.1\n·0.7\n-1.1\n-1.2\n.. 1.0\n.. O.S\n.. 02\n+0.1\n+0.3\n+0.4\nb) Ifh> b, P= C/(d-4b) bPd + C/(d-4b) 2hPd\nThe first tenn in each case gives the drag on the roof\nand the second on the walls. The value of Cr' has the\nfollowing value:\n1) C/ = 0.01 for smooth surfaces without\ncorrugations or ribs across the wind direction,\n2) C/ = 0.02 for surfaces with corrugations\nacross the wind direction, and\n3) C/ = 0.04 for surfaces with ribs across the\nwind direction.\nFor other buildings9 the frictional drag has been\nindicated, where necessary, in the tables of pressure\ncoefficients and force coefficients.",
+      "cross_references": [],
+      "equations": [
+        "a) If h $. b, F'= C; (d- 4h) bPd + C/ (d- 4b) 2h",
+        "b) Ifh> b, P= C/(d-4b) bPd + C/(d-4b) 2hPd",
+        "1) C/ = 0.01 for smooth surfaces without",
+        "2) C/ = 0.02 for surfaces with corrugations",
+        "3) C/ = 0.04 for surfaces with ribs across the"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.4.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.4.1",
+      "title": "Force Coefficients for Clad Buildings",
+      "content": "7.4.2.1 Clad buildings of uniform section\nThe overall force coefficients for recWlPtar clad\nbuildings of unifonn section with flat roofs in uniform\nflow shall be as given in Fig. 4 and for other clad\nbuildings of uniform section (without projections,\nexcept where otherwise shown) shall be as given in\nTable 25.\nNom - Structures that are in the supercritica1 flow regime,\nbecause of their size and design wind velocity. may need further\ncalculation to ensure that the greatest loads do not occur at\nsome wind speed below the maximum when the flow will be\nsub critical. The coefficients are for buildings without·\nprojections, except where otherwise shown.\nIn Table 25. ~ b is used as an indication of the airflow regime.\n7.4.2.2 Buildings of circular shapes\nForce coefficients for buildings of circular cross-section\nshapes shall be as given in Table.25. However more\nprecise estimation of force coefficients for circular\nshapes of infinite length can be obtained from Fig. 5",
+      "cross_references": [
+        "Fig. 4",
+        "Table 25",
+        "Fig. 5"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-3.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "3.0",
+      "title": "..---,......-----.,......--~-.......,.---",
+      "content": "2.5\nD-F\nWIND\n-----\n2.0\nt\nPLAN'\n1.5\na\nC,\n1.0\n~\nh\nElEVATION\n0.5\n1.0\n1.5\n2.0\n3.0\nalb -----III .......\n1.4\nt 1.2\n1.0\n--...... --..J.!!..l\nb",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.8",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.8",
+      "title": "........ __ --..II.....-_-...I. __",
+      "content": "......L.._-....I.--_.l...-........ ........I\no\n0.6\nU)\n2.0\n2.5\n3.0\nFIG. 4 FORCE COEFFICIENT FOR RECTANGULAR Ct.AD BUILDING IN UNIFORM FLOW",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-25",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 25",
+      "title": "Force Coefficients C, for Clad Buildings of Uniform Section",
+      "content": "(Acting in the Direction of Wind)\n(Clause 1.4.2.2)\nVd b\nCf FOR HEIGHT f BREADTH RATIO\nPlAN SHAPE\nm,y.\nUPTO 112\nAll SURfACES < 6\n~OJ\nROUGH Of WITH\n0.7\n0.1",
+      "cross_references": [
+        "Clause 1.4.2.2"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.1",
+      "title": ". 0.8",
+      "content": "0.9\n1.0\nVd\nPROJECnON ~ 6\nSee also Appendix 0\nSMOOTHl:6\n0.5\n0.5\n0.5\n0.6\n0.5\n0.6\n-B=t\n<10\n0.5\n0.5\n0.5\n0.5\n0.6\n0.6\n~10\n0.2\n0.2\n0.2\n0.2\n0.2\n0.2\nEllipse bid l1li '12\n-OJ\n<8\n0.8",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.8",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.8",
+      "title": "i 0.9",
+      "content": "1.0\n1.1\n1.3\n~8\n0.6\n0.8\n0.9\n1.0\n1.1\n1.3\nElipsebid m2\n~\n<4\n0.6\n0.6\n0.6\n0.7\n0.8\n0.8\n--\ni\nbid l1li1\n~4\n0.4\n0.4\n0.4\n0.4\n0.5\n0.5\nI\nrib l1li113\nI\nEJ\n< 10\n0.7\n0.8\n0.8",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.5",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.5",
+      "title": ". 0.5",
+      "content": "0.5\n0.6\n0.6\nrIb-116\n. t:::d---;\n-(\\-r );\n<3\n0.3\n0.3\n0.3\n0.3\n0.3\n0.3\nbid;; 112\nI\n~3\n0.2\n0.2\n0.2\n0.2\n0.3\n0.3\nrlb-112\n-8\nJ\nAll values\n0.5\n0.5\n0.5\n0.5\n0.6\n0.8\nbld-112\nrib -116\n- m\nAnvall*\n0.9\n0.9\nto\n1.1\n1.2\n1.5\n~\nbid =2\nrib = 1/12\nCO\n1.2",
+      "cross_references": [],
+      "equations": [
+        "bid =2",
+        "rib = 1/12"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.6",
+      "title": "•",
+      "content": "0.7\n0.2\n1.1\n1.5\n1.0\n0.5\n1.3\nO.S\n~\n0.4\n0.3\n0.1\n1.9\n. IS 875 (part 3) : 2015",
+      "cross_references": [
+        "IS 875"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-15",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 15",
+      "title": "-",
+      "content": "(Continued)\nPlAN SHAPE\nVd b\nCf FOR HEIGHT f BREADTH RATIO\nm'll'\nUPT0112\nCtO\n...........\nd ............\n.\" \"' !\n<8\n0.7\nO.S\n0.8\n0.9\n1.0\n1.2\n1.6\n.........\n'-..J I\n\"\nbldl!il2\n~6\n0.5\nO.S\n0.5\n0.5\n0.5\n0.6\n0.6\nrib = 1/4\nd-\n< 10\n0.8\n0.8\n0.9\n1.0\n1.1\n1.3\n1.5\n......... b\nr\nI\na10\nO.S\n0.5\n0.5\n0.5\n0.5\n0.6\n0.6\nrll:= 113\n- 0\nAM val ....\n0.9\n0.9\n0.9\n1.1\n1.2\n1.3\n1.6\nria IiIII 1112\n-~\nAll\" ..\n0.9\n0.9\n0.9\n1.1\n1.2\n1.3\n1.8\nria = 11<43\n-~l\n<: 11\n0.7\n0.1\n0.7\n0.8\n0.9",
+      "cross_references": [],
+      "equations": [
+        "rib = 1/4",
+        "rll:= 113",
+        "ria = 11<43"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.0",
+      "title": "I 1.2",
+      "content": ". -1\nd\na: 11\n0.4\n0.4\n0.4\n0.4\n0.5\n0.5\n0.5\nrib I: 114\n-<J]\nAI val&*;\n0.8\n0.8\n0.8\n1.0\n1,1\n1.2\n1.4\nrib· 1112\n-<JJ\nAll ....\n0.7\n0.7\n0.8\n0.9\n1.0\n1.1\n1.3\nrib .1148\n_r~\n<8\n0.1\n0.1\n0.8\n0.9\n1.0\n1.1\n1.3\n,\nL d\n0$8\n0.4\n0.4\n0.4\n0.4\n0.5\no.a\n0.6\nrIb·1~",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-25",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 25",
+      "title": "-",
+      "content": "(Concluded)\nPLAN SHAPE\nVd b\nCf FOR HEIGHT I BREADTH RATIO\nm2/s\nUPTO 112\neo\n- C>\nAft values\n1/48 < rib -< 1/12\n. .\n..\n~.~ ..\n-8\n0( 12\n12 SIDED\na:, 12\nPOlYGON\n-0\nAll V.\"\".\nOCTAGON\n-0 I\nI\nAJlvalua\nHEXAGON\ntaking into account the average height of surface\nroughness E. When the length is finite the values\nobtained from Fig. 5 shall be reduced by the\nmultiplication factor K (see Table 28 and Annex D).\n7.4.2.3 Free standing walls and hoardings\nForce coefficients for free standing walls and hoardings\nshaH be as given in Table 26.\nTo allow for oblique winds, the design shall also be\nchecked for net pressure normal to the surface varying\nlinearly from a maximwn of 1.7 Cf at the windward\nedge to 0.44 Cf at the leeward edge.\nThe wind load on appurtenances and supports for\nhoardings shall be accounted for separately by using\nthe appropriate net pressure coefficients. Allowance\nshall be made for shielding effects of one element on\nanother.\n7.4.2.4. Solid circular shapes mounted on a sUrface\nThe force coefficients for solid circular shapes mounted\non a surface shaH be as given in Table 27.\n1.2\n1.2\n1.2\n1.4\n1.6\n1.1\n2.1\n0.1\n0.1\n0.8\n0.9\n1.0\n1.1",
+      "cross_references": [
+        "Fig. 5",
+        "Table 28",
+        "Annex D",
+        "Table 26",
+        "Table 27"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.3",
+      "title": "I",
+      "content": "0.1\n0.1\n0.1\n0.1\n0.8\n0.9\n1.1\n1.0\n1.0\n. 1.1\n1.2\n1.2\n1.3\n1.4\nJ\n1.0\n1.1\n1.3\n1.4\n1.4\n1.5",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-7.4.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "7.4.3",
+      "title": "Force Coefficients for Unclad Buildings",
+      "content": "7.4.3.1 This section applies to pennanentiy unclad\nbuildings and to frameworks of buildings while\ntemporarily uncJad. In the case of buildings whose\nsurfaces are well-rounded, such as those with elliptic,\ncircular or oval cross·sections~ the total force can be\nmore at a wind speed much less than maximum due to\ntransition in the nature of boundary layer on them.\nAlthough this phenomenon is well known in the case\nof circular cylinders, the same phenomenon exists in\nthe case of many other well-rounded structures, and\nthis possibility must be checked.\n7.4.3.2 Individual members\na) The force coefficient given in Table 29 refers to\nmembers of infinite length. For members of finite\nlength, the coefficients should be multiplied by a factor\nK that depends on the ratio lib where I is the length of\nthe member and b is the width across the direction of\nwind. Table 28 gives the required values of K. The\nfollowing special cases must be noted while\nestimating K.\n.J?L\n1 +-b'\n1.2\n1.0\n0.8\n0.6\n0.\"\no ~\n__ ~~~~~~~\n__ ~\n__ ~~~~~~\n__ ~~~~ ..\n~~\n1r1\n:2\n..\n5 e 8 uP\n..\nI) G 8 101\n:2\n..\n5 6 8 10'\nR#\n..\nC\nFIG. 5 VARIATION OF\n~£ WITH Re > 3 X 104 FOR CIRCULAR SECTIONS\n1+-\nD",
+      "cross_references": [
+        "Table 29",
+        "Table 28"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-26",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 26",
+      "title": "Foree Coeffidents for Low Walls or Hoardings « 15m High)",
+      "content": "(Clause 7.4.2.2)\nA80VE GROUND ,., ~ 0.25 It\n(WIND NORMAL TO FACE)\n'N'IDTH 10 HEIGHT RATiOl bIh\nDRAG COEFFICIENT C,\nWAll ABOVE GROUND\nWAll ON GROUND\nFROMO.6Toe\nfROM1T012\n1.2\n1.3\n1.4\n1.5\n1.75\n1.8\n80 OR MORE\n180 OR MOfW\n2.0\n1) when any member abuts on to a plate or wall\nin such a way that free flow of air around that\nend of the member is prevented, then the ratio\nof lib shall be doubled for the purpose of\ndetermining K; and\nb) Flat-sided members -\nForce coefficients for wind\nnormal to the longitudinal axis of flat-sided structural\nmembers shall be as given in Table 29.\n2) when both ends of a member are so\nobstructed, the ratio shall be taken as infinity\nfor the purpose of determining K.\nThe force coefficients are given for two mutually\nperpendicular directions relative to a reference axis on\nthe structural member. They are denoted by Cfn and eft\nand give the forces normal and transverse respectively,\nto the reference plane as shown in Table 29 .\nSI No.\n(1)\ni)\nii)\niii)\n...\n-\"",
+      "cross_references": [
+        "Clause 7.4.2.2",
+        "Table 29"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-27",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 27",
+      "title": "Force Coefficients for Solid Shapes Mounted on a Surface",
+      "content": "(Clause 7.4.2.4)\nSIDE ELEVATJON\n1:1\n!'M~\nt\nJ.\n~~\nI\n1--\nJ\nI 1----\nI\nDESCRiPTION OF SHAPE\nCIRCULAR asc !\nI\nHEMiSPHERJCAl80YA.\nHEMISPHERICAL SOliD\nSPHERICAL SCUD\nCf\n1.2\n1.4\n0.4\n1,2",
+      "cross_references": [
+        "Clause 7.4.2.4"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-28",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 28",
+      "title": "Reduction Factor K for Individual Members",
+      "content": "[(Clauses 7.4.2.2, 7.4.3.2(a)]\nlib or lID\n2·\nS\n(2)\n(3)\n(4)\n(5)\n(6)\n(7)\n(8)\nCircular cylinder, subcritical flow\n0.58\n0.62\n0.68\n0.74\n0.82\n0.87\nCircular cylinder, supercritical flow\n0.80\n0.80\n0.82\n0.90\n0.98\n0.99\n(D Do'? 6m2/8)\nFor plate perpendicular to wind\n0.62\n0.66\n0.69\n0.81\n0.87\n0.90\n(b Do'? 6m2/s)\nI\nCIO\n(9)\n(10)\n0.98\n1.00\n1.00\n1.00\n0.95\n1.00",
+      "cross_references": [],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-29",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 29",
+      "title": "Force Coefficients <: .. for Individual Structural Members of Infinite \"Length",
+      "content": "[Clause 7.4.3.2(b)]\nA&\nI ~'lf'R I . fA\n~ft\nI\nFit\ne~r~~I~~ I~Ul~~ IL O.1b ~\nV\nfFn\nO·\nfn 12:.'\nffJ~\n....... 0\nIII!£R!lI1:!I:.\nIt ~ -b\n=:e>\nb\nWiND 8~m I ,/ ~e_ I\nW----1\n-~-l-C.4~ I\n--r 't:lb\nI\nr~Aii--1\n-\nSIlO\ne\nCfu\neft\nCfn\nCft\nCfn\neft\nCfn\nCft\nI\nCfrl\nc.\nCfn\nCft\nDEGREE\n-\n~ .,.\ni'J,~~\"IO_-H,tf4. ~~~'l!\"!f'?_' lOl_\na\n+1.9 +0.95\n+1.8\n+1.8\n+1.75\n+0.1\n+ 1.6\n+2.0\n+2.05\n+1.8 +0.8\n+2.1\n-+ 1.8\n+0.85\n+0.85\n+1.5\n-0.1\n+1.2\n+0.9\n+1.85\n+0.6\n~\n+2.0 + 1.7\n-1.9\n-1.0\n+-0.1\n+ 1.15\n-0.95\n+0.1\n-1.6\n+2.15\nI,)\n+0.6\n-\n.. 1.8\n·0.1\n-2.0\n+0.3\n-0.15\n+0.15\n-0.5\n+1.05\n-1.1\n+2.4\n-1.6\n+0.4\n-2.0\n+0.1\n-1.4-\n-1.4-\n-1.15\n.. 0.1\n-1.5\n.. 1.1\n+2.1\n-1.8\nVol\nflO\nAt\nF.~\nFtft\nR~\nr~\n0- !1 r.\n!o-~~\n... -b\nc.=:>\nl,\nb ...............\n--\n-\ne\nern\"\nCft\nCil\neft\nern\nCft\nem\nCft\nem\nCft\ntil\nQO\n....\nDEGREE\nYII\n-:a\n+1.4\n+\"2.05\n+1.8\n+2.0\n+2.0\nfa)\n:1\n+ 1.2\n+ 1.6\n... 1.95\n+0.6\n+1.5\n+1.5\n+ 1.8\n+0.1\n+ 1.55\n+1.55\n~\n........\n+2.2\n+0.5\n+0.9\n+1.9\n+0.1\n+2.0\nt...t\nCl;) -\nI...h\nNonnal force,\nTransverse force,\nFa = (CfrtPd K)/b\nF. = (CftPd K)/h\nc) Circular sections -\nForce coefficients for members\nof circular section shall be as given in Table 2S see\nalso Annex D.\nd) Force .coefficients for wires and cables shall be as\ngiven in Table 30 according to the diameter (D), the\ndesign wind speed (Vd) and the su~ace roughness.\n7.4.3.3 Single frames\nForce coefficients for a single frame having either,\na) all flat sided members; or\nb) all circular members in which aU the members\nof the frame have either:\n1) D Vd less than 6 rn2/s, or\n2) D Va more than or equal to 6 rn2/s,\nshall be as given in Table 31 according to the type of\nthe member, the diameter (D), the design hourly mean\nwind speed ( Va) and the solidity ratio (<1».\nForce coefficients for a single frame not complying\nwith the above requirements shall be calculated as\nfollows:\nA· ...\nA\",\nC =yC\n+(l-y)~C +(l-y)-!!!!..C\nf\nf...,.,.\nA\nlab\nA\nfila!\n~\nrub\nwhere\nChuper = force coefficient for the supercritical circular\nmembers as given in Table 31 or Annex D,\nCfsub\n== force coefficient for subcritical circular\nmembers as given in Table 31 or Annex D,\nCfilat\nforce coefficient for the flat sided members\nas given in Table 31,\nAeirc sub = effective area of subcritical circular\nmembers,\nA flat\neffective area of flat-sided members,\nA sub\n= A eire sub + A ftat, and\n'Y\n= (Area of the frame in a supercritical flow)/\nAe\n7.4.3.4 IVlultipleframe buildings\nThis section applies to structures having two or more\nparallel frames where the windward frames may have\na shielding effect upon the frames to leeward side. The\nwindward frame and any unshielded parts of other\nframes shaH be calculated in accordance with 7.4.3.3,\nbut the wind load on the parts of frames that are\nsheltered should be multiplied by a shieJding factor\nwhich is dependent upon the solidity ratio of the\nwindward frame, the types of members ,comprising the\nframe and the spac*ing ratio of the frames. The values\nof the shielding factors are given in Table 32.",
+      "cross_references": [
+        "Clause 7.4.3.2",
+        "Table 2S",
+        "Annex D",
+        "Table 30",
+        "Table 31",
+        "Table 32"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-30",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 30",
+      "title": "Force Coefficients for Wires and Cables (LID = 1(0)",
+      "content": "[Clause 7.4.3.2(d)]\nSINo.\nFlow Regime\n(1)\n(2)\ni)\nD !1u<6 m2/s\nii)\nD Uu~ rrt-Is\n,Solidity Ratio\n(1)\n0.1\n0.3\n0.4\nO.S\n0.75\n1.00\nForce Coefficient, C, for\n....\nSmooth Surface\nModerately Smooth Wire\nFine Stranded Cables\n(Galvanized or Painted)\n(3)\n(4)\n(5)\n1.2\n1.2\n1.2\n0.5\n0.7\n0.9",
+      "cross_references": [
+        "Clause 7.4.3.2"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-31",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 31",
+      "title": "Force Coefficients for Single Frames",
+      "content": "(Clause 7.4.3.3)\n-\nCircular sections\nThick Stranded Cables-\n(6)\n1.3\n1.1\n~at Sided Members\n--------------~--------------\n,. Subcritical Row\nSuper Critical Flow .......\n(D~· < 6 m2/s)\n(D Vd6 m2/s)\n(2)\n(3)\n(4)\n1.9\n1.2\n0.7\n1.8\n1.2\n0.8\n1.7\n1.2\n0.8\n1.7\n1.1\n0.8\n1.6\n1.1\n0.8\n1.6\n1.5\n1.4\n2.0\n2.0\n2.0\nNOTE -\nLinear interpolation between the values is permitted.",
+      "cross_references": [
+        "Clause 7.4.3.3"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-32",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 32",
+      "title": "Shielding Fador H for Multiple Frames",
+      "content": "(Clause 7.4.3.4)\nEffective Solidity\nRatio\n<be\n(1)\n- <O.S\n(2)\n1.0\n(3)\no\n1.0\n1.0\nQl\nQ9\nIn\n0.2\n0.8\n0.9\nOJ\nQ7\nO~\n0.4\n0.6·\n0.7\nQS\nO~\nO~\n0.7\n0.3\n0.6\n1.0\n0.3\n0.6\nNOTE\nLinear interpolation between the values is pennitted.\nWhere there are more than two frames of similar\ngeometry and spacing, the wind load on the third and\nsubsequent frames should be taken as equal to that on\nthe second frame. The loads on the various frames shall\nbe added to obtain total load on the structure.\na) The frame spacing ratio is equal to the centre to\ncentre distance between the frames, beams or girders\ndivided by the least overall dimension of the frames,\nbeam or girder measured in a direction normal to the\ndirection of wind. For triangular framed structures or\nrectangular framed structures diagonal to the wind, the\nspacing ratio should be calculated from the mean\ndistance between the frames in the direction of the\nwind.\nb) Effective solidity ratio, cJ)e:\nrp = 4J for flat-sided members.\ne\nlP. is to be obtained from Fig. 6 for members of\ne\n..\n~\n.~\n~\nm\ncircular cross-sections.\n0.40\n0.35\n0.30\no.~\n0.20\n0.15\n0.10\n0.08\n!L\ni\nI\n'-V\nlL V\no 0.1 0.2 U",
+      "cross_references": [
+        "Clause 7.4.3.4",
+        "Fig. 6"
+      ],
+      "equations": [
+        "rp = 4J for flat-sided members."
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.4",
+      "title": "0.6 0.6 0.1 A.'",
+      "content": ". SOLforrt RATIO ••\nFro. 6 EFFECTIVE SOllDITY RAno, FOR CIRCULAR\nSECTION MEMBERS\nFrame Spadng Ratio\n--\n2.0\n4.0\n>8.0 -\n(4)\n(5)\n(6)\n1.0\n1.0\n1.0\n1.0\n1.0\n1.0\n1.0\n1.0\nl.0\n1.0\n1.0\n1.0\n1.0\n1.0\n1.0\n0.9\n1.0\n1.0\n0.8\n0.9\n1.0\n0.6\n0.8\n1.0\n7.4.3.5 Lattice towers\na) Force coefficient for lattice towers of square\nor equilateral triangle section with flat-sided\nmembers for wind blowing against any face\nshall be as given in Table 33.\nb) For square lattice towers with flat-sided\nmembers the maximum load, which occurs\nwhen the wind blows into a cornert shall be\ntaken as 1.2 times the load for the wind\nblowing against a face.\nc) For equilateral triangle lattice towers with flat-\nsided members, the load may be assumed to\nbe constant for any inclination of wind to a\nface.\nd) Force coefficients for lattice towers of square\nsection with circular members, aU in the same\nflow regime, may be as given in Table 34.\ne) Force coefficients for lattice towers of\nequilateral-triangle section with circular\nmembers ~n in the sam.e flow regime may be\nas given in '!able 35.\n7.4.3.6 Tower appurtenances\nThe wind loading on tower appurtenances, such as\nladders conduits, lights, elevators, etc, shall be\ncalculat~ using apPrQpriate net pressure coefficients",
+      "cross_references": [
+        "Table 33",
+        "Table 34"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-33",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 33",
+      "title": "Overall Force Coefficients for Towers",
+      "content": "Composed of Flat Sided Members\n[Clause 7.4.3.S(a)]\nSINo.\nSolidity Ratio\nForee Coefficient\n.....\n,\n~\n\"'Square\nEquilateral\nTowers\nTriangular\nTowers\n(1)\n(2)\n(3)\n(4)\ni)\n<0.1\n3.8\n3.1\nii)\n0.2\n3.3\n2.7\niii)\n0.3\n2.8\n2.3\niv)\n0.4\n2.3\n1.9\nv)\nO.S\n2.1\nLs\nIS 875 (Part 3) : 281S",
+      "cross_references": [
+        "Clause 7.4.3",
+        "IS 875"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-34",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 34",
+      "title": "Overall Force Coemeients for Square Towers Composed of Cireular Members",
+      "content": "[(Clause 7.4.3.5 (d)]\n. sa No.\nSolidity Ratio of Front Face\nForee Coeft1dcnt\n-\n~\n,..\nSubcritical Flow\nSupercritical Flow\n---\n(D Oo<6m2/s)\n(D Oo~ 6 m2/s)\nA.\n,A\n... Onto Face\nOnto Comer'\n'Onto Face\nOnto Comer \"\n(1)\n(2)\n(3)\ni)\n<0.05\n2.4\nii)\n0.1\n2.2\niii)\n0.2\n1.9\niv)\nOJ\n1.7\nv)\n0.4\n1.6\nvi)\n0.5\n1.4\nfor these elements. Allowance may be made for\nshielding effect from other elements.\n8 INTERFERENCE EFFECTS",
+      "cross_references": [
+        "Clause 7.4.3.5"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-8.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "8.1",
+      "title": "General",
+      "content": "\\Vind interference is caused by modification in the wind\ncharacteristics produced by the obstruction caused by\nan object or a structure in the path ofthe wind. Ifsuch\nwind strikes another structure, the wind pressures\nusually get enhanced, though there can also be some\nshielding effect between two very closely spaced\nbuildings/structures. The actual phenomenon is too\ncor· :tlLex to justify generalization of the wind forces/\npressures produced due to interference which can only\nbe ascertained by detailed wind runneVCFD studies.\nHowever, some guidance can be provided for the\npurpose of preliminary design. To account for the effect\nof interference, a wind interference factor (IF) has been\nintroduced as a multiplying factor to be applied to the\ndesign wind pressure/force. Interference effects can be\nmore significant for tall buildings. The interference\nfactor is defined as the ratio between the enhanced\npressure/force in the grouped configuration to the\ncorresponding pressure/force in isolated configuration.\n(4)\n(5)\n(6)\n2.5\n1.1\n1.2\n2.3\n1.2\n1.3\n2.1\n1.3\n1.6\n1.9\n1.4\n1.6\n1.9\n1.4\n1.6\n1.9\n1.4\n1.6\nSince the values of IF can vary considerably based on\nbuilding geometry and location, the given values ofW\nare a kind of median values and are meant only for\npreliminary design estimates. The designer is advised\nthat for assigning values of IF for final design\nparticularly for taU buildings, specialist literature be\nconsulted or a wind tunnel study carried out.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-8.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "8.2",
+      "title": "Roof of Low .. Rise Buildings",
+      "content": "Maximum increase in wind force on the roof due to\ninterference from similar .buildings in case of closely\nspaced low·rise buildings with flat roofs may be up to\n25 percent for c/c distance (x) between the buildings\nof 5 times the dimension (b) of the interfering bui lding\nnormal to the direction of wind (see Fig. 7). Interference\neffect beyond 20b may be considered to be negligible.\nFor intermediate spacing linear interpolation may be\nused.",
+      "cross_references": [
+        "Fig. 7"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-8.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "8.3",
+      "title": "Tan Buildings",
+      "content": "Based on studies on tall rectangular buildings, Fig. 8\ngives various zones of interference. The interference\nfactor (IF), which needs to be considered as a\nmultiplication factor for wind loads corresponding to",
+      "cross_references": [
+        "Fig. 8"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-35",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 35",
+      "title": "Overall Foree Coefficients for Equilateral Triangular Towers Composed of Circular lVltmbers",
+      "content": "[Clause 7.4.3.S(e)]\nSINo.\n(1)\ni)\nii)\niii)\niv)\nv)\nvi)\nSolidity Ratio of FroUlt Face\n<P\n(2)\n<0.05\n0.1\n0.2\n0.3\n0.4\n0.5\nForce Coeffieieat\n,...\n........\n\"'\nSubcritical Flow\nSupercriticai Flow\n(D Do < 6 m2/s)\n(D Do ~ 6 m2ls)\nAll wind Directions\nAll wind Directions\n(3)\n(4)\n1.8\n0.8\n1.7\n0.8\n1.6\n1.1\n1.5\n1.1\n1.5\n1.1\n1.4\n1.2\nisolated building. may be assumed as follows, for\npreliminary estimate of the wind loads under\ninterference caused by another interfering tall building\nof same or more height located at different zones Z 1\nto Z4 as shown in Fig.S:\nZone\nIF\nZl\n1.35\nZ2\n1.25\nZ3\nLIS\nZ4\n1.07\nThe interference effect due to buildings of height less\nthan one-third of the height of the building under\nconsideration may be considered to be negligible while\nfor interference from a building of intermediate height~\nlinear interpolation may be used between one-third and\nfull height.\n9 DYNAMIC EFFECTS",
+      "cross_references": [
+        "Clause 7.4.3"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-9.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "9.1",
+      "title": "General",
+      "content": "Flexible slender structures and structural elements shall\nbe investigated to ascertain the importance of wind\ninduced oscillations or excitations in along wind and\nacross wind directions.\nIn general, the folJowing guidelines may be used for\nexamining the problems of wind-induced oscillations.\na) Buildings and closed structures with a height\nto minimum lateral dimension ratio of more\nthan about 5.0, or\nb) Buildings and structures whose natural\nfrequency in the first mode is less than 1.0\nHz.\nAny building or structure which satisfies either of the\nabove two criteria shall be examined for dynamic\neffects of wind.\nx\nNOTES\n1 The fundamental time period (T) may either be established\nby experimental observations on similar buildings or calculated\nby any rational method of analysis. In the absence of such\ndata, T may be detennined as follows for multi-storied\nbuildings:\na) For moment resistant frames \\~ithout bracings or shear walls\nresisting the lateral loads.\nT=O.ln\nwhere\n12 = number of storeys including basement storeys; and\nb) for all others\nl\nb\n~J\n.I\nFIG. 7 LOW-RISE BUILDINGS IN TANDEM CAUSING INTERFERENCE EFFECT\n15b\n20b\nZ2\n. Z3\n21 • Zone of high interference\nZ3 • Zone of low interference\nZ2 - Zone of moderate Interference\n24 - Zone of insignificant interference\nFro. 8 INTERFERENCE ZONES FOR TALL RECTANGULAR BtnLDINGS OF SAME OR GREATER HEIOHT (CLAUSE 7.3)\nT O.09H.\n=7d\nwhere\nH;: total height of the main structures of the building. in m;\nand\nd ;: maximum base dimension of building in meters in a\ndirection parallel to the applied wind force.\n2 Ifpreliminary studies indicate that wind-induced oscillations\nare likely to be significant, investigations should be pursued\nwith the aid ofanalytical methocb or if necessary, by means of\nwind tunnel tests on models.\n.\n3 Across-~ind motions may be due to lateral gustiness of the\nwind. unsteady wake flow (for example, vortex shedding),\nnegative aerodynamic damping or due to a combination of these\neffects. These cross-wind motions may become critical in the\ndesign of tall buildings/structures.\n4 Motions in the direction of wind (known also as buffeting)\nare caused by fluctuating wind force associated with gust. The\n. excitation depends on gust energy available at the resonant\nfrequency.\n5 The eddies shed from an upstream body may intensify motion\nin the direction of the wind and may also affect cross-wind\nmotion.\n(I The designer should also be aware of the following three\nfonns of wind-induced motion which are characterized by\nincreasing amplitude of oscillation with the increase of wind\nspeed.\ni) Galloping -\nGalloping is transverse oscilla.tions of some\nstructures due to the development of aerodynamic forces\nwhich are in phase with the motion. It is characterized by\nthe progressively increasing amplitude of transverse\nvibration with increase of wind speed. The cross-sections\nwhich are particuharly prone to this type of excitation\ninclude the following:\n1) All structures with ncn-circular cross-sections, such as\ntriangular, square. polygons. as well as angles, crosses,\nand T sections.\n2) Twisted cables and cables with ice encrustations.\nii) Flutter -\nFlutter is unstable oscillatory motion of a\nstructure due to coupling between aerodynamic force and\nelastic deformation of the structure. Perhaps the most\ncommon form is oscillatory motion due to combined\nbending and torsion. Although oscillatory motion in each\ndegree of freedom may be damped, instability can set in\ndue to energy transfer from one mode of oscillation to\nanother and the structure is seen to execute sustained or\ndivergent oscillations with a type of motion which is a\ncombination of the individual modes of vibration. Such\nenergy transfer takes place when the natural frequencies of\nmodes taken individually are close to each other (ratio being\ntypically less than 2.0). Flutter can set in at wind speeds\nmuch less than those required for exciting the individual\nmodes of motion .. Long span suspension bridge decks or\nany member of a structure with large values of <fit (where d\nis the length of the member and t is its dimension parallel\nto wind stream) are prone to low speed flutter. Wind tunnel\ntesting is required to determine critical flutter speeds and\nthe likely structural response. Other types of flutter are\nsingle degree of freedom stall flutter, torsional flutter, etc.\niii) Ovalling -\nThin walled structures with open ends at one\nor both ends such as oil storage tanks and natural draught\ncooling towers in which the ratio of the diameter or\nminimum lateral dimension to the wall thickness is of the\norder of 100 or more are prone to ovalling oscillations.\nThese oscillations are characterized by periodic radial\ndeformation of the hollow structure.\n7 Buildings and structures that may be subjected to significant\nwind excited oscillations, It is to be noted that wind induced\noscillations may occur at wind speeds loWer than the design\nwind speed.\nS Analytical methods for the evaluation of response of dynamic\nstructures to wind loading can be found in the special\npublications.\n9 In assessing wind loads due to such dynamic phenomenon\nas galloping, flutter and ovalling, in the absence of the required\ninformation either in the special publ ications or other literature,\nexpert advice should be sought including experiments on\nmodels in boundary layer wind tunnels. '",
+      "cross_references": [],
+      "equations": [
+        "12 = number of storeys including basement storeys; and"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-9.2.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "9.2.1",
+      "title": "Slender Structures",
+      "content": "For a structure, the vortex shedding frequency Is shall\nbe detennined by the foHowing formula:\nwhere\nI\" = StVZ,H\nJs\nb\nSt\n== Strouhal number,\nV\nz,H = hourly mean wind speed at height z, and\nb\nbreadth of a structure or structural member\nnormal to the wind direction in the\nhorizontal plane\na) Circular structures -\nFor structures of\ncircular in cross-section:\nSl\n= 0.20 for D VZ,H less than 6 m2/s, and\n= 0.25 for D VZ,H more than or equal to 6 m2/s.\nb) Rectangular structures -\nFor structures of\nrectangular cross-section:\nSt= 0.10\nNOTES\n1 Significant cross wind motions may be produced by vortex\nshedding if the natural frequency of the structure or structural\nelement is equal to the frequency of the vortex shedding within\nthe range of expected wind speeds. In such cases, further\nanalysis should be carried out on the basis of special\npublications.\n2 Unlined welded steel chimney stacks and similar structures\nare prone to excitations by vortex shedding.\n3 Intensification of the effects of periodic vortex shedding has\nbeen reported in cases where two or more similar structures\nare located in close proximity, for example at less than 20b\napart, where b is the dimension of the structure nonnal to the\nwind.\n.. The formulae given in 8.1.1 (a) is valid for infinitely long\ncylindrical structures. The value of 8. decreases slowly as the\nratio of length to maximum transverse width decreases, the\nreduction being up to about half the value, if the structure is\nonly three times higher than its width. Vortex shedding need\nnot be considered if the ratio oflength to maximum transverse\ndimension is less than 2.0.\n10 DYNAMIC WIND RESPONSE",
+      "cross_references": [],
+      "equations": [
+        "= 0.20 for D VZ,H less than 6 m2/s, and",
+        "= 0.25 for D VZ,H more than or equal to 6 m2/s.",
+        "St= 0.10"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.1",
+      "title": "General",
+      "content": "Tall buildings which are 'wind sensitive' shall be\ndesigned for dynamic wind loads. Hourly mean wind\nspeed is used as a reference wind speed to be used in\ndynamic wind analysis. For calculation of along wind\nloads and response (bending moments, shear forces,\nor tip deflections) the Gust Factor (GF) method is used\nas specified in 10.1. The across wind design peak base\noverturning moment and tip deflection shall be\ncalculated using 10.3.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.1",
+      "title": "Along Wind Response",
+      "content": "For calculation of along-wind load effects at a level s\non a building/structure, the design hourly mean wind\npressure at height z shall be multiplied by the Oust\nFactor (OF). This factor is dependent on both the\noverall height h and the level s under consideration\n(see Fig. 9). For calculation of base bending moment\nand deflection at the top of the building/structure s\nshould be taken as zero.\nThe design peak along wind base bending moment,\n(MJ shall be obtained by summing the moments\nresulting from design peak along wind loads acting at\ndifferent heights, z, along the height of the building!\nstructure and can be obtained from,\nMfA\nrFzZ\nFz\nCf,zAz Pd G\nwhere\nFz = design peak along wind load on the building!\nstructure at any height z\nAz\nthe effective frontal area of the building!\nstructure at any height z, in m2\nPd\ndesign hourly mean wind pressure\ncorresponding to YZ,d and obtained as",
+      "cross_references": [
+        "Fig. 9"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.6",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.6",
+      "title": "V:d (N/m2)",
+      "content": "IS 87S (Pari 3) : lotS\nv,.d = design hourly mean wind speed at height z,\nin mls (see 6.4)\nCr,z = the drag force coefficient of the building!\nstructure corresponding to the area Az\nG\n== Gust Factor and is given by.\n== l+r\nwhere\nr = roughness factor which is twice the\nlongitudinal turbulence intensity, Ih,i\n(see 6.5),\nwhere\npeak factor for upwind velocity fluctuation,",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-4.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "4.0",
+      "title": "for category 3 and 4 terrains,",
+      "content": "background factor indicating the measure of\nslowly varying component of tluctuating\nwind load caused by the lower frequency\nwind speed variations\nbah\naverage breadth of the building/structure\nbetween heights s and h\nmeasure of effective turbulence length scale\nat the height, h, in m\n(\nh )0.25\n85 10\nfor terrain category 1 to 3\n(\nh )0.25\n70 10\nfor terrain category 4\nfactor to account for the second order\nturbulence intensity\nLev\n~r\n.\n~\nh\nel at which action effects\nalculated\n~arec\n~-..... --... I--j,.\nS\nZ\ndip\n~IP\nNOTE- 0 <5 < h, and s<z< h\nFlO. 9 NOTATIONS FOR HEroHTs\n::: g)\",Ji:\nlh,. .. turbulence intensity at height h in terrain\ncategory i\nH\" ::: height factor for resonance response\ns\nsize reduction factor given by:\n1 + 3'~hh 1 + 4f.gboh\nv\",d\nv\",d\nwhere\nbOb ::: average breadth of the building/structure\nbetween 0 and h.\nE\n::: spectrum of turbulence in the approaching\nwind stream\n{1+70.8N\n2)h\nwhere\nN\n= effective reduced frequency\nfoL h\nVIa,d\nfa\nfirst mode natural frequency of the\nbuilding/structure in along wind direction,\nin Hz\n~.d::: design hourly mean wind speed at height, h\nin mls (see 6.4)\n~\n::: damping coefficient oftbe building/structure\n(see Table 36)\ngR ::: peak factor for resonant response\n::: v't 211'4 (3 600.t;, ) ]",
+      "cross_references": [
+        "Table 36"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-36",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 36",
+      "title": "Suggested Values ofStmctural",
+      "content": "Damping Coefficients\nNo.\n(1)\n(Clause 10.2)\nKind of Structure\n(2)\ni)\nWelded steel structures\nii)\nBolted\nsteel\nstructuresIRCC\nstructures\niii)\nPrestressed concrete structures\nDam pi.\nCoefticlellt, P\n(3)\n0.010\n0.020\n0,016",
+      "cross_references": [
+        "Clause 10.2"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.2.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.2.1",
+      "title": "PeakAcceleration inAlong Wind Direction",
+      "content": "The peak acceleration at the top of tbe building!\nstructure in along wind direction (i in mls2) is given\nby the fQIlowing equation:\n~ (2 pl')2 -\nf@\"\nx=\n1tJa\nX gRr VT\nwhere\ni\n= mean deflection at the position where the\nacceleration is required. Other notations are\nsame as given in 10.2.\nFor computing the peak acceleration in the along wind\ndirection, a mean wind speed at the height of the\nbuilding/structure, v\" corresponding to a S year mean\nreturn period shall be used. A reduced value of 0.011\nis also suggested for the structural damping, ~ for\nreinforced concrete structures.",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.3",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.3",
+      "title": "Across Wind Response",
+      "content": "This section gives method for determining equivalent\nstatic wind load and base overturning moment in the\nacross wind direction for. tan enclosed buildings and\ntowers of rectangular cross-section. Calculation of\nacross wind response is not required for lattice towers.\nThe across wind design peak base bending moment\nMe for enclosed buildings. and towers shall be\ndetermined as follows:\nwhere\ngh\na peak factor,\n= ~[ 2 In (36 00 fc ) ] in cross wind direction;\nAt = hourly mean wind pressure at height h, in\nPa;\nb\n::: the breadth of the structure normal to the\nwind, in m;\nh\n= the height of the structure, in m;\nk\n::; a mode shape power exponent for\nW(z)=\nrepresentation of the fundamental mode\nshape as represented by:\n(J;Z)k\nIe\n= first mode natural frequency of the building!\nstructure in across wind direction, in Hz.\nThe across wind load distribution on the building!\nstructure can be obtained from Me using linear\ndistribution of loads as given below:\nF\n= (3Mc l( =-)\nz,c\n\\ h2 )lh\nwhere Fz,c =:: across wind load per unit height at height z.",
+      "cross_references": [],
+      "equations": [
+        "= ~[ 2 In (36 00 fc ) ] in cross wind direction;",
+        "= (3Mc l( =-)"
+      ],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.3.1",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.3.1",
+      "title": "Peak Acceleration in Across Wind Direction",
+      "content": "The peak acceleration at the top of the building!\nstructure in across-wind direction (.y in mls2) with\napproximately constant mass per unit height shaH be\ndetermined as foHows:\nji ~ 1.5 g.p\"b (0.76 + O.24k) J( n:Cfsl\nmo\n~ )\nTypical values of the mode shape power exponent, k\nare as follows:\na) uniform cantilever, k == 1.5\nb) slender framed structure (moment resisting),\nk=O.5\nc) building with a central core and moment\nresisting fa'tade, k = 1.0\nd) lattice tower decreasing in stiffness with\nheight. or a tower with a large mass at the\ntop, k= 2.3\nCfs = across wind force spectrum coefficient\ngeneralized for a linear mode. (see Fig. 10\nand Fig. 11).\n~\ndamping coefficient of the building/structure\n(see Table 36).\nmo = the average mass per unit height of the\nstructure in, kg/m.",
+      "cross_references": [
+        "Fig. 10",
+        "Fig. 11",
+        "Table 36"
+      ],
+      "equations": [
+        "a) uniform cantilever, k == 1.5",
+        "k=O.5",
+        "resisting fa'tade, k = 1.0",
+        "top, k= 2.3"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-10.4",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "10.4",
+      "title": "Combination of Along Wind and Across Wind",
+      "content": "Load Effeets\nThe along wind and across wind loads have to be\nappiied simultaneously on the building/structure during\ndesign.\nWIND DIRECTION billh\n..\nVh'\n0.1\n-\nB\n0.05\nffi\nI\nI\nI\nG\n0.02\nI\n~\nI\nI\n0.01\nI\nI\n:I\nI /\n~\n0.005\n1/\n1./\n(,)\n)~\n~\nCb\n0.002\n~\nw\n~\nQ.oo1\n0 u..\n0 z i\n~\n(,)\n0.0001\na\nRATIO VIP,a\nfeb\nLegend:\n-\nTurbulence Intensity of 0.12 at 213 h\n- - Turbulence IntenSity of 0.20 at 213 h\nFIG. 10 VALUES OF THE CROSS WIND FORCE SPECTRUM COEFFICIENT FOR SQUARE SECTION BUILDINGS\n0.1\n-.l!\n9-\n0.05\n~\n~\n0.02\nu..\n~\n0.01\n::l\n0.000\n0:: b\nw\nn.\n0.002\n~\n~\n0.001\nu..\n~\n~\n«\n<.)",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-0.0001",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "0.0001",
+      "title": "o",
+      "content": "legend:\nWIND DIRECTION D\n..\nWIND DIRECTION 0\n~\n...\n~ , \" \" ' ......\nRATIO V,.\"d\nfeb\nh:b:d\n6:1:2\nh;b:d\n8:2~1\n-\nTurbulence Intensity of 0.12 at 213 h\n- - Turbulence Intensity of 0.20 at 213 h\nFIG. 11 VALUES OF THE CROSS WIND FORCE SPECTRUM COEFFICIENT FOR 2: 1 AND\n1 : 2 RECTANGULAR SECTION BUILDINGS\nAJ~NEXA\n(Clause 6.2)\nBASIC WIND SPEED AT 10 m HEIGHT FOR SOlVlE Il\\'IPORTANT CITIES I TOWNS\nCityffown\nBasic wind Speed\nCityffown\nBasic ~ind Speed\nmis\nmls\nAgra\nKanpur\nAhmedabad\nKohima\nAjrner\nKolkata\nAlmora\nKozhikode\nAmritsar\nKumool\nAsansol\nLakshadweep\nAurangabad\nLucknow\nBahraich\nLudhiana\nBengaluru\n\"' ....\n,),)\nlViadurni\nBarauni\nlV1andi\nBareiily\n?vtangalore\nBhatinda\nNloradabad\nBhilai\n\\\\,lumbai\nBhopal\nl',fysore\nBhubaneshwar\nNagpur\nBhuj\nNainital\nBikaner\nNasik\nBokaro\nNeHore\nChandigarh\nPanjim\nChennai\nPatiala\nCoimbatore\nPatna\nCuttack\nPuducherry\nDarbhanga\nPort Blair\nDarjeeling\nPune\nDehradun\nRaipur\nDelhi\nRajkot\nDurgapur\nRanchi\nGangtok\nRoorkee\nGuwahati\nRourkela\nGaya\nShjmla\nGorakhpur\nSrinagar\nHyderabad\nSurat\nImphal\nTrruchirappalli\nJabalpur\nTrivandrum\nJaipur\nUdaipur\nJamshedpur\nVadodara\nJhansi\nVaranasi\nJodhpur\nVijayawada\nVishakapatnam\nANNEXB\n[Clause 6.3.2.4 (b)(ii)]\nCHANGES IN TERRAIN CATEGORIES\n8-1 LOW TO HIGH TERRAIN CATEGORY\nNUMBER\nIn cases of transition from a low terrain category\nnumber (corresponding to a low terrain roughness) to\na higher terrain category number (corresponding to a\nrougher terrain), the velocity profile over the rougher\nterrain shall be ·determ.i.ned as follows:\na) Below height hx' the velocities shall be\ndetermined in relation to the rougher terrain;\nand\nb) Above height hx' the velocities shall be\ndetermined in relation to the less rough (more\ndistant) terrain. .\nB-2 HIGH TO LOW TERRAIN CATEGORY\nNUMBER\nIn cases of transition from a more rough to a less rough\nterrain, the velocity profile shall be determined as\nWINO DIRECTION ..\nCATEGORY 2\nfollows:\na) Above height h\", the velocities shall be\ndetermined in accordance with the rougher\n(more distant) terrain; and\nb) Below height h\", the velocity shall be taken\nas the lesser of the following:\n1) 'that determined in accordance with the\nless rough terrain, and\n2) the velocity at height h\" as determined in\nrelation to the rougher terrain\nNOTE -\nExamples of determination of velocity\nprofiles in the vicinity of a cbange in terrain\ncategory are shown in Figs.12a and 12b.\nB-3 MORE THAN ONE CATEGORY\nTerrain changes involving more than one category shall\nbe treated in similar way to that described in 8-1 and B-2.\nNOTE -\nExamples involving three terrain categories are\nshown in Fig. 12e.\nCATEGORY <4\n)(4 a FETCH, \"4 ;III HEIGHT FOR CATEGORY 4\n.... ••••• •••• ••••••••\nPROFILE FOR CATEGORY ..\n---- - - -\nPROFILE FOR CATEGORY 2\nOES~GN PROFILE AT A\na) DETERMiNATION OF VELOCITY PROFile NEAR\nA CHANGE tN TERMJN CATEGORY .\n{£.eu rough to more rough}\nFIG. 12 VELOCITY PROFILES IN TIlE VICINITY OF A CHANGE IN TERRAIN CATEGORY\n)(4:: FETCH, h 2;: HEIGHT fOR CATEGORY 2\n.......................\nPROfILE FOR CATEGORY 4\nPROFILE FOR CATEGORY 2\nOESIGNPROFiLE AT A\nWINO OIRECTION ..\nI\nI\nI\nI\n\"\n\"\nI\n/~\n/\nI\n~I\nCATEGORY 4,\njioooI ........ _X_2 ..........\n__\nIDIt\n•\nCATEGORY 2\nb) Determination of Velocity Profile Near a Change in Terrain Category (More iough to less rough)\n'NiNO OIREC11ON\nIII\nA\nB\nCATEGORY 3\nCATEGORY 1\nCATEGORY 4\nvaocrrv\nVELOCITY\nVElOCITY\nvelOCITY PROFILE FOR CATEGORY 4\nVELOCITY PROFILE FOR CATEGORY 3\nVElOCrrv PROFilE FOR CATEGORY 1\nOESIGN PROFILE\nc) Determination of Design Profile Involving more than One Change in Terrain Category\nFIG. 12 VELOCITY PROFILES IN THE VICINITY OF A CHANGE IN TERRAIN CATEGORY\nANNEXC\n(~lause 6.3.3.1)\nEFFECT OF A CLIFF OR ESCARPMENT ON EQUIVALENT\nHEIGHT ABOVE GROUND (k3 FACTOR)\nC-l The influence of the topographic feature is\nconsidered to extend 1.S Le upwind and 2.5 Le\ndownwind of the summit of crest of the feature where\nLe is the effective horizontal length ofthe hill depending\non slope as indicated below (see Fig. 13).\nSlope\nLe\n3° < 6s S 17°\n6s> 17°\n. where\nL\nZ/O.3\nL\nactual length of the upwind slope in the wind\ndirection,\nZ\neffective height of the topography feature,\nand\n6s\nupwind slope in the wind direction.\nIn case, the zone in downwind side of the crest of the\nfeature is relatively flat (as < 3°) for a distance\nexceeding Le, then the feature should be treated as an\nescarpment. Otherwise the feature should be treated\nas a hill or ridge. Examples of typical features are given\nin Fig. 13.\nNOTES\n1 No difference is made, in evaluating k) between a three\ndimensional hill and two dimensional ridge.\n1 In undulating terrain, it is often not possible to decide whether\nWIND\n====i>\nSkrn\nthe local topography to the site is significant in terms of wind\nflow. In such cases, the average value of the terrait! upwind of\nthe site for a distance of 5 km should be taken as the base level\nfrom wind to assess the height, Z, and the upwind slope 9, of\nthe feature.\nC-2 TOPOGRAPHY FACfOa, k3\nThe topography factor ~ is given by the following:\n~ = l+Cso\nwhere C has the following values:\nSlope\n3° < 6s S 17°\nas> 17°\nC",
+      "cross_references": [
+        "Clause 6.2",
+        "Clause 6.3.2.4",
+        "Fig. 12e",
+        "Fig. 13"
+      ],
+      "equations": [],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.2",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.2",
+      "title": "(ZlL)",
+      "content": "0.36\nand So is a factor derived in accordance with C-2.!\nappropriate to the height, H above mean ground level\nand the distance, x, from the summit or crest relative\nto the effective iength, Le\nC-2.1 The factor, So should be determined from:\na) Fig. 14 for cliffs ~nd escarpments, and\nb) Fig. 15 for ridges and hills.\nNOTE - Where the downwind slope of a hill or ridge is more\nthan 3°, there will be large regions of reduced accelerations or\neven shelter and it is not possible to give general design rules\nto cater for these circumstances. Values of So from Fig. 15 may\nbe used as upper bound values.\nREGiON AFFECTED BY\nTOPOGRAHlCAl FEATURE\n2.5le\nx\n·veUPWIND\n+ve DOWNWIND\n13 (a) GENERAL NOTATIONS\nt\nCREST\nr.\nWIND\n. \\ OOVVNWlND SlOPE < 3\n~\n13 (b) HILL AND RIDGE\n13 (C) CUFF AND ESCARPMENT\nFIG. 13 TOPOGRAPHICAL DIMENSIONS\nCREST",
+      "cross_references": [
+        "Fig. 14",
+        "Fig. 15"
+      ],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-2.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "2.0",
+      "title": "----,,-.----...",
+      "content": "H\nL-\n1.0\ne\no ~\"\"\"\"---\"-'IIl---.....4-a\"\"\"'...&,...Jl.;.&!\n... 1.5\n... 1.0\n-0.5\nCREST\n0.5\n1.0\n1.5\n2.0\nUPWIND ~\nle\nDOWNWIND\nX_\nLa\nFIG. 14 FACTOR S FOR RIDGE AND HILL\nCREST\nCREST\n2.0\n1.5\nH\n1.0\nL-e\no\n2.5\nH\nLa 1.0\no ___\n\"\"\",,,-,L.--L..a...&.-...Il.-Jr...q\n-1.5\n-1.0\n-0.5\n0.5\n1.0\n1.5\nUPWIND L:\nDOWNWIND\nFIG. 15 FACTOR S FOR CUFF AND ESCARPMENT\n2.0\nX\nLe\nH",
+      "cross_references": [],
+      "equations": [],
+      "is_table": false
+    },
+    {
+      "chunk_id": "IS875-P3-CL-1.0",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "1.0",
+      "title": "La",
+      "content": "0.5\no\n2.5\nA.t1\\JNEX D\n(Clauses 7.4.2.2, 7.4.3.2 and 7.4.3.3)\nWIND FORCE ON CIRCULAR SECTIONS\nD-l The wind force on any object is given by:\nF= C,AePd\nwhere\nCf\nforce coefficient,\nA~\neffective area of the object normal to the\nwind direction, and\nPd\n= design pressure of the wind.\nFor most shapes, the force coefficient remains\napproximately constant over the whole range of wind\nspeeds likely to be encountered. However, for objects\nof circular cross-section, if varies considerably.\nFor a circular section, the force coefficient depends on\nthe way in which the wind flows around it and is\ndependent upon the velocity and kinematic viscosity\nof the wind and diameter of the section. The force\ncoefficient is usually quoted against a non-dimensional\nparameter, called the Reynolds number, which takes\ninto account of the velocity and viscosity ofthe flowing\nmedium (in this case the wind), and the member\ndiameter.\nReynolds number, Re = D~ Iv\nwhere\nD\ndiameter of the member\n~\ndesign hourly mean wind speed\nv\nkInematic viscosity of the air which is 1.46\nx 10-5 m2/s at 15°C and standard\natmospheric pressure.\nSince in most natural environments likely to be found\nin India, the kinematic viscosity of the air is fairly\nconstant, it is convenient to use D ~ as the parameter\ninstead of Reynolds number and this has been done in\nthis code.\nThe dependence of a circular section's force coefficient\non Reynolds number is due to the change in the wake\ndeveloped behind the body.\nAt a low Reynolds number, the wake is as shown in\nFig. 16 and the force coefficient is typically 1.2. As\nReynolds number is increased, the wake gradually\nchanges to that shown in Fig. 17; that is, the wake width\ndw decreases and the separation point denoted as sp,\nmoves from front to the back of the body.\nAs a result, the force coefficient shows a rapid drop at\ndw\nFlO. 16 WAKE IN SUB CRITICAL FLOW\nFIG. 17 WAKE IN SUPER CRITICAL FLOW\na critical value of Reynolds number followed by a\ngradual rise as Reynolds number is increased still\nfurther.\nThe variation of Cf with parameter D Pa is shown in\nFig. 5 for infinitely long circular cylinders having\nV8';OUS values of relative surface roughness (&lD) when\nsubjected to wind having an intensity and scale of\nturbulence typical of built-up urban areas. The curve\nfor a smooth cylinder (elD) = 1 x 10-5 in a steady air\nstream, as found in a low-turbulence wind tunnel, is\nalso shown for comparison.\nIt can be seen that the main effect of free· stream\nturbulence is to decrease the critical value of the\nparameter D ~ . For subcritical flows, turbulence can\nproduce a considerable reduction in Cr below the steady\nair-stream values. For supercritical flows, this effect\nbecomes significantly smaller.\nIf the surface of the cylinder is deliberately roughened\nsuch as by incorporating flutes, riveted construction,\netc, then the data given in Fig. 5 for appropriate value\nof 'SID> 0 shall be used.\nNOTE -\nIn case of uncertainty regarding the value off; to be\nused for small roughness, &! D shall be taken as 0.001.\nANNEXE\n(For~vVord)\nCOM~UTIEE COl\\'IPOSITION\n(Excluding Water Resources Development Division) Sectional Committee, CED 37\nOrganization\nIn personal capacity (80, SRP Colon)\\ Pera\\'allur; Chennai 600 082)\nAtomic Energy Regulatory Board, Mumbai\nBharat Heavy Electricals Limited, New Delhi\nCentral Building Research Institute (CSIR), Roorkee\nCentral Electricity Authority, New Delhi\nCentral Public Works Department, New Delhi\nCentral Water Commission, New Delhi\nEngineer-in-Chief's Branch (MES), NewDelhi\nEngineers India Limited, New Delhi\nGammon India Limited, Mumbai\nIndian Institute of Technoiogy Madras, Chennai\nIndian Institute of Technology Kanpur, Kanpur\nIndian Institute of Technology Roorkee, Roorkee\nIndian Metrological Department, New Delhi\nM.N. Dastur & Company Limited. Kolkata\nMECON Limited, Ranchi\nMinistry of Shipping, Road Transport & Highways, New Delhi\nMuncipal Corporation of Greater Mumbai, Mumbai\nNational Buildings Construction Corporation Limited. New Delhi\nNational Council for Cement and Building Materials. Ballabgarh\nNational Thennal Power Corporation. Noida\nResearch, Designs & Standards Organization. Lucknow\nRITES Limited, Gurgaon\nStructural Engineering Research Centre (CSIR). Chennai -\nTeE Consulting Engineers Limi'ted, Mumbai\nThe Institution of Engineers (India) Ltd, New Delhi\nRepresentative(s)\nDR N. LAKSHMANAN (Chairman)\nSHRI L. R. BISHNOI\nSHRJ A. D. ROSHAN (Alternate)\nSHRl S. S. MAN!\nDR A. K. PANDEY\nDR RAJEsH DEOU)~A, (Alternate)\nSHRl R. B. WALIMBE\nSHI~: S. K. Roy CHOWDHURY (Alternate)\nSHR! A. K. GARG\nSHRl RAJESH KHARB (Alternate)\nDIRECTOR C&MDD (E&Ne)\nDIRECTOR C&MDD (N&W) (Alternate)\nBRIG SANDEEP RAW./I.T\nSHRl V. K. JAL-\\V (Alternate)\nSHRl V!NAY KUMAR\nSHRl SL-'DHIR CHATIJRVEDI (Alternate)\nSHR! S. W. DESHPANDE\nSHRl AVINASH Y. MAHENDRAKAR (Alternate)\nDR DEVDAS MENON\nDR A MEHER PRASAD {Alternate)\nDR VINAY K. GUPTA\nDR PREM KiSHAN\nDR. S.K.KAuSHIK (Alternate)\nSHRJ K. RATNAM\nSHRI A. DAS GuPTA\nSHRl SATYAKI SEN (Alternate)\nSHRl ONKAR SAHAY\nSHRI A. K. BEG (Alternate)\nSHRI S. K. PuRl\nSHRl SATlSH KUMAR, SE (P~9) (Alternate)\nDeputy Municipal Commissioner (ENGG)\nCity Engineer (Altemate)\nSHRl RAKESH MARYA\nSHRl L. P. SINGH (Alternate)\nSHRl V. V. ARORA\nSHRl S. SHARMA (Alternate)\nSHRl H. KUNDU\nSHRI MASOOM All (Alternate)\nJoint Director Standards (8&S)\nIT Director Soods (B&S) SB-I (Alternate)\nSHRl ASHOK KUMAR MATHUR\nDR S. SELVI RAJAN\nDR P. HARlKRlSHNA (Alternate)\nSHRf A. P. MULL\nSHRl A. DuTIA (Alternate)\nSHRf K. B. RAJoRlA\nIS 875 (Part 3) : lOIS\nIn personal capacity, (P-121. Sanjay Nagar, Ghaziabad 201 001)\nIn personal capacity. (142 Deshbandhu Apartments,\nS100 S. K. AGARWAL\nSmu O. P. LAWRI\nNew Delhi J 10019)\nIn personal capacity, (61. Civil Lines, Roarkee 247 667)\nBIS Directorate General\nDR hEM KlusHNA\nSbri D. K. AGRAWAL; SammS! 'F' and HEAD (CML ENoo)\n[Representing Director General (Ex~ojftcio)J\nMember Secretaries\n8hri S. CHATURVEDI\nsClENTtST 'F' (Cxvn. &00), BIS\nand\nShri S. ARUN KUM'A!t\nScmmST 'C' (CIVIL ENGO), BIS\nAMENDMENT NO.1 APRIL 2016\nTO\nIS 875 (PART 3) : 2015 DESIGN LOADS (OTHER THAN EARTHQUAKE) FOR\nBUILDINGS AND STRUCTURES -\nCODE OF PRACTICE\nPART 3 WIND LOADS\n(Third Revision)\n(Second coverpage,Foreword, para 6, line 1) -\nSubstitute 'discipline' jc)r 'descriptive'.\n(Second cover page, Forevvord, para 6, (c)) ._- Substitute' k2' .f..'Jr 'k2\"\n(Third cover page, Forel,vord, para (ifter CD, line 8) -\nInsert 'anemometer' after 'with the help of.\n(Page 2, clause 3.1) -- Substitute 'Cr' for 'Cfd ,'.\n(Page 3, ,~Yrnb()l r) --Insert', Ih.i ' after 'height 11'.\n(Page 3) -- Substitute 'V:/ for 'V el.z'.\n(Page 6, Fig. 1) \"'-\" Insert the following notes at the end of the figure.\n'NOTES\nI The occurrence of a tornado is possible in virtually any part of India. 'nley are particularly more severe in the northern parts of\nIndia. The recorded number of these tornados is too small to assign any frequency. The devastation caused by a tornado is due to\nexceptionally high winds about its periphery, and the sudden reduction in atmospheric pressure at its centre, resulting in all\nexplosive outward pressure on tbe elcmcnts of the structure. The regional basic wind speeds do not include any speci lie allowance\nfor tornados. It is not the usual practice to allow for the effect of tornados unless special requirements are called lor as in the case of\nimpOltant stlUctures such as, nuclear power reactors and satellite c0I11.111unication towers.\n2The total number of cyclonic storms that have StlllCk different sections of east and west coasts arc included in Fig: I, based on\navailable records for the period from 1877 to 1982. The figures above the line (between the stations) indicate the total number of\nsevere cyclonic st01111S with or without a core of hurricane winds (speeds above 87 km/h) and the figures in the brackets below the\nlines indicate the total number of cyclonic stonns. 'Dlese have been included only as additional info1l11ation.'\n(Page 10, Table 4, *) -- Substitute the following for the existing: '*Unear interpolation for intermediate\nvalues of A is permitted.' .\n(Page 11, clause 7.3.3.3, para 2) --- Substitute 'The solidity ratio <t>' for 'The solidity ratio f'.\n(Page 11, clause 7.3.3.3, para 2, lines 3,5 and 10) -- Substitute' <t> 'jar 'f'.\n[Page 12, Fig. 2(b), Right-toprnostfigure] -\nSubstitute the existing figure with the figure below:\nt\n..\n...............\n~ L\nI\n...............\n-.-!...\nB\n~I\nPrice Group 4\nAmendment No.1 to IS 875 (Part 3) : 2015\nh\nI\n(Pagel3, Table 5, first row under BUILDING HEIGHT RATIO -<--::;-) -\nSubstitute' 1 <-s-'\nvV\nw 2\nI\nfor' ls-s- '.\nw 2\nh\n(Page l3, Table 5, second row under BUILDING HEIGHT RATIO -<-::;-) -\nSubstitute\n,\nw\n3 I\nI\n-<-<4' for' -s-<4 '.\n2 w\n2 w\n(Page 14, Table 6, bottommostfigure) -\nSubstitute the following figure for the existing:\nI ..\nw\nKEY PLAN\ny::: h or 0.15 w whichever is the lesser.\n(Page 17, TrIble 8) -\nInsert', a' after 'ROOF ANGLE'.\nl!>age 17, Table 8, Note 2) -\nSubstitute 'overhangs.' jar 'overhangs,'.\n(Page 18, Table 9) -\nSubstitute the following figures for the existing:\nAmendment No.1 to IS 875 (Part 3) : 2015\n~\n~~~-=r\n/, -Cp\n, \\\"Cp\n~l\n+Cp\n\\ \\\nh\n+Cp\n~\n{ \\\\\n,Ii\na~1\nh\n- ve ROOF ANGLE\n+ ve [\":(OOF ANGLE\nW!12-\nKEY PLAN\n(Page 19, Table 10) -\nSubstitute the following figures for the existing:\nt\nh::;: 0.5 d\n.L\nC'\n.~\nG'\nWind\n-~\nD\nb::;: 5d\nI\n.\nJ\n9~\nI\nG\nC'&G'\nd\nd\nJ\nI\nb':::: d\nE\n----I~\n(Page 19, Table 10)·- Substitute the following for the existing table below figure:\nL!10\nL\nAmendment No.1 to IS 875 (Part 3) : 2015\nPRESSURE COEFFICIENTS, Cp\nD\nD'\nE\nE'\nEND SURFACES\nC\nI\nC'\nI\nG I\nG'\n0°\n+0.6\n-l.0\n-0.5\n-0.9\n45°\n+0.1\n-0.3\n-0.6\n-0.3\n90°\n-0.3\n-0.4\n-0.3\n-0.4\n-0.3\nI\n+0.8\nI\n+0.3\nI -0.4\nFOR ALL\nFOR J : CpTop = 1.0, Cpbottom = -0.2\nVALUE OF 9\nTangentially acting friction: R90° = 0.05 Pdbd\n(Page 20, Table 11) -\nSubstitute the following for the existing table below figure:\nPRESSURE COEFFICIENTS, Cp\nD T\nD'\nE\nE'\nEND SURF ACES\nC\nI\nC'\nI\nG I 0'\n0°\n+0.1\nI\n+0.8\ni\n-0.7\n+0.9\n45°\n-0.1\n+0.5\n-0.8\n+0.5\n90°\n-0.4\n-0.5\n-0.4\n-0.5\n-0.3\nI\n+0.6\nI +0.3 I -0.4\n180°\n-0.3\n-0.6\n+0.4\n-0.6\nFOR ALL\nFOR J : CpTop = -l.5, Cpbottom = 0.5\nVALUE OF 9\nTangentially acting friction: R90° = 0.05 Pdbd\n(Page 21, Table 12, below figure, line 3) -\nSubstitute '8 = 90\n0 '/or '8 = 80°'.\n(Page 21, Table 12) -\nSubstitute the following for the existing table below figure:\nPRESSURE COEFFICIENTS, Cp\nD\nD'\nE\nE'\nEND SURFACES\nC\nI\nC'\nI\nG\nI 0'\n0°\n-1.0\n+0.3\n-0.5\n+0.2\n45°\n-0.3\n+0.1\n-0.3\n+0.1\n90°\n-0.3\n-0.3\n-0.4\nI\n+0.8\nI\n+0.3\nI -0.6\nFOR ALL\nFOR!: CpTop = -l.0, Cpbottom = 0.4\nVALUE OF 9\nTangentially acting friction: R90° = 0.1 Pdbd\n(Page 22, Table 13, top figure) -\nSubstitute 'h'=0.8h' for 'h'=0.9h'.\nAmendment No.1 to IS 875 (Part 3) : 2015\n(Page 22, Table 13) -\nSubstitute the following for the existing table below figure:\nPRESSURE COEFFICIENTS, Cp\ne\nD\nD'\nE\nE'\nEND SURFACES\nC\nC'\nG\nG'\n0°\n-1.3\n+0.8\n-0.6\n0.7\n45°\n-0.5\n+0.4\n-0.3\n+0.3\n90°\n-0.3\n-0.3\n-0.4\n+0.8\n+0.3\n-0.6\n180°\n-0.4\n-0.3\n-0.6\n-0.3\nFOR ALL\nFORf: CpTop = -1.6, Cpbottom = -0.9\nVALUE OF e Tangentially acting friction: R90 0 = 0.1 Pdbd\n(Page 23, Table 14, top figure) -\nDelete'~.\n(Page 24, Table 15) -\nDelete' ~\n(Page 24, Table 15, bottom) -\nSubstitute 'Tangentially' for 'Tengentially'.\n(Page 26, Table 17, bottom) -\nSubstitute the following for the existing entry:\nSimilar to 90°, hi, ii\" h3 are needed to be reckoned from the windward edge in the]\nsame order\nAmendment No.1 to IS 875 (Part 3) : 2015\n(Page 27, Table 18) -\nSubstitute the following for the existing table:",
+      "cross_references": [
+        "Fig. 16",
+        "Fig. 17",
+        "Fig. 5",
+        "IS 875",
+        "clause 3.1",
+        "Fig. 1",
+        "Table 4",
+        "clause 7.3.3.3",
+        "Fig. 2",
+        "Table 5",
+        "Table 6",
+        "Table 8",
+        "Table 9",
+        "Table 10",
+        "Table 11",
+        "Table 12",
+        "Table 13",
+        "Table 14",
+        "Table 15",
+        "Table 17",
+        "Table 18"
+      ],
+      "equations": [
+        "FOR J : CpTop = 1.0, Cpbottom = -0.2",
+        "Tangentially acting friction: R90° = 0.05 Pdbd",
+        "FOR J : CpTop = -l.5, Cpbottom = 0.5",
+        "Tangentially acting friction: R90° = 0.05 Pdbd",
+        "Substitute '8 = 90",
+        "0 '/or '8 = 80°'.",
+        "FOR!: CpTop = -l.0, Cpbottom = 0.4",
+        "Tangentially acting friction: R90° = 0.1 Pdbd",
+        "Substitute 'h'=0.8h' for 'h'=0.9h'.",
+        "FORf: CpTop = -1.6, Cpbottom = -0.9",
+        "VALUE OF e Tangentially acting friction: R90 0 = 0.1 Pdbd"
+      ],
+      "is_table": true
+    },
+    {
+      "chunk_id": "IS875-P3-CL-Table-18",
+      "code": "IS 875 (Part 3)",
+      "clause_number": "Table 18",
+      "title": "External Pressure Coefficients (C pc) for Curved Roofs",
+      "content": "(Clause 7.3.3.6)\nc\na) ROOF SPRINGING FROM GROUND LEVEL\nC\n/,\\-r---rr-~,\nDFf~~i~\nININo\n.. -\n+ 0.8\n·0.6\nb} ROOF ON Ell\"VATEO STRUCTURE\nWINDWARD\nCENTRI\\LI-lALF (C)\nQUARTER (04)\nPORTION OF ROOF\nBElOW THIS LINE\nTO BE TREATED AS\nP.,N EXTENSION OF\nVERTICAL\nc) DOUBLE CURVED ROOFS\n\\'.\\LLhS OF! C', C', oncl C.\n0.1\n·O.S\nOJ\n- 0.8\nf 0.05\nIi\nT fO .6\nt:> 0.6\n---I--------\"--\"+---.~----!\n()2\n• (j,()\n·\",03 1-0.7\n0,[\n--------- --------+-----1\nOJ\n- I ,n\n0,\\\n- OJ\ni 0,15\nO.-i\n- It\n., 0.6\n0.4\n0,5\n- I ')\n0,\n..,\nI 0,7\n\\(ifE: VVhen the vvind is bio\\:ving normal to gable ends:\nC\", may be taken as equal to -0.7 for the full\nv'iidth of the roof over a length of 1/2 from the\n9 able ends and -0,5 for the rem aining portion.\nAmendment No.1 to IS 875 (Part 3) : 2015\n(Page28, Table 19,figures) - Substitute 'D' for'd' in both figures.\n(Page 31, Table 21,jigures, y-axis, between 0.4 and 0.8) - Substitute '0.6' for '0.8'.\n(Page 31, Table 21) -Substitute the following for the existing entry:\ne\nSee7.3.3.5\n(Page 32, Table 22) - Substitute the following for the existing entry:\n-0.6\n+0.7\nSee Table 21 for combined roofs\n[Page 34, clause7.4.1 (a)] -\nSubstitute the following for the existing:\n' I\nI\n'a) If h s hi F = CfCd - 4h)hpd + CfCd - 4h)2hPd, and'\n(Page 36, Table 25, Title) -\nSubstitute '(Clause 7.4.2.1)' for '(Clause7.4.2.2)'.\n(Page 39, Fig.5) -\nSubstitute 'Cr = FORCE COEFFICIENT' for 'Cf = DRAG COEFFICIENT'.\n(Page 39, Table 26) -\nSubstitute 'FORCE COEFFICIENT, Cr'.fOr 'DRAG COEFFICIENT C f'.\n[Page 40, Table 28, Sl No. (ii), col 2] -\nSubstitute' DV d 2:: 6m 2 Is' for the existing information given in\nbracket.\n[Page 40, Table 28, Sl No. (iii), col 2] -\nSubstitute' bV d 26m\n2 Is 'for the existing information given in\nbracket.\n(1)\ni)\nii)\n(Page 41, Table 29, Title) -\nSubstitute '[Clause 7.4.3.2(a)]' for '[Clause 7.4.3.2 (b)]'.\n(Page 42, clause 7.4.3.4, line 10) -\nSubstitute 'spacing' for 'spac-ing'.\n(Page 42, Table 30, Title) -\nSubstitute the '(lID = 100)' in the title in place '(LID = 100)'.\n[Page 42, Table 30, Sl No. (i) and (ii), col 2] -\nSubstitute the following for the existing values:\n(2)\nDVd <6 m2/s\nDVd'2. 6 m2/s\n(3)\n1.2\n0.5\n(4)\n(5)\n1.2\n1.2\n0.7\n0.9\n(6)\n1.3\n1.1\n(Page 42, Table 31, Force Coefficient Ct for) -\nSubstitute 'Force Coefficient, Cr for' for 'Force\nCoefficient Ct for'.\n(Page 42, Table 31, call) -\nSubstitute '0.2' jar '02'.\n(Page 42, Table 31, col 4, sub-sub heading) -\nSubstitute 'Super Critical Flow (DV d;:: 6 1112/8)' for the\nexisting.\n(Page 43, Table 32, Title) -\nSubstitute '11' for 'H'.\n(Page 44, Table 34, sub-heading) -\nSubstitute 'Subcritical Flow (DVd <6 nl/s)' for the existing and\n'Supercritical Flow (DV d '2.6 m2/s)' for the existing.\nAmendment No.1 to IS 875 (Part 3) : 2015\n(Page 44, clause 8.2, line 4) -- Substitute 'x;) for '(\"\\:) '.\n(Page 44, Table 35) -_. Substitute 'Subcritical Flow (DV d <6 ro2/s) All Wind Directions' for the existing\nand 'Supercritical Flow (DVd 2: 6 m1/s) All Vhnd Directions' for the existing.\n(Ptlge 45, Fig. 7) -- Substitute 'xJor'X'.\n(Page 45, Fig. 8, caption) -\nSubstitute '(CLAUSE 8.3)' .F)r '(CLAUSE 7.3)'.\n(Page 46, clause 9.2.1, Note 2, line]) -- Substitute the following for the existing:\n'2 Unlined vvelded steel cylindrical structures ... '\n(Page 46, clause 9.2.1, Note 4, line 1)- Substitute '9.2.1 (a)' for '8.2.1 (a)'.\n(Page 47, clause 10.2, line 14)---Substitute'Ma= I\nz'./()r'Ma= LFzZ'.\n(Page 47, clause 10.2, line 28) _. Substitute '(1+ ¢ )1''/01'' '(l+gi' in formula of Gust factor.\n(Page\nc!auseIO.3. line 13) ---\" Substitute' Ph 'for 'Ph'.\n(Page 49, Fig, 10, x-axis) -- Substitute ' ... 6 8 10 ... '\n'\".6 6 10 ... ',\n[Page 53, Fig. 12(b)] -\nSubstitute 'DESIGN PROFILE AT A'for 'OESIGN PROFILE AT A',\n[Page 53, Fig.12(b)]\nSubstitute '\\VIND DIRECTION' for' WINO OIRECTION'.\n[Page 53, Fig. 12(c)] -- Substitute 'WIND DIRECTION' jiJr 'WINO OIRECTION'.\n(Page 54, clause C-2, line 6) -\nSubstitute 'Os' jar 'as',\n(Page 54, clause C-2, line 9)--- Substitute 'distance, X' for 'distance, x'.\n[Page 54, Fig.13(a)] -\nSubstitute 'REGION AFFECTED BY TOPOGRAPHICAL FEATURE' for\n'REGION AFFECTED BY TOPOGRAHICAL FEATURE'.\n(Page 55, Fig 14, caption) -\nSubstitute the following for the existing caption:\nFIG. 14 FACTOR So FOR CLIFF AND ESCARPMENT'\n(Page 55, Fig 15, caption) -\nSubstitute the following for the existing caption:\n'FIG. 15 FACTOR So FOR RIDGE AND HILL'\n(Page 56, Fig. 17) -\nSubstitute 'sp' jiJr 'sp'.\n(Page 56, clause D-l,para 7, line 5) -\nSubstitute 'sp'ii)!' 'sp'.\n(CED 37)\nPublication Unit, 8]S, New Delhi, India",
+      "cross_references": [
+        "Clause 7.3.3.6",
+        "IS 875",
+        "Table 19",
+        "Table 21",
+        "Table 22",
+        "clause7.4.1",
+        "Table 25",
+        "Clause 7.4.2.1",
+        "Clause7.4.2.2",
+        "Fig.5",
+        "Table 26",
+        "Table 28",
+        "Table 29",
+        "Clause 7.4.3.2",
+        "clause 7.4.3.4",
+        "Table 30",
+        "Table 31",
+        "Table 32",
+        "Table 34",
+        "clause 8.2",
+        "Table 35",
+        "Fig. 7",
+        "Fig. 8",
+        "clause 9.2.1",
+        "clause 10.2",
+        "Fig. 12",
+        "Fig.12",
+        "Fig.13",
+        "Fig 14",
+        "Fig 15",
+        "Fig. 17"
+      ],
+      "equations": [
+        "'a) If h s hi F = CfCd - 4h)hpd + CfCd - 4h)2hPd, and'",
+        "Substitute the '(lID = 100)' in the title in place '(LID = 100)'.",
+        "(Page 47, clause 10.2, line 14)---Substitute'Ma= I"
+      ],
+      "is_table": true
+    }
+  ]
+}

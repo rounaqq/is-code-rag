@@ -1,13 +1,17 @@
 """
-IS Code & Supplementary Handbook Acquisition Script.
+IS Code, Amendments, Errata & Supplementary Handbook Acquisition Script.
 
 Step 2: Data Acquisition & Collection.
-Downloads official Indian Standard PDFs, amendments, and supplementary handbooks from public repositories,
-validates PDF headers, computes SHA-256 checksums, and updates the data registry.
+Downloads official Indian Standard PDFs, amendments, errata, and supplementary handbooks/design examples
+from public repositories, validates PDF headers, computes SHA-256 checksums, and updates the data registry.
 
 Usage:
     python src/ingestion/download_codes.py --all
-    python src/ingestion/download_codes.py --code "IS 13920:2016"
+    python src/ingestion/download_codes.py --verify-all
+    python src/ingestion/download_codes.py --amendments
+    python src/ingestion/download_codes.py --errata
+    python src/ingestion/download_codes.py --supplementary
+    python src/ingestion/download_codes.py --code "IS 13920"
 """
 
 import argparse
@@ -17,7 +21,7 @@ import sys
 import time
 import urllib.request
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 
 REGISTRY_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "raw" / "registry.json"
@@ -95,9 +99,29 @@ def download_file(url: str, dest_path: Path, max_retries: int = 3, timeout_sec: 
     return False
 
 
-def run_acquisition(target_code: Optional[str] = None, download_all: bool = False) -> Dict[str, Any]:
+def get_all_registry_items(registry: Dict[str, Any], category: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Gathers items from all sections in registry or filtered by category."""
+    items = []
+    category_map = {
+        "standards": registry.get("standards", []),
+        "handbooks": registry.get("handbooks", []),
+        "amendments": registry.get("amendments", []),
+        "errata": registry.get("errata", []),
+        "design_examples": registry.get("design_examples", []),
+    }
+    
+    if category:
+        return category_map.get(category, [])
+        
+    for section_items in category_map.values():
+        items.extend(section_items)
+    return items
+
+
+def verify_all_corpus_files() -> Dict[str, Any]:
     """
-    Executes acquisition for specified code or all pending items in registry.
+    Checks the physical existence, %PDF- header, and SHA-256 checksum
+    of every single item registered in registry.json.
     """
     if not REGISTRY_FILE.exists():
         raise FileNotFoundError(f"Registry file not found at {REGISTRY_FILE}")
@@ -105,7 +129,57 @@ def run_acquisition(target_code: Optional[str] = None, download_all: bool = Fals
     with open(REGISTRY_FILE, "r", encoding="utf-8") as f:
         registry = json.load(f)
 
-    all_items = registry.get("standards", []) + registry.get("handbooks", [])
+    all_items = get_all_registry_items(registry)
+    results = {"total": len(all_items), "valid": 0, "corrupt": 0, "missing": 0}
+
+    print(f"\n=======================================================")
+    print(f"VERIFYING FULL CORPUS INTEGRITY ({len(all_items)} Documents Registered)")
+    print(f"=======================================================\n")
+
+    for item in all_items:
+        code = item.get("code")
+        filename = item.get("filename")
+        expected_sha = item.get("sha256")
+        dest_file = DATA_RAW_DIR / filename
+
+        if not dest_file.exists():
+            print(f"  [MISSING] {code} -> {filename}")
+            results["missing"] += 1
+            continue
+
+        if not validate_pdf_file(dest_file):
+            print(f"  [CORRUPT HEADER] {code} -> {filename} (Invalid %PDF- header)")
+            results["corrupt"] += 1
+            continue
+
+        actual_sha = compute_sha256(dest_file)
+        if expected_sha and actual_sha != expected_sha:
+            print(f"  [HASH MISMATCH] {code} -> Expected {expected_sha[:16]}..., got {actual_sha[:16]}...")
+            results["corrupt"] += 1
+            continue
+
+        print(f"  [OK] {code:32} | {filename:48} | {dest_file.stat().st_size/1024:7.1f} KB | SHA: {actual_sha[:12]}...")
+        results["valid"] += 1
+
+    print(f"\nVerification Results: {results['valid']}/{results['total']} valid, {results['missing']} missing, {results['corrupt']} corrupt.\n")
+    return results
+
+
+def run_acquisition(
+    target_code: Optional[str] = None,
+    download_all: bool = False,
+    category: Optional[str] = None
+) -> Dict[str, Any]:
+    """
+    Executes acquisition for specified code, category, or all pending items in registry.
+    """
+    if not REGISTRY_FILE.exists():
+        raise FileNotFoundError(f"Registry file not found at {REGISTRY_FILE}")
+
+    with open(REGISTRY_FILE, "r", encoding="utf-8") as f:
+        registry = json.load(f)
+
+    all_items = get_all_registry_items(registry, category=category)
     results = {"downloaded": 0, "failed": 0, "already_present": 0}
 
     for item in all_items:
@@ -153,9 +227,27 @@ def run_acquisition(target_code: Optional[str] = None, download_all: bool = Fals
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Acquire official IS Code PDFs and Handbooks")
-    parser.add_argument("--all", action="store_true", help="Download all pending standards and handbooks")
-    parser.add_argument("--code", type=str, help="Specific code to download (e.g., 'IS 13920')")
+    parser = argparse.ArgumentParser(description="Acquire and verify official IS Code PDFs, Amendments, Errata, and Handbooks")
+    parser.add_argument("--all", action="store_true", help="Download all pending standards, amendments, errata, and handbooks")
+    parser.add_argument("--standards", action="store_true", help="Target base Indian Standards only")
+    parser.add_argument("--amendments", action="store_true", help="Target official Amendments only")
+    parser.add_argument("--errata", action="store_true", help="Target official Errata only")
+    parser.add_argument("--supplementary", action="store_true", help="Target handbooks and design examples only")
+    parser.add_argument("--verify-all", action="store_true", help="Verify integrity of all documents in the registry")
+    parser.add_argument("--code", type=str, help="Specific code to download/verify (e.g., 'IS 13920', 'AMD 1')")
     args = parser.parse_args()
 
-    run_acquisition(target_code=args.code, download_all=args.all)
+    if args.verify_all:
+        verify_all_corpus_files()
+    else:
+        cat = None
+        if args.standards:
+            cat = "standards"
+        elif args.amendments:
+            cat = "amendments"
+        elif args.errata:
+            cat = "errata"
+        elif args.supplementary:
+            cat = "design_examples"
+            
+        run_acquisition(target_code=args.code, download_all=args.all, category=cat)
