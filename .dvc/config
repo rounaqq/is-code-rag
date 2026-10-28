@@ -2,5 +2,3 @@
     remote = localremote
 ['remote "localremote"']
     url = ../data/dvc_remote
-['remote "s3remote"']
-    url = s3://is-code-rag-dvc/is-codes
