@@ -1,5 +1,23 @@
 # Step 10: Docker Compose Configuration for IS 456 Structural RAG Service
 services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: is456-rag-postgres
+    environment:
+      POSTGRES_USER: rag_user
+      POSTGRES_PASSWORD: rag_password
+      POSTGRES_DB: is_codes_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag_user -d is_codes_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   is456-rag-api:
     build:
       context: .
@@ -22,3 +40,9 @@ services:
       retries: 3
       start_period: 45s
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

@@ -27,3 +27,11 @@ data/raw/*.png
 data/processed/qdrant_storage/
 data/processed/cad/api_test_*.dxf
 
+# Step 3 extracted figure / equation crops (regenerable via figure_equation_extractor.py)
+data/processed/figures/
+data/processed/equations/
+
+# DVC local remote storage (large PDF cache) & scratch
+data/dvc_remote/
+.dvc_tmp/
+

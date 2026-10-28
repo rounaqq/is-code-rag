@@ -288,6 +288,20 @@ def build_chunks():
             f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
 
     print(f"Successfully generated {len(chunks)} chunks to {OUTPUT_FILE}")
+    
+    try:
+        from src.storage.postgres_db import get_store
+        store = get_store()
+        if store.conn:
+            print("Uploading chunks to PostgreSQL JSONB document store...")
+            store.insert_chunks(chunks)
+            print("Successfully uploaded chunks to PostgreSQL.")
+            store.close()
+        else:
+            print("PostgreSQL connection not available. Skipping DB upload.")
+    except Exception as e:
+        print(f"Failed to upload to PostgreSQL: {e}")
+
     return chunks
 
 

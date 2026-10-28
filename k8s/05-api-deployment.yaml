@@ -1,0 +1,115 @@
+# FastAPI retrieval/design service.
+#
+# Single replica by design: the embedded Qdrant local client takes an exclusive
+# file lock on its storage path, and the PersistentVolumeClaims are ReadWriteOnce.
+# A second replica against the same volume would fail to start, and a rolling
+# update would deadlock waiting for a volume the old pod still holds, so the
+# strategy is Recreate. Horizontal scale-out requires running Qdrant as a server
+# or baking a read-only index into the image.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: is-rag-api
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: is-rag
+      app.kubernetes.io/component: api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: is-rag
+        app.kubernetes.io/component: api
+    spec:
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: api
+          # Published by the CI docker-build job as ghcr.io/<owner>/<repo>:latest and
+          # :sha-<short>. Pin the sha tag for a reproducible rollout. If the package is
+          # private, add an imagePullSecret here as well.
+          image: ghcr.io/rounaqq/is-code-rag:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: is-rag-config
+            - secretRef:
+                name: is-rag-secrets
+          # Uvicorn only begins serving after the FastAPI lifespan warm-up finishes,
+          # so /health answering at all proves the retrieval models are loaded.
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "2"
+              memory: "3Gi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          volumeMounts:
+            - name: audit-logs
+              mountPath: /app/data/audit
+            - name: cad-outputs
+              mountPath: /app/data/processed/cad
+            - name: vector-store
+              mountPath: /app/data/processed/qdrant_storage
+            - name: model-cache
+              mountPath: /app/.cache/huggingface
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: audit-logs
+          persistentVolumeClaim:
+            claimName: is-rag-audit
+        - name: cad-outputs
+          persistentVolumeClaim:
+            claimName: is-rag-cad
+        - name: vector-store
+          persistentVolumeClaim:
+            claimName: is-rag-vector-store
+        - name: model-cache
+          persistentVolumeClaim:
+            claimName: is-rag-model-cache
+        - name: tmp
+          emptyDir: {}

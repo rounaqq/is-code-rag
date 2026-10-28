@@ -1,12 +1,18 @@
 """
 Step 9: Master End-to-End IS 456 Evaluation & Validation Framework.
-Unifies all four pillars of the Step 9 evaluation specification:
+Unifies the pillars of the Step 9 evaluation specification:
   Part 1: RAG & Hybrid Retrieval Benchmark (19 questions, Hit@1, Hit@3, MRR).
   Part 2: Hand-calculation cross-checks (written by the author of this repository, not published values).
   Part 3: End-to-End Real-World Structural Design Scenarios (5 building types, self-consistency,
           arithmetic re-checks from JSON tables, under-reinforced limit, 2D CAD DXF export).
   Part 4: Faithfulness & Citation Audit (deterministic consistency verification,
           chunk citation validation, engineering disclaimers).
+  Part 5: RAGAS-style offline proxy metrics (rule-based proxies, NOT the RAGAS library):
+          retrieval precision@k / recall@k / MRR from the labelled questions, plus
+          faithfulness / context relevancy / answer relevancy proxies.
+  Part 6: Independent engineer review - blind package + attestation record. This pillar
+          stays "PENDING - not evaluated" until a genuine, independent reviewer signs off
+          and is NEVER counted as a pass.
 Does NOT import, read, print, or quote .env or any secret keys.
 """
 
@@ -22,6 +28,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.retrieval.rerank import get_reranker, search as rerank_search
 from src.evaluation.run_sp16_eval import evaluate_sp16_benchmarks
 from src.evaluation.run_design_eval import run_full_design_evaluation
+from src.evaluation.run_rag_metrics_eval import run_rag_metrics_eval
+from src.evaluation.run_independent_review import evaluate_independent_review
 from src.generation.beam_sizing import design_and_validate_beam
 from src.generation.design_assistant import (
     generate_design_explanation,
@@ -255,9 +263,25 @@ def run_step9_master_evaluation() -> Dict[str, Any]:
     # Part 4: Faithfulness & Citation Audit
     faithfulness_report = evaluate_faithfulness_and_citations()
 
+    # Part 5: RAGAS-style offline proxy metrics (rule-based, not the RAGAS library)
+    print("\n" + "-" * 105)
+    print("PART 5: RAGAS-STYLE OFFLINE PROXY METRICS (RULE-BASED, NOT THE RAGAS LIBRARY)")
+    print("-" * 105)
+    ragas_report = run_rag_metrics_eval()
+
+    # Part 6: Independent engineer review (never auto-approves)
+    print("\n" + "-" * 105)
+    print("PART 6: INDEPENDENT ENGINEER REVIEW (PENDING UNTIL A GENUINE REVIEWER SIGNS OFF)")
+    print("-" * 105)
+    independent_review = evaluate_independent_review()
+    print(f"Status: {independent_review['status']} (counts toward pass: {independent_review['counts_toward_pass']})")
+
     total_duration_s = time.perf_counter() - t_start
 
     # Consolidated Master Status
+    # Pillar 6 (independent review) is deliberately excluded: it can never be counted as a pass.
+    ragas_retrieval = ragas_report["retrieval_metrics"]["multi_code_set"]
+    ragas_recall_ok = ragas_retrieval["recall_at_k"] >= 0.9
     master_passed = (
         retrieval_report["hit_at_3_pct"] >= 95.0
         and sp16_report["all_congruent"]
@@ -265,6 +289,7 @@ def run_step9_master_evaluation() -> Dict[str, Any]:
         and design_report["arithmetic_recheck_from_json_tables_all_passed"]
         and faithfulness_report["all_consistent"]
         and faithfulness_report["all_disclaimers_present"]
+        and ragas_recall_ok
     )
 
     master_summary = {
@@ -314,11 +339,31 @@ def run_step9_master_evaluation() -> Dict[str, Any]:
             "citation_validity_pct": faithfulness_report["citation_validity_pct"],
             "status": "PASSED" if faithfulness_report["all_consistent"] else "FAILED",
         },
+        "pillar_5_ragas_style_proxy_metrics": {
+            "framing": ragas_report["framing"],
+            "retrieval_metrics": ragas_report["retrieval_metrics"],
+            "faithfulness_clause_answers": ragas_report["faithfulness"]["clause_answers"]["mean_score"],
+            "faithfulness_design_templated": ragas_report["faithfulness"]["design_explanations"]["templated"]["mean_score"],
+            "faithfulness_design_templated_note": ragas_report["faithfulness"]["design_explanations"]["templated"]["note"],
+            "faithfulness_design_model_written": ragas_report["faithfulness"]["design_explanations"]["model_written"].get("status")
+            or ragas_report["faithfulness"]["design_explanations"]["model_written"]["mean_score"],
+            "context_relevancy": ragas_report["context_relevancy"]["mean_score"],
+            "answer_relevancy": ragas_report["answer_relevancy"]["mean_score"],
+            "is_compliance_accuracy": ragas_report["is_compliance_accuracy"],
+            "status": "PASSED" if ragas_recall_ok else "FAILED",
+            "note": (
+                "Rule-based proxies, NOT the RAGAS library. Only the label-based retrieval recall@k "
+                "gates this pillar; the faithfulness/relevancy proxies are reported for information "
+                "and are partly circular."
+            ),
+        },
+        "pillar_6_independent_engineer_review": independent_review,
         "detailed_reports": {
             "retrieval": retrieval_report,
             "sp16_handbook": sp16_report,
             "structural_design": design_report,
             "faithfulness": faithfulness_report,
+            "ragas_style_proxy_metrics": ragas_report,
         },
     }
 
@@ -334,6 +379,8 @@ def run_step9_master_evaluation() -> Dict[str, Any]:
     print(f"Pillar 2 - Cross-Checks:              {sp16_report['examples_passed']}/{sp16_report['total_examples']} ({sp16_report['pass_rate_pct']}%) congruent with reference hand calculations")
     print(f"Pillar 3 - Real-World Scenarios:      {design_report['scenarios_passed']}/{design_report['total_scenarios']} ({design_report['scenario_pass_rate_pct']}%) passed, {design_report['dxf_exports_verified']} CAD DXFs verified")
     print(f"Pillar 4 - Faithfulness & Citations:  Numerically Sourced: {faithfulness_report['all_consistent']}, Citations: {faithfulness_report['citation_validity_pct']}% valid")
+    print(f"Pillar 5 - RAGAS-style Proxies:       recall@{ragas_report['retrieval_metrics']['k']}: {ragas_retrieval['recall_at_k']}, templated faithfulness: {ragas_report['faithfulness']['design_explanations']['templated']['mean_score']} (proxy, partly circular)")
+    print(f"Pillar 6 - Independent Review:        {independent_review['status']} (never counted as a pass)")
     print(f"Total Suite Execution Time:           {total_duration_s:.2f} seconds")
     print(f"Report Saved To:                      {MASTER_REPORT_FILE}")
     print("=" * 105)

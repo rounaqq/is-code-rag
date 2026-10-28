@@ -24,3 +24,7 @@ colab/
 # Temporary media & cache storage
 *.log
 data/audit/*.jsonl
+
+# Locally built vector index. The image must not ship machine-specific Qdrant state;
+# Kubernetes mounts a PersistentVolumeClaim at this path instead (see k8s/04-api-volumes.yaml).
+data/processed/qdrant_storage/

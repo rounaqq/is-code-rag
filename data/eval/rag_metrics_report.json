@@ -1,0 +1,329 @@
+{
+  "evaluation_timestamp": "2026-10-28T07:26:34Z",
+  "step": 9,
+  "title": "Step 9 (extension): RAGAS-style Offline Proxy Metrics",
+  "framing": "RAGAS-style offline proxy metrics: these are rule-based proxies for the RAGAS metric definitions (faithfulness, answer relevancy, context relevancy), NOT the RAGAS library. No `ragas`/`trulens` package is installed or imported and no network access is used. Claim grounding is rule-based and relevancy is an embedding proxy.",
+  "retrieval_metrics": {
+    "k": 5,
+    "per_code": {
+      "IS 456:2000": {
+        "num_queries": 19,
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 0.9123
+      }
+    },
+    "multi_code_set": {
+      "num_queries": 19,
+      "precision_at_k": 0.2,
+      "recall_at_k": 1.0,
+      "mrr": 0.9123
+    }
+  },
+  "faithfulness": {
+    "clause_answers": {
+      "mode": "clause",
+      "answer_type": "extractive (retrieval-only pipeline)",
+      "mean_score": 1.0,
+      "num_questions": 19,
+      "note": "Clause-answer faithfulness checks that every number, identifier and clause reference in the answer appears in the retrieved chunks. The pipeline is retrieval-only (no generative clause answering), so the answer evaluated here is extractive (the retrieved chunk text itself) and is grounded by construction - this figure is reported for completeness and is partly circular.",
+      "per_question": [
+        {
+          "question": "minimum tension reinforcement in a beam",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 6,
+          "total_claims": 6,
+          "unsupported_claims": []
+        },
+        {
+          "question": "maximum tension reinforcement in a beam",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 7,
+          "total_claims": 7,
+          "unsupported_claims": []
+        },
+        {
+          "question": "maximum compression reinforcement in a beam",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 11,
+          "total_claims": 11,
+          "unsupported_claims": []
+        },
+        {
+          "question": "side face reinforcement when web depth exceeds 750 mm",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 11,
+          "total_claims": 11,
+          "unsupported_claims": []
+        },
+        {
+          "question": "transverse reinforcement around outer-most tension and compression bars",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 9,
+          "total_claims": 9,
+          "unsupported_claims": []
+        },
+        {
+          "question": "maximum spacing of vertical stirrups",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 10,
+          "total_claims": 10,
+          "unsupported_claims": []
+        },
+        {
+          "question": "minimum shear reinforcement formula for stirrups",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 13,
+          "total_claims": 13,
+          "unsupported_claims": []
+        },
+        {
+          "question": "spacing of closed stirrups for torsion",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 13,
+          "total_claims": 13,
+          "unsupported_claims": []
+        },
+        {
+          "question": "reinforcement in flanges of T-beams",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 4,
+          "total_claims": 4,
+          "unsupported_claims": []
+        },
+        {
+          "question": "nominal cover for moderate exposure",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 21,
+          "total_claims": 21,
+          "unsupported_claims": []
+        },
+        {
+          "question": "design shear strength of concrete M25",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 130,
+          "total_claims": 130,
+          "unsupported_claims": []
+        },
+        {
+          "question": "maximum shear stress for M25 concrete",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 130,
+          "total_claims": 130,
+          "unsupported_claims": []
+        },
+        {
+          "question": "limiting neutral axis depth for Fe500",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 14,
+          "total_claims": 14,
+          "unsupported_claims": []
+        },
+        {
+          "question": "moment of resistance of a rectangular section without compression steel",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 17,
+          "total_claims": 17,
+          "unsupported_claims": []
+        },
+        {
+          "question": "limiting moment of resistance of a rectangular beam",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 15,
+          "total_claims": 15,
+          "unsupported_claims": []
+        },
+        {
+          "question": "nominal shear stress in a beam",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 6,
+          "total_claims": 6,
+          "unsupported_claims": []
+        },
+        {
+          "question": "shear to be carried by stirrups when nominal shear stress exceeds design shear strength of concrete",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 7,
+          "total_claims": 7,
+          "unsupported_claims": []
+        },
+        {
+          "question": "strength of vertical stirrups",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 10,
+          "total_claims": 10,
+          "unsupported_claims": []
+        },
+        {
+          "question": "nominal shear stress must not exceed maximum even with shear reinforcement",
+          "answer_type": "extractive (retrieved chunk text)",
+          "score": 1.0,
+          "supported_claims": 9,
+          "total_claims": 9,
+          "unsupported_claims": []
+        }
+      ]
+    },
+    "design_explanations": {
+      "templated": {
+        "answer_type": "templated (code-written)",
+        "mean_score": 0.9556,
+        "num_scenarios": 5,
+        "note": "Templated (code-written) faithfulness: the same deterministic code that produced the design numbers also grounds them, so this figure is PARTLY CIRCULAR and is expected to be high.",
+        "per_scenario": [
+          {
+            "scenario_id": "SCEN-01",
+            "score": 0.9556,
+            "supported_claims": 43,
+            "total_claims": 45,
+            "unsupported_claims": [
+              {
+                "type": "clause_ref",
+                "value": "Cl. 36.4.1"
+              },
+              {
+                "type": "clause_ref",
+                "value": "Table 18"
+              }
+            ],
+            "num_contexts": 10
+          },
+          {
+            "scenario_id": "SCEN-02",
+            "score": 0.9556,
+            "supported_claims": 43,
+            "total_claims": 45,
+            "unsupported_claims": [
+              {
+                "type": "clause_ref",
+                "value": "Cl. 36.4.1"
+              },
+              {
+                "type": "clause_ref",
+                "value": "Table 18"
+              }
+            ],
+            "num_contexts": 10
+          },
+          {
+            "scenario_id": "SCEN-03",
+            "score": 0.9556,
+            "supported_claims": 43,
+            "total_claims": 45,
+            "unsupported_claims": [
+              {
+                "type": "clause_ref",
+                "value": "Cl. 36.4.1"
+              },
+              {
+                "type": "clause_ref",
+                "value": "Table 18"
+              }
+            ],
+            "num_contexts": 10
+          },
+          {
+            "scenario_id": "SCEN-04",
+            "score": 0.9556,
+            "supported_claims": 43,
+            "total_claims": 45,
+            "unsupported_claims": [
+              {
+                "type": "clause_ref",
+                "value": "Cl. 36.4.1"
+              },
+              {
+                "type": "clause_ref",
+                "value": "Table 18"
+              }
+            ],
+            "num_contexts": 10
+          },
+          {
+            "scenario_id": "SCEN-05",
+            "score": 0.9556,
+            "supported_claims": 43,
+            "total_claims": 45,
+            "unsupported_claims": [
+              {
+                "type": "clause_ref",
+                "value": "Cl. 36.4.1"
+              },
+              {
+                "type": "clause_ref",
+                "value": "Table 18"
+              }
+            ],
+            "num_contexts": 10
+          }
+        ]
+      },
+      "model_written": {
+        "answer_type": "model-written",
+        "status": "UNAVAILABLE - LLM endpoint unavailable (RuntimeError)",
+        "mean_score": null,
+        "num_scenarios": 0,
+        "per_scenario": []
+      }
+    }
+  },
+  "context_relevancy": {
+    "mean_score": 0.6356,
+    "proxy": "embedding cosine (BAAI/bge-small-en-v1.5) - secondary proxy"
+  },
+  "answer_relevancy": {
+    "mean_score": 0.7864,
+    "proxy": "embedding cosine (BAAI/bge-small-en-v1.5) - secondary proxy"
+  },
+  "relevancy_per_scenario": [
+    {
+      "scenario_id": "SCEN-01",
+      "context_relevancy": 0.6334,
+      "answer_relevancy": 0.7851
+    },
+    {
+      "scenario_id": "SCEN-02",
+      "context_relevancy": 0.6341,
+      "answer_relevancy": 0.7885
+    },
+    {
+      "scenario_id": "SCEN-03",
+      "context_relevancy": 0.6395,
+      "answer_relevancy": 0.7907
+    },
+    {
+      "scenario_id": "SCEN-04",
+      "context_relevancy": 0.6415,
+      "answer_relevancy": 0.7884
+    },
+    {
+      "scenario_id": "SCEN-05",
+      "context_relevancy": 0.6296,
+      "answer_relevancy": 0.7792
+    }
+  ],
+  "is_compliance_accuracy": {
+    "status": "PENDING",
+    "value": null,
+    "reason": "IS-compliance accuracy requires a source independent of this repository (a published worked example or a licensed engineer's verdict). It is intentionally left PENDING rather than scored."
+  },
+  "disclaimer": "These are rule-based offline proxies, not the RAGAS library and not an independent validation. A structural engineer must review the designs."
+}

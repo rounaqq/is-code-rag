@@ -1,0 +1,23 @@
+# Non-secret runtime configuration for the API container.
+# POSTGRES_HOST points at the headless Service that fronts the PostgreSQL StatefulSet.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: is-rag-config
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+data:
+  PORT: "8000"
+  PYTHONPATH: "/app"
+  PYTHONUNBUFFERED: "1"
+  POSTGRES_HOST: "is-rag-postgres"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "is_codes_db"
+  # HuggingFace cache for BAAI/bge-small-en-v1.5 and BAAI/bge-reranker-base.
+  # Backed by a PersistentVolumeClaim so model weights are downloaded once, not per restart.
+  HF_HOME: "/app/.cache/huggingface"
+  # Public tunnel URL of the Ollama instance (see DEPLOYMENT.md section 5).
+  # Left empty by default: the sizing flow and CAD export never require an LLM.
+  OLLAMA_BASE_URL: ""

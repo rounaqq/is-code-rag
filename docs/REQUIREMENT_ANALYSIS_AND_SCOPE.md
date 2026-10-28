@@ -88,8 +88,9 @@ All CAD blueprints are exported in industry-standard AutoCAD DXF vector format (
 | **Lexical Search** | `BM25Okapi` | Custom engineering tokenizer preserving hyphenated standard names (`IS-456`, `Cl. 26.5.1.1`). |
 | **Hybrid Fusion** | Reciprocal Rank Fusion (RRF $k=60$) | Mathematically balances exact keyword matching with dense semantic similarity. |
 | **Reranker** | `BAAI/bge-reranker-base` | Cross-encoder analyzing question and candidate passage jointly, achieving 100% Hit@3 recall. |
+| **LLM (Summarization only)** | Ollama, self-hosted on a Google Colab tunnel | Generative model used strictly for natural-language summarization and query understanding (§3.2); no formula or reinforcement value is ever produced by the LLM. Authenticated with an `X-LLM-Token` header; base URL, model and token are supplied via environment variables (`OLLAMA_BASE_URL`, `OLLAMA_MODEL`, `OLLAMA_API_TOKEN`). |
 | **Vector DB** | NumPy (Local) $\rightarrow$ `pgvector` / Qdrant (Enterprise) | In-memory matrix for local sub-10ms lookup; migration path to PostgreSQL `pgvector`. |
 | **CAD Drafting** | `ezdxf` (Release R2010 DXF) | Pure Python, headless, no dependency on proprietary Autodesk Windows runtime. |
 | **API Framework** | `FastAPI` + `Pydantic v2` | High-performance asynchronous REST API with automatic OpenAPI Swagger documentation. |
-| **Containerization** | `Docker` + `Docker Compose` | Linux-based reproducible container image (`python:3.11-slim`) validated in cloud CI/CD. |
+| **Containerization** | `Docker` + `Docker Compose` | Linux-based reproducible container image (`python:3.12-slim`) validated in cloud CI/CD. |
 | **Version Control** | `Git` + `Git LFS` / `DVC` | Git for source code; Git LFS and DVC for multi-gigabyte raw standards and PDF caches. |

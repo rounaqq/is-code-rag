@@ -298,6 +298,7 @@ The build script `src/chunking/build_chunks.py` compiles the individual JSON fil
 
 - **`data/processed/embeddings.npy`**: Binary NumPy array of shape `(23, 384)` containing dense vector representations produced by `BAAI/bge-small-en-v1.5`. Vectors are L2-normalized.
 - **`data/processed/embedding_ids.json`**: An ordered array of 23 chunk ID strings mapping each row index of `embeddings.npy` to its corresponding `chunk_id`.
+- **`data/processed/qdrant_storage`**: Embedded Qdrant collection holding 996 points across all 5 standards (`BAAI/bge-small-en-v1.5`, 384-dim, cosine). Built by `src/retrieval/qdrant_db.py`; queried by `src/retrieval/multicode_search.py`.
 
 ---
 
@@ -344,18 +345,9 @@ The following parameters and selection rules are not derived from the IS 456 pag
 
 ## 7. Not implemented
 
-The following capabilities, member types, standards, and data processing mechanisms are not implemented in this repository:
-- other IS codes
-- columns
-- slabs
-- footings
-- DWG
-- amendment tracking
-- incremental updates
-- doubly reinforced and T-beams
-- engineer feedback loop
-- Docker
-- CI/CD
-- faithfulness and answer-relevancy evaluation
-- the LLM not connected to the sizing flow
-- retrieval not used by the sizing code
+The following capabilities, member types, and data processing mechanisms are not implemented in this repository:
+- DWG (drawings are exported as DXF only)
+- amendment tracking (no amendment or revision records for standards or designs)
+- incremental updates (the corpus and vector index are rebuilt, not incrementally refreshed)
+- doubly reinforced and T-beams (singly reinforced rectangular beams only)
+- live Kubernetes cluster verification (the manifests in `k8s/` are provided and statically validated, but have not been applied to a running cluster)

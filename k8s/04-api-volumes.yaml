@@ -1,0 +1,63 @@
+# Persistent storage for the API pod.
+# The vector store is NOT baked into the image (data/processed/qdrant_storage is
+# git-ignored), so the first pod start builds the Qdrant index from the chunk
+# corpus and reuses it on every later restart.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: is-rag-audit
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: is-rag-cad
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: is-rag-vector-store
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: is-rag-model-cache
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi

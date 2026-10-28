@@ -30,6 +30,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # The raw corpus is DVC-tracked and deliberately not committed, and the default
+      # remote is a local directory that does not exist on a runner. Set the repository
+      # variable DVC_REMOTE_URL (plus the storage credentials as secrets) to restore it;
+      # otherwise the corpus integrity checks report as skipped rather than passed.
+      - name: Pull DVC-tracked corpus
+        env:
+          DVC_REMOTE_URL: ${{ vars.DVC_REMOTE_URL }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.DVC_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DVC_AWS_SECRET_ACCESS_KEY }}
+        run: |
+          if [ -z "$DVC_REMOTE_URL" ]; then
+            echo "::notice title=Corpus not restored::DVC_REMOTE_URL is not configured, so the raw PDFs cannot be pulled. Corpus integrity tests will report as skipped."
+            exit 0
+          fi
+          dvc remote add -d ci "$DVC_REMOTE_URL" --local
+          dvc pull --verbose
+
       - name: Verify Chunk Index Integrity
         run: |
           python -m src.chunking.build_chunks
@@ -60,9 +77,13 @@ jobs:
           retention-days: 14
 
   docker-build:
-    name: Docker Image Build Validation
+    name: Docker Image Build, Tag & Publish
     needs: test
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout repository
@@ -71,6 +92,29 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Docker Container
-        run: |
-          docker build -t is456-rag-api:latest .
+      - name: Log in to GitHub Container Registry
+        if: github.event_name == 'push'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Derive image tags and labels
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=sha,prefix=sha-,format=short
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and publish Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          # Pull requests only build. Pushes to a branch publish sha-<short> and, on the
+          # default branch, latest - the tag the Kubernetes Deployment consumes.
+          push: ${{ github.event_name == 'push' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

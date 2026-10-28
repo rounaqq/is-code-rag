@@ -1,7 +1,7 @@
 """
-Deterministic IS 456:2000 Reinforced Concrete Beam Design Validation.
-Runs code checks without LLM calls, maps citations to chunk IDs,
-and attaches verified clause texts from data/processed/chunks.jsonl.
+Deterministic IS 456:2000 Reinforced Concrete Design Validation (multi-rule code validator).
+Runs code checks for beams, columns, slabs and isolated footings without LLM calls,
+maps citations to chunk IDs, and attaches verified clause texts from data/processed/chunks.jsonl.
 Does NOT import, read, print, or quote .env or any secret keys.
 """
 
@@ -18,11 +18,22 @@ from src.validation.is456_checks import (
     max_stirrup_spacing,
     min_shear_steel,
     min_bar_clear_spacing,
+    max_shear_stress,
+    deflection_check,
 )
+
+# NOTE: column_sizing and footing_sizing are imported lazily inside the member
+# validators below. Importing them at module scope creates a cycle
+# (design_validation -> footing_sizing -> beam_sizing -> design_validation).
 
 
 BASE_NOTE = (
     "Passes the implemented IS 456 beam detailing checks only; "
+    "not a full design check. A structural engineer must review."
+)
+
+MEMBER_NOTE = (
+    "Passes the implemented IS 456 checks for this member type only; "
     "not a full design check. A structural engineer must review."
 )
 
@@ -37,6 +48,7 @@ CITATION_TO_CHUNK_ID = {
     "IS 456:2000 Cl. 26.5.1.7": "IS456-2000-CL-26.5.1.7",
     "IS 456:2000 Cl. 26.5.1.7(a)": "IS456-2000-CL-26.5.1.7",
     "IS 456:2000 Cl. 26.5.1.8": "IS456-2000-CL-26.5.1.8",
+    "IS 456:2000 Cl. 40.2.3": "IS456-2000-CL-40.2.3",
     "IS 456:2000 Table 16": "IS456-2000-TABLE-16",
     "IS 456:2000 Table 19": "IS456-2000-TABLE-19",
     "IS 456:2000 Cl. 26.3.2(a)": "IS456-2000-CL-26.3.2(a)",
@@ -164,6 +176,12 @@ def validate_design(design: Dict[str, Any]) -> Dict[str, Any]:
     raw_checks.append(max_stirrup_spacing(d=d, spacing=stirrup_spacing, inclined_45=False))
     raw_checks.append(min_shear_steel(b=b, sv=stirrup_spacing, fy=fy, asv_provided=asv_provided))
 
+    # Absolute shear stress ceiling (Cl. 40.2.3 / Table 20), when a factored shear is supplied
+    factored_shear_vu_kN = design.get("factored_shear_Vu_kN")
+    if factored_shear_vu_kN is not None:
+        tau_v = (float(factored_shear_vu_kN) * 1000.0) / (b * d)
+        raw_checks.append(max_shear_stress(grade=design["fck"], tau_v_provided=round(tau_v, 4)))
+
     # Bar clear spacing check (IS 456 Cl. 26.3.2(a))
     max_agg = float(design.get("max_aggregate_size_mm", 20.0))
     raw_checks.append(
@@ -211,3 +229,152 @@ def validate_design(design: Dict[str, Any]) -> Dict[str, Any]:
         "checks": enriched_checks,
         "notes": BASE_NOTE,
     }
+
+
+def _finalize_member_result(member_type: str, checks: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """
+    Normalizes a member's check list into a single pass/fail report.
+    Every check is guaranteed to carry an explicit boolean 'passed' flag.
+    """
+    normalized: List[Dict[str, Any]] = []
+    for c in checks:
+        c_dict = dict(c)
+        c_dict["passed"] = bool(c_dict.get("passed", False))
+        normalized.append(c_dict)
+
+    all_passed = all(c["passed"] for c in normalized)
+    return {
+        "status": "passed" if all_passed else "failed",
+        "member_type": member_type,
+        "checks": normalized,
+        "notes": MEMBER_NOTE,
+    }
+
+
+def validate_column_design(design: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Runs the deterministic IS 456 column checks that gate CAD generation:
+    slenderness (Cl. 25.1.2) and minimum eccentricity (Cl. 25.4 & Cl. 39.1).
+    No LLM calls.
+
+    Args:
+        design: dict containing length_m, b_mm, D_mm and optionally effective_length_ratio.
+    """
+    for k in ("length_m", "b_mm", "D_mm"):
+        if k not in design or design[k] is None:
+            raise ValueError(f"Missing required column design parameter: '{k}'")
+
+    from src.generation.column_sizing import (
+        check_slenderness,
+        check_minimum_eccentricity,
+    )
+
+    length_m = float(design["length_m"])
+    b_mm = float(design["b_mm"])
+    D_mm = float(design["D_mm"])
+    ratio = float(design.get("effective_length_ratio", 1.0))
+
+    slenderness = check_slenderness(length_m, b_mm, D_mm, ratio)
+    slenderness["check"] = "slenderness"
+    slenderness["passed"] = bool(slenderness["is_short"])
+
+    eccentricity = check_minimum_eccentricity(length_m, b_mm, D_mm)
+    eccentricity["check"] = "minimum_eccentricity"
+    eccentricity["passed"] = bool(eccentricity["axial_formula_valid"])
+
+    return _finalize_member_result("column", [slenderness, eccentricity])
+
+
+def validate_slab_design(design: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Runs the deterministic IS 456 slab check that gates CAD generation:
+    span-to-effective-depth deflection control (Cl. 23.2.1).
+    No LLM calls.
+
+    Args:
+        design: dict containing span_m, d_actual_mm, b_mm, fy,
+            ast_required_mm2, ast_provided_mm2 and optionally member_type.
+    """
+    required = ("span_m", "d_actual_mm", "b_mm", "fy", "ast_required_mm2", "ast_provided_mm2")
+    for k in required:
+        if k not in design or design[k] is None:
+            raise ValueError(f"Missing required slab design parameter: '{k}'")
+
+    deflection = deflection_check(
+        span_m=float(design["span_m"]),
+        d_actual_mm=float(design["d_actual_mm"]),
+        fy=float(design["fy"]),
+        ast_required_mm2=float(design["ast_required_mm2"]),
+        ast_provided_mm2=float(design["ast_provided_mm2"]),
+        b_mm=float(design["b_mm"]),
+        member_type=str(design.get("member_type", "simply_supported")),
+    )
+    deflection["check"] = "deflection_control"
+
+    return _finalize_member_result("slab", [deflection])
+
+
+def validate_footing_design(design: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Runs the deterministic IS 456 footing checks that gate CAD generation:
+    two-way punching shear (Cl. 31.6.3 & Cl. 34.2.4.1) and, when cantilever_m is
+    supplied, one-way beam shear at the critical section (Cl. 34.2.4.1).
+    No LLM calls.
+
+    Args:
+        design: dict containing qu_kN_m2, B_mm, L_mm, col_b_mm, col_D_mm, d_mm, fck
+            and optionally cantilever_m.
+    """
+    required = ("qu_kN_m2", "B_mm", "L_mm", "col_b_mm", "col_D_mm", "d_mm", "fck")
+    for k in required:
+        if k not in design or design[k] is None:
+            raise ValueError(f"Missing required footing design parameter: '{k}'")
+
+    from src.generation.footing_sizing import (
+        check_two_way_punching_shear,
+        check_one_way_beam_shear,
+    )
+
+    punching = check_two_way_punching_shear(
+        qu_kN_m2=float(design["qu_kN_m2"]),
+        B_mm=float(design["B_mm"]),
+        L_mm=float(design["L_mm"]),
+        col_b_mm=float(design["col_b_mm"]),
+        col_D_mm=float(design["col_D_mm"]),
+        d_mm=float(design["d_mm"]),
+        fck=float(design["fck"]),
+    )
+    punching["check"] = "two_way_punching_shear"
+
+    checks: List[Dict[str, Any]] = [punching]
+
+    cantilever_m = design.get("cantilever_m")
+    if cantilever_m is not None:
+        one_way = check_one_way_beam_shear(
+            qu_kN_m2=float(design["qu_kN_m2"]),
+            B_mm=float(design["B_mm"]),
+            cantilever_m=float(cantilever_m),
+            d_mm=float(design["d_mm"]),
+            fck=float(design["fck"]),
+        )
+        one_way["check"] = "one_way_beam_shear"
+        checks.append(one_way)
+
+    return _finalize_member_result("footing", checks)
+
+
+def validate_member(design: Dict[str, Any], member_type: str) -> Dict[str, Any]:
+    """
+    Dispatches a design to the deterministic IS 456 check set for its member type.
+    Supported member types: "beam", "column", "slab", "footing".
+    """
+    mt = str(member_type).strip().lower()
+    if mt == "beam":
+        return validate_design(design)
+    if mt == "column":
+        return validate_column_design(design)
+    if mt == "slab":
+        return validate_slab_design(design)
+    if mt == "footing":
+        return validate_footing_design(design)
+    raise ValueError(f"Unsupported member type: '{member_type}'")

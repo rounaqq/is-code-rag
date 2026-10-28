@@ -4593,337 +4593,1879 @@
       "page_number": 1,
       "extraction_method": "ocr",
       "text_length": 499,
-      "text_preview": "� � Price Group 13   (Reaffirmed 2021)  WRG Wah IS 1893 (Part 1) : 2016 Indian Standard (Reaffirmed 2021) Beata & yenrat"
+      "text_preview": "� � Price Group 13   (Reaffirmed 2021)  WRG Wah IS 1893 (Part 1) : 2016 Indian Standard (Reaffirmed 2021) Beata & yenrat",
+      "figure_ids": [
+        "IS1893Part1-2016-p1-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 2,
       "extraction_method": "ocr",
       "text_length": 3293,
-      "text_preview": "Earthquake Engineering Sectional Committee, CED 39 FOREWORD This Indian Standard (Part 1) (Sixth Revision) was adopted"
+      "text_preview": "Earthquake Engineering Sectional Committee, CED 39 FOREWORD This Indian Standard (Part 1) (Sixth Revision) was adopted",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 3,
       "extraction_method": "ocr",
       "text_length": 3787,
-      "text_preview": "IS 1893 (Part 1) : 2016 Indian Standard PART 1 GENERAL PROVISIONS AND BUILDINGS (Sixth Revision ) 1 SCOPE IS No. Title"
+      "text_preview": "IS 1893 (Part 1) : 2016 Indian Standard PART 1 GENERAL PROVISIONS AND BUILDINGS (Sixth Revision ) 1 SCOPE IS No. Title",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p3-eq1"
+      ]
     },
     {
       "page_number": 4,
       "extraction_method": "ocr",
       "text_length": 4619,
-      "text_preview": "IS 1893 (Part 1) : 2016 IS No. Title 3.5 Design Horizontal Acceleration Coefficient (4,,)— (Part5):1987 Foundations fo"
+      "text_preview": "IS 1893 (Part 1) : 2016 IS No. Title 3.5 Design Horizontal Acceleration Coefficient (4,,)— (Part5):1987 Foundations fo",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 5,
       "extraction_method": "ocr",
       "text_length": 5020,
-      "text_preview": "IS 1893 (Part 1) : 2016 deformation pattern of oscillation along degree of _— design of structures subjected to earthq"
+      "text_preview": "IS 1893 (Part 1) : 2016 deformation pattern of oscillation along degree of _— design of structures subjected to earthq",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 6,
       "extraction_method": "ocr",
       "text_length": 4064,
-      "text_preview": "IS 1893 (Part 1) : 2016 shaking. Unless otherwise stated, the inertia force In step-back buildings, it shall be taken"
+      "text_preview": "IS 1893 (Part 1) : 2016 shaking. Unless otherwise stated, the inertia force In step-back buildings, it shall be taken",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 7,
       "extraction_method": "ocr",
       "text_length": 4502,
-      "text_preview": "∆   IS 1893 (Part 1) : 2016 typically at the same level as the outrigger 4.23 Storey Lateral Shear Strength (S;) — It is"
+      "text_preview": "∆   IS 1893 (Part 1) : 2016 typically at the same level as the outrigger 4.23 Storey Lateral Shear Strength (S;) — It is",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 8,
       "extraction_method": "ocr",
       "text_length": 4373,
-      "text_preview": "λ   IS 1893 (Part 1) : 2016 L Dimension of a building in a considered 6 GENERAL PRINCIPLES AND DESIGN direction CRITERIA"
+      "text_preview": "λ   IS 1893 (Part 1) : 2016 L Dimension of a building in a considered 6 GENERAL PRINCIPLES AND DESIGN direction CRITERIA",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 9,
       "extraction_method": "ocr",
       "text_length": 4258,
-      "text_preview": "IS 1893 (Part 1) : 2016 provisions for appropriate ductile detailing of steel uregular, consisting of several frequenc"
+      "text_preview": "IS 1893 (Part 1) : 2016 provisions for appropriate ductile detailing of steel uregular, consisting of several frequenc",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 10,
       "extraction_method": "ocr",
       "text_length": 4272,
-      "text_preview": "( ) ( ( ) = + +   IS 1893 (Part 1) : 2016 directions. Thus, EL in the load combinations given in 0.3 ELz), (ELy + 0.3 EL"
+      "text_preview": "( ) ( ( ) = + +   IS 1893 (Part 1) : 2016 directions. Thus, EL in the load combinations given in 0.3 ELz), (ELy + 0.3 EL",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 11,
       "extraction_method": "ocr",
       "text_length": 3470,
-      "text_preview": "          =             < <   < <   >  < <   = < <   >  < <          "
+      "text_preview": "          =             < <   < <   >  < <   = < <   >  < <          ",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 12,
       "extraction_method": "ocr",
       "text_length": 4571,
-      "text_preview": "σ = σ = ≤   IS 1893 (Part 1) : 2016 Table 1 Percentage Increase in Net Bearing Table 2 Classification ofTypesofSoils for"
+      "text_preview": "σ = σ = ≤   IS 1893 (Part 1) : 2016 Table 1 Percentage Increase in Net Bearing Table 2 Classification ofTypesofSoils for",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p12-eq1",
+        "IS1893Part1-2016-p12-eq2",
+        "IS1893Part1-2016-p12-eq3",
+        "IS1893Part1-2016-p12-eq4",
+        "IS1893Part1-2016-p12-eq5",
+        "IS1893Part1-2016-p12-eq6",
+        "IS1893Part1-2016-p12-eq7"
+      ]
     },
     {
       "page_number": 13,
       "extraction_method": "direct",
       "text_length": 1075,
-      "text_preview": "IS 1893 (Part 1) : 2016 FIG. 1 SEISMIC ZONES OF INDIA 11 © Government of India Copyright, 2016 Based upon Survey of Indi"
+      "text_preview": "IS 1893 (Part 1) : 2016 FIG. 1 SEISMIC ZONES OF INDIA 11 © Government of India Copyright, 2016 Based upon Survey of Indi",
+      "figure_ids": [
+        "IS1893Part1-2016-p13-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 14,
       "extraction_method": "direct_fallback",
       "text_length": 2,
-      "text_preview": ""
+      "text_preview": "",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 15,
       "extraction_method": "ocr",
       "text_length": 1750,
-      "text_preview": "µ   IS 1893 (Part 1) : 2016 3.0 ————— Type! ROCK OR HARD SOIL 25 —— Type Il MEDIUM SOIL 20 ——— Type lll SOFT SOIL 3 1 8"
+      "text_preview": "µ   IS 1893 (Part 1) : 2016 3.0 ————— Type! ROCK OR HARD SOIL 25 —— Type Il MEDIUM SOIL 20 ——— Type lll SOFT SOIL 3 1 8",
+      "figure_ids": [
+        "IS1893Part1-2016-p15-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p15-eq1",
+        "IS1893Part1-2016-p15-eq2",
+        "IS1893Part1-2016-p15-eq3"
+      ]
     },
     {
       "page_number": 16,
       "extraction_method": "ocr",
       "text_length": 4277,
-      "text_preview": ") )   ×             ×           =     ×                        "
+      "text_preview": ") )   ×             ×           =     ×                        ",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 17,
       "extraction_method": "ocr",
       "text_length": 641,
-      "text_preview": "Atotal  L  A  A  A  A  L  A  L1  L2  A    Atotal  A/L  PLAN  PLAN    PLAN  PLAN    IS 1893 (Part 1) : 2016 Amax Amin P"
+      "text_preview": "Atotal  L  A  A  A  A  L  A  L1  L2  A    Atotal  A/L  PLAN  PLAN    PLAN  PLAN    IS 1893 (Part 1) : 2016 Amax Amin P",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p17-eq1",
+        "IS1893Part1-2016-p17-eq2",
+        "IS1893Part1-2016-p17-eq3",
+        "IS1893Part1-2016-p17-eq4"
+      ]
     },
     {
       "page_number": 18,
       "extraction_method": "ocr",
       "text_length": 6264,
-      "text_preview": "IS 1893 (Part 1) : 2016 Table 5 — (Concluded) Table 6 Definition of Irregular Buildings — Vertical i) in the range 1.5"
+      "text_preview": "IS 1893 (Part 1) : 2016 Table 5 — (Concluded) Table 6 Definition of Irregular Buildings — Vertical i) in the range 1.5",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p18-eq1"
+      ]
     },
     {
       "page_number": 19,
       "extraction_method": "ocr",
       "text_length": 1691,
-      "text_preview": "Ki+2  Ki+1  Ki  Wi+1  Wi  ELEVATION  Ki  Ki+1  Ki Ki+1  Wi -1  HEAVY  MASS    IS 1893 (Part 1) : 2016 Table 6 — (Conclud"
+      "text_preview": "Ki+2  Ki+1  Ki  Wi+1  Wi  ELEVATION  Ki  Ki+1  Ki Ki+1  Wi -1  HEAVY  MASS    IS 1893 (Part 1) : 2016 Table 6 — (Conclud",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p19-eq1",
+        "IS1893Part1-2016-p19-eq2",
+        "IS1893Part1-2016-p19-eq3"
+      ]
     },
     {
       "page_number": 20,
       "extraction_method": "ocr",
       "text_length": 345,
-      "text_preview": "IS 1893 (Part 1) : 2016 A A A Li li ELEVATION 4C VERTICAL GEOMETRIC IRREGULARITY lw,|- ELEVATION +42. 4D IN-PLANE DISC"
+      "text_preview": "IS 1893 (Part 1) : 2016 A A A Li li ELEVATION 4C VERTICAL GEOMETRIC IRREGULARITY lw,|- ELEVATION +42. 4D IN-PLANE DISC",
+      "figure_ids": [
+        "IS1893Part1-2016-p20-fig1",
+        "IS1893Part1-2016-p20-fig2",
+        "IS1893Part1-2016-p20-fig3"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 21,
       "extraction_method": "ocr",
       "text_length": 4562,
-      "text_preview": "ρ   IS 1893 (Part 1) : 2016 Table 7 Minimum Design Earthquake Horizontal critical damping for the purposes of estimating"
+      "text_preview": "ρ   IS 1893 (Part 1) : 2016 Table 7 Minimum Design Earthquake Horizontal critical damping for the purposes of estimating",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p21-eq1",
+        "IS1893Part1-2016-p21-eq2",
+        "IS1893Part1-2016-p21-eq3",
+        "IS1893Part1-2016-p21-eq4"
+      ]
     },
     {
       "page_number": 22,
       "extraction_method": "ocr",
       "text_length": 4722,
-      "text_preview": "IS 1893 (Part 1) : 2016 full dead load plus percentage of imposed load as given shall be designed to be ductile. Hence"
+      "text_preview": "IS 1893 (Part 1) : 2016 full dead load plus percentage of imposed load as given shall be designed to be ductile. Hence",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p22-eq1",
+        "IS1893Part1-2016-p22-eq2"
+      ]
     },
     {
       "page_number": 23,
       "extraction_method": "ocr",
       "text_length": 3779,
-      "text_preview": "   =     = ≥ =        = +                 ∑ =   IS 1893 (Part 1) : 2016 7.3.6 In buildi"
+      "text_preview": "   =     = ≥ =        = +                 ∑ =   IS 1893 (Part 1) : 2016 7.3.6 In buildi",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p23-eq1",
+        "IS1893Part1-2016-p23-eq2",
+        "IS1893Part1-2016-p23-eq3"
+      ]
     },
     {
       "page_number": 24,
       "extraction_method": "ocr",
       "text_length": 257,
-      "text_preview": "IS 1893 (Part 1) : 2016 JE. 5A VB can be Vp can be calculated calculated h as per h as per 7.6.1 is 7.6.1 is only for"
+      "text_preview": "IS 1893 (Part 1) : 2016 JE. 5A VB can be Vp can be calculated calculated h as per h as per 7.6.1 is 7.6.1 is only for",
+      "figure_ids": [
+        "IS1893Part1-2016-p24-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 25,
       "extraction_method": "ocr",
       "text_length": 3766,
-      "text_preview": "=       =       ∑    IS 1893 (Part 1) : 2016 Usually, reinforced concrete monolithic slab-beam whe floors"
+      "text_preview": "=       =       ∑    IS 1893 (Part 1) : 2016 Usually, reinforced concrete monolithic slab-beam whe floors",
+      "figure_ids": [
+        "IS1893Part1-2016-p25-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p25-eq1",
+        "IS1893Part1-2016-p25-eq2"
+      ]
     },
     {
       "page_number": 26,
       "extraction_method": "ocr",
       "text_length": 3414,
-      "text_preview": "∈ = = λ = λ ρ λ ∑∑ λ λ λ ) ) ) ζ + β β −β + ζ β + β ζ β λ ( ) λ = = ∑ λ λ∗ = ∑ λ∗ ( ) = =       = ∑ ∑   IS 1893 (P"
+      "text_preview": "∈ = = λ = λ ρ λ ∑∑ λ λ λ ) ) ) ζ + β β −β + ζ β + β ζ β λ ( ) λ = = ∑ λ λ∗ = ∑ λ∗ ( ) = =       = ∑ ∑   IS 1893 (P",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 27,
       "extraction_method": "ocr",
       "text_length": 3577,
-      "text_preview": "( = = = ∑ ∑ = + = ∑ + =  −  = − =   =         IS 1893 (Part 1) : 2016 b) Mode participation factor — Mode wher"
+      "text_preview": "( = = = ∑ ∑ = + = ∑ + =  −  = − =   =         IS 1893 (Part 1) : 2016 b) Mode participation factor — Mode wher",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p27-eq1"
+      ]
     },
     {
       "page_number": 28,
       "extraction_method": "ocr",
       "text_length": 4016,
-      "text_preview": "IS 1893 (Part 1) : 2016 where £,, and E; are the modulii ofelasticity c) connected preferably to the moment resisting"
+      "text_preview": "IS 1893 (Part 1) : 2016 where £,, and E; are the modulii ofelasticity c) connected preferably to the moment resisting",
+      "figure_ids": [
+        "IS1893Part1-2016-p28-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p28-eq1"
+      ]
     },
     {
       "page_number": 29,
       "extraction_method": "ocr",
       "text_length": 3558,
-      "text_preview": "∆ ∆ ∆ ∆ ∆ ∆   IS 1893 (Part 1) : 2016 7.11.3 Separation between Adjacent Units moments due to fixity to pile cap. Two ad"
+      "text_preview": "∆ ∆ ∆ ∆ ∆ ∆   IS 1893 (Part 1) : 2016 7.11.3 Separation between Adjacent Units moments due to fixity to pile cap. Two ad",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p29-eq1"
+      ]
     },
     {
       "page_number": 30,
       "extraction_method": "direct",
       "text_length": 1208,
-      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX A (Foreword) MAP OF INDIA SHOWING EPICENTRES OF PAST EARTHQUAKES IN INDIA (From Catalog of"
+      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX A (Foreword) MAP OF INDIA SHOWING EPICENTRES OF PAST EARTHQUAKES IN INDIA (From Catalog of",
+      "figure_ids": [
+        "IS1893Part1-2016-p30-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 31,
       "extraction_method": "direct_fallback",
       "text_length": 2,
-      "text_preview": ""
+      "text_preview": "",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 32,
       "extraction_method": "direct",
       "text_length": 998,
-      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX B (Foreword) MAP OF INDIA SHOWING PRINCIPAL TECTONIC FEATURES IN INDIA (From Catalog of 20"
+      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX B (Foreword) MAP OF INDIA SHOWING PRINCIPAL TECTONIC FEATURES IN INDIA (From Catalog of 20",
+      "figure_ids": [
+        "IS1893Part1-2016-p32-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 33,
       "extraction_method": "direct_fallback",
       "text_length": 2,
-      "text_preview": ""
+      "text_preview": "",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 34,
       "extraction_method": "direct",
       "text_length": 968,
-      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX C (Foreword) MAP OF INDIA SHOWING PRINCIPAL LITHOLOGICAL GROUPS © Government of India Copy"
+      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX C (Foreword) MAP OF INDIA SHOWING PRINCIPAL LITHOLOGICAL GROUPS © Government of India Copy",
+      "figure_ids": [
+        "IS1893Part1-2016-p34-fig1"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 35,
       "extraction_method": "direct_fallback",
       "text_length": 2,
-      "text_preview": ""
+      "text_preview": "",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 36,
       "extraction_method": "ocr",
       "text_length": 2904,
-      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX D (Foreword and Clause 3.11) MSK 1964 INTENSITY SCALE D-1 The following description shal"
+      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX D (Foreword and Clause 3.11) MSK 1964 INTENSITY SCALE D-1 The following description shal",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 37,
       "extraction_method": "ocr",
       "text_length": 3881,
-      "text_preview": "IS 1893 (Part 1) : 2016 sensationofvibration is like that due to heavy i) Most buildings of Type C suffer damage of ob"
+      "text_preview": "IS 1893 (Part 1) : 2016 sensationofvibration is like that due to heavy i) Most buildings of Type C suffer damage of ob",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 38,
       "extraction_method": "ocr",
       "text_length": 1975,
-      "text_preview": "IS 1893 (Part 1) : 2016 displacement of sand and mud; change of requires to be investigated specifically. water level"
+      "text_preview": "IS 1893 (Part 1) : 2016 displacement of sand and mud; change of requires to be investigated specifically. water level",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 39,
       "extraction_method": "ocr",
       "text_length": 1036,
-      "text_preview": "IS 1893 (Part 1) : 2016 Town Zone Z Town Zone Z Jhansi Il 0.10 Patna Vv 0.24 Jodhpur Il 0.10 Pilibhit Vv 0.24 Jorhat V"
+      "text_preview": "IS 1893 (Part 1) : 2016 Town Zone Z Town Zone Z Jhansi Il 0.10 Patna Vv 0.24 Jodhpur Il 0.10 Pilibhit Vv 0.24 Jorhat V",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 40,
       "extraction_method": "ocr",
       "text_length": 3614,
-      "text_preview": "µ σ − < ≤ = − < ≤ σ σ     =        ( = = σ ( ) ( ) σ − = σ α α = =   IS 1893 (Part 1) : 2016 ANNEX F (Clause"
+      "text_preview": "µ σ − < ≤ = − < ≤ σ σ     =        ( = = σ ( ) ( ) σ − = σ α α = =   IS 1893 (Part 1) : 2016 ANNEX F (Clause",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p40-eq1",
+        "IS1893Part1-2016-p40-eq2",
+        "IS1893Part1-2016-p40-eq3",
+        "IS1893Part1-2016-p40-eq4",
+        "IS1893Part1-2016-p40-eq5",
+        "IS1893Part1-2016-p40-eq6"
+      ]
     },
     {
       "page_number": 41,
       "extraction_method": "ocr",
       "text_length": 1602,
-      "text_preview": "( = σ = ≤ ( ( α β = + α β α β α β    −    ≤ = = = = + < < ≥ = = ( ( ( + + − −  × +    IS 1893 (Part 1) : 2016"
+      "text_preview": "( = σ = ≤ ( ( α β = + α β α β α β    −    ≤ = = = = + < < ≥ = = ( ( ( + + − −  × +    IS 1893 (Part 1) : 2016",
+      "figure_ids": [
+        "IS1893Part1-2016-p41-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p41-eq1",
+        "IS1893Part1-2016-p41-eq2"
+      ]
     },
     {
       "page_number": 42,
       "extraction_method": "ocr",
       "text_length": 1316,
-      "text_preview": "  =     σ   =      = ≤ − + − +  ( ) ) = − + − σ σ    − =       σ   =   −     IS 1893 (Pa"
+      "text_preview": "  =     σ   =      = ≤ − + − +  ( ) ) = − + − σ σ    − =       σ   =   −     IS 1893 (Pa",
+      "figure_ids": [
+        "IS1893Part1-2016-p42-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p42-eq1",
+        "IS1893Part1-2016-p42-eq2",
+        "IS1893Part1-2016-p42-eq3",
+        "IS1893Part1-2016-p42-eq4",
+        "IS1893Part1-2016-p42-eq5"
+      ]
     },
     {
       "page_number": 43,
       "extraction_method": "ocr",
       "text_length": 1579,
-      "text_preview": "( ) ( ( ( )    + < <       =     + ≤ <       σ   =         = + −     −     = ≥"
+      "text_preview": "( ) ( ( ( )    + < <       =     + ≤ <       σ   =         = + −     −     = ≥",
+      "figure_ids": [
+        "IS1893Part1-2016-p43-fig1"
+      ],
+      "equation_ids": [
+        "IS1893Part1-2016-p43-eq1",
+        "IS1893Part1-2016-p43-eq2"
+      ]
     },
     {
       "page_number": 44,
       "extraction_method": "ocr",
       "text_length": 2262,
-      "text_preview": "= = ( ) = Sl No.  Correction for  Correction Factor  (1)  (2)  (3)  i)  Non-standard hammer weight or height of fall  0."
+      "text_preview": "= = ( ) = Sl No.  Correction for  Correction Factor  (1)  (2)  (3)  i)  Non-standard hammer weight or height of fall  0.",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p44-eq1",
+        "IS1893Part1-2016-p44-eq2",
+        "IS1893Part1-2016-p44-eq3",
+        "IS1893Part1-2016-p44-eq4",
+        "IS1893Part1-2016-p44-eq5",
+        "IS1893Part1-2016-p44-eq6",
+        "IS1893Part1-2016-p44-eq7",
+        "IS1893Part1-2016-p44-eq8",
+        "IS1893Part1-2016-p44-eq9",
+        "IS1893Part1-2016-p44-eq10",
+        "IS1893Part1-2016-p44-eq11",
+        "IS1893Part1-2016-p44-eq12",
+        "IS1893Part1-2016-p44-eq13",
+        "IS1893Part1-2016-p44-eq14",
+        "IS1893Part1-2016-p44-eq15",
+        "IS1893Part1-2016-p44-eq16"
+      ]
     },
     {
       "page_number": 45,
       "extraction_method": "ocr",
       "text_length": 2569,
-      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX G (Foreword) COMMITTEE COMPOSITION Earthquake Engineering Sectional Committee, CED 39 Or"
+      "text_preview": "IS 1893 (Part 1) : 2016 ANNEX G (Foreword) COMMITTEE COMPOSITION Earthquake Engineering Sectional Committee, CED 39 Or",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 46,
       "extraction_method": "ocr",
       "text_length": 2711,
-      "text_preview": "IS 1893 (Part 1) : 2016 Organization Representative(s) Indian Institute of Technology Roorkee, Roorkee Dr YOGENDRA SIN"
+      "text_preview": "IS 1893 (Part 1) : 2016 Organization Representative(s) Indian Institute of Technology Roorkee, Roorkee Dr YOGENDRA SIN",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 47,
       "extraction_method": "ocr",
       "text_length": 3116,
-      "text_preview": "c) Bases of various load combinations to be considered have been made consistent for earthquake effects, with those sp"
+      "text_preview": "c) Bases of various load combinations to be considered have been made consistent for earthquake effects, with those sp",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 48,
       "extraction_method": "ocr",
       "text_length": 2260,
-      "text_preview": "Bureauof Indian Standards BIS is a statutory institution established under the Bureau of Indian Standards Act, 1986 to"
+      "text_preview": "Bureauof Indian Standards BIS is a statutory institution established under the Bureau of Indian Standards Act, 1986 to",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 49,
       "extraction_method": "direct",
       "text_length": 894,
-      "text_preview": "AMENDMENT NO. 1 SEPTEMBER 2017  TO  IS 1893 (PART 1) : 2016 CRITERIA FOR EARTHQUAKE  RESISTANT DESIGN OF STRUCTURES    P"
+      "text_preview": "AMENDMENT NO. 1 SEPTEMBER 2017  TO  IS 1893 (PART 1) : 2016 CRITERIA FOR EARTHQUAKE  RESISTANT DESIGN OF STRUCTURES    P",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p49-eq1",
+        "IS1893Part1-2016-p49-eq2",
+        "IS1893Part1-2016-p49-eq3",
+        "IS1893Part1-2016-p49-eq4"
+      ]
     },
     {
       "page_number": 50,
       "extraction_method": "direct",
       "text_length": 1257,
-      "text_preview": "Price Group 2 1 AMENDMENT NO. 2 NOVEMBER 2020 TO IS 1893 (PART 1) : 2016 CRITERIA FOR EARTHQUAKE  RESISTANT DESIGN OF ST"
+      "text_preview": "Price Group 2 1 AMENDMENT NO. 2 NOVEMBER 2020 TO IS 1893 (PART 1) : 2016 CRITERIA FOR EARTHQUAKE  RESISTANT DESIGN OF ST",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 51,
       "extraction_method": "direct",
       "text_length": 2234,
-      "text_preview": "2 Amendment No. 2 to IS 1893 (Part 1) : 2016 [Page 14, Table 5, Sl No. (i), last para] — Substitute the following for th"
+      "text_preview": "2 Amendment No. 2 to IS 1893 (Part 1) : 2016 [Page 14, Table 5, Sl No. (i), last para] — Substitute the following for th",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p51-eq1"
+      ]
     },
     {
       "page_number": 52,
       "extraction_method": "direct",
       "text_length": 2122,
-      "text_preview": "3 Amendment No. 2 to IS 1893 (Part 1) : 2016 the vertical element supporting the offset, and connections shall be  enhan"
+      "text_preview": "3 Amendment No. 2 to IS 1893 (Part 1) : 2016 the vertical element supporting the offset, and connections shall be  enhan",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 53,
       "extraction_method": "direct",
       "text_length": 2022,
-      "text_preview": "4 Amendment No. 2 to IS 1893 (Part 1) : 2016 [Page 16, Table 6, Sl No. (iv), last para] — Substitute the following for t"
+      "text_preview": "4 Amendment No. 2 to IS 1893 (Part 1) : 2016 [Page 16, Table 6, Sl No. (iv), last para] — Substitute the following for t",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 54,
       "extraction_method": "direct",
       "text_length": 1536,
-      "text_preview": "5 Amendment No. 2 to IS 1893 (Part 1) : 2016 \t 2)\t Seismic Zones IV and V, it shall be ensured that:   a) the first thre"
+      "text_preview": "5 Amendment No. 2 to IS 1893 (Part 1) : 2016 \t 2)\t Seismic Zones IV and V, it shall be ensured that:   a) the first thre",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 55,
       "extraction_method": "direct",
       "text_length": 1628,
-      "text_preview": "6 Amendment No. 2 to IS 1893 (Part 1) : 2016 (Page 20, Table 9, Note 3) — Substitute the following for the existing note"
+      "text_preview": "6 Amendment No. 2 to IS 1893 (Part 1) : 2016 (Page 20, Table 9, Note 3) — Substitute the following for the existing note",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS1893Part1-2016-p55-eq1"
+      ]
     },
     {
       "page_number": 56,
       "extraction_method": "direct",
       "text_length": 863,
-      "text_preview": "7 Amendment No. 2 to IS 1893 (Part 1) : 2016 (CED 39) Publication Unit, BIS, New Delhi, India (Page 26, clause 7.11.1.2)"
+      "text_preview": "7 Amendment No. 2 to IS 1893 (Part 1) : 2016 (CED 39) Publication Unit, BIS, New Delhi, India (Page 26, clause 7.11.1.2)",
+      "figure_ids": [],
+      "equation_ids": []
     }
-  ]
+  ],
+  "figures": [
+    {
+      "figure_id": "IS1893Part1-2016-p1-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 1,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        236.1,
+        682.8,
+        304.5,
+        729.4
+      ],
+      "width_pt": 68.4,
+      "height_pt": 46.7,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p1-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p13-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 13,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        71.1,
+        115.7,
+        775.0,
+        908.2
+      ],
+      "width_pt": 704.0,
+      "height_pt": 792.5,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p13-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p15-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 15,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        73.6,
+        69.5,
+        528.5,
+        477.3
+      ],
+      "width_pt": 454.9,
+      "height_pt": 407.8,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p15-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p20-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 20,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        127.1,
+        582.7,
+        469.8,
+        703.3
+      ],
+      "width_pt": 342.7,
+      "height_pt": 120.6,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p20-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p20-fig2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 20,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        144.9,
+        69.6,
+        452.1,
+        340.5
+      ],
+      "width_pt": 307.2,
+      "height_pt": 270.9,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p20-fig2.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p20-fig3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 20,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        158.8,
+        361.4,
+        438.2,
+        532.0
+      ],
+      "width_pt": 279.4,
+      "height_pt": 170.6,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p20-fig3.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p24-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 24,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        91.2,
+        69.6,
+        502.7,
+        677.3
+      ],
+      "width_pt": 411.6,
+      "height_pt": 607.7,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p24-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p25-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 25,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        73.6,
+        564.0,
+        281.8,
+        709.5
+      ],
+      "width_pt": 208.2,
+      "height_pt": 145.5,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p25-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p28-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 28,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        73.6,
+        276.6,
+        289.5,
+        417.4
+      ],
+      "width_pt": 215.9,
+      "height_pt": 140.8,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p28-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p30-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 30,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        81.1,
+        166.6,
+        761.0,
+        917.1
+      ],
+      "width_pt": 679.9,
+      "height_pt": 750.5,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p30-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p32-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 32,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        81.1,
+        188.7,
+        761.0,
+        890.0
+      ],
+      "width_pt": 679.9,
+      "height_pt": 701.3,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p32-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p34-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 34,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        81.1,
+        188.6,
+        761.0,
+        954.2
+      ],
+      "width_pt": 679.9,
+      "height_pt": 765.6,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p34-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p41-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 41,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        85.8,
+        391.5,
+        511.5,
+        717.7
+      ],
+      "width_pt": 425.7,
+      "height_pt": 326.2,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p41-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p42-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        82.4,
+        364.6,
+        514.9,
+        720.7
+      ],
+      "width_pt": 432.4,
+      "height_pt": 356.1,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p42-fig1.png"
+    },
+    {
+      "figure_id": "IS1893Part1-2016-p43-fig1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 43,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        84.3,
+        386.0,
+        512.8,
+        680.0
+      ],
+      "width_pt": 428.5,
+      "height_pt": 294.0,
+      "image_path": "data/processed/figures/IS1893Part1-2016-p43-fig1.png"
+    }
+  ],
+  "equations": [
+    {
+      "equation_id": "IS1893Part1-2016-p3-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 3,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        74.2,
+        247.7,
+        85.2,
+        262.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p3-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        79.9,
+        125.6,
+        89.9,
+        133.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        122.8,
+        125.6,
+        132.4,
+        133.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        224.6,
+        125.6,
+        234.6,
+        133.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        346.7,
+        133.9,
+        356.2,
+        146.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq5",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        402.5,
+        532.8,
+        412.5,
+        546.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq5.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq6",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(4)",
+      "text": "(4)",
+      "bbox": [
+        471.6,
+        532.8,
+        481.6,
+        546.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq6.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p12-eq7",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(5)",
+      "text": "(5)",
+      "bbox": [
+        506.5,
+        532.8,
+        516.5,
+        546.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p12-eq7.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p15-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        80.6,
+        559.4,
+        90.7,
+        566.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p15-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p15-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        125.6,
+        559.4,
+        135.7,
+        566.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p15-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p15-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        296.6,
+        559.4,
+        306.7,
+        566.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p15-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p17-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 17,
+      "type": "equation",
+      "label": null,
+      "text": "AlL1> 0.15",
+      "bbox": [
+        390.2,
+        186.1,
+        423.3,
+        198.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p17-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p17-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 17,
+      "type": "equation",
+      "label": null,
+      "text": "AlL2> 0.15",
+      "bbox": [
+        390.2,
+        205.2,
+        423.3,
+        211.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p17-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p17-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 17,
+      "type": "equation",
+      "label": null,
+      "text": "Ao>0.5A total",
+      "bbox": [
+        212.0,
+        315.0,
+        247.0,
+        326.5
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p17-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p17-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 17,
+      "type": "equation",
+      "label": null,
+      "text": "Ao>0.1A",
+      "bbox": [
+        350.6,
+        315.0,
+        385.3,
+        326.5
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p17-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p18-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 18,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        418.7,
+        117.0,
+        428.4,
+        127.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p18-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p19-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 19,
+      "type": "equation",
+      "label": null,
+      "text": "Ki+1 > Kise",
+      "bbox": [
+        452.5,
+        364.3,
+        503.2,
+        374.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p19-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p19-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 19,
+      "type": "equation",
+      "label": null,
+      "text": "W, > 1.5Wis1",
+      "bbox": [
+        417.6,
+        577.1,
+        480.4,
+        608.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p19-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p19-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 19,
+      "type": "equation",
+      "label": null,
+      "text": "W, > 1.5.1",
+      "bbox": [
+        417.2,
+        594.0,
+        477.9,
+        604.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p19-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p21-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 21,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        173.9,
+        131.0,
+        183.6,
+        142.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p21-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p21-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 21,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        249.5,
+        131.0,
+        259.5,
+        142.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p21-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p21-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 21,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        151.6,
+        311.0,
+        161.6,
+        320.8
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p21-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p21-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 21,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        261.7,
+        311.0,
+        271.3,
+        320.8
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p21-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p22-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 22,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        84.6,
+        180.0,
+        93.5,
+        186.8
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p22-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p22-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 22,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        481.3,
+        374.8,
+        489.9,
+        384.8
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p22-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p23-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 23,
+      "type": "equation",
+      "label": null,
+      "text": "L,,; = length of structural wall7 in first storey",
+      "bbox": [
+        343.4,
+        358.6,
+        522.9,
+        371.9
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p23-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p23-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 23,
+      "type": "equation",
+      "label": null,
+      "text": "W = seismic weight ofthe building as per 7.4.",
+      "bbox": [
+        87.1,
+        569.2,
+        278.9,
+        585.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p23-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p23-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 23,
+      "type": "equation",
+      "label": null,
+      "text": "0.085h°7>",
+      "bbox": [
+        137.2,
+        722.5,
+        174.5,
+        735.5
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p23-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p25-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 25,
+      "type": "equation",
+      "label": null,
+      "text": "Amiddte>! 2Aave",
+      "bbox": [
+        158.4,
+        667.4,
+        206.1,
+        680.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p25-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p25-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 25,
+      "type": "equation",
+      "label": null,
+      "text": "where A,ye=(A;+Ay)/2",
+      "bbox": [
+        144.4,
+        678.6,
+        218.1,
+        695.9
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p25-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p27-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 27,
+      "type": "equation",
+      "label": null,
+      "text": "E,= 550fn",
+      "bbox": [
+        393.8,
+        439.6,
+        438.0,
+        454.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p27-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p28-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 28,
+      "type": "equation",
+      "label": null,
+      "text": "infill wall, provided h/t < 12 and //t < 12, where",
+      "bbox": [
+        110.2,
+        191.2,
+        288.9,
+        209.9
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p28-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p29-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 29,
+      "type": "equation",
+      "label": null,
+      "text": "USINS 6.4.2 with /= 1, R= Land S/g=2.5.",
+      "bbox": [
+        307.8,
+        428.0,
+        475.7,
+        441.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p29-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "CRR, ;= standard cyclic resistance ratio for a 7.5",
+      "bbox": [
+        323.3,
+        180.7,
+        522.6,
+        198.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "(depth > 15 m) and can be found using following",
+      "bbox": [
+        307.8,
+        320.0,
+        522.8,
+        332.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "relative density D,. For D, = 40 percent ~ 60 percent,",
+      "bbox": [
+        307.8,
+        419.8,
+        522.7,
+        432.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "f = 0.8 ~ 0.7 and for D, = 60 percent ~ 80 percent,",
+      "bbox": [
+        305.6,
+        432.0,
+        523.1,
+        450.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq5",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "f=0.7~ 0.6. The correction for static shear stresses K",
+      "bbox": [
+        305.6,
+        441.0,
+        519.5,
+        452.9
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq5.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p40-eq6",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 40,
+      "type": "equation",
+      "label": null,
+      "text": "0.65 “= 2 »,",
+      "bbox": [
+        153.0,
+        556.9,
+        235.4,
+        571.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p40-eq6.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p41-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 41,
+      "type": "equation",
+      "label": null,
+      "text": "Percent Fines= | 35",
+      "bbox": [
+        222.5,
+        429.8,
+        291.2,
+        439.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p41-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p41-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 41,
+      "type": "equation",
+      "label": null,
+      "text": "(clay content = 5%)",
+      "bbox": [
+        354.6,
+        613.8,
+        416.8,
+        624.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p41-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p42-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "equation",
+      "label": null,
+      "text": "(for I, > 1.64), and",
+      "bbox": [
+        456.1,
+        159.5,
+        523.0,
+        171.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p42-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p42-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "equation",
+      "label": null,
+      "text": "| m=75 |",
+      "bbox": [
+        204.5,
+        387.4,
+        262.3,
+        409.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p42-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p42-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "equation",
+      "label": null,
+      "text": "0.25 < D50(mm) < 2.0",
+      "bbox": [
+        365.4,
+        387.4,
+        450.6,
+        409.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p42-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p42-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "equation",
+      "label": null,
+      "text": "[ m=75 |",
+      "bbox": [
+        203.8,
+        386.6,
+        263.1,
+        410.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p42-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p42-eq5",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 42,
+      "type": "equation",
+      "label": null,
+      "text": "Fines Content (%) <5",
+      "bbox": [
+        365.8,
+        386.6,
+        448.8,
+        410.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p42-eq5.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p43-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 43,
+      "type": "equation",
+      "label": null,
+      "text": "M,, = 7.5",
+      "bbox": [
+        158.4,
+        409.7,
+        191.1,
+        423.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p43-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p43-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 43,
+      "type": "equation",
+      "label": null,
+      "text": "235 20<5",
+      "bbox": [
+        357.1,
+        423.4,
+        389.0,
+        436.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p43-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        84.1,
+        321.7,
+        95.5,
+        330.6
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        185.7,
+        321.7,
+        197.0,
+        330.6
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        395.9,
+        321.7,
+        407.3,
+        330.6
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "CHT = 1.33 (for Donut hammer with trip/auto)",
+      "bbox": [
+        279.5,
+        342.1,
+        436.3,
+        356.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq5",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "Energy ratio = 80 percent",
+      "bbox": [
+        279.5,
+        365.6,
+        363.4,
+        374.6
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq5.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq6",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "CHW = 48387",
+      "bbox": [
+        279.5,
+        381.7,
+        325.0,
+        396.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq6.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq7",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "CSS = 1.2 (for dense sand)",
+      "bbox": [
+        279.5,
+        431.2,
+        378.7,
+        444.6
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq7.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq8",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "CSS = 0.8 (for dense sand)",
+      "bbox": [
+        279.5,
+        449.6,
+        378.7,
+        463.4
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq8.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq9",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        86.8,
+        112.3,
+        95.4,
+        119.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq9.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq10",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        139.3,
+        112.3,
+        147.9,
+        119.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq10.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq11",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        347.8,
+        112.3,
+        356.4,
+        119.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq11.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq12",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "Standard split-spoon sampler with, outside diameter, OD = 51 mm; and inside diameter, JD = 35 mm",
+      "bbox": [
+        182.2,
+        126.4,
+        522.7,
+        136.8
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq12.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq13",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "a) weight = 63.5 kg; and",
+      "bbox": [
+        181.8,
+        167.8,
+        259.9,
+        175.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq13.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq14",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "b) drop height = 762 mm (delivers 60 percent of theoretical free fall energy)",
+      "bbox": [
+        181.8,
+        176.8,
+        424.9,
+        184.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq14.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq15",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "1 N = Uncorrected SPT blow count.",
+      "bbox": [
+        86.4,
+        564.8,
+        210.8,
+        570.2
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq15.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p44-eq16",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 44,
+      "type": "equation",
+      "label": null,
+      "text": "4 Cy, = Correction factor for overburden pressure",
+      "bbox": [
+        85.7,
+        610.9,
+        256.9,
+        618.5
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p44-eq16.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p49-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 49,
+      "type": "equation",
+      "label": null,
+      "text": "𝐴𝐴w = ෍ቈ𝐴𝐴wi ൜0.2 + ൬𝐿𝐿wi",
+      "bbox": [
+        139.7,
+        273.7,
+        259.5,
+        346.0
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p49-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p49-eq2",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 49,
+      "type": "equation",
+      "label": null,
+      "text": "𝑖𝑖=1",
+      "bbox": [
+        169.0,
+        305.7,
+        182.4,
+        350.5
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p49-eq2.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p49-eq3",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 49,
+      "type": "equation",
+      "label": null,
+      "text": "[Page 39, clause F-1, step 6(a)] — In para 4 under step 6(a), substitute ‘α = 5’",
+      "bbox": [
+        48.2,
+        408.5,
+        382.0,
+        421.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p49-eq3.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p49-eq4",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 49,
+      "type": "equation",
+      "label": null,
+      "text": "for ‘α = 0.5’",
+      "bbox": [
+        48.2,
+        420.0,
+        99.9,
+        433.3
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p49-eq4.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p51-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 51,
+      "type": "equation",
+      "label": null,
+      "text": "i) in the range of 1.2 Δave to 1.4 Δave (where Δave = (Δmax+ Δmin)/2, in which",
+      "bbox": [
+        70.4,
+        103.4,
+        373.9,
+        118.7
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p51-eq1.png"
+    },
+    {
+      "equation_id": "IS1893Part1-2016-p55-eq1",
+      "code": "IS 1893 (Part 1):2016",
+      "page_number": 55,
+      "type": "equation",
+      "label": null,
+      "text": "‘7.7.3.1 When VB < VB , the force response quantities……’",
+      "bbox": [
+        48.1,
+        334.2,
+        285.7,
+        350.1
+      ],
+      "image_path": "data/processed/equations/IS1893Part1-2016-p55-eq1.png"
+    }
+  ],
+  "figure_count": 15,
+  "equation_count": 70
 }

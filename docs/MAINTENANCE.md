@@ -12,7 +12,10 @@ All commands assume a local Python environment activated from the repository roo
 
 ## 2. Rebuilding Chunks and Vector Indices
 
-When clause text, headings, cross-references, or table entries in `data/processed/` are modified, the unified chunk dataset and dense embeddings must be rebuilt.
+Two separate retrieval stores must be rebuilt when clause text, headings, cross-references, or table entries in `data/processed/` are modified:
+
+- **`chunks.jsonl` + `embeddings.npy`** — the original IS 456:2000 subset (23 chunks). Served by the single-standard `src/retrieval/pipeline.py` path.
+- **`data/processed/qdrant_storage`** — the live multi-standard index (996 points across all 5 standards). Served by `src/retrieval/multicode_search.py`, which is what the API uses for normal queries.
 
 ### 2.1 Rebuilding `chunks.jsonl`
 The chunk synthesis script compiles individual JSON files into the unified dataset:
@@ -39,6 +42,15 @@ After updating `chunks.jsonl`, regenerate the dense embeddings array:
   - `data/processed/embeddings.npy`: Binary NumPy array of dimensions `(23, 384)`.
   - `data/processed/embedding_ids.json`: List of 23 chunk IDs mapping row indices to chunks.
 
+### 2.3 Rebuilding the Qdrant Multi-Standard Index
+The live index consolidates `chunks.jsonl` (IS 456:2000) with the preprocessed JSON for the other standards. It is created automatically on first use when the collection is empty; force a full rebuild after the source chunks change:
+```powershell
+.venv\Scripts\python -c "from src.retrieval.qdrant_db import get_qdrant_db; print(get_qdrant_db().index_all_standards(force_reindex=True))"
+```
+- **Embeddings**: `BAAI/bge-small-en-v1.5` (384-dim, cosine) generated in-process; no separate artifacts are written.
+- **Output**: `data/processed/qdrant_storage` (996 points across all 5 standards). The printed count is the reindexed point total.
+- **Note**: the embedded Qdrant client holds an exclusive lock on this directory, so stop any running API process before reindexing.
+
 ---
 
 ## 3. Test Suite Execution
@@ -60,6 +72,13 @@ Execute the entire test collection:
 - **Validation Modules (`test_is456_checks.py`, `test_is456_flexure.py`, `test_is456_shear.py`)**: Verifies deterministic math for limiting neutral axis, minimum steel, and shear reinforcement.
 - **LLM Client (`test_llm_client.py`)**: Tests mocking, header propagation, and content parsing.
 - **Evaluation Benchmark (`test_evaluation.py`)**: Runs design scenario self-consistency checks.
+- **Other Member Types (`test_column_sizing.py`, `test_slab_sizing.py`, `test_footing_sizing.py` and their `*_dxf.py` counterparts)**: Cover column, slab, and footing sizing plus their DXF output.
+- **Seismic Design (`test_seismic_base_shear.py`, `test_seismic_compliance.py`, `test_seismic_cad.py`)**: Verify IS 1893 base shear and IS 13920 ductile detailing rules.
+- **Multi-Standard Retrieval (`test_multicode_search.py`, `test_qdrant_search.py`, `test_pipeline.py`)**: Exercise Qdrant indexing, metadata filtering, and hybrid retrieval across all standards.
+- **Engineer Review (`test_engineer_review.py`)**: Checks review-record validation and the DRAFT/Reviewed artifact marking rules.
+- **Design Assistant (`test_design_assistant.py`, `test_design_proposal.py`, `test_design_validation.py`)**: Cover the retrieval + LLM + deterministic sizing proposal flow.
+- **Deployment (`test_deployment.py`, `test_kubernetes_manifests.py`)**: Statically validate the Dockerfile, CI workflow, and Kubernetes manifests.
+- **Data Acquisition (`test_data_acquisition.py`, `test_figure_equation_extractor.py`)**: Verify the corpus registry, SHA-256 integrity, and figure/equation extraction.
 
 ---
 
@@ -149,13 +168,8 @@ The following parameters and heuristics are not specified on the referenced IS 4
 ## 8. Not implemented
 
 The following maintenance capabilities, automation workflows, member types, and structural components are not implemented in this repository:
-- other IS codes
-- columns
-- slabs
-- footings
-- DWG
-- amendment tracking
-- incremental updates
-- doubly reinforced and T-beams
-- the LLM not connected to the sizing flow
-- retrieval not used by the sizing code
+- DWG (drawings are exported as DXF only)
+- amendment tracking (no amendment or revision records for standards or designs)
+- incremental updates (the corpus and vector index are rebuilt, not incrementally refreshed)
+- doubly reinforced and T-beams (singly reinforced rectangular beams only)
+- live Kubernetes cluster verification (the manifests in `k8s/` are provided and statically validated, but have not been applied to a running cluster)

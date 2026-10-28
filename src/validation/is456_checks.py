@@ -166,6 +166,34 @@ def min_shear_steel(b: float, sv: float, fy: float, asv_provided: float) -> Dict
     })
 
 
+def max_shear_stress(grade: Any, tau_v_provided: Optional[float] = None) -> Dict[str, Any]:
+    """
+    Checks the absolute ceiling on nominal shear stress in a section.
+    Even with shear reinforcement provided, tau_v shall not exceed tau_c_max from Table 20.
+    Citation: IS 456:2000 Cl. 40.2.3
+    """
+    limit = float(tau_c_max(grade))
+
+    if tau_v_provided is None:
+        passed = True
+        provided: Any = grade
+    else:
+        if tau_v_provided < 0:
+            raise ValueError("Provided shear stress cannot be negative.")
+        passed = tau_v_provided <= limit
+        provided = round(float(tau_v_provided), 4)
+
+    return CheckResult({
+        "check": "max_shear_stress",
+        "passed": passed,
+        "required": round(limit, 4),
+        "provided": provided,
+        "tau_c_max": round(limit, 4),
+        "citation": "IS 456:2000 Cl. 40.2.3",
+        "formula": "tau_v <= tau_c_max (Table 20)",
+    })
+
+
 def max_torsion_stirrup_spacing(x1: float, y1: float, spacing: float) -> Dict[str, Any]:
     """
     Checks maximum spacing of closed rectangular stirrups for torsion.

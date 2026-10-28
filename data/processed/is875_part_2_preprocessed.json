@@ -2175,139 +2175,947 @@
       "page_number": 1,
       "extraction_method": "direct",
       "text_length": 1262,
-      "text_preview": "Disclosure to Promote the Right To Information Whereas the Parliament of India has set out to provide a practical regime"
+      "text_preview": "Disclosure to Promote the Right To Information Whereas the Parliament of India has set out to provide a practical regime",
+      "figure_ids": [
+        "IS875Part2-1987-p1-fig1",
+        "IS875Part2-1987-p1-fig2",
+        "IS875Part2-1987-p1-fig3"
+      ],
+      "equation_ids": [
+        "IS875Part2-1987-p1-eq1"
+      ]
     },
     {
       "page_number": 2,
       "extraction_method": "direct_fallback",
       "text_length": 0,
-      "text_preview": ""
+      "text_preview": "",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 3,
       "extraction_method": "ocr",
       "text_length": 103,
-      "text_preview": "BLANK PAGE Pe=RQ. 4 / Nosy) 3) * * ro A FURIS bt EAKKAS Qe’ tees J BRUTUM ws ‘s PROTECTED BY COPYRIGHT"
+      "text_preview": "BLANK PAGE Pe=RQ. 4 / Nosy) 3) * * ro A FURIS bt EAKKAS Qe’ tees J BRUTUM ws ‘s PROTECTED BY COPYRIGHT",
+      "figure_ids": [
+        "IS875Part2-1987-p3-fig1",
+        "IS875Part2-1987-p3-fig2",
+        "IS875Part2-1987-p3-fig3"
+      ],
+      "equation_ids": []
     },
     {
       "page_number": 4,
       "extraction_method": "direct",
       "text_length": 399,
-      "text_preview": "Indian Standard IS : 875 ( Part 2 ) - 1987 (Reaffirmed 1997) CODE OF PRACTICE FOR DESIGN LOADS (OTHER THAN EARTHQUAKE) F"
+      "text_preview": "Indian Standard IS : 875 ( Part 2 ) - 1987 (Reaffirmed 1997) CODE OF PRACTICE FOR DESIGN LOADS (OTHER THAN EARTHQUAKE) F",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 5,
       "extraction_method": "direct",
       "text_length": 2706,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 .I Indian Standard CODEOFPRACTICEFOR DESIGNLOADS(OTHERTHANEARTHQUAKE) FORBUILDINGSANDSTRUCTUR"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 .I Indian Standard CODEOFPRACTICEFOR DESIGNLOADS(OTHERTHANEARTHQUAKE) FORBUILDINGSANDSTRUCTUR",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 6,
       "extraction_method": "direct",
       "text_length": 1178,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 ( Continuedfrom page 1 ) Members SHRI M. C. SHARMA SHRI K. S. SRINIVASAN SHRI A. K. LAL ( Alt"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 ( Continuedfrom page 1 ) Members SHRI M. C. SHARMA SHRI K. S. SRINIVASAN SHRI A. K. LAL ( Alt",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 7,
       "extraction_method": "direct",
       "text_length": 1425,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 C O N T E N T S 0. 1. 2. 3. FOREWORD . . . *.. . . . SCOPE . . . . . . . . . TERMINOLOGY . ."
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 C O N T E N T S 0. 1. 2. 3. FOREWORD . . . *.. . . . SCOPE . . . . . . . . . TERMINOLOGY . .",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 8,
       "extraction_method": "direct",
       "text_length": 4050,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 Indian Standard CODE OF PRACTICE DESIGN LOADS (OTHER THAN FOR EARTHQUAKE) FOR BUILDINGS AND S"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 Indian Standard CODE OF PRACTICE DESIGN LOADS (OTHER THAN FOR EARTHQUAKE) FOR BUILDINGS AND S",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 9,
       "extraction_method": "direct",
       "text_length": 4393,
-      "text_preview": "C) 4 e) f > g> The reduction of imposed loads for design of vertical supporting members in multi-storeyed buildings has"
+      "text_preview": "C) 4 e) f > g> The reduction of imposed loads for design of vertical supporting members in multi-storeyed buildings has",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 10,
       "extraction_method": "direct",
       "text_length": 5301,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 marriage halls, town halls, auditoria, exhibition halls, museums, skating rinks, gymnasiums,"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 marriage halls, town halls, auditoria, exhibition halls, museums, skating rinks, gymnasiums,",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 11,
       "extraction_method": "direct",
       "text_length": 1530,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DlFFERENT OCCUPANCIES (Clauses 3.1, 3.1.1 and4.1.1 ) SL No. ("
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DlFFERENT OCCUPANCIES (Clauses 3.1, 3.1.1 and4.1.1 ) SL No. (",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p11-eq1",
+        "IS875Part2-1987-p11-eq2",
+        "IS875Part2-1987-p11-eq3",
+        "IS875Part2-1987-p11-eq4"
+      ]
     },
     {
       "page_number": 12,
       "extraction_method": "direct",
       "text_length": 1683,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPbED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Conrd SL OCCUPANCY CLASSIFICATION UNSF"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPbED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Conrd SL OCCUPANCY CLASSIFICATION UNSF",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p12-eq1",
+        "IS875Part2-1987-p12-eq2",
+        "IS875Part2-1987-p12-eq3",
+        "IS875Part2-1987-p12-eq4"
+      ]
     },
     {
       "page_number": 13,
       "extraction_method": "direct",
       "text_length": 1747,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Cod SL OCCUPANCY CLASSIFICATION No. ("
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Cod SL OCCUPANCY CLASSIFICATION No. (",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p13-eq1",
+        "IS875Part2-1987-p13-eq2",
+        "IS875Part2-1987-p13-eq3",
+        "IS875Part2-1987-p13-eq4"
+      ]
     },
     {
       "page_number": 14,
       "extraction_method": "direct",
       "text_length": 1644,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Contd SL OCCUPANCY CLASSIFICATION UNT"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Contd SL OCCUPANCY CLASSIFICATION UNT",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p14-eq1",
+        "IS875Part2-1987-p14-eq2",
+        "IS875Part2-1987-p14-eq3",
+        "IS875Part2-1987-p14-eq4"
+      ]
     },
     {
       "page_number": 15,
       "extraction_method": "direct",
       "text_length": 2604,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Contd SL OCCUPANCY CLASSIFICATION No."
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 1 IMPOSED FLOOR LOADS FOR DIFFERENT OCCUPANCIES - Contd SL OCCUPANCY CLASSIFICATION No.",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p15-eq1",
+        "IS875Part2-1987-p15-eq2",
+        "IS875Part2-1987-p15-eq3",
+        "IS875Part2-1987-p15-eq4"
+      ]
     },
     {
       "page_number": 16,
       "extraction_method": "direct",
       "text_length": 5316,
-      "text_preview": "IS : 875 ( Part 2 ) - 1Yar NOTE 4 - While selecting a particular loading, the possible change in use or occupancy of the"
+      "text_preview": "IS : 875 ( Part 2 ) - 1Yar NOTE 4 - While selecting a particular loading, the possible change in use or occupancy of the",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 17,
       "extraction_method": "direct",
       "text_length": 4748,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 b) c) 4 Any actual load due to machinery or similar concentrated loads, The additional load i"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 b) c) 4 Any actual load due to machinery or similar concentrated loads, The additional load i",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 18,
       "extraction_method": "direct",
       "text_length": 2953,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 along the line of seats and O-15 kN per linear metre perpendicular to the line of the seats."
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 along the line of seats and O-15 kN per linear metre perpendicular to the line of the seats.",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p18-eq1",
+        "IS875Part2-1987-p18-eq2",
+        "IS875Part2-1987-p18-eq3",
+        "IS875Part2-1987-p18-eq4"
+      ]
     },
     {
       "page_number": 19,
       "extraction_method": "direct",
       "text_length": 2599,
-      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 3 HORIZONTAL LOADS ON PARAPETS, PARAPET WALLS AND BALUSTRADES ( Cfause 5.1 ) SL No. U S"
+      "text_preview": "IS : 875 ( Part 2 ) - 1987 TABLE 3 HORIZONTAL LOADS ON PARAPETS, PARAPET WALLS AND BALUSTRADES ( Cfause 5.1 ) SL No. U S",
+      "figure_ids": [],
+      "equation_ids": [
+        "IS875Part2-1987-p19-eq1",
+        "IS875Part2-1987-p19-eq2"
+      ]
     },
     {
       "page_number": 20,
       "extraction_method": "direct",
       "text_length": 3846,
-      "text_preview": "IS : 813 ( rart L ) - 1Y17 c) Horizontal forces transverse to rails: 1) For electric overhead cranes with trolley having"
+      "text_preview": "IS : 813 ( rart L ) - 1Y17 c) Horizontal forces transverse to rails: 1) For electric overhead cranes with trolley having",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 21,
       "extraction_method": "direct",
       "text_length": 1374,
-      "text_preview": "IS:875(Part2)-1987 and fixed permanent equipment and fittings that are an integral part of the structure. Unit weight of"
+      "text_preview": "IS:875(Part2)-1987 and fixed permanent equipment and fittings that are an integral part of the structure. Unit weight of",
+      "figure_ids": [],
+      "equation_ids": []
     },
     {
       "page_number": 22,
       "extraction_method": "direct",
       "text_length": 939,
-      "text_preview": "IS:875(Part2)-1987 Floor Actual Floor No. from Load Coming on Top ;zfd;ng Columns at Different Floors, kN Loads for whic"
+      "text_preview": "IS:875(Part2)-1987 Floor Actual Floor No. from Load Coming on Top ;zfd;ng Columns at Different Floors, kN Loads for whic",
+      "figure_ids": [
+        "IS875Part2-1987-p22-fig1",
+        "IS875Part2-1987-p22-fig2",
+        "IS875Part2-1987-p22-fig3",
+        "IS875Part2-1987-p22-fig4",
+        "IS875Part2-1987-p22-fig5",
+        "IS875Part2-1987-p22-fig6"
+      ],
+      "equation_ids": [
+        "IS875Part2-1987-p22-eq1",
+        "IS875Part2-1987-p22-eq2",
+        "IS875Part2-1987-p22-eq3",
+        "IS875Part2-1987-p22-eq4",
+        "IS875Part2-1987-p22-eq5",
+        "IS875Part2-1987-p22-eq6"
+      ]
     },
     {
       "page_number": 23,
       "extraction_method": "direct",
       "text_length": 2205,
-      "text_preview": "Bureau of Indian Standards BIS is a statutory institution established under the Bureau of Indian Standards Act, 1986 to"
+      "text_preview": "Bureau of Indian Standards BIS is a statutory institution established under the Bureau of Indian Standards Act, 1986 to",
+      "figure_ids": [],
+      "equation_ids": []
     }
-  ]
+  ],
+  "figures": [
+    {
+      "figure_id": "IS875Part2-1987-p1-fig1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 1,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        219.8,
+        69.7,
+        344.2,
+        163.1
+      ],
+      "width_pt": 124.5,
+      "height_pt": 93.4,
+      "image_path": "data/processed/figures/IS875Part2-1987-p1-fig1.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p1-fig2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 1,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        219.8,
+        162.9,
+        344.2,
+        225.3
+      ],
+      "width_pt": 124.5,
+      "height_pt": 62.4,
+      "image_path": "data/processed/figures/IS875Part2-1987-p1-fig2.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p1-fig3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 1,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        225.0,
+        76.0,
+        369.0,
+        220.0
+      ],
+      "width_pt": 144.0,
+      "height_pt": 144.0,
+      "image_path": "data/processed/figures/IS875Part2-1987-p1-fig3.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p3-fig1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 3,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        11.3,
+        14.4,
+        499.1,
+        833.3
+      ],
+      "width_pt": 487.8,
+      "height_pt": 818.9,
+      "image_path": "data/processed/figures/IS875Part2-1987-p3-fig1.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p3-fig2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 3,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        257.8,
+        688.6,
+        443.2,
+        809.2
+      ],
+      "width_pt": 185.4,
+      "height_pt": 120.6,
+      "image_path": "data/processed/figures/IS875Part2-1987-p3-fig2.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p3-fig3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 3,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        420.8,
+        658.8,
+        499.3,
+        792.3
+      ],
+      "width_pt": 78.5,
+      "height_pt": 133.4,
+      "image_path": "data/processed/figures/IS875Part2-1987-p3-fig3.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        104.6,
+        303.6,
+        145.6
+      ],
+      "width_pt": 280.3,
+      "height_pt": 41.0,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig1.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        177.6,
+        303.6,
+        223.2
+      ],
+      "width_pt": 280.3,
+      "height_pt": 45.6,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig2.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        273.3,
+        303.6,
+        326.4
+      ],
+      "width_pt": 280.3,
+      "height_pt": 53.0,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig3.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        414.7,
+        303.6,
+        467.7
+      ],
+      "width_pt": 280.3,
+      "height_pt": 53.0,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig4.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig5",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        467.7,
+        303.6,
+        519.6
+      ],
+      "width_pt": 280.3,
+      "height_pt": 51.8,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig5.png"
+    },
+    {
+      "figure_id": "IS875Part2-1987-p22-fig6",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "figure",
+      "label": null,
+      "caption": null,
+      "bbox": [
+        23.3,
+        533.2,
+        303.6,
+        586.3
+      ],
+      "width_pt": 280.3,
+      "height_pt": 53.0,
+      "image_path": "data/processed/figures/IS875Part2-1987-p22-fig6.png"
+    }
+  ],
+  "equations": [
+    {
+      "equation_id": "IS875Part2-1987-p1-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 1,
+      "type": "equation",
+      "label": null,
+      "text": "“!ानएकऐसाखजाना> जोकभीच0रायानहB जासकताहै”",
+      "bbox": [
+        172.8,
+        668.4,
+        451.2,
+        694.2
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p1-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p11-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 11,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        45.1,
+        123.9,
+        60.2,
+        135.7
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p11-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p11-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 11,
+      "type": "equation",
+      "label": "(2)",
+      "text": "( 2 )",
+      "bbox": [
+        143.2,
+        122.9,
+        157.9,
+        134.8
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p11-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p11-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 11,
+      "type": "equation",
+      "label": "(3)",
+      "text": "( 3 )",
+      "bbox": [
+        276.7,
+        122.9,
+        291.3,
+        134.8
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p11-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p11-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 11,
+      "type": "equation",
+      "label": "(4)",
+      "text": "( 4 )",
+      "bbox": [
+        407.0,
+        122.7,
+        422.1,
+        134.5
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p11-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p12-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        69.3,
+        126.0,
+        84.1,
+        139.6
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p12-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p12-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        169.4,
+        125.8,
+        184.2,
+        139.3
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p12-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p12-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        301.4,
+        128.0,
+        316.1,
+        138.5
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p12-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p12-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 12,
+      "type": "equation",
+      "label": "(4)",
+      "text": "(4)",
+      "bbox": [
+        432.9,
+        128.3,
+        447.6,
+        138.8
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p12-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p13-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 13,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        64.3,
+        114.9,
+        81.1,
+        126.8
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p13-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p13-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 13,
+      "type": "equation",
+      "label": "(2)",
+      "text": "( 2 )",
+      "bbox": [
+        166.1,
+        115.4,
+        181.7,
+        127.2
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p13-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p13-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 13,
+      "type": "equation",
+      "label": "(3)",
+      "text": "( 3 )",
+      "bbox": [
+        293.5,
+        115.1,
+        308.7,
+        127.0
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p13-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p13-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 13,
+      "type": "equation",
+      "label": "(4)",
+      "text": "( 4 )",
+      "bbox": [
+        424.3,
+        115.4,
+        439.5,
+        127.2
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p13-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p14-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 14,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        75.9,
+        119.1,
+        89.9,
+        132.6
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p14-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p14-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 14,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        177.9,
+        118.6,
+        192.8,
+        132.1
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p14-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p14-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 14,
+      "type": "equation",
+      "label": "(3)",
+      "text": "( 3 )",
+      "bbox": [
+        305.4,
+        119.8,
+        320.0,
+        131.7
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p14-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p14-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 14,
+      "type": "equation",
+      "label": "(4)",
+      "text": "( 4 )",
+      "bbox": [
+        436.7,
+        120.8,
+        451.3,
+        132.6
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p14-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p15-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        64.6,
+        128.9,
+        78.3,
+        140.8
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p15-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p15-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(2)",
+      "text": "( 2 )",
+      "bbox": [
+        159.6,
+        129.2,
+        174.7,
+        141.0
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p15-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p15-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(3)",
+      "text": "( 3 )",
+      "bbox": [
+        287.5,
+        129.4,
+        302.2,
+        141.2
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p15-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p15-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 15,
+      "type": "equation",
+      "label": "(4)",
+      "text": "( 4 )",
+      "bbox": [
+        415.0,
+        129.9,
+        430.1,
+        141.7
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p15-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p18-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 18,
+      "type": "equation",
+      "label": "(1)",
+      "text": "(1)",
+      "bbox": [
+        75.5,
+        244.5,
+        84.6,
+        256.4
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p18-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p18-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 18,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        150.4,
+        244.5,
+        160.0,
+        256.4
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p18-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p18-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 18,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        288.6,
+        244.3,
+        298.6,
+        256.1
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p18-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p18-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 18,
+      "type": "equation",
+      "label": "(4)",
+      "text": "(4)",
+      "bbox": [
+        444.4,
+        243.6,
+        454.0,
+        255.4
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p18-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p19-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 19,
+      "type": "equation",
+      "label": "(2)",
+      "text": "(2)",
+      "bbox": [
+        250.5,
+        128.4,
+        259.8,
+        141.6
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p19-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p19-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 19,
+      "type": "equation",
+      "label": "(3)",
+      "text": "(3)",
+      "bbox": [
+        403.6,
+        127.7,
+        412.1,
+        140.9
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p19-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq1",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": "0.2 ) = 96",
+      "bbox": [
+        390.5,
+        198.7,
+        427.6,
+        210.5
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq1.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq2",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": "(30$4O$50$50)(1-Oo’3)=119",
+      "bbox": [
+        304.5,
+        242.6,
+        453.6,
+        254.5
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq2.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq3",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": "0.4) = 213",
+      "bbox": [
+        335.5,
+        392.1,
+        377.2,
+        404.2
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq3.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq4",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": "+40+40+40)(1-O.5)=237’5<",
+      "bbox": [
+        314.6,
+        494.8,
+        456.7,
+        506.7
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq4.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq5",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": "-t40+40+40+55) ( l - 0 5 ) = 2 6 5",
+      "bbox": [
+        314.4,
+        538.8,
+        471.8,
+        550.6
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq5.png"
+    },
+    {
+      "equation_id": "IS875Part2-1987-p22-eq6",
+      "code": "IS 875 (Part 2):1987",
+      "page_number": 22,
+      "type": "equation",
+      "label": null,
+      "text": ") = 327.5",
+      "bbox": [
+        347.3,
+        612.7,
+        382.5,
+        624.5
+      ],
+      "image_path": "data/processed/equations/IS875Part2-1987-p22-eq6.png"
+    }
+  ],
+  "figure_count": 12,
+  "equation_count": 33
 }

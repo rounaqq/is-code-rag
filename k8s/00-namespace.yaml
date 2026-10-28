@@ -1,0 +1,10 @@
+# Step 10: Kubernetes deployment for the IS Code Structural RAG service.
+# Every object in this directory belongs to the "is-rag" namespace.
+# Apply order is not significant; run: kubectl apply -f k8s/
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/part-of: structural-is-code-rag

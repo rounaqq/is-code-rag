@@ -1,18 +1,20 @@
-# IS-Code-RAG: Structural IS 456:2000 RAG & AI-Driven 2D CAD Engine
+# IS-Code-RAG: Multi-Standard Structural Indian Standards RAG & AI-Driven 2D CAD Engine
 
-A Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering engine for structural Indian Standards (**IS 456:2000 - Plain and Reinforced Concrete**). The system automates code-compliant Reinforced Concrete (RC) beam sizing, multi-stage clause retrieval, structural design validation, and 2D CAD DXF drafting.
+A Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering engine over structural Indian Standards (**IS 456, IS 800, IS 875, IS 1893, IS 13920**, plus the SP:16, SP:34 and SP:24 BIS handbooks). The system pairs multi-standard clause retrieval with deterministic sizing of RC beams, columns, slabs and isolated footings, seismic base shear and ductile-detailing compliance, structural design validation, and 2D CAD DXF drafting.
 
 ---
 
 ## Key Highlights
 
-- **Deterministic Structural Engineering**: All calculations (Annex G flexure, Clause 40 shear, Clause 26.5.1 detailing, Table 16 cover) are computed deterministically in Python from verified JSON tables. **Calculations are executed deterministically without LLM generation.**
-- **23 Human-Verified IS 456 Chunks**: Every clause and table was extracted from original standard pages and manually checked against page images with verified citations and printed headings.
-- **Multi-Stage Retrieval Engine**: Lexical search (**BM25Okapi**) + Dense semantic embeddings (**BAAI/bge-small-en-v1.5**) + Hybrid Reciprocal Rank Fusion (**RRF $k=60$**) + Cross-Encoder (**BAAI/bge-reranker-base**).
-- **100% Top-3 Retrieval Recall**: Achieves **100.0% Hit@3 (19/19)** and **84.2% Hit@1 (16/19)** across structural design queries.
-- **Automated 2D CAD Generation**: Generates standard CAD DXF files (`ezdxf`) featuring longitudinal elevations, cross-sections, stirrup distributions, dimensions, title blocks, and code compliance notes.
-- **FastAPI Service**: Authenticated `/v1/rag/query` endpoint with API key verification, lifespan model preloading, and audit logging to `data/audit/audit.jsonl`.
-- **Automated Tests**: Comprehensive test suite covering schemas, math functions, CAD generation, API endpoints, and evaluation benchmarks.
+- **Multi-Standard Corpus**: 10 acquired documents (7 Indian Standards + 3 BIS handbooks), recorded with publisher, edition, amendments and SHA-256 hashes in `data/raw/registry.json`. Five codes are vector-indexed: IS 456:2000, IS 13920:2016, IS 1893 (Part 1):2016, IS 875 (Part 2):1987 and IS 800:2007.
+- **23 Human-Verified IS 456 Chunks**: The core beam design clauses and tables were extracted from the original standard pages and manually checked against page images, with verified citations and printed headings.
+- **Qdrant-Backed Hybrid Retrieval**: Lexical search (**BM25Okapi**) + dense semantic embeddings (**BAAI/bge-small-en-v1.5**, embedded Qdrant collection of **996** chunks) + Reciprocal Rank Fusion (**RRF $k=60$**) + Cross-Encoder reranking (**BAAI/bge-reranker-base**).
+- **Deterministic Structural Engineering**: Beam, column, slab and footing sizing (Annex G flexure, Cl. 39/40 shear, Cl. 26.5.x detailing, Table 16 cover) is computed in Python from verified JSON tables. **Calculations are executed deterministically without LLM generation.**
+- **Seismic Design Checks**: IS 1893 (Part 1) base shear $V_B = A_h W$ and IS 13920 ductile detailing, applied where seismic provisions supersede IS 456 in Zones III–V.
+- **100% Top-3 Retrieval Recall**: Achieves **100.0% Hit@3 (19/19)** and **84.2% Hit@1 (16/19)** across the IS 456 beam design benchmark queries.
+- **Automated 2D CAD Generation**: Generates AutoCAD-compatible DXF files (`ezdxf`) for beams, columns, slabs and footings — sections, elevations, stirrup distributions, dimensions and title blocks. Every drawing is stamped **DRAFT - NOT FOR CONSTRUCTION** until a signed review record exists.
+- **FastAPI Service**: Authenticated REST API (`X-API-Key`) with 14 endpoints covering retrieval, multi-code search, design review, DXF export, seismic compliance and base shear, plus audit logging to `data/audit/audit.jsonl`.
+- **Automated Tests**: 252 automated tests covering schemas, math functions, CAD generation, API endpoints, retrieval, evaluation and deployment manifests.
 
 ---
 
@@ -20,35 +22,34 @@ A Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering en
 
 ```mermaid
 flowchart TD
-    subgraph Ingestion ["1. Verified IS 456 Knowledge Base"]
-        PDF["IS 456:2000 PDF"] --> Extractor["PyMuPDF Extraction"]
-        Extractor --> JSONs["Verified JSON Tables & Clauses\n(Cl. 26.5.1, Cl. 40, Annex G, T16, T19, T20, xu_max)"]
-        JSONs --> Chunks["chunks.jsonl (23 Chunks)"]
+    subgraph Ingestion ["1. Multi-Standard Knowledge Corpus"]
+        PDFs["10 acquired PDFs\nIS 456, IS 800, IS 875 (P1/P2/P3), IS 1893 (P1),\nIS 13920, SP:16, SP:34, SP:24"] --> Extractor["PyMuPDF Extraction + Tesseract OCR\n(figure & equation indexing)"]
+        Extractor --> JSONs["Verified JSON clauses & tables\nper code"]
+        JSONs --> Chunks["chunks.jsonl (23 curated IS 456 chunks)\n+ preprocessed chunks per code"]
+        Chunks --> VectorStore["Qdrant collection 'structural_is_codes'\n996 indexed chunks, BGE-small 384-d"]
     end
 
     subgraph Retrieval ["2. Multi-Stage Hybrid RAG Engine"]
         Query["Structural Engineering Query"] --> BM25["BM25 Lexical Search\n(Custom Engineering Tokenizer)"]
-        Query --> Dense["Dense Vector Search\n(BAAI/bge-small-en-v1.5)"]
+        Query --> Dense["Dense Vector Search\n(Qdrant + BAAI/bge-small-en-v1.5)"]
         BM25 --> RRF["Hybrid Fusion (RRF k=60)"]
         Dense --> RRF
         RRF --> Rerank["Cross-Encoder Reranker\n(BAAI/bge-reranker-base)"]
-        Rerank --> TopK["Ranked Relevant Clauses & Tables\n(100% Hit@3 Recall)"]
+        Rerank --> TopK["Ranked Relevant Clauses & Tables\n(100% Hit@3 on the IS 456 benchmark)"]
     end
 
     subgraph Engineering ["3. Deterministic Design & Validation Engine"]
-        Inputs["Inputs: Span, Dead Load, Live Load, fck, fy, Exposure"]
-        Inputs --> Sizing["Beam Sizing (b, D, d)"]
-        Sizing --> Flexure["Flexure Design (Annex G.1.1)\nAst, Under-reinforced xu <= xu,max"]
-        Sizing --> Shear["Shear Design (Cl. 40, Table 19, Table 20)\ntau_v, tau_c, Stirrup Sizing (8/10/12 mm)"]
-        Sizing --> Detailing["Detailing & Spacing (Cl. 26.5.1)\nCover (Table 16)"]
+        Inputs["Inputs: Span, Loads, fck, fy, Exposure, Seismic Zone"]
+        Inputs --> Sizing["Beam / Column / Slab / Footing Sizing"]
+        Sizing --> Flexure["Flexure (Annex G), Shear (Cl. 40),\nDetailing (Cl. 26.5.x), Cover (Table 16)"]
+        Sizing --> Seismic["Seismic: IS 1893 base shear\n+ IS 13920 ductile detailing"]
         Flexure --> Validator["Multi-Rule Code Validator\n(Self-Consistency Checks)"]
-        Shear --> Validator
-        Detailing --> Validator
+        Seismic --> Validator
     end
 
     subgraph Drafting ["4. Automated 2D CAD Drafting"]
-        Validator --> CAD["ezdxf CAD Engine"]
-        CAD --> DXF["2D CAD DXF\n- Cross-Section A-A\n- Longitudinal Elevation\n- Rebar Detailing & Stirrups\n- Title Block & Notes"]
+        Validator --> CAD["ezdxf CAD Engine\n(beam, column, slab, footing)"]
+        CAD --> DXF["2D CAD DXF\n- Sections & Elevations\n- Rebar Detailing & Stirrups\n- DRAFT watermark & Title Block"]
     end
 ```
 
@@ -83,6 +84,25 @@ All 23 chunks in `data/processed/chunks.jsonl` are strictly verified against off
 | `IS456-2000-CL-40.3` | Cl. 40.3 | Minimum Shear Reinforcement | Minimum shear steel rule when $\tau_v < \tau_c$ |
 | `IS456-2000-CL-40.4` | Cl. 40.4 | Design of Shear Reinforcement | Shear carried by stirrups $V_{us} = V_u - \tau_c bd$ |
 | `IS456-2000-CL-40.4(a)` | Cl. 40.4(a) | Vertical stirrups design | Vertical stirrup spacing: $V_{us} = \frac{0.87 f_y A_{sv} d}{s_v}$ |
+
+---
+
+## Multi-Standard Knowledge Base (996 Indexed Chunks)
+
+Beyond the curated IS 456 beam set, the retrieval index covers four further codes. `data/raw/registry.json` records all 10 acquired documents with publisher, edition, amendments (where applicable) and SHA-256 hashes:
+
+| Code | Title | Category | In the vector index |
+| :--- | :--- | :--- | :--- |
+| IS 456:2000 | Plain and Reinforced Concrete — Code of Practice | core concrete | Yes (23 curated chunks) |
+| IS 13920:2016 | Ductile Design and Detailing of RC Structures Subjected to Seismic Forces | seismic ductility | Yes |
+| IS 1893 (Part 1):2016 | Criteria for Earthquake Resistant Design of Structures | seismic criteria | Yes |
+| IS 875 (Part 2):1987 | Design Loads — Part 2: Imposed Loads | design loads | Yes |
+| IS 800:2007 | General Construction in Steel | structural steel | Yes |
+| IS 875 (Part 1):1987 | Design Loads — Part 1: Dead Loads | design loads | Acquired, not indexed |
+| IS 875 (Part 3):2015 | Design Loads — Part 3: Wind Loads | design loads | Acquired, not indexed |
+| SP:16:1980, SP:34:1987, SP:24:1983 | BIS design aids, reinforcement detailing and explanatory handbooks | handbook | Acquired, not indexed |
+
+The Qdrant collection `structural_is_codes` holds **996** chunks (BGE-small, 384-dim, cosine) drawn from the five indexed codes. Metadata payload filtering is applied on the `code` attribute, enabling single-code and cross-code queries.
 
 ---
 
@@ -166,11 +186,11 @@ The CAD module (`src/cad/beam_dxf.py`) automatically produces standard AutoCAD-c
 
 Run these commands in PowerShell or terminal inside the workspace:
 
-### 1. Run the Entire Test Suite (93 Tests)
+### 1. Run the Entire Test Suite (252 Tests)
 ```powershell
 .venv\Scripts\python -m pytest tests/ -v
 ```
-*Expected: 93 passed tests covering unit checks, shear design, flexure formulas, CAD export, API, and retrieval benchmarks.*
+*Expected: the full suite reports as passed, covering unit checks, shear design, flexure formulas, CAD export, API, retrieval, evaluation, and deployment/Kubernetes manifests. Corpus integrity tests report as skipped when the raw PDFs have not been restored with `dvc pull`.*
 
 ### 2. Run the Cross-Encoder Retrieval Benchmark (All 19 Questions)
 ```powershell
@@ -211,65 +231,89 @@ Open another terminal to test the endpoints:
 
 ```text
 IS-Code-Rag/
+├── .github/workflows/ci.yml          # CI: test suite, corpus restore, image build & publish
+├── k8s/                              # Kubernetes manifests (namespace, config, secret,
+│                                     # PostgreSQL StatefulSet, API Deployment/Service/PVCs)
+├── Dockerfile                        # python:3.12-slim image, non-root user, /health check
+├── docker-compose.yml                # Local single-service Compose deployment
 ├── data/
 │   ├── audit/                        # Append-only secure query audit log
 │   │   └── audit.jsonl
-│   ├── eval/                         # Benchmark scenarios & evaluation questions
+│   ├── eval/                         # Benchmark scenarios, reviews & evaluation reports
 │   │   ├── design_evaluation_report.json
+│   │   ├── engineer_review_package.json
+│   │   ├── independent_review_package.json
 │   │   ├── questions.json            # 19 benchmark retrieval queries
+│   │   ├── rag_metrics_report.json
+│   │   ├── sp16_worked_examples.json
+│   │   ├── step9_master_evaluation_report.json
 │   │   └── structural_design_scenarios.json
-│   └── processed/                    # Verified clauses, JSON tables, & DXF outputs
+│   ├── raw/                          # DVC-tracked source PDFs (not committed) + registry
+│   │   ├── registry.json             # 10 acquired documents, editions & SHA-256 hashes
+│   │   └── *.pdf.dvc                 # DVC pointer files
+│   └── processed/                    # Verified clauses, JSON tables, indices & DXF outputs
 │       ├── cad/                      # Generated 2D CAD DXF drawings
+│       ├── qdrant_storage/           # Embedded Qdrant collection (996 chunks)
 │       ├── chunks.jsonl              # 23 verified IS 456 chunks
-│       ├── embeddings.npy            # Normalized dense vector embeddings
+│       ├── embeddings.npy            # Normalized dense vector embeddings (IS 456 subset)
 │       ├── embedding_ids.json
-│       ├── is456_annex_g.json        # Flexure formulas (Annex G)
-│       ├── is456_cl_26_5_1.json      # Detailing provisions (Cl. 26.5.1)
-│       ├── is456_cl_40.json          # Shear provisions (Cl. 40)
-│       ├── is456_table_16.json       # Nominal cover table
-│       ├── is456_table_19.json       # Concrete shear strength table
-│       ├── is456_table_20.json       # Max shear stress table
-│       └── is456_xu_max_table.json   # Limiting neutral axis table
-├── docs/
-│   └── 01-scope.md                   # Engineering scope & architectural boundaries
+│       ├── figures_equations.json    # Extracted figure/equation index
+│       ├── is456_*.json              # Verified IS 456 clauses & tables
+│       ├── is800_preprocessed.json   # Preprocessed multi-standard corpora
+│       ├── is13920_*.json
+│       ├── is1893_part_1_*.json
+│       └── is875_part_2_*.json
+├── docs/                             # Architecture, data schema, deployment, maintenance
 ├── src/
-│   ├── api/                          # FastAPI service, security & audit logging
+│   ├── api/                          # FastAPI service, API-key security & audit logging
 │   │   └── main.py
 │   ├── cad/                          # 2D CAD DXF drafting engines (ezdxf)
 │   │   ├── beam_dxf.py
 │   │   ├── column_dxf.py
 │   │   ├── slab_dxf.py
 │   │   ├── footing_dxf.py
-│   │   └── engineer_review.py
+│   │   └── engineer_review.py        # Review records & DRAFT/Reviewed watermarking
 │   ├── chunking/                     # Chunk compiler & Pydantic schema
 │   │   ├── build_chunks.py
 │   │   └── schema.py
-│   ├── evaluation/                   # Retrieval & structural design benchmarks
+│   ├── evaluation/                   # Retrieval, design, grounding & review benchmarks
+│   │   ├── rag_metrics.py            # Offline RAGAS-style proxy metrics
 │   │   ├── run_dense_eval.py
 │   │   ├── run_design_eval.py
+│   │   ├── run_engineer_review.py
 │   │   ├── run_hybrid_eval.py
+│   │   ├── run_independent_review.py # Blind review package generator
+│   │   ├── run_rag_metrics_eval.py
 │   │   ├── run_rerank_eval.py
 │   │   ├── run_retrieval_eval.py
-│   │   └── run_step9_master_eval.py
+│   │   ├── run_sp16_eval.py
+│   │   └── run_step9_master_eval.py  # Master evaluation driver
 │   ├── generation/                   # Sizing algorithms & design engines
 │   │   ├── beam_sizing.py
 │   │   ├── column_sizing.py
 │   │   ├── slab_sizing.py
 │   │   ├── footing_sizing.py
-│   │   ├── design_proposal.py
-│   │   └── design_validation.py
-│   ├── ingestion/                    # PDF extraction & verification tools
-│   ├── retrieval/                    # Search modules (BM25, Dense, Hybrid, Rerank)
+│   │   ├── seismic_base_shear.py     # IS 1893 base shear calculator
+│   │   ├── design_assistant.py       # LLM tool-calling front-end
+│   │   ├── design_proposal.py        # Retrieval-backed detailing proposal
+│   │   ├── design_validation.py
+│   │   └── llm_client.py
+│   ├── ingestion/                    # PDF acquisition, extraction, OCR & figure indexing
+│   ├── retrieval/                    # Search modules (BM25, Qdrant, Hybrid, Rerank)
 │   │   ├── bm25_search.py
 │   │   ├── dense_search.py
 │   │   ├── hybrid_search.py
+│   │   ├── multicode_search.py       # Multi-standard RRF search over Qdrant
 │   │   ├── pipeline.py
+│   │   ├── qdrant_db.py              # Embedded Qdrant vector store
 │   │   └── rerank.py
-│   └── validation/                   # Deterministic IS 456 calculation modules
+│   ├── storage/                      # PostgreSQL persistence for standards & audit
+│   └── validation/                   # Deterministic calculation & seismic modules
 │       ├── is456_checks.py
 │       ├── is456_flexure.py
-│       └── is456_shear.py
-└── tests/                            # 178 automated pytest unit & integration tests
+│       ├── is456_shear.py
+│       └── seismic_compliance.py
+└── tests/                            # 252 automated pytest unit & integration tests
 ```
 
 ---

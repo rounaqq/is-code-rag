@@ -93,3 +93,52 @@ def test_api_health_endpoint():
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
+
+def test_ci_publishes_the_image_the_manifests_consume():
+    """
+    The docker-build job must authenticate and publish to a registry, and the image it
+    publishes must be the exact image the Kubernetes Deployment references. Without
+    this, the manifests reference a tag that no pipeline ever creates.
+    """
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    steps = workflow["jobs"]["docker-build"]["steps"]
+    uses = [s.get("uses", "") for s in steps]
+
+    assert any("login-action" in u for u in uses), "docker-build must authenticate to a registry"
+
+    publish = next((s for s in steps if "build-push-action" in s.get("uses", "")), None)
+    assert publish is not None, "docker-build must publish with docker/build-push-action"
+    assert publish["with"]["push"] == "${{ github.event_name == 'push' }}"
+    assert publish["with"]["tags"] == "${{ steps.meta.outputs.tags }}"
+
+    metadata = next(s for s in steps if "metadata-action" in s.get("uses", ""))
+    assert metadata["with"]["images"] == "ghcr.io/${{ github.repository }}"
+
+    deployment = yaml.safe_load((Path("k8s") / "05-api-deployment.yaml").read_text(encoding="utf-8"))
+    image = deployment["spec"]["template"]["spec"]["containers"][0]["image"]
+    assert image == "ghcr.io/rounaqq/is-code-rag:latest", (
+        "the Deployment image must be the repository path that CI publishes to"
+    )
+
+
+def test_ci_restores_the_corpus_before_the_test_suite():
+    """
+    The corpus pull must run before pytest, so the DVC integrity checks are meaningful
+    on a runner instead of reporting as skipped.
+    """
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    steps = workflow["jobs"]["test"]["steps"]
+    names = [s.get("name", "").lower() for s in steps]
+
+    pull_index = next((i for i, n in enumerate(names) if "dvc" in n), None)
+    assert pull_index is not None, "the test job must attempt to restore the DVC corpus"
+
+    test_index = next((i for i, n in enumerate(names) if "test suite" in n), None)
+    assert test_index is not None
+    assert pull_index < test_index, "the corpus must be pulled before the test suite runs"
+
+    pull_step = steps[pull_index]
+    assert "DVC_REMOTE_URL" in pull_step.get("env", {}), (
+        "the pull step must take the remote URL from configuration, not from a local path"
+    )

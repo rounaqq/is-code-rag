@@ -11,7 +11,7 @@ Verifies:
 - Metadata payload code filtering (restricting to specific standards).
 """
 
-from src.retrieval.qdrant_db import get_qdrant_db
+from src.retrieval.qdrant_db import get_qdrant_db, load_all_structural_chunks
 
 
 def test_qdrant_points_count():
@@ -19,6 +19,18 @@ def test_qdrant_points_count():
     db = get_qdrant_db()
     count = db.count_points()
     assert count >= 900, f"Expected >= 900 indexed points in Qdrant, got {count}"
+
+
+def test_qdrant_index_matches_corpus():
+    """Every chunk in the unified corpus has exactly one vector in Qdrant."""
+    db = get_qdrant_db()
+    corpus_size = len(load_all_structural_chunks())
+    assert corpus_size > 0, "Unified corpus is empty"
+    assert db.count_points() == corpus_size, (
+        f"Qdrant index ({db.count_points()} points) is out of sync with the "
+        f"corpus ({corpus_size} chunks); re-run index_all_standards(force_reindex=True)."
+    )
+
 
 
 def test_qdrant_seismic_confinement_retrieval():

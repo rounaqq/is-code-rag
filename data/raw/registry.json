@@ -33,6 +33,19 @@
       "sha256": "7fb28f817712ccf5caad281ad22cf6193a50476b100da05b8c2f226a82bf21d4"
     },
     {
+      "code": "IS 875 (Part 1):1987",
+      "title": "Code of Practice for Design Loads (Other Than Earthquake) for Buildings and Structures - Part 1: Dead Loads - Unit Weights of Building Materials and Stored Materials",
+      "filename": "is_875_part_1_1987.pdf",
+      "edition": "Second Revision (Reaffirmed 2018)",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "design_loads",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.875.1.1987/is.875.1.1987.pdf",
+      "description": "Unit weights of building materials, partition loads, and stored material loads for dead load computation.",
+      "file_size_bytes": 1867195,
+      "sha256": "1297421334441879000740191b8147ce69d87dbed7b5a5dc9c209518754eb533"
+    },
+    {
       "code": "IS 875 (Part 2):1987",
       "title": "Code of Practice for Design Loads (Other Than Earthquake) for Buildings and Structures - Part 2: Imposed Loads",
       "filename": "is_875_part_2_1987.pdf",
@@ -44,6 +57,19 @@
       "description": "Codified floor, roof, and occupancy live loads for residential, commercial, and industrial buildings.",
       "file_size_bytes": 1103910,
       "sha256": "d63b77eec05b19ce5089d7a0a084ebadae25c2593967f1680a08f4b7df48add8"
+    },
+    {
+      "code": "IS 875 (Part 3):2015",
+      "title": "Code of Practice for Design Loads (Other Than Earthquake) for Buildings and Structures - Part 3: Wind Loads",
+      "filename": "is_875_part_3_2015.pdf",
+      "edition": "Third Revision",
+      "publisher": "Bureau of Indian Standards (BIS)",
+      "category": "design_loads",
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.875.3.2015/is.875.3.2015.pdf",
+      "description": "Basic wind speed map, risk coefficient k1, terrain factor k2, topography factor k3, and design wind pressure pz.",
+      "file_size_bytes": 9566024,
+      "sha256": "9489437e1d8272ef0fe6da67c0010df061493ed8055ad44c5540a8b811d643e5"
     },
     {
       "code": "IS 1893 (Part 1):2016",
@@ -107,8 +133,11 @@
       "filename": "sp_24_1983.pdf",
       "publisher": "Bureau of Indian Standards (BIS)",
       "category": "explanatory_handbook",
-      "status": "cataloged",
-      "description": "Theoretical derivations, historical commentary, and clause-by-clause explanatory notes."
+      "status": "acquired",
+      "archive_url": "https://archive.org/download/gov.in.is.sp.24.1983/is.sp.24.1983.pdf",
+      "description": "Theoretical derivations, historical commentary, and clause-by-clause explanatory notes.",
+      "file_size_bytes": 12908149,
+      "sha256": "429b869ff1b81cb0880604db8a7cafdea5be1995069797b309e79c7aacc001d6"
     }
   ]
 }

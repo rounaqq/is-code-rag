@@ -4,7 +4,15 @@ No LLM calls or network requests. Does NOT read .env.
 """
 
 import pytest
-from src.generation.design_validation import validate_design, CITATION_TO_CHUNK_ID, get_chunks_map
+from src.generation.design_validation import (
+    validate_design,
+    validate_column_design,
+    validate_slab_design,
+    validate_footing_design,
+    validate_member,
+    CITATION_TO_CHUNK_ID,
+    get_chunks_map,
+)
 
 
 VALID_DESIGN = {
@@ -108,3 +116,122 @@ def test_citation_mapping_covers_all_checks():
     for citation, chunk_id in CITATION_TO_CHUNK_ID.items():
         assert chunk_id in chunks_map, f"Chunk ID {chunk_id} for citation '{citation}' not in chunks.jsonl"
         assert len(chunks_map[chunk_id]) > 0
+
+
+def test_beam_shear_stress_ceiling_passes_within_limit():
+    """A factored shear within the Table 20 ceiling adds a passing max_shear_stress check."""
+    design = dict(VALID_DESIGN, factored_shear_Vu_kN=100.0)
+    res = validate_design(design)
+
+    assert res["status"] == "passed"
+    ceiling_check = next((c for c in res["checks"] if c["check"] == "max_shear_stress"), None)
+    assert ceiling_check is not None
+    assert ceiling_check["passed"] is True
+    assert ceiling_check["chunk_id"] == "IS456-2000-CL-40.2.3"
+    assert len(ceiling_check["clause_text"]) > 0
+
+
+def test_beam_shear_stress_ceiling_fails_above_limit():
+    """A factored shear exceeding tau_c_max fails the Cl. 40.2.3 ceiling check."""
+    design = dict(VALID_DESIGN, factored_shear_Vu_kN=500.0)
+    res = validate_design(design)
+
+    assert res["status"] == "failed"
+    ceiling_check = next((c for c in res["checks"] if c["check"] == "max_shear_stress"), None)
+    assert ceiling_check is not None
+    assert ceiling_check["passed"] is False
+    assert ceiling_check["chunk_id"] == "IS456-2000-CL-40.2.3"
+
+
+def test_validate_column_design_short_column_passes():
+    """A short column with a valid minimum-eccentricity formula passes both column checks."""
+    res = validate_column_design({"length_m": 3.0, "b_mm": 400, "D_mm": 400})
+
+    assert res["status"] == "passed"
+    assert res["member_type"] == "column"
+    check_names = {c["check"] for c in res["checks"]}
+    assert check_names == {"slenderness", "minimum_eccentricity"}
+    assert all(c["passed"] is True for c in res["checks"])
+
+
+def test_validate_column_design_slender_column_fails():
+    """A slender column exceeds the IS 456 Cl. 25.1.2 limit and fails."""
+    res = validate_column_design({"length_m": 6.0, "b_mm": 400, "D_mm": 400})
+
+    assert res["status"] == "failed"
+    slenderness = next(c for c in res["checks"] if c["check"] == "slenderness")
+    assert slenderness["passed"] is False
+
+
+def test_validate_slab_design_deflection_control_passes():
+    """A slab within the permissible span/depth ratio passes the deflection check."""
+    res = validate_slab_design(
+        {
+            "span_m": 4.0,
+            "d_actual_mm": 150,
+            "b_mm": 1000,
+            "fy": 500,
+            "ast_required_mm2": 400,
+            "ast_provided_mm2": 500,
+        }
+    )
+
+    assert res["status"] == "passed"
+    assert res["member_type"] == "slab"
+    assert res["checks"][0]["check"] == "deflection_control"
+    assert res["checks"][0]["passed"] is True
+
+
+def test_validate_footing_design_punching_shear_passes():
+    """A footing with adequate depth passes the two-way punching shear check."""
+    res = validate_footing_design(
+        {
+            "qu_kN_m2": 150.0,
+            "B_mm": 2000,
+            "L_mm": 2000,
+            "col_b_mm": 400,
+            "col_D_mm": 400,
+            "d_mm": 400,
+            "fck": 25,
+        }
+    )
+
+    assert res["status"] == "passed"
+    assert res["member_type"] == "footing"
+    assert [c["check"] for c in res["checks"]] == ["two_way_punching_shear"]
+    assert res["checks"][0]["passed"] is True
+
+
+def test_validate_footing_design_includes_one_way_shear_when_cantilever_supplied():
+    """Supplying cantilever_m adds the one-way beam shear check to the footing report."""
+    res = validate_footing_design(
+        {
+            "qu_kN_m2": 150.0,
+            "B_mm": 2000,
+            "L_mm": 2000,
+            "col_b_mm": 400,
+            "col_D_mm": 400,
+            "d_mm": 400,
+            "fck": 25,
+            "cantilever_m": 0.6,
+        }
+    )
+
+    check_names = [c["check"] for c in res["checks"]]
+    assert check_names == ["two_way_punching_shear", "one_way_beam_shear"]
+
+
+def test_validate_member_dispatches_to_beam():
+    """validate_member('beam', ...) delegates to the beam validator."""
+    res = validate_member(VALID_DESIGN, "beam")
+
+    assert res["status"] == "passed"
+    assert "cover_mm" in res
+
+
+def test_validate_member_unknown_type_raises_value_error():
+    """An unsupported member type raises ValueError."""
+    with pytest.raises(ValueError) as exc_info:
+        validate_member(VALID_DESIGN, "pile")
+
+    assert "Unsupported member type" in str(exc_info.value)

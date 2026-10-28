@@ -1,0 +1,19 @@
+# ClusterIP Service in front of the API pods.
+# Ingress/TLS termination is deliberately out of scope for this repository.
+apiVersion: v1
+kind: Service
+metadata:
+  name: is-rag-api
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

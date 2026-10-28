@@ -43,7 +43,37 @@ docker run -d \
 ### 2.3 Container Security & Non-Root Execution
 - The image runs under a dedicated unprivileged user (`appuser`, UID 1000).
 - Root access is restricted inside the runtime container.
-- Build context is filtered via `.dockerignore` to prevent leaking local virtual environments (`.venv`), secrets (`.env`), or cache files.
+- Build context is filtered via `.dockerignore` to prevent leaking local virtual environments (`.venv`), secrets (`.env`), or cache files. The locally built vector index (`data/processed/qdrant_storage/`) is excluded as well, so the image never ships machine-specific Qdrant state.
+
+### 2.4 Kubernetes Manifests (`k8s/`)
+
+All objects live in the `is-rag` namespace and are applied with a single command:
+
+```powershell
+kubectl apply -f k8s/
+kubectl -n is-rag get pods,svc,pvc
+```
+
+| File | Objects |
+| :--- | :--- |
+| `k8s/00-namespace.yaml` | Namespace `is-rag` |
+| `k8s/01-configmap.yaml` | ConfigMap `is-rag-config` (non-secret runtime settings) |
+| `k8s/02-secret.yaml` | Secret `is-rag-secrets` (placeholders only) |
+| `k8s/03-postgres.yaml` | Headless Service + StatefulSet `is-rag-postgres` with a `volumeClaimTemplate` |
+| `k8s/04-api-volumes.yaml` | PVCs `is-rag-audit`, `is-rag-cad`, `is-rag-vector-store`, `is-rag-model-cache` |
+| `k8s/05-api-deployment.yaml` | Deployment `is-rag-api` |
+| `k8s/06-api-service.yaml` | ClusterIP Service `is-rag-api` (port 80 to container port 8000) |
+
+Design decisions that are specific to this application:
+
+1. **Single replica with `strategy: Recreate`.** The embedded Qdrant local client takes an exclusive file lock on its storage path, and the claims are `ReadWriteOnce`. A second replica would fail to start, and a rolling update would wait forever on a volume the previous pod still holds. Horizontal scale-out would require running Qdrant as a server or baking a read-only index into the image.
+2. **Only the writable paths are overlaid.** The image keeps its read-only data at `/app/data` (chunk corpus, JSON tables, DXF fixtures); the Deployment mounts PVCs over `data/audit`, `data/processed/cad`, `data/processed/qdrant_storage` and the HuggingFace cache, plus an `emptyDir` at `/tmp` because the container root filesystem is read-only.
+3. **First start builds the vector index.** `data/processed/qdrant_storage` is git-ignored and excluded from the image, so the first pod start downloads `BAAI/bge-small-en-v1.5` and indexes the chunk corpus into the `is-rag-vector-store` claim. The startup probe therefore allows up to 10 minutes (`failureThreshold: 60` at 10 s), while liveness stays at 3 failures.
+4. **Probes use the public `/health` endpoint.** Uvicorn only starts serving after the FastAPI lifespan warm-up completes, so a successful probe already proves the retrieval models are loaded.
+5. **No real credential is committed.** `k8s/02-secret.yaml` holds `REPLACE_ME` placeholders. Create the real Secret with `kubectl -n is-rag create secret generic is-rag-secrets --from-literal=...` before applying, and `tests/test_kubernetes_manifests.py` fails if a non-placeholder value is committed. API keys and passwords are intentionally absent from the ConfigMap.
+6. **PostgreSQL is off the request critical path.** It mirrors the chunks for JSONB querying; the API degrades gracefully when the connection is unavailable, which is why the StatefulSet is a plain single replica with a 5 Gi claim.
+
+**Verification status**: the manifests are validated statically by `tests/test_kubernetes_manifests.py` (structure, security context, probes, volume wiring, placeholder-only secrets). **They have not been applied to a live cluster** — no cluster or Docker runtime is available on the development workstation — so no runtime behaviour in Kubernetes is claimed here.
 
 ---
 
@@ -55,13 +85,29 @@ The repository includes an automated GitHub Actions pipeline defined in [`.githu
   1. **`test`**:
      - Sets up Python 3.12 on Ubuntu Linux.
      - Caches pip dependencies.
+     - Restores the DVC-tracked corpus (`dvc pull`) when the `DVC_REMOTE_URL` repository variable is configured.
      - Verifies chunk synthesis and vector indices integrity (`python -m src.chunking.build_chunks`).
-     - Executes the full 134-test regression suite (`pytest tests/ -v`).
+     - Executes the full regression suite (`pytest tests/ -v`), which includes the static Kubernetes manifest validation in `tests/test_kubernetes_manifests.py` and the corpus SHA-256 check in `tests/test_data_acquisition.py`.
      - Executes the Step 9 master evaluation suite (`python -m src.evaluation.run_step9_master_eval`).
      - Archives evaluation and benchmark reports as build artifacts for 14 days.
   2. **`docker-build`**:
-     - Runs upon successful completion of the test job.
-     - Validates that the Docker container builds cleanly without missing packages or layer errors.
+     - Runs upon successful completion of the test job, with `packages: write` permission.
+     - Builds, tags and **publishes** the image to GitHub Container Registry as `ghcr.io/<owner>/<repo>:sha-<short>`, plus `:latest` on the default branch.
+     - Pull requests only build the image (`push: false`), so fork builds cannot publish.
+
+### 3.1 Repository configuration required for a complete CI run
+
+| Name | Kind | Purpose |
+| :--- | :--- | :--- |
+| `DVC_REMOTE_URL` | Repository **variable** (`vars`) | Shared DVC remote holding the 10 PDFs, e.g. `s3://<bucket>/is-code-rag`. The committed remote is a local directory (`data/dvc_remote`), which does not exist on a runner. |
+| `DVC_AWS_ACCESS_KEY_ID`, `DVC_AWS_SECRET_ACCESS_KEY` | Repository **secrets** | Credentials for an S3-compatible remote, exported as `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`. Other backends need their own environment variables. |
+
+Two behaviours follow from this configuration:
+
+- **With `DVC_REMOTE_URL` set**, the job configures it as a local remote (`dvc remote add -d ci ... --local`, so the committed `.dvc/config` is untouched), pulls the corpus, and the integrity tests verify every file against the SHA-256 digests in `registry.json`. A partial or mismatched restore fails the build.
+- **Without it**, the pull step is skipped with a workflow notice, and the corpus checks report as **skipped with a reason** (`raw corpus not present in this checkout`). They never report as passed, so an unverified corpus cannot be mistaken for a verified one.
+
+> **Python version note**: CI and the container both run Python 3.12, while the development virtual environment is Python 3.14. They are not interchangeable until the Linux wheels for `torch`/`sentence-transformers` are validated on 3.14, so a dependency that works locally can still fail the pipeline.
 
 ---
 
@@ -133,14 +179,9 @@ The following design parameters and heuristics are not specified on the referenc
 
 ## 7. Not implemented
 
-The following infrastructure, member types, standards, and automation features are not implemented in this repository:
-- other IS codes
-- columns
-- slabs
-- footings
-- DWG
-- amendment tracking
-- incremental updates
-- doubly reinforced and T-beams
-- the LLM not connected to the sizing flow
-- retrieval not used by the sizing code
+The following infrastructure, member types, and automation features are not implemented in this repository:
+- DWG (drawings are exported as DXF only)
+- amendment tracking (no amendment or revision records for standards or designs)
+- incremental updates (the corpus and vector index are rebuilt, not incrementally refreshed)
+- doubly reinforced and T-beams (singly reinforced rectangular beams only)
+- live Kubernetes cluster verification (the manifests in `k8s/` are provided and statically validated, but have not been applied to a running cluster)

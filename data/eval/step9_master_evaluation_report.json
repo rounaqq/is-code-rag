@@ -1,16 +1,16 @@
 {
-  "evaluation_timestamp": "2026-10-24T10:24:45Z",
+  "evaluation_timestamp": "2026-10-28T07:26:34Z",
   "step": 9,
   "title": "Step 9 Master Evaluation Report: IS 456 Structural RAG & 2D CAD Generation",
   "overall_status": "PASSED",
-  "total_duration_seconds": 92.54,
+  "total_duration_seconds": 255.36,
   "disclaimer": "These results are not an independent validation. A structural engineer must review the designs.",
   "pillar_1_retrieval_quality": {
     "total_questions": 19,
     "hit_at_1_pct": 84.21,
     "hit_at_3_pct": 100.0,
     "mean_reciprocal_rank": 0.9123,
-    "avg_latency_ms": 2656.62,
+    "avg_latency_ms": 3104.31,
     "status": "PASSED"
   },
   "pillar_2_hand_calculation_cross_checks": {
@@ -35,7 +35,7 @@
     "pass_rate_pct": 100.0,
     "dxf_exports_verified": 5,
     "arithmetic_recheck_from_json_tables_all_passed": true,
-    "avg_latency_ms": 9.24,
+    "avg_latency_ms": 26.44,
     "status": "PASSED"
   },
   "pillar_4_faithfulness_and_citations": {
@@ -43,6 +43,48 @@
     "all_disclaimers_present": true,
     "citation_validity_pct": 100.0,
     "status": "PASSED"
+  },
+  "pillar_5_ragas_style_proxy_metrics": {
+    "framing": "RAGAS-style offline proxy metrics: these are rule-based proxies for the RAGAS metric definitions (faithfulness, answer relevancy, context relevancy), NOT the RAGAS library. No `ragas`/`trulens` package is installed or imported and no network access is used. Claim grounding is rule-based and relevancy is an embedding proxy.",
+    "retrieval_metrics": {
+      "k": 5,
+      "per_code": {
+        "IS 456:2000": {
+          "num_queries": 19,
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.9123
+        }
+      },
+      "multi_code_set": {
+        "num_queries": 19,
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "mrr": 0.9123
+      }
+    },
+    "faithfulness_clause_answers": 1.0,
+    "faithfulness_design_templated": 0.9556,
+    "faithfulness_design_templated_note": "Templated (code-written) faithfulness: the same deterministic code that produced the design numbers also grounds them, so this figure is PARTLY CIRCULAR and is expected to be high.",
+    "faithfulness_design_model_written": "UNAVAILABLE - LLM endpoint unavailable (RuntimeError)",
+    "context_relevancy": 0.6356,
+    "answer_relevancy": 0.7864,
+    "is_compliance_accuracy": {
+      "status": "PENDING",
+      "value": null,
+      "reason": "IS-compliance accuracy requires a source independent of this repository (a published worked example or a licensed engineer's verdict). It is intentionally left PENDING rather than scored."
+    },
+    "status": "PASSED",
+    "note": "Rule-based proxies, NOT the RAGAS library. Only the label-based retrieval recall@k gates this pillar; the faithfulness/relevancy proxies are reported for information and are partly circular."
+  },
+  "pillar_6_independent_engineer_review": {
+    "pillar": "independent_engineer_review",
+    "status": "PENDING - not evaluated",
+    "counts_toward_pass": false,
+    "record_present": false,
+    "package_path": "data\\eval\\independent_review_package.json",
+    "record_path": "data\\eval\\independent_review_record.json",
+    "reason": "No independent review record present. Scripts and tests never create a record or a reviewer, so this pillar remains PENDING until a genuine reviewer supplies one."
   },
   "detailed_reports": {
     "retrieval": {
@@ -52,7 +94,7 @@
       "hit_at_3_count": 19,
       "hit_at_3_pct": 100.0,
       "mean_reciprocal_rank": 0.9123,
-      "avg_retrieval_latency_ms": 2656.62,
+      "avg_retrieval_latency_ms": 3104.31,
       "questions": [
         {
           "index": 1,
@@ -62,7 +104,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 9442.0,
+          "latency_ms": 10430.3,
           "top_retrieved": [
             {
               "rank": 1,
@@ -89,7 +131,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1864.6,
+          "latency_ms": 2499.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -116,7 +158,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1706.1,
+          "latency_ms": 2488.5,
           "top_retrieved": [
             {
               "rank": 1,
@@ -143,7 +185,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1905.0,
+          "latency_ms": 2392.1,
           "top_retrieved": [
             {
               "rank": 1,
@@ -170,7 +212,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2021.8,
+          "latency_ms": 2943.0,
           "top_retrieved": [
             {
               "rank": 1,
@@ -197,7 +239,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2047.1,
+          "latency_ms": 2464.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -224,7 +266,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2001.8,
+          "latency_ms": 2462.0,
           "top_retrieved": [
             {
               "rank": 1,
@@ -251,7 +293,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2085.0,
+          "latency_ms": 2923.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -278,7 +320,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2084.7,
+          "latency_ms": 2445.9,
           "top_retrieved": [
             {
               "rank": 1,
@@ -305,7 +347,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1741.6,
+          "latency_ms": 2053.3,
           "top_retrieved": [
             {
               "rank": 1,
@@ -332,7 +374,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 4043.6,
+          "latency_ms": 4769.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -359,7 +401,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 4425.6,
+          "latency_ms": 5109.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -386,7 +428,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1155.1,
+          "latency_ms": 1296.7,
           "top_retrieved": [
             {
               "rank": 1,
@@ -413,7 +455,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.3333,
-          "latency_ms": 1185.9,
+          "latency_ms": 1389.2,
           "top_retrieved": [
             {
               "rank": 1,
@@ -440,7 +482,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1205.9,
+          "latency_ms": 1795.4,
           "top_retrieved": [
             {
               "rank": 1,
@@ -467,7 +509,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2066.2,
+          "latency_ms": 2034.8,
           "top_retrieved": [
             {
               "rank": 1,
@@ -494,7 +536,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.5,
-          "latency_ms": 4278.5,
+          "latency_ms": 4868.7,
           "top_retrieved": [
             {
               "rank": 1,
@@ -521,7 +563,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2879.9,
+          "latency_ms": 2291.7,
           "top_retrieved": [
             {
               "rank": 1,
@@ -548,7 +590,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.5,
-          "latency_ms": 2335.6,
+          "latency_ms": 2323.2,
           "top_retrieved": [
             {
               "rank": 1,
@@ -570,7 +612,7 @@
       ]
     },
     "sp16_handbook": {
-      "timestamp": "2026-10-24T10:24:23Z",
+      "timestamp": "2026-10-28T07:23:33Z",
       "pillar_name": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
       "source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
       "handbook_source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
@@ -702,7 +744,7 @@
       ]
     },
     "structural_design": {
-      "evaluation_timestamp": "2026-10-24T10:24:24Z",
+      "evaluation_timestamp": "2026-10-28T07:23:34Z",
       "total_scenarios": 5,
       "scenarios_passed": 5,
       "scenario_pass_rate_pct": 100.0,
@@ -710,7 +752,7 @@
       "total_checks_passed": 35,
       "self_consistency_checks_passed": "35/35",
       "dxf_exports_verified": 5,
-      "avg_latency_ms": 9.24,
+      "avg_latency_ms": 26.44,
       "stirrups_designed_count": 5,
       "minimum_shear_steel_count": 0,
       "shear_spacing_violations": [],
@@ -737,7 +779,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 25.75,
+          "latency_ms": 56.02,
           "independent_shear": {
             "tau_v": 0.755,
             "tau_c": 0.56,
@@ -782,7 +824,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 5.58,
+          "latency_ms": 33.66,
           "independent_shear": {
             "tau_v": 0.937,
             "tau_c": 0.57,
@@ -827,7 +869,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 4.71,
+          "latency_ms": 14.94,
           "independent_shear": {
             "tau_v": 1.12,
             "tau_c": 0.59,
@@ -872,7 +914,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 4.85,
+          "latency_ms": 11.64,
           "independent_shear": {
             "tau_v": 0.767,
             "tau_c": 0.57,
@@ -917,7 +959,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 5.28,
+          "latency_ms": 15.95,
           "independent_shear": {
             "tau_v": 1.143,
             "tau_c": 0.67,
@@ -1427,6 +1469,335 @@
           "status": "PASSED"
         }
       ]
+    },
+    "ragas_style_proxy_metrics": {
+      "evaluation_timestamp": "2026-10-28T07:26:34Z",
+      "step": 9,
+      "title": "Step 9 (extension): RAGAS-style Offline Proxy Metrics",
+      "framing": "RAGAS-style offline proxy metrics: these are rule-based proxies for the RAGAS metric definitions (faithfulness, answer relevancy, context relevancy), NOT the RAGAS library. No `ragas`/`trulens` package is installed or imported and no network access is used. Claim grounding is rule-based and relevancy is an embedding proxy.",
+      "retrieval_metrics": {
+        "k": 5,
+        "per_code": {
+          "IS 456:2000": {
+            "num_queries": 19,
+            "precision_at_k": 0.2,
+            "recall_at_k": 1.0,
+            "mrr": 0.9123
+          }
+        },
+        "multi_code_set": {
+          "num_queries": 19,
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.9123
+        }
+      },
+      "faithfulness": {
+        "clause_answers": {
+          "mode": "clause",
+          "answer_type": "extractive (retrieval-only pipeline)",
+          "mean_score": 1.0,
+          "num_questions": 19,
+          "note": "Clause-answer faithfulness checks that every number, identifier and clause reference in the answer appears in the retrieved chunks. The pipeline is retrieval-only (no generative clause answering), so the answer evaluated here is extractive (the retrieved chunk text itself) and is grounded by construction - this figure is reported for completeness and is partly circular.",
+          "per_question": [
+            {
+              "question": "minimum tension reinforcement in a beam",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 6,
+              "total_claims": 6,
+              "unsupported_claims": []
+            },
+            {
+              "question": "maximum tension reinforcement in a beam",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 7,
+              "total_claims": 7,
+              "unsupported_claims": []
+            },
+            {
+              "question": "maximum compression reinforcement in a beam",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 11,
+              "total_claims": 11,
+              "unsupported_claims": []
+            },
+            {
+              "question": "side face reinforcement when web depth exceeds 750 mm",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 11,
+              "total_claims": 11,
+              "unsupported_claims": []
+            },
+            {
+              "question": "transverse reinforcement around outer-most tension and compression bars",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 9,
+              "total_claims": 9,
+              "unsupported_claims": []
+            },
+            {
+              "question": "maximum spacing of vertical stirrups",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 10,
+              "total_claims": 10,
+              "unsupported_claims": []
+            },
+            {
+              "question": "minimum shear reinforcement formula for stirrups",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 13,
+              "total_claims": 13,
+              "unsupported_claims": []
+            },
+            {
+              "question": "spacing of closed stirrups for torsion",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 13,
+              "total_claims": 13,
+              "unsupported_claims": []
+            },
+            {
+              "question": "reinforcement in flanges of T-beams",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 4,
+              "total_claims": 4,
+              "unsupported_claims": []
+            },
+            {
+              "question": "nominal cover for moderate exposure",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 21,
+              "total_claims": 21,
+              "unsupported_claims": []
+            },
+            {
+              "question": "design shear strength of concrete M25",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 130,
+              "total_claims": 130,
+              "unsupported_claims": []
+            },
+            {
+              "question": "maximum shear stress for M25 concrete",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 130,
+              "total_claims": 130,
+              "unsupported_claims": []
+            },
+            {
+              "question": "limiting neutral axis depth for Fe500",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 14,
+              "total_claims": 14,
+              "unsupported_claims": []
+            },
+            {
+              "question": "moment of resistance of a rectangular section without compression steel",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 17,
+              "total_claims": 17,
+              "unsupported_claims": []
+            },
+            {
+              "question": "limiting moment of resistance of a rectangular beam",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 15,
+              "total_claims": 15,
+              "unsupported_claims": []
+            },
+            {
+              "question": "nominal shear stress in a beam",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 6,
+              "total_claims": 6,
+              "unsupported_claims": []
+            },
+            {
+              "question": "shear to be carried by stirrups when nominal shear stress exceeds design shear strength of concrete",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 7,
+              "total_claims": 7,
+              "unsupported_claims": []
+            },
+            {
+              "question": "strength of vertical stirrups",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 10,
+              "total_claims": 10,
+              "unsupported_claims": []
+            },
+            {
+              "question": "nominal shear stress must not exceed maximum even with shear reinforcement",
+              "answer_type": "extractive (retrieved chunk text)",
+              "score": 1.0,
+              "supported_claims": 9,
+              "total_claims": 9,
+              "unsupported_claims": []
+            }
+          ]
+        },
+        "design_explanations": {
+          "templated": {
+            "answer_type": "templated (code-written)",
+            "mean_score": 0.9556,
+            "num_scenarios": 5,
+            "note": "Templated (code-written) faithfulness: the same deterministic code that produced the design numbers also grounds them, so this figure is PARTLY CIRCULAR and is expected to be high.",
+            "per_scenario": [
+              {
+                "scenario_id": "SCEN-01",
+                "score": 0.9556,
+                "supported_claims": 43,
+                "total_claims": 45,
+                "unsupported_claims": [
+                  {
+                    "type": "clause_ref",
+                    "value": "Cl. 36.4.1"
+                  },
+                  {
+                    "type": "clause_ref",
+                    "value": "Table 18"
+                  }
+                ],
+                "num_contexts": 10
+              },
+              {
+                "scenario_id": "SCEN-02",
+                "score": 0.9556,
+                "supported_claims": 43,
+                "total_claims": 45,
+                "unsupported_claims": [
+                  {
+                    "type": "clause_ref",
+                    "value": "Cl. 36.4.1"
+                  },
+                  {
+                    "type": "clause_ref",
+                    "value": "Table 18"
+                  }
+                ],
+                "num_contexts": 10
+              },
+              {
+                "scenario_id": "SCEN-03",
+                "score": 0.9556,
+                "supported_claims": 43,
+                "total_claims": 45,
+                "unsupported_claims": [
+                  {
+                    "type": "clause_ref",
+                    "value": "Cl. 36.4.1"
+                  },
+                  {
+                    "type": "clause_ref",
+                    "value": "Table 18"
+                  }
+                ],
+                "num_contexts": 10
+              },
+              {
+                "scenario_id": "SCEN-04",
+                "score": 0.9556,
+                "supported_claims": 43,
+                "total_claims": 45,
+                "unsupported_claims": [
+                  {
+                    "type": "clause_ref",
+                    "value": "Cl. 36.4.1"
+                  },
+                  {
+                    "type": "clause_ref",
+                    "value": "Table 18"
+                  }
+                ],
+                "num_contexts": 10
+              },
+              {
+                "scenario_id": "SCEN-05",
+                "score": 0.9556,
+                "supported_claims": 43,
+                "total_claims": 45,
+                "unsupported_claims": [
+                  {
+                    "type": "clause_ref",
+                    "value": "Cl. 36.4.1"
+                  },
+                  {
+                    "type": "clause_ref",
+                    "value": "Table 18"
+                  }
+                ],
+                "num_contexts": 10
+              }
+            ]
+          },
+          "model_written": {
+            "answer_type": "model-written",
+            "status": "UNAVAILABLE - LLM endpoint unavailable (RuntimeError)",
+            "mean_score": null,
+            "num_scenarios": 0,
+            "per_scenario": []
+          }
+        }
+      },
+      "context_relevancy": {
+        "mean_score": 0.6356,
+        "proxy": "embedding cosine (BAAI/bge-small-en-v1.5) - secondary proxy"
+      },
+      "answer_relevancy": {
+        "mean_score": 0.7864,
+        "proxy": "embedding cosine (BAAI/bge-small-en-v1.5) - secondary proxy"
+      },
+      "relevancy_per_scenario": [
+        {
+          "scenario_id": "SCEN-01",
+          "context_relevancy": 0.6334,
+          "answer_relevancy": 0.7851
+        },
+        {
+          "scenario_id": "SCEN-02",
+          "context_relevancy": 0.6341,
+          "answer_relevancy": 0.7885
+        },
+        {
+          "scenario_id": "SCEN-03",
+          "context_relevancy": 0.6395,
+          "answer_relevancy": 0.7907
+        },
+        {
+          "scenario_id": "SCEN-04",
+          "context_relevancy": 0.6415,
+          "answer_relevancy": 0.7884
+        },
+        {
+          "scenario_id": "SCEN-05",
+          "context_relevancy": 0.6296,
+          "answer_relevancy": 0.7792
+        }
+      ],
+      "is_compliance_accuracy": {
+        "status": "PENDING",
+        "value": null,
+        "reason": "IS-compliance accuracy requires a source independent of this repository (a published worked example or a licensed engineer's verdict). It is intentionally left PENDING rather than scored."
+      },
+      "disclaimer": "These are rule-based offline proxies, not the RAGAS library and not an independent validation. A structural engineer must review the designs."
     }
   }
 }
