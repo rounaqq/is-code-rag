@@ -16,11 +16,15 @@ from ezdxf import colors
 
 def export_column_dxf(
     design: Dict[str, Any],
-    output_path: str,
+    output_path: Optional[str] = None,
+    output_filename: Optional[str] = None,
+    **kwargs: Any,
 ) -> Dict[str, Any]:
     """
     Exports a 2D AutoCAD DXF drawing for an IS 456 RC Column design.
+    Supports either output_path or output_filename keyword arguments.
     """
+    dest_path = output_path or output_filename or kwargs.get("filepath") or "column_design.dxf"
     b = float(design.get("width_mm", 400))
     D = float(design.get("depth_mm", 400))
     L = float(design.get("length_m", 3.0)) * 1000.0  # mm
@@ -225,7 +229,7 @@ def export_column_dxf(
     # =========================================================================
     tb_x = 0
     tb_y = -350.0
-    tb_w = elev_x + elev_width + 120.0
+    tb_w = max(1200.0, elev_x + elev_width + 120.0)
     tb_h = 160.0
 
     msp.add_lwpolyline(
@@ -243,7 +247,7 @@ def export_column_dxf(
     msp.add_text(mat_note, dxfattribs={"layer": "TITLE_BLOCK", "height": 16}).set_placement((tb_x + 20, tb_y + 60))
     msp.add_text(approval_status, dxfattribs={"layer": "TITLE_BLOCK", "height": 18}).set_placement((tb_x + 20, tb_y + 25))
 
-    out_file = Path(output_path)
+    out_file = Path(dest_path)
     out_file.parent.mkdir(parents=True, exist_ok=True)
     doc.saveas(str(out_file))
 

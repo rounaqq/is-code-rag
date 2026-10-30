@@ -47,10 +47,12 @@ def is_text_corrupt_or_empty(text: str) -> bool:
 def extract_page_text_with_ocr_fallback(
     page: pymupdf.Page,
     tessdata_path: Optional[Path] = None,
-    dpi: int = 200,
+    dpi: int = 150,
+    code_id: str = "",
 ) -> Tuple[str, str]:
     """
     Extracts text from PDF page. If native text is corrupt or empty, runs OCR.
+    Applies layout-aware two-column extraction to prevent cross-column text interleaving.
     Returns: (extracted_text, method: 'direct' | 'ocr')
     """
     raw_text = page.get_text()
@@ -62,12 +64,36 @@ def extract_page_text_with_ocr_fallback(
         tessdata_path = TESSDATA_DIR
 
     try:
-        textpage = page.get_textpage_ocr(
-            tessdata=str(tessdata_path),
-            dpi=dpi,
-            language="eng",
-        )
-        ocr_text = textpage.extractText()
+        width = page.rect.width
+        height = page.rect.height
+
+        # For pages with two-column technical layouts:
+        # In IS 1893: Section 1 starts on Page 3 (page.number >= 2)
+        # In IS 13920: Section 1 starts on Page 5 (page.number >= 4)
+        min_page_for_2col = 2 if "1893" in code_id else 4
+        if page.number >= min_page_for_2col and width > 400:
+            mid = width / 2.0
+            left_clip = pymupdf.Rect(25, 35, mid, height - 35)
+            right_clip = pymupdf.Rect(mid, 35, width - 25, height - 35)
+            col_texts = []
+            for clip in [left_clip, right_clip]:
+                pix = page.get_pixmap(clip=clip, dpi=dpi)
+                temp_doc = pymupdf.open()
+                temp_page = temp_doc.new_page(width=pix.width, height=pix.height)
+                temp_page.insert_image(temp_page.rect, pixmap=pix)
+                tp = temp_page.get_textpage_ocr(tessdata=str(tessdata_path), dpi=dpi, language="eng")
+                txt = tp.extractText()
+                if txt and txt.strip():
+                    col_texts.append(txt.strip())
+            ocr_text = "\n\n".join(col_texts)
+        else:
+            textpage = page.get_textpage_ocr(
+                tessdata=str(tessdata_path),
+                dpi=dpi,
+                language="eng",
+            )
+            ocr_text = textpage.extractText()
+
         if ocr_text and len(ocr_text.strip()) > 30:
             return ocr_text, "ocr"
     except Exception as e:
@@ -83,14 +109,15 @@ def parse_clauses_from_text(
 ) -> List[Dict[str, Any]]:
     """
     Extracts numbered clauses and subclauses from preprocessed standard text.
-    Matches patterns like '5.1', '6.2.1', '7.4.2' followed by title and content.
+    Matches patterns like '5.1', '6.2.1', '7.4.2', '6.2.6.1' followed by title and content.
+    Prevents formulas (e.g. '0.75 times breadth') from being misclassified as clause numbers.
     """
     lines = full_text.splitlines()
     clauses: List[Dict[str, Any]] = []
     current_clause: Optional[Dict[str, Any]] = None
 
-    # Matches: 5.1, 6.2, 7.6.1, etc. at start of line
-    clause_pattern = re.compile(r"^(\d+\.\d+(?:\.\d+)?)\s*(.*)")
+    # Matches genuine clauses starting with digit 1-9 (e.g. 5.1, 6.2.3, 6.2.6.1), not decimals like 0.75
+    clause_pattern = re.compile(r"^([1-9]\d*(?:\.\d+)+)\s*(.*)")
 
     for line in lines:
         stripped = line.strip()
@@ -98,10 +125,16 @@ def parse_clauses_from_text(
             continue
 
         match = clause_pattern.match(stripped)
+        # Verify it's a clause heading, not a formula or table row
+        is_heading = False
         if match:
             c_num = match.group(1)
             c_heading = match.group(2).strip()
+            # Ensure not ending with operator or part of an equation
+            if not any(c_heading.startswith(op) for op in ["=", "+", "-", "/", "*", "<", ">", "x"]):
+                is_heading = True
 
+        if is_heading:
             if current_clause:
                 current_clause["content"] = "\n".join(current_clause["content_lines"]).strip()
                 del current_clause["content_lines"]
@@ -155,7 +188,7 @@ def preprocess_pdf_document(
 
     for page_idx in range(total_pages):
         page = doc[page_idx]
-        text, method = extract_page_text_with_ocr_fallback(page, tessdata_path=tessdata_path)
+        text, method = extract_page_text_with_ocr_fallback(page, tessdata_path=tessdata_path, code_id=code_id)
         if method == "ocr":
             ocr_pages_count += 1
         else:

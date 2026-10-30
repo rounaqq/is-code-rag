@@ -165,11 +165,28 @@ The following parameters and heuristics are not specified on the referenced IS 4
 
 ---
 
-## 8. Not implemented
+## 9. Frontend Maintenance & Build Workflows
 
-The following maintenance capabilities, automation workflows, member types, and structural components are not implemented in this repository:
-- DWG (drawings are exported as DXF only)
-- amendment tracking (no amendment or revision records for standards or designs)
-- incremental updates (the corpus and vector index are rebuilt, not incrementally refreshed)
-- doubly reinforced and T-beams (singly reinforced rectangular beams only)
-- live Kubernetes cluster verification (the manifests in `k8s/` are provided and statically validated, but have not been applied to a running cluster)
+The web UI resides in `frontend/` (React 19, TypeScript, Vite, Tailwind CSS).
+
+### 9.1 Local Development Server
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+- Served at `http://localhost:5173`.
+- `vite.config.ts` reverse-proxies `/v1/*` and `/health` requests to `http://127.0.0.1:8000`.
+
+### 9.2 Production Build Verification
+To verify TypeScript compilation and bundle production assets:
+```powershell
+cd frontend
+npm run build
+```
+- Executes `tsc -b && vite build`.
+- Outputs static assets to `frontend/dist/`.
+
+### 9.3 Client-Side API Key Storage
+The UI stores user API keys in browser `localStorage` (`is_rag_api_key`) or reads `VITE_IS_RAG_API_KEY` from the environment. No secret credentials are hardcoded in the frontend bundle.
+

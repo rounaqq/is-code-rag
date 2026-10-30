@@ -13,7 +13,8 @@ from typing import List, Dict, Any, Optional
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Request, Depends, status
-from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, RedirectResponse, FileResponse
 from pydantic import BaseModel, Field
 
 from src.retrieval.pipeline import retrieve
@@ -72,8 +73,14 @@ def verify_api_key(x_api_key: Optional[str] = Header(None, alias="X-API-Key")) -
     if not x_api_key:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
 
+    token = x_api_key.strip()
+    if ":" in token:
+        token = token.split(":")[-1].strip()
+    if token.lower().startswith("bearer "):
+        token = token[7:].strip()
+
     key_map = get_api_keys()
-    key_name = key_map.get(x_api_key.strip())
+    key_name = key_map.get(token)
     if not key_name:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
 
@@ -130,6 +137,15 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# Enable CORS for React + Vite development server
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -152,6 +168,12 @@ class QueryResponse(BaseModel):
     query: str
     results: List[Dict[str, Any]]
     note: str = "ranking scores are not probabilities"
+
+
+@app.get("/", include_in_schema=False)
+def root_redirect():
+    """Redirects base URL directly to interactive Swagger API documentation."""
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
@@ -344,6 +366,7 @@ def design_review_endpoint(req: DesignReviewRequest, key_name: str = Depends(ver
     return {
         "status": "success",
         "design": current_design,
+        "design_dict": current_design,
         "review_report": review_report,
     }
 
@@ -788,6 +811,31 @@ def design_footing_dxf_endpoint(req: FootingDxfRequest, key_name: str = Depends(
     }
 
 
+@app.get("/v1/cad/download/{filename}")
+def download_cad_file(filename: str):
+    """
+    Direct 2D CAD DXF file download endpoint for the web frontend.
+    Safely retrieves generated DXF files from data/processed/cad/ or the root workspace.
+    """
+    safe_name = Path(filename).name
+    project_root = Path(__file__).resolve().parent.parent.parent
+    candidates = [
+        project_root / "data" / "processed" / "cad" / safe_name,
+        Path("data/processed/cad") / safe_name,
+        project_root / safe_name,
+        Path(safe_name),
+    ]
+    for p in candidates:
+        if p.exists() and p.is_file() and p.suffix.lower() == ".dxf":
+            return FileResponse(
+                path=str(p),
+                filename=safe_name,
+                media_type="application/dxf",
+            )
+    raise HTTPException(status_code=404, detail=f"CAD drawing '{safe_name}' not found.")
+
+
+
 class MultiCodeQueryRequest(BaseModel):
     query: str = Field(..., min_length=3, description="Search query across structural standards")
     code: Optional[str] = Field(None, description="Optional standard filter: 'IS 456', 'IS 13920', or 'IS 875'")
@@ -934,6 +982,100 @@ def seismic_base_shear_endpoint(req: SeismicBaseShearRequest, key_name: str = De
         status_code=200,
     )
     return res
+
+
+@app.get("/v1/audit/summary")
+def get_audit_summary(limit: int = 200) -> Dict[str, Any]:
+    """
+    Step 10 Production Observability Endpoint:
+    Aggregates request latencies, status codes, query volumes, and top-retrieved clauses
+    from data/audit/audit.jsonl.
+    """
+    if not AUDIT_LOG_FILE.exists():
+        return {
+            "status": "empty",
+            "message": "No audit records found yet.",
+            "total_queries_logged": 0,
+        }
+
+    records = []
+    try:
+        with open(AUDIT_LOG_FILE, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    try:
+                        records.append(json.loads(line.strip()))
+                    except Exception:
+                        continue
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to read audit log: {e}")
+
+    if not records:
+        return {
+            "status": "empty",
+            "total_queries_logged": 0,
+        }
+
+    total_count = len(records)
+    latencies = [float(r["latency_ms"]) for r in records if "latency_ms" in r and r["latency_ms"] is not None]
+
+    # Calculate statistics
+    avg_latency = round(sum(latencies) / len(latencies), 2) if latencies else 0.0
+    sorted_lat = sorted(latencies)
+    p50 = round(sorted_lat[len(sorted_lat) // 2], 2) if sorted_lat else 0.0
+    p95_idx = int(0.95 * len(sorted_lat))
+    p95 = round(sorted_lat[min(p95_idx, len(sorted_lat) - 1)], 2) if sorted_lat else 0.0
+    min_lat = round(sorted_lat[0], 2) if sorted_lat else 0.0
+    max_lat = round(sorted_lat[-1], 2) if sorted_lat else 0.0
+
+    # Status codes
+    status_codes: Dict[str, int] = {}
+    for r in records:
+        sc = str(r.get("status_code", 200))
+        status_codes[sc] = status_codes.get(sc, 0) + 1
+
+    # Clause frequencies
+    clause_counts: Dict[str, int] = {}
+    for r in records:
+        for cid in r.get("returned_chunk_ids", []):
+            clause_counts[cid] = clause_counts.get(cid, 0) + 1
+
+    top_clauses = [
+        {"clause_id": cid, "retrieval_count": cnt}
+        for cid, cnt in sorted(clause_counts.items(), key=lambda x: x[1], reverse=True)[:10]
+    ]
+
+    # Unique callers
+    callers = sorted(list({r.get("key_name", "anonymous") for r in records if r.get("key_name")}))
+
+    # Recent queries (last 5)
+    recent = []
+    for r in records[-5:]:
+        recent.append({
+            "timestamp": r.get("timestamp"),
+            "key_name": r.get("key_name"),
+            "query": r.get("query"),
+            "latency_ms": r.get("latency_ms"),
+            "status_code": r.get("status_code"),
+            "top_clause": r.get("returned_chunk_ids", [None])[0] if r.get("returned_chunk_ids") else None,
+        })
+
+    return {
+        "status": "healthy",
+        "total_queries_logged": total_count,
+        "latency_statistics_ms": {
+            "average": avg_latency,
+            "median_p50": p50,
+            "p95": p95,
+            "min": min_lat,
+            "max": max_lat,
+        },
+        "status_code_distribution": status_codes,
+        "top_retrieved_clauses": top_clauses,
+        "unique_authorized_keys": callers,
+        "recent_queries": recent,
+    }
+
 
 
 

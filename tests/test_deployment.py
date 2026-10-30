@@ -142,3 +142,25 @@ def test_ci_restores_the_corpus_before_the_test_suite():
     assert "DVC_REMOTE_URL" in pull_step.get("env", {}), (
         "the pull step must take the remote URL from configuration, not from a local path"
     )
+
+
+def test_periodic_maintenance_pipeline():
+    """Validates the automated maintenance update pipeline script."""
+    from src.maintenance.update_pipeline import check_corpus_integrity, run_pipeline_update
+
+    res = run_pipeline_update(dry_run=True)
+    assert res["status"] == "success"
+    assert res["dry_run"] is True
+    assert "integrity" in res
+    assert res["integrity"]["valid_count"] > 0
+
+
+def test_kubernetes_cronjob_manifest():
+    """Validates that k8s/07-periodic-update-cronjob.yaml is a valid CronJob manifest."""
+    cron_path = Path("k8s") / "07-periodic-update-cronjob.yaml"
+    assert cron_path.exists(), "k8s/07-periodic-update-cronjob.yaml must exist"
+    data = yaml.safe_load(cron_path.read_text(encoding="utf-8"))
+    assert data["kind"] == "CronJob"
+    assert data["metadata"]["name"] == "is-rag-periodic-update"
+    assert "schedule" in data["spec"]
+

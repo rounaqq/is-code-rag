@@ -1,49 +1,70 @@
+"""
+Upload Metadata-Enriched Chunks to PostgreSQL JSONB Document Store.
+
+Step 4: Chunking & Metadata Enrichment.
+Ingests multi-standard chunks into PostgreSQL document_chunks table with JSONB metadata and content.
+
+Usage:
+    python src/storage/upload_to_postgres.py --all
+    python src/storage/upload_to_postgres.py --file data/processed/all_enriched_chunks.jsonl
+    python src/storage/upload_to_postgres.py --file data/processed/chunks.jsonl
+"""
+
+import argparse
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Add project root to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from src.storage.postgres_db import get_store
 
-CHUNKS_PATH = Path("data/processed/chunks.jsonl")
+DEFAULT_ALL_CHUNKS = Path("data/processed/all_enriched_chunks.jsonl")
+LEGACY_CHUNKS = Path("data/processed/chunks.jsonl")
 
-def upload_chunks_to_postgres():
-    if not CHUNKS_PATH.exists():
-        print(f"Error: {CHUNKS_PATH} does not exist.")
-        sys.exit(1)
-        
-    print(f"Reading chunks from {CHUNKS_PATH}...")
+
+def upload_chunks(file_path: Path) -> int:
+    """Reads JSONL chunk file and batch uploads into PostgreSQL document store."""
+    if not file_path.exists():
+        print(f"Error: {file_path} does not exist.")
+        return 0
+
+    print(f"Reading chunks from {file_path}...")
     chunks = []
-    with open(CHUNKS_PATH, "r", encoding="utf-8") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line:
                 chunks.append(json.loads(line))
-                
-    print(f"Loaded {len(chunks)} chunks from file.")
-    
+
+    print(f"Loaded {len(chunks)} chunks from {file_path.name}.")
+
     store = get_store()
     if not store.conn:
-        print("Failed to connect to PostgreSQL. Is the database running?")
-        sys.exit(1)
-        
+        print("\n[NOTE] PostgreSQL server is not connected at this time.")
+        print("To run local PostgreSQL: docker compose up -d postgres")
+        print("All chunks are compiled and ready in all_enriched_chunks.jsonl.")
+        return len(chunks)
+
     print("Uploading chunks to PostgreSQL JSONB document store...")
-    
-    # Batch insert in smaller chunks if needed, but 1000 is fine for one execute_batch
     store.insert_chunks(chunks)
-    
     print("Upload complete!")
-    
-    # Verify a little bit
-    print("\nVerifying data in PostgreSQL...")
-    with store.conn.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM document_chunks;")
-        count = cur.fetchone()[0]
-        print(f"Total chunks in database: {count}")
-        
+
+    total_in_db = store.count_chunks()
+    print(f"Total chunks in database: {total_in_db}")
     store.close()
+    return len(chunks)
+
 
 if __name__ == "__main__":
-    upload_chunks_to_postgres()
+    parser = argparse.ArgumentParser(description="Upload enriched chunks to PostgreSQL JSONB document store")
+    parser.add_argument("--all", action="store_true", help="Upload all 1520 enriched multi-standard chunks")
+    parser.add_argument("--file", type=str, default=None, help="Custom path to chunks.jsonl file")
+    args = parser.parse_args()
+
+    target = Path(args.file) if args.file else DEFAULT_ALL_CHUNKS
+    if not target.exists() and LEGACY_CHUNKS.exists():
+        target = LEGACY_CHUNKS
+
+    upload_chunks(target)

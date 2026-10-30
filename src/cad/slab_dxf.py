@@ -318,12 +318,16 @@ def draw_slab_title_block(
 
 def export_slab_dxf(
     design: Dict[str, Any],
-    output_path: str = "slab_design.dxf",
+    output_path: Optional[str] = None,
+    output_filename: Optional[str] = None,
+    **kwargs: Any,
 ) -> Dict[str, Any]:
     """
     Exports complete AutoCAD DXF file for a designed RC slab.
+    Supports either output_path or output_filename keyword arguments.
     """
-    out_file = Path(output_path)
+    dest_path = output_path or output_filename or kwargs.get("filepath") or "slab_design.dxf"
+    out_file = Path(dest_path)
     out_file.parent.mkdir(parents=True, exist_ok=True)
 
     doc = ezdxf.new("R2010")
@@ -381,7 +385,7 @@ def export_slab_dxf(
         msp=msp,
         origin_x=tb_ox,
         origin_y=tb_oy,
-        width=1000.0,
+        width=1100.0,
         height=240.0,
         project_title="IS 456 RC SLAB REINFORCEMENT DESIGN",
         slab_details=summary_txt,

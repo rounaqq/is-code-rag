@@ -12,7 +12,8 @@ A Retrieval-Augmented Generation (RAG) pipeline and deterministic engineering en
 - **Deterministic Structural Engineering**: Beam, column, slab and footing sizing (Annex G flexure, Cl. 39/40 shear, Cl. 26.5.x detailing, Table 16 cover) is computed in Python from verified JSON tables. **Calculations are executed deterministically without LLM generation.**
 - **Seismic Design Checks**: IS 1893 (Part 1) base shear $V_B = A_h W$ and IS 13920 ductile detailing, applied where seismic provisions supersede IS 456 in Zones III–V.
 - **100% Top-3 Retrieval Recall**: Achieves **100.0% Hit@3 (19/19)** and **84.2% Hit@1 (16/19)** across the IS 456 beam design benchmark queries.
-- **Automated 2D CAD Generation**: Generates AutoCAD-compatible DXF files (`ezdxf`) for beams, columns, slabs and footings — sections, elevations, stirrup distributions, dimensions and title blocks. Every drawing is stamped **DRAFT - NOT FOR CONSTRUCTION** until a signed review record exists.
+- **Automated 2D CAD Generation**: Generates AutoCAD-compatible DXF files (`ezdxf`) for beams, columns, slabs and footings — sections, elevations, stirrup distributions, dimensions and standardized non-overlapping title blocks with automatic word-wrapped compliance notes. Every drawing is stamped **DRAFT - NOT FOR CONSTRUCTION** until a signed review record exists.
+- **Interactive Web Application**: A modern React 19 + TypeScript + Vite + Tailwind CSS frontend featuring a 4-member Design Studio, multi-standard IS Code Search, CAD Drawings layer specification guide, Engineer Review signoff portal, and an Observability telemetry dashboard.
 - **FastAPI Service**: Authenticated REST API (`X-API-Key`) with 14 endpoints covering retrieval, multi-code search, design review, DXF export, seismic compliance and base shear, plus audit logging to `data/audit/audit.jsonl`.
 - **Automated Tests**: 252 automated tests covering schemas, math functions, CAD generation, API endpoints, retrieval, evaluation and deployment manifests.
 
@@ -170,15 +171,35 @@ The design module (`src/generation/beam_sizing.py`) follows standard Limit State
 
 ## 2D CAD DXF Drawing Output
 
-The CAD module (`src/cad/beam_dxf.py`) automatically produces standard AutoCAD-compatible DXF drawings with distinct layers:
+The CAD drafting modules (`src/cad/`) produce production-grade AutoCAD-compatible DXF drawings (`ezdxf` R2010) across all four structural members (RC Beams, RC Columns, RC Slabs, and Isolated Footings):
 
-- **`OUTLINE` (White/Black)**: Concrete beam outline, support bearings.
-- **`REBAR_MAIN` (Red)**: Longitudinal tension reinforcement bars.
-- **`REBAR_TOP` (Green)**: Top hanger / compression bars.
-- **`STIRRUPS` (Cyan)**: 2-legged shear stirrup ties with exact spacing.
-- **`DIMENSIONS` (Yellow)**: Clear span, bearing width, beam depth, and cross-section width.
-- **`ANNOTATIONS` (Magenta)**: Rebar callouts (e.g., `4-T20 Bottom Bars`, `2L-T8 @ 280 c/c`).
-- **`TITLE_BLOCK` (Blue)**: Project metadata, scale, and general engineering notes.
+- **Layer Hierarchy**: Concrete outlines (`OUTLINE`), longitudinal tension rebar (`REBAR_MAIN` / Red), top hanger steel (`REBAR_TOP` / Green), closed ties & stirrups (`STIRRUPS` / Cyan), dimensions (`DIMENSIONS` / Yellow), annotations & callouts (`ANNOTATIONS` / Magenta), and title blocks (`TITLE_BLOCK` / Blue).
+- **Auto-Wrapped Compliance Notes**: Engineering clauses and execution notes in the notes table are word-wrapped at 88 characters with indented continuation lines, guaranteeing that text never overflows table borders.
+- **Dynamic Layout & Title Blocks**: Title blocks are positioned at the bottom-right corner of the sheet with a standard $\ge 1100\text{ mm}$ width, preventing box collisions.
+- **Statutory Safety Guardrail**: Every exported CAD file carries an indelible text entity stamped on layer `DRAFT_WATERMARK`:
+  `STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.`
+
+---
+
+## Interactive Frontend Web Application
+
+The frontend (`frontend/`) is built with React 19, TypeScript, Vite, and Tailwind CSS. It connects to the FastAPI backend via an Axios API service with client-side API key management:
+
+1. **Design Studio (`MemberStudio.tsx`)**:
+   - Interactive limit state sizing for **RC Beam**, **RC Column**, **RC Slab**, and **Isolated Footing**.
+   - Solves quadratic moment formulas, shear capacities, deflection ratios, and axial limits in real time.
+   - Live results cards displaying calculated bar counts, diameters, and spacing (e.g. `3 - T20 (942 mm²)`, `2L-T8 @ 130mm`).
+   - One-click **"Generate 2D CAD Blueprint (.DXF)"** and direct file download.
+2. **IS Code Search (`ISCodeSearch.tsx`)**:
+   - Semantic natural language and keyword search across 996 Qdrant chunks.
+   - Code filtering tabs for **ALL**, **IS 456**, **IS 13920**, **IS 1893**, **IS 875**, and **IS 800**.
+3. **CAD Drawings Viewer (`CADViewer.tsx`)**:
+   - AutoCAD layer hierarchy and AIA/CPWD standard reference guide.
+   - Explains statutory watermark rules and structural drafting standards across all member types.
+4. **Engineer Review (`ReviewSignoff.tsx`)**:
+   - Human-in-the-loop signoff portal allowing licensed engineers to review calculations, enter their statutory registration details, and stamp drawings as Reviewed.
+5. **Observability (`AuditDashboard.tsx`)**:
+   - Live system health telemetry, query latency metrics, and audit log event viewer.
 
 ---
 
@@ -225,12 +246,30 @@ Open another terminal to test the endpoints:
   Invoke-RestMethod -Uri "http://localhost:8000/v1/rag/query" -Method POST -Headers @{"X-API-Key"="FAKE_DEMO_KEY_FOR_LOCAL_TESTING_ONLY"; "Content-Type"="application/json"} -Body '{"query": "nominal shear stress in a beam", "k": 3}'
   ```
 
+### 6. Start the Interactive Frontend Web UI
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+Open your browser at **`http://localhost:5173`**:
+- Navigate to **Design Studio** to enter spans and loads, compute live reinforcement schedules, and download 2D CAD `.dxf` files.
+- Navigate to **IS Code Search** to test semantic clause lookups across Indian Standards.
+- Navigate to **Observability** to monitor live query latency and audit events.
+
 ---
 
 ## Directory Structure
 
 ```text
 IS-Code-Rag/
+├── frontend/                         # React 19 + TypeScript + Vite + Tailwind UI
+│   ├── src/
+│   │   ├── components/               # MemberStudio, ISCodeSearch, CADViewer, ReviewSignoff, AuditDashboard
+│   │   ├── services/                 # Axios API service & key management
+│   │   └── types/                    # TypeScript interfaces for design & RAG responses
+│   ├── package.json
+│   └── vite.config.ts
 ├── .github/workflows/ci.yml          # CI: test suite, corpus restore, image build & publish
 ├── k8s/                              # Kubernetes manifests (namespace, config, secret,
 │                                     # PostgreSQL StatefulSet, API Deployment/Service/PVCs)

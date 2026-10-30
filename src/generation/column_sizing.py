@@ -276,25 +276,20 @@ def size_column_from_load(
         b_mm = float(b_mm)
         D_mm = float(D_mm)
 
+    status = "success"
+    reason = None
+
     # 1. Slenderness check
     slenderness = check_slenderness(length_m, b_mm, D_mm, effective_length_ratio)
     if not slenderness["is_short"]:
-        return {
-            "status": "needs_review",
-            "reason": f"Column is slender (lambda_D={slenderness['lambda_D']}, lambda_b={slenderness['lambda_b']} >= 12). Requires second-order moment design (Cl. 39.7). Enlarge section.",
-            "section_dimensions": f"{int(b_mm)}x{int(D_mm)} mm",
-            "slenderness": slenderness,
-        }
+        status = "needs_review"
+        reason = f"Column is slender (lambda_D={slenderness['lambda_D']}, lambda_b={slenderness['lambda_b']} >= 12). Requires second-order moment design (Cl. 39.7). Enlarge section."
 
     # 2. Minimum eccentricity check
     eccentricity = check_minimum_eccentricity(length_m, b_mm, D_mm)
-    if not eccentricity["axial_formula_valid"]:
-        return {
-            "status": "needs_review",
-            "reason": f"Minimum eccentricity exceeds 0.05*D (emin_D={eccentricity['emin_D_mm']} > {eccentricity['limit_D_mm']} or emin_b={eccentricity['emin_b_mm']} > {eccentricity['limit_b_mm']}). Requires uniaxial/biaxial bending design (Cl. 39.5).",
-            "section_dimensions": f"{int(b_mm)}x{int(D_mm)} mm",
-            "eccentricity": eccentricity,
-        }
+    if not eccentricity["axial_formula_valid"] and status == "success":
+        status = "needs_review"
+        reason = f"Minimum eccentricity exceeds 0.05*D (emin_D={eccentricity['emin_D_mm']} > {eccentricity['limit_D_mm']} or emin_b={eccentricity['emin_b_mm']} > {eccentricity['limit_b_mm']}). Pure axial formula Cl. 39.3 requires emin <= 0.05*dimension. Increase section width b to >= 400 mm, or verify under combined bending (Cl. 39.5)."
 
     # 3. Required steel calculation
     steel_calc = calculate_required_steel(Pu_kN, b_mm, D_mm, fck, fy)
@@ -304,6 +299,8 @@ def size_column_from_load(
             "reason": f"Required steel ({steel_calc['pt_req_pct']}%) exceeds maximum code limit of 4.0% Ag. Enlarge column cross-section.",
             "section_dimensions": f"{int(b_mm)}x{int(D_mm)} mm",
             "steel_calculation": steel_calc,
+            "slenderness": slenderness,
+            "eccentricity": eccentricity,
         }
 
     # 4. Rebar selection
@@ -314,6 +311,8 @@ def size_column_from_load(
             "reason": "Could not find a valid rebar arrangement satisfying clear spacing and periphery limits. Enlarge cross-section.",
             "section_dimensions": f"{int(b_mm)}x{int(D_mm)} mm",
             "steel_calculation": steel_calc,
+            "slenderness": slenderness,
+            "eccentricity": eccentricity,
         }
 
     # 5. Lateral ties design
@@ -345,7 +344,7 @@ def size_column_from_load(
         "lateral_ties": ties,
         "slenderness": slenderness,
         "eccentricity": eccentricity,
-        "status": "PASSED",
+        "status": "PASSED" if status == "success" else "NEEDS_REVIEW",
         "approval_status": "STATUS: DRAFT - NOT FOR CONSTRUCTION. Not engineer-reviewed.",
         "citations": [
             "IS 456:2000 Cl. 39.3",
@@ -358,7 +357,19 @@ def size_column_from_load(
     }
 
     return {
-        "status": "success",
+        "status": status,
+        "reason": reason,
         "design_dict": design_dict,
         "section_dimensions": f"{int(b_mm)}x{int(D_mm)} mm",
+        "width_mm": int(b_mm),
+        "depth_mm": int(D_mm),
+        "factored_axial_load_Pu_kN": Pu_kN,
+        "axial_capacity_Pu_kN": Pu_capacity_kN,
+        "rebar_selected": rebar,
+        "lateral_ties": ties,
+        "checks": {
+            "slenderness": slenderness,
+            "eccentricity": eccentricity,
+        },
+        "governing_clauses": design_dict["citations"],
     }

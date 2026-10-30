@@ -467,8 +467,11 @@ def size_slab_from_loads(
     return {
         "status": "success" if all_passed else "needs_review",
         "slab_type": slab_type,
+        "aspect_ratio": round(aspect_ratio, 3),
         "thickness_D_mm": D_actual,
         "effective_depth_d_mm": d_actual,
+        "geometry": design_dict["geometry"],
+        "flexure": design_dict["flexure"],
         "main_reinforcement": main_rebar_x["callout"],
         "transverse_reinforcement": (
             dist_rebar["callout"]
@@ -477,6 +480,8 @@ def size_slab_from_loads(
         ),
         "deflection_check": "PASSED" if deflection_passed else "FAILED",
         "shear_check": "PASSED" if shear_passed else "FAILED",
+        "checks": design_dict["checks"],
+        "governing_clauses": citations,
         "design_dict": design_dict,
         "citations": citations,
         "disclaimer": disclaimer,

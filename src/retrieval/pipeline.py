@@ -70,6 +70,7 @@ def retrieve(query: str, k: int = 3) -> List[Dict[str, Any]]:
             "cross_references": raw_chunk.get("cross_references", []),
             # rerank_score: ranking score from CrossEncoder, not a probability
             "rerank_score": float(res["score"]),
+            "confidence_score": round(float(1.0 / (1.0 + 2.718281828459045 ** (-float(res["score"])))), 4),
             "hybrid_rank": res["hybrid_rank"],
             "verified": raw_chunk.get("verified", False),
         })

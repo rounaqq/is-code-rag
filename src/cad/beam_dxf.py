@@ -9,6 +9,7 @@ Does NOT import, read, print, or quote .env or any secret keys.
 """
 
 import math
+import textwrap
 from pathlib import Path
 from typing import Dict, Any, Optional, Tuple, List
 import ezdxf
@@ -550,11 +551,11 @@ def draw_notes_and_compliance_table(
     msp: Modelspace,
     origin: Tuple[float, float],
     design: Dict[str, Any],
-) -> None:
-    """Renders the IS 456:2000 Structural Notes and Compliance Citations box."""
+    box_width: float = 1400.0,
+) -> float:
+    """Renders the IS 456:2000 Structural Notes and Compliance Citations box with word-wrapped text."""
     ox, oy = origin
-    box_width = 1100.0
-    line_height = 28.0
+    line_height = 20.0
 
     b = design.get("b", 300)
     D = design.get("D", 500)
@@ -596,8 +597,7 @@ def draw_notes_and_compliance_table(
             f"tau_v = {tau_v_str} N/mm2, tau_c = {tau_c_str} N/mm2, Vus = {vus_str}, Spacing = {int(round(float(stirrup_spacing)))} mm."
         )
 
-    notes = [
-        "IS 456:2000 STRUCTURAL COMPLIANCE & EXECUTION NOTES",
+    raw_notes = [
         f"1. Materials: Concrete Grade M{int(round(float(fck)))}, Reinforcing Steel Fe {int(round(float(fy)))} TMT bars.",
         f"2. Environmental Exposure: {exposure}. Nominal concrete cover provided = {int(round(float(cover_mm)))} mm (IS 456:2000 Table 16).",
         f"3. Tension Steel: {main_cnt}-T{int(round(float(main_dia)))} mm bars complying with minimum (Cl. 26.5.1.1(a)) and maximum (Cl. 26.5.1.1(b)) limits.",
@@ -616,10 +616,20 @@ def draw_notes_and_compliance_table(
         or str(design.get("seismic_zone", "")).upper() in ["III", "IV", "V"]
     )
     if is_seismic:
-        notes.append("11. Seismic Ductile Detailing: Complies with IS 13920:2016 Cl. 6.3.3. Support confinement spacing <= 100 mm over 2d.")
-        notes.append("12. Seismic Hooks: 135° closed stirrups with extension length >= 10*db (min 65 mm) per IS 13920:2016 Cl. 5.2.")
+        raw_notes.append("11. Seismic Ductile Detailing: Complies with IS 13920:2016 Cl. 6.3.3. Support confinement spacing <= 100 mm over 2d.")
+        raw_notes.append("12. Seismic Hooks: 135° closed stirrups with extension length >= 10*db (min 65 mm) per IS 13920:2016 Cl. 5.2.")
 
-    box_height = len(notes) * line_height + 40.0
+    # Wrap notes to max 88 chars so every line stays strictly inside the box border
+    wrapped_lines: List[Tuple[str, bool]] = [
+        ("IS 456:2000 STRUCTURAL COMPLIANCE & EXECUTION NOTES", True)
+    ]
+    for note in raw_notes:
+        chunks = textwrap.wrap(note, width=88)
+        for idx, chunk in enumerate(chunks):
+            indent_prefix = "" if idx == 0 else "   "
+            wrapped_lines.append((indent_prefix + chunk, False))
+
+    box_height = len(wrapped_lines) * line_height + 35.0
 
     # Draw notes box border
     msp.add_lwpolyline(
@@ -629,15 +639,16 @@ def draw_notes_and_compliance_table(
     )
 
     # Add notes text
-    for i, note in enumerate(notes):
-        ty = oy - 25.0 - (i * line_height)
-        is_heading = (i == 0)
-        h = 16.0 if is_heading else 12.0
+    for i, (line_text, is_heading) in enumerate(wrapped_lines):
+        ty = oy - 22.0 - (i * line_height)
+        h = 13.0 if is_heading else 9.5
         color_layer = "TITLE_BLOCK" if is_heading else "ANNOTATIONS"
         msp.add_text(
-            note,
+            line_text,
             dxfattribs={"layer": color_layer, "height": h},
         ).set_placement((ox + 20.0, ty), align=ezdxf.enums.TextEntityAlignment.MIDDLE_LEFT)
+
+    return box_height
 
 
 def draw_title_block(
@@ -741,6 +752,9 @@ def generate_beam_dxf(
     seismic_zone = str(design.get("seismic_zone", "IV")) if is_seismic else None
 
     # 3. Layout Positioning
+    support_width_mm = 300.0
+    total_length = span_mm + 2.0 * support_width_mm
+
     # Cross-section at origin (0, 0)
     draw_cross_section(
         msp=msp,
@@ -773,23 +787,27 @@ def generate_beam_dxf(
         comp_bar_count=comp_bar_count,
         stirrup_dia=stirrup_dia,
         stirrup_spacing=stirrup_spacing,
+        support_width_mm=support_width_mm,
         d=d,
         is_seismic=is_seismic,
         seismic_zone=seismic_zone,
     )
 
-    # Notes Box below Cross-Section and Elevation
+    # Notes Box at bottom-left below Cross-Section
     notes_y = -350.0
+    notes_box_width = 1400.0
     draw_notes_and_compliance_table(
         msp=msp,
         origin=(0.0, notes_y),
         design=design,
+        box_width=notes_box_width,
     )
 
-    # Title Block below Notes Box
+    # Title Block at bottom-right aligned with beam end (safe clearance from notes box)
+    title_block_x = max(notes_box_width + 100.0, elevation_x + total_length - 1100.0)
     draw_title_block(
         msp=msp,
-        origin=(elevation_x, notes_y),
+        origin=(title_block_x, notes_y),
         design=design,
     )
 
@@ -804,15 +822,19 @@ def generate_beam_dxf(
 
 def export_dxf_from_design(
     design: Dict[str, Any],
-    output_path: str,
+    output_path: Optional[str] = None,
+    output_filename: Optional[str] = None,
     validate_first: bool = True,
+    **kwargs: Any,
 ) -> Dict[str, Any]:
     """
     Validates design against deterministic IS 456 checks and exports a 2D DXF drawing.
+    Supports either output_path or output_filename keyword arguments.
 
     Returns:
         Dict with "status", "dxf_path", "validation", and "is456_citations".
     """
+    dest_path = output_path or output_filename or kwargs.get("filepath") or "beam_design.dxf"
     validation_res = None
     if validate_first:
         validation_res = validate_design(design)
@@ -824,11 +846,11 @@ def export_dxf_from_design(
                 "notes": "Design did not pass deterministic IS 456 checks. DXF export halted for safety.",
             }
 
-    doc = generate_beam_dxf(design, output_path=output_path)
+    doc = generate_beam_dxf(design, output_path=dest_path)
 
     return {
         "status": "success",
-        "dxf_path": str(Path(output_path).resolve()),
+        "dxf_path": str(Path(dest_path).resolve()),
         "validation": validation_res,
         "is456_citations": [
             "IS 456:2000 Cl. 26.5.1.1",

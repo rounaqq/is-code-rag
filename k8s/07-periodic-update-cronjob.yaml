@@ -1,0 +1,60 @@
+# Periodic IS Revision & Amendment Update Job.
+# Runs weekly (every Sunday at midnight) to audit BIS code freshness,
+# check for newly gazetted amendments, and verify SHA-256 integrity.
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: is-rag-periodic-update
+  namespace: is-rag
+  labels:
+    app.kubernetes.io/name: is-rag
+    app.kubernetes.io/component: maintenance
+spec:
+  schedule: "0 0 * * 0"  # Every Sunday at 00:00 UTC
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: is-rag
+            app.kubernetes.io/component: maintenance
+        spec:
+          restartPolicy: OnFailure
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          containers:
+            - name: updater
+              image: ghcr.io/rounaqq/is-code-rag:latest
+              imagePullPolicy: IfNotPresent
+              command:
+                - python
+                - src/maintenance/update_pipeline.py
+                - --check
+              envFrom:
+                - configMapRef:
+                    name: is-rag-config
+                - secretRef:
+                    name: is-rag-secrets
+              resources:
+                requests:
+                  cpu: "250m"
+                  memory: "512Mi"
+                limits:
+                  cpu: "1000m"
+                  memory: "1Gi"
+              volumeMounts:
+                - name: audit-volume
+                  mountPath: /app/data/audit
+          volumes:
+            - name: audit-volume
+              persistentVolumeClaim:
+                claimName: is-rag-audit-pvc
+

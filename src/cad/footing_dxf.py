@@ -231,7 +231,7 @@ def draw_footing_title_block(
     msp,
     origin_x: float,
     origin_y: float,
-    width: float = 900.0,
+    width: float = 1100.0,
     height: float = 240.0,
     project_title: str = "IS 456 RC ISOLATED FOOTING DESIGN",
     details: str = "2.00m x 2.00m x 450mm Footing",
@@ -270,10 +270,16 @@ def draw_footing_title_block(
 
 def export_footing_dxf(
     design: Dict[str, Any],
-    output_path: str = "footing_design.dxf",
+    output_path: Optional[str] = None,
+    output_filename: Optional[str] = None,
+    **kwargs: Any,
 ) -> Dict[str, Any]:
-    """Exports complete AutoCAD DXF file for a designed RC isolated footing."""
-    out_file = Path(output_path)
+    """
+    Exports complete AutoCAD DXF file for a designed RC isolated footing.
+    Supports either output_path or output_filename keyword arguments.
+    """
+    dest_path = output_path or output_filename or kwargs.get("filepath") or "footing_design.dxf"
+    out_file = Path(dest_path)
     out_file.parent.mkdir(parents=True, exist_ok=True)
 
     doc = ezdxf.new("R2010")
@@ -326,7 +332,7 @@ def export_footing_dxf(
         msp=msp,
         origin_x=tb_ox,
         origin_y=tb_oy,
-        width=1000.0,
+        width=1100.0,
         height=240.0,
         project_title="IS 456 RC ISOLATED FOOTING DESIGN",
         details=summary_txt,

@@ -160,6 +160,46 @@ def compile_all_enriched_chunks() -> List[Dict[str, Any]]:
                     }
                     all_chunks.append(chunk)
 
+    # 1b. Multi-Standard Verified Benchmark Clauses (IS 13920, IS 1893, IS 800, IS 875)
+    def ingest_verified_file(file_path: Path, code_id: str, default_year: int):
+        if not file_path.exists():
+            return
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for c in data.get("clauses", []):
+            c_num = str(c.get("clause_number", "")).strip()
+            cid = f"{code_id.replace(' ', '-').replace(':', '-')}-CL-{c_num.replace(' ', '-')}"
+            if cid and cid not in seen_ids:
+                seen_ids.add(cid)
+                is_tbl = "table" in c_num.lower() or "table" in c.get("title", "").lower()
+                chunk = {
+                    "chunk_id": cid,
+                    "code": code_id,
+                    "year": default_year,
+                    "amendment": "Base Standard",
+                    "section": get_section_from_clause(c_num, code_id),
+                    "clause_number": c_num,
+                    "title": c.get("title", f"Clause {c_num}"),
+                    "applicability": get_applicability(code_id, c.get("title", "")),
+                    "keywords": [code_id, f"Clause {c_num}", c.get("title", "")],
+                    "dependencies": [code_id],
+                    "chunk_type": "table" if is_tbl else "clause",
+                    "text": c.get("text") or c.get("content") or f"{c.get('title')}: {c.get('content', '')}",
+                    "cross_references": c.get("cross_references", []),
+                    "equations": c.get("equations", []),
+                    "verified": True,
+                    "metadata": {
+                        "citation": c.get("citation", f"{code_id} Cl. {c_num}"),
+                        "verified_benchmark": True,
+                    },
+                }
+                all_chunks.append(chunk)
+
+    ingest_verified_file(DATA_PROCESSED_DIR / "is13920_verified_clauses.json", "IS 13920:2016", 2016)
+    ingest_verified_file(DATA_PROCESSED_DIR / "is1893_verified_clauses.json", "IS 1893 (Part 1):2016", 2016)
+    ingest_verified_file(DATA_PROCESSED_DIR / "is800_verified_clauses.json", "IS 800:2007", 2007)
+    ingest_verified_file(DATA_PROCESSED_DIR / "is875_verified_clauses.json", "IS 875 (Part 2):1987", 1987)
+
     # 2. Official Amendments (13 documents, 59 chunks)
     amd_path = DATA_PROCESSED_DIR / "amendments_preprocessed.json"
     if amd_path.exists():

@@ -342,6 +342,8 @@ def apply_engineer_overrides(
     d_actual = D - cover_mm - stirrup_dia - (main_bar_dia / 2.0)
     design["d"] = d_actual
     design["cover_mm"] = cover_mm
+    design["ast_provided_mm2"] = round(main_bar_count * (math.pi / 4.0) * (main_bar_dia ** 2), 2)
+    design["stirrup_legs"] = int(design.get("stirrup_legs", 2))
 
     rejection_reasons = []
 

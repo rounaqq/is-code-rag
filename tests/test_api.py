@@ -340,6 +340,34 @@ def test_seismic_base_shear_endpoint_unauthorized(client):
     assert response.status_code == 401
 
 
+def test_audit_summary_endpoint(client):
+    """GET /v1/audit/summary aggregates query metrics and returns 200 OK."""
+    response = client.get("/v1/audit/summary")
+    assert response.status_code == 200
+    data = response.json()
+    assert "status" in data
+    assert "total_queries_logged" in data
+    assert data["total_queries_logged"] >= 0
+    if data["status"] == "healthy":
+        assert "latency_statistics_ms" in data
+        assert "average" in data["latency_statistics_ms"]
+        assert "top_retrieved_clauses" in data
+
+
+def test_cad_download_endpoint(client):
+    """GET /v1/cad/download/{filename} serves valid DXF files and handles 404."""
+    # Existing file
+    response = client.get("/v1/cad/download/test_draft_beam.dxf")
+    assert response.status_code == 200
+    assert "dxf" in response.headers.get("content-type", "").lower()
+
+    # Non-existent file
+    bad_res = client.get("/v1/cad/download/non_existent_file.dxf")
+    assert bad_res.status_code == 404
+
+
+
+
 
 
 
