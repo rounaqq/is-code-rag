@@ -9,7 +9,7 @@ Zero proprietary software required; uses open standard ezdxf.
 """
 
 from pathlib import Path
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 import ezdxf
 from ezdxf import colors
 

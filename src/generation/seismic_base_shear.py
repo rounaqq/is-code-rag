@@ -14,7 +14,7 @@ Follows:
 """
 
 import math
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 
 ZONE_FACTORS: Dict[str, float] = {
