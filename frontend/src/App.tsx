@@ -8,9 +8,36 @@ import { ReviewSignoff } from './components/ReviewSignoff';
 import { AuditDashboard } from './components/AuditDashboard';
 import { AlertTriangle } from 'lucide-react';
 
+export interface ActiveDesignRecord {
+  member: 'beam' | 'column' | 'slab' | 'footing';
+  timestamp: string;
+  params?: any;
+  result: any;
+  cadExport?: any;
+}
+
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [selectedStudioMember, setSelectedStudioMember] = useState<'beam' | 'column' | 'slab' | 'footing'>('beam');
+  const [latestDesigns, setLatestDesigns] = useState<Record<string, ActiveDesignRecord>>({});
+
+  const handleDesignCalculated = (
+    member: 'beam' | 'column' | 'slab' | 'footing',
+    result: any,
+    params?: any,
+    cadExport?: any
+  ) => {
+    setLatestDesigns((prev) => ({
+      ...prev,
+      [member]: {
+        member,
+        timestamp: new Date().toLocaleTimeString(),
+        params: params !== undefined ? params : prev[member]?.params,
+        result: result !== undefined ? result : prev[member]?.result,
+        cadExport: cadExport !== undefined ? cadExport : prev[member]?.cadExport,
+      },
+    }));
+  };
 
   const handleNavigateFromDashboard = (tab: string) => {
     if (tab === 'beam' || tab === 'column' || tab === 'slab' || tab === 'footing') {
@@ -28,6 +55,12 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateToCADFromStudio = (member: 'beam' | 'column' | 'slab' | 'footing') => {
+    setSelectedStudioMember(member);
+    setActiveTab('cad');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       {/* Top Navigation */}
@@ -40,7 +73,12 @@ export const App: React.FC = () => {
         )}
 
         {activeTab === 'design' && (
-          <MemberStudio initialMember={selectedStudioMember} />
+          <MemberStudio
+            initialMember={selectedStudioMember}
+            onDesignCalculated={handleDesignCalculated}
+            activeDesigns={latestDesigns}
+            onNavigateToCAD={handleNavigateToCADFromStudio}
+          />
         )}
 
         {activeTab === 'rag' && (
@@ -48,7 +86,12 @@ export const App: React.FC = () => {
         )}
 
         {activeTab === 'cad' && (
-          <CADViewer onNavigateToStudio={handleNavigateToStudioFromCAD} />
+          <CADViewer
+            initialMember={selectedStudioMember}
+            onNavigateToStudio={handleNavigateToStudioFromCAD}
+            activeDesigns={latestDesigns}
+            onDesignCalculated={handleDesignCalculated}
+          />
         )}
 
         {activeTab === 'review' && (

@@ -619,12 +619,12 @@ def draw_notes_and_compliance_table(
         raw_notes.append("11. Seismic Ductile Detailing: Complies with IS 13920:2016 Cl. 6.3.3. Support confinement spacing <= 100 mm over 2d.")
         raw_notes.append("12. Seismic Hooks: 135° closed stirrups with extension length >= 10*db (min 65 mm) per IS 13920:2016 Cl. 5.2.")
 
-    # Wrap notes to max 88 chars so every line stays strictly inside the box border
+    # Wrap notes to max 140 chars so every line stays strictly inside the 1400mm box border
     wrapped_lines: List[Tuple[str, bool]] = [
         ("IS 456:2000 STRUCTURAL COMPLIANCE & EXECUTION NOTES", True)
     ]
     for note in raw_notes:
-        chunks = textwrap.wrap(note, width=88)
+        chunks = textwrap.wrap(note, width=140)
         for idx, chunk in enumerate(chunks):
             indent_prefix = "" if idx == 0 else "   "
             wrapped_lines.append((indent_prefix + chunk, False))
@@ -716,7 +716,9 @@ def generate_beam_dxf(
         ezdxf.document.Drawing instance.
     """
     # 1. Initialize DXF Document (AutoCAD R2010 DXF standard)
-    doc = ezdxf.new("R2010", setup=True)
+    # Use standard AutoCAD linetypes without injecting unused external TTF styles
+    # that trigger Autodesk Viewer cloud font substitution warnings
+    doc = ezdxf.new("R2010", setup=["linetypes"])
     doc.units = 4  # Millimetres
     doc.header["$INSUNITS"] = 4
     setup_layers(doc)

@@ -479,6 +479,24 @@ def design_dxf_endpoint(req: DesignDxfRequest, key_name: str = Depends(verify_ap
         "outcome": design.get("outcome"),
         "is456_citations": dxf_result.get("is456_citations"),
         "validation": dxf_result.get("validation"),
+        "design": design,
+        "design_dict": design,
+        "section_dimensions": {
+            "b_mm": design.get("b"),
+            "D_mm": design.get("D"),
+            "d_mm": design.get("d"),
+            "span_m": design.get("span_m"),
+            "cover_mm": design.get("cover_mm"),
+        },
+        "rebar": {
+            "main_bar_count": design.get("main_bar_count"),
+            "main_bar_dia_mm": design.get("main_bar_dia_mm"),
+            "hanger_bar_count": design.get("compression_bar_count"),
+            "hanger_bar_dia_mm": design.get("compression_bar_dia_mm"),
+            "stirrup_dia_mm": design.get("stirrup_dia_mm"),
+            "stirrup_spacing_mm": design.get("stirrup_spacing_mm"),
+            "callout": f"{design.get('main_bar_count', 3)}-T{int(design.get('main_bar_dia_mm', 16))} Bot",
+        },
     }
 
 

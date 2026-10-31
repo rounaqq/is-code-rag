@@ -41,6 +41,8 @@ def export_column_dxf(
     tie_callout = ties.get("callout", f"T{int(tie_dia)} @ {int(tie_pitch)} c/c")
 
     doc = ezdxf.new("R2010")
+    doc.units = 4  # Millimetres
+    doc.header["$INSUNITS"] = 4
     msp = doc.modelspace()
 
     # Setup standard layers

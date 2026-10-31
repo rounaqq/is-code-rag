@@ -27,26 +27,45 @@ import {
 
 interface MemberStudioProps {
   initialMember?: 'beam' | 'column' | 'slab' | 'footing';
+  onDesignCalculated?: (
+    member: 'beam' | 'column' | 'slab' | 'footing',
+    result: any,
+    params?: any,
+    cadExport?: any
+  ) => void;
+  activeDesigns?: Record<string, any>;
+  onNavigateToCAD?: (member: 'beam' | 'column' | 'slab' | 'footing') => void;
 }
 
-export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'beam' }) => {
+export const MemberStudio: React.FC<MemberStudioProps> = ({
+  initialMember = 'beam',
+  onDesignCalculated,
+  activeDesigns,
+  onNavigateToCAD,
+}) => {
   const [activeMember, setActiveMember] = useState<'beam' | 'column' | 'slab' | 'footing'>(initialMember);
+  const [prevInitialMember, setPrevInitialMember] = useState(initialMember);
 
-  React.useEffect(() => {
-    if (initialMember) {
-      setActiveMember(initialMember);
-    }
-  }, [initialMember]);
+  if (initialMember !== prevInitialMember) {
+    setPrevInitialMember(initialMember);
+    setActiveMember(initialMember);
+  }
+
   const [isLoading, setIsLoading] = useState(false);
   const [isExportingCAD, setIsExportingCAD] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  // Results State
-  const [beamResult, setBeamResult] = useState<any | null>(null);
-  const [columnResult, setColumnResult] = useState<any | null>(null);
-  const [slabResult, setSlabResult] = useState<any | null>(null);
-  const [footingResult, setFootingResult] = useState<any | null>(null);
+  // Results State derived from local calculations or shared activeDesigns
+  const [localBeamResult, setLocalBeamResult] = useState<any | null>(null);
+  const [localColumnResult, setLocalColumnResult] = useState<any | null>(null);
+  const [localSlabResult, setLocalSlabResult] = useState<any | null>(null);
+  const [localFootingResult, setLocalFootingResult] = useState<any | null>(null);
   const [cadExport, setCadExport] = useState<any | null>(null);
+
+  const beamResult = localBeamResult || activeDesigns?.beam?.result || null;
+  const columnResult = localColumnResult || activeDesigns?.column?.result || null;
+  const slabResult = localSlabResult || activeDesigns?.slab?.result || null;
+  const footingResult = localFootingResult || activeDesigns?.footing?.result || null;
 
   // Form States with Realistic Engineering Defaults
   const [beamForm, setBeamForm] = useState({
@@ -98,16 +117,20 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
     try {
       if (activeMember === 'beam') {
         const res = await sizeBeam(beamForm);
-        setBeamResult(res);
+        setLocalBeamResult(res);
+        onDesignCalculated?.('beam', res, beamForm);
       } else if (activeMember === 'column') {
         const res = await sizeColumn(columnForm);
-        setColumnResult(res);
+        setLocalColumnResult(res);
+        onDesignCalculated?.('column', res, columnForm);
       } else if (activeMember === 'slab') {
         const res = await sizeSlab(slabForm);
-        setSlabResult(res);
+        setLocalSlabResult(res);
+        onDesignCalculated?.('slab', res, slabForm);
       } else if (activeMember === 'footing') {
         const res = await sizeFooting(footingForm);
-        setFootingResult(res);
+        setLocalFootingResult(res);
+        onDesignCalculated?.('footing', res, footingForm);
       }
     } catch (err: any) {
       if (err.response?.status === 401) {
@@ -150,6 +173,13 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
         });
       }
       setCadExport(res);
+      const currentRes = activeMember === 'beam' ? beamResult :
+                         activeMember === 'column' ? columnResult :
+                         activeMember === 'slab' ? slabResult : footingResult;
+      const currentForm = activeMember === 'beam' ? beamForm :
+                          activeMember === 'column' ? columnForm :
+                          activeMember === 'slab' ? slabForm : footingForm;
+      onDesignCalculated?.(activeMember, currentRes || res, currentForm, res);
     } catch (err: any) {
       const msg = err.response?.data?.detail || err.message || 'CAD drafting failed.';
       setErrorMsg(typeof msg === 'string' ? msg : JSON.stringify(msg));
@@ -561,24 +591,38 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
                 </div>
 
                 {/* CAD Action */}
-                <div className="pt-2 flex items-center justify-between gap-3">
-                  <button
-                    onClick={handleExportCAD}
-                    disabled={isExportingCAD}
-                    className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
-                  >
-                    {isExportingCAD ? (
-                      <>
-                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        <span>Drafting AutoCAD DXF...</span>
-                      </>
-                    ) : (
-                      <>
-                        <FileCode className="h-3.5 w-3.5 text-blue-400" />
-                        <span>Generate 2D CAD Blueprint (.DXF)</span>
-                      </>
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleExportCAD}
+                      disabled={isExportingCAD}
+                      className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
+                    >
+                      {isExportingCAD ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <span>Drafting AutoCAD DXF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileCode className="h-3.5 w-3.5 text-blue-400" />
+                          <span>Generate 2D CAD Blueprint (.DXF)</span>
+                        </>
+                      )}
+                    </button>
+
+                    {onNavigateToCAD && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigateToCAD(activeMember)}
+                        className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold px-3 py-2.5 rounded-xl flex items-center gap-1.5 transition"
+                        title="View CAD Preview in CAD Drawings tab"
+                      >
+                        <Compass className="h-3.5 w-3.5 text-blue-400" />
+                        <span>View CAD Blueprint</span>
+                      </button>
                     )}
-                  </button>
+                  </div>
 
                   {cadExport && (
                     <a
@@ -644,24 +688,38 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
                   <span className="font-mono font-bold text-amber-300">STATUS: DRAFT - NOT FOR CONSTRUCTION</span>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between gap-3">
-                  <button
-                    onClick={handleExportCAD}
-                    disabled={isExportingCAD}
-                    className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
-                  >
-                    {isExportingCAD ? (
-                      <>
-                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        <span>Drafting AutoCAD DXF...</span>
-                      </>
-                    ) : (
-                      <>
-                        <FileCode className="h-3.5 w-3.5 text-blue-400" />
-                        <span>Generate Column CAD (.DXF)</span>
-                      </>
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleExportCAD}
+                      disabled={isExportingCAD}
+                      className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
+                    >
+                      {isExportingCAD ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <span>Drafting AutoCAD DXF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileCode className="h-3.5 w-3.5 text-blue-400" />
+                          <span>Generate Column CAD (.DXF)</span>
+                        </>
+                      )}
+                    </button>
+
+                    {onNavigateToCAD && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigateToCAD(activeMember)}
+                        className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold px-3 py-2.5 rounded-xl flex items-center gap-1.5 transition"
+                        title="View CAD Preview in CAD Drawings tab"
+                      >
+                        <Compass className="h-3.5 w-3.5 text-blue-400" />
+                        <span>View CAD Blueprint</span>
+                      </button>
                     )}
-                  </button>
+                  </div>
 
                   {cadExport && (
                     <a
@@ -730,24 +788,38 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
                   <span className="font-mono font-bold text-amber-300">STATUS: DRAFT - NOT FOR CONSTRUCTION</span>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between gap-3">
-                  <button
-                    onClick={handleExportCAD}
-                    disabled={isExportingCAD}
-                    className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
-                  >
-                    {isExportingCAD ? (
-                      <>
-                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        <span>Drafting AutoCAD DXF...</span>
-                      </>
-                    ) : (
-                      <>
-                        <FileCode className="h-3.5 w-3.5 text-blue-400" />
-                        <span>Generate Slab CAD (.DXF)</span>
-                      </>
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleExportCAD}
+                      disabled={isExportingCAD}
+                      className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
+                    >
+                      {isExportingCAD ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <span>Drafting AutoCAD DXF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileCode className="h-3.5 w-3.5 text-blue-400" />
+                          <span>Generate Slab CAD (.DXF)</span>
+                        </>
+                      )}
+                    </button>
+
+                    {onNavigateToCAD && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigateToCAD(activeMember)}
+                        className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold px-3 py-2.5 rounded-xl flex items-center gap-1.5 transition"
+                        title="View CAD Preview in CAD Drawings tab"
+                      >
+                        <Compass className="h-3.5 w-3.5 text-blue-400" />
+                        <span>View CAD Blueprint</span>
+                      </button>
                     )}
-                  </button>
+                  </div>
 
                   {cadExport && (
                     <a
@@ -819,24 +891,38 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({ initialMember = 'bea
                   <span className="font-mono font-bold text-amber-300">STATUS: DRAFT - NOT FOR CONSTRUCTION</span>
                 </div>
 
-                <div className="pt-2 flex items-center justify-between gap-3">
-                  <button
-                    onClick={handleExportCAD}
-                    disabled={isExportingCAD}
-                    className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
-                  >
-                    {isExportingCAD ? (
-                      <>
-                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        <span>Drafting AutoCAD DXF...</span>
-                      </>
-                    ) : (
-                      <>
-                        <FileCode className="h-3.5 w-3.5 text-blue-400" />
-                        <span>Generate Footing CAD (.DXF)</span>
-                      </>
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleExportCAD}
+                      disabled={isExportingCAD}
+                      className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2 transition"
+                    >
+                      {isExportingCAD ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <span>Drafting AutoCAD DXF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileCode className="h-3.5 w-3.5 text-blue-400" />
+                          <span>Generate Footing CAD (.DXF)</span>
+                        </>
+                      )}
+                    </button>
+
+                    {onNavigateToCAD && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigateToCAD(activeMember)}
+                        className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold px-3 py-2.5 rounded-xl flex items-center gap-1.5 transition"
+                        title="View CAD Preview in CAD Drawings tab"
+                      >
+                        <Compass className="h-3.5 w-3.5 text-blue-400" />
+                        <span>View CAD Blueprint</span>
+                      </button>
                     )}
-                  </button>
+                  </div>
 
                   {cadExport && (
                     <a

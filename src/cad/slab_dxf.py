@@ -331,6 +331,8 @@ def export_slab_dxf(
     out_file.parent.mkdir(parents=True, exist_ok=True)
 
     doc = ezdxf.new("R2010")
+    doc.units = 4  # Millimetres
+    doc.header["$INSUNITS"] = 4
     create_slab_layers(doc)
     msp = doc.modelspace()
 

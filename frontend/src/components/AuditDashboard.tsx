@@ -19,13 +19,13 @@ export const AuditDashboard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [autoRefresh, setAutoRefresh] = useState<boolean>(false);
-  const [lastRefreshed, setLastRefreshed] = useState<Date>(new Date());
+  const [lastRefreshed, setLastRefreshed] = useState<Date>(() => new Date());
 
   const fetchSummary = useCallback(async () => {
     try {
-      setError(null);
       const res = await getAuditSummary(200);
       setData(res);
+      setError(null);
       setLastRefreshed(new Date());
     } catch (err: any) {
       setError(err.response?.data?.detail || err.message || 'Failed to fetch audit telemetry.');
@@ -35,8 +35,26 @@ export const AuditDashboard: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetchSummary();
-  }, [fetchSummary]);
+    let ignore = false;
+    getAuditSummary(200)
+      .then((res) => {
+        if (!ignore) {
+          setData(res);
+          setError(null);
+          setLastRefreshed(new Date());
+          setLoading(false);
+        }
+      })
+      .catch((err: any) => {
+        if (!ignore) {
+          setError(err.response?.data?.detail || err.message || 'Failed to fetch audit telemetry.');
+          setLoading(false);
+        }
+      });
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   // Handle auto-refresh interval
   useEffect(() => {

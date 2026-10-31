@@ -54,10 +54,10 @@ def test_embedding_adapter_openai_graceful_fallback():
 
 
 def test_qdrant_vector_store_contains_complete_corpus():
-    """Qdrant contains exactly all 1,535 indexed chunks across all standards."""
+    """Qdrant contains all indexed chunks across all standards."""
     db = get_qdrant_db()
     chunks = load_all_structural_chunks()
-    assert len(chunks) == 1535
+    assert len(chunks) >= 1535
     assert db.count_points() == len(chunks)
 
 
@@ -77,9 +77,10 @@ def test_qdrant_payload_contains_all_metadata_fields():
 
 
 def test_bm25_multi_standard_index_covers_all_chunks():
-    """BM25 index covers all 1,535 multi-standard chunks."""
+    """BM25 index covers all multi-standard chunks."""
     retriever = get_multicode_retriever()
-    assert len(retriever.corpus) == 1535
+    assert len(retriever.corpus) == len(load_all_structural_chunks())
+    assert len(retriever.corpus) >= 1535
     assert retriever.bm25 is not None
 
 

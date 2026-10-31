@@ -32,8 +32,10 @@ _LAYERS = [
 
 
 def _new_doc():
-    """Creates a new R2010 DXF document with the standard steel detailing layers."""
+    """Creates a new R2010 DXF document with the standard steel detailing layers and mm units."""
     doc = ezdxf.new("R2010")
+    doc.units = 4  # Millimetres
+    doc.header["$INSUNITS"] = 4
     for name, color, linetype in _LAYERS:
         if name not in doc.layers:
             doc.layers.add(name=name, color=color, linetype=linetype)

@@ -816,6 +816,7 @@ def size_beam_from_loads(
     )
 
     design_dict = {
+        "span_m": span_m,
         "b": b_val,
         "D": D_adopted,
         "d": d_actual,

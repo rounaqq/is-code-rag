@@ -37,7 +37,7 @@ export const ReviewSignoff: React.FC = () => {
   const [reviewerName, setReviewerName] = useState<string>('Er. Rajesh V. Sharma');
   const [reviewerRole, setReviewerRole] = useState<string>('Chief Structural Engineer');
   const [licenseNo, setLicenseNo] = useState<string>('STR/DEL/2026/8942');
-  const [reviewDate, setReviewDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [reviewDate, setReviewDate] = useState<string>(() => new Date().toISOString().split('T')[0]);
   const [outcome, setOutcome] = useState<string>('Approved for Detailed Drawings');
   const [remarks, setRemarks] = useState<string>(
     'Cross-checked bending moment envelope and deflection limits against IS 456:2000 Cl. 23.2. Sizing confirmed adequate for design life.'
