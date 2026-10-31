@@ -1,16 +1,16 @@
 {
-  "evaluation_timestamp": "2026-10-28T07:26:34Z",
+  "evaluation_timestamp": "2026-10-31T09:27:00Z",
   "step": 9,
   "title": "Step 9 Master Evaluation Report: IS 456 Structural RAG & 2D CAD Generation",
   "overall_status": "PASSED",
-  "total_duration_seconds": 255.36,
+  "total_duration_seconds": 282.04,
   "disclaimer": "These results are not an independent validation. A structural engineer must review the designs.",
   "pillar_1_retrieval_quality": {
     "total_questions": 19,
     "hit_at_1_pct": 84.21,
     "hit_at_3_pct": 100.0,
     "mean_reciprocal_rank": 0.9123,
-    "avg_latency_ms": 3104.31,
+    "avg_latency_ms": 2693.02,
     "status": "PASSED"
   },
   "pillar_2_hand_calculation_cross_checks": {
@@ -35,7 +35,7 @@
     "pass_rate_pct": 100.0,
     "dxf_exports_verified": 5,
     "arithmetic_recheck_from_json_tables_all_passed": true,
-    "avg_latency_ms": 26.44,
+    "avg_latency_ms": 6.15,
     "status": "PASSED"
   },
   "pillar_4_faithfulness_and_citations": {
@@ -94,7 +94,7 @@
       "hit_at_3_count": 19,
       "hit_at_3_pct": 100.0,
       "mean_reciprocal_rank": 0.9123,
-      "avg_retrieval_latency_ms": 3104.31,
+      "avg_retrieval_latency_ms": 2693.02,
       "questions": [
         {
           "index": 1,
@@ -104,7 +104,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 10430.3,
+          "latency_ms": 7714.0,
           "top_retrieved": [
             {
               "rank": 1,
@@ -131,7 +131,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2499.6,
+          "latency_ms": 1935.7,
           "top_retrieved": [
             {
               "rank": 1,
@@ -158,7 +158,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2488.5,
+          "latency_ms": 2048.9,
           "top_retrieved": [
             {
               "rank": 1,
@@ -185,7 +185,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2392.1,
+          "latency_ms": 2258.8,
           "top_retrieved": [
             {
               "rank": 1,
@@ -212,7 +212,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2943.0,
+          "latency_ms": 2361.8,
           "top_retrieved": [
             {
               "rank": 1,
@@ -239,7 +239,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2464.6,
+          "latency_ms": 2344.6,
           "top_retrieved": [
             {
               "rank": 1,
@@ -266,7 +266,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2462.0,
+          "latency_ms": 2214.1,
           "top_retrieved": [
             {
               "rank": 1,
@@ -293,7 +293,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2923.6,
+          "latency_ms": 2295.9,
           "top_retrieved": [
             {
               "rank": 1,
@@ -320,7 +320,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2445.9,
+          "latency_ms": 2268.4,
           "top_retrieved": [
             {
               "rank": 1,
@@ -347,7 +347,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2053.3,
+          "latency_ms": 2051.5,
           "top_retrieved": [
             {
               "rank": 1,
@@ -374,7 +374,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 4769.6,
+          "latency_ms": 4302.1,
           "top_retrieved": [
             {
               "rank": 1,
@@ -401,7 +401,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 5109.6,
+          "latency_ms": 4375.3,
           "top_retrieved": [
             {
               "rank": 1,
@@ -428,7 +428,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1296.7,
+          "latency_ms": 1333.2,
           "top_retrieved": [
             {
               "rank": 1,
@@ -455,7 +455,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.3333,
-          "latency_ms": 1389.2,
+          "latency_ms": 1399.8,
           "top_retrieved": [
             {
               "rank": 1,
@@ -482,7 +482,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 1795.4,
+          "latency_ms": 1319.9,
           "top_retrieved": [
             {
               "rank": 1,
@@ -509,7 +509,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2034.8,
+          "latency_ms": 2098.1,
           "top_retrieved": [
             {
               "rank": 1,
@@ -536,7 +536,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.5,
-          "latency_ms": 4868.7,
+          "latency_ms": 4393.0,
           "top_retrieved": [
             {
               "rank": 1,
@@ -563,7 +563,7 @@
           "hit_at_1": true,
           "hit_at_3": true,
           "reciprocal_rank": 1.0,
-          "latency_ms": 2291.7,
+          "latency_ms": 2387.4,
           "top_retrieved": [
             {
               "rank": 1,
@@ -590,7 +590,7 @@
           "hit_at_1": false,
           "hit_at_3": true,
           "reciprocal_rank": 0.5,
-          "latency_ms": 2323.2,
+          "latency_ms": 2064.8,
           "top_retrieved": [
             {
               "rank": 1,
@@ -612,7 +612,7 @@
       ]
     },
     "sp16_handbook": {
-      "timestamp": "2026-10-28T07:23:33Z",
+      "timestamp": "2026-10-31T09:23:21Z",
       "pillar_name": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
       "source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
       "handbook_source": "Hand-calculation cross-checks (written by the author of this repository, not published values)",
@@ -744,7 +744,7 @@
       ]
     },
     "structural_design": {
-      "evaluation_timestamp": "2026-10-28T07:23:34Z",
+      "evaluation_timestamp": "2026-10-31T09:23:22Z",
       "total_scenarios": 5,
       "scenarios_passed": 5,
       "scenario_pass_rate_pct": 100.0,
@@ -752,7 +752,7 @@
       "total_checks_passed": 35,
       "self_consistency_checks_passed": "35/35",
       "dxf_exports_verified": 5,
-      "avg_latency_ms": 26.44,
+      "avg_latency_ms": 6.15,
       "stirrups_designed_count": 5,
       "minimum_shear_steel_count": 0,
       "shear_spacing_violations": [],
@@ -779,7 +779,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 56.02,
+          "latency_ms": 10.3,
           "independent_shear": {
             "tau_v": 0.755,
             "tau_c": 0.56,
@@ -824,7 +824,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 33.66,
+          "latency_ms": 5.13,
           "independent_shear": {
             "tau_v": 0.937,
             "tau_c": 0.57,
@@ -869,7 +869,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 14.94,
+          "latency_ms": 5.29,
           "independent_shear": {
             "tau_v": 1.12,
             "tau_c": 0.59,
@@ -914,7 +914,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 11.64,
+          "latency_ms": 5.65,
           "independent_shear": {
             "tau_v": 0.767,
             "tau_c": 0.57,
@@ -959,7 +959,7 @@
           "checks_passed": "7/7",
           "self_consistency_checks": "7/7",
           "dxf_generated": true,
-          "latency_ms": 15.95,
+          "latency_ms": 4.4,
           "independent_shear": {
             "tau_v": 1.143,
             "tau_c": 0.67,
@@ -1471,7 +1471,7 @@
       ]
     },
     "ragas_style_proxy_metrics": {
-      "evaluation_timestamp": "2026-10-28T07:26:34Z",
+      "evaluation_timestamp": "2026-10-31T09:27:00Z",
       "step": 9,
       "title": "Step 9 (extension): RAGAS-style Offline Proxy Metrics",
       "framing": "RAGAS-style offline proxy metrics: these are rule-based proxies for the RAGAS metric definitions (faithfulness, answer relevancy, context relevancy), NOT the RAGAS library. No `ragas`/`trulens` package is installed or imported and no network access is used. Claim grounding is rule-based and relevancy is an embedding proxy.",

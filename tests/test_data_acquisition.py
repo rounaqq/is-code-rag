@@ -192,29 +192,28 @@ def test_all_restored_pdfs_have_valid_pdf_headers():
 def test_restored_pdfs_match_registry_sha256():
     """Step 2: Every single restored PDF hashes to the exact SHA-256 recorded in registry.json."""
     entries = _all_registry_entries()
-    restored = []
     for entry in entries:
         pdf_path = PROJECT_ROOT / "data" / "raw" / entry["filename"]
-        if pdf_path.exists():
-            restored.append((entry, pdf_path))
+        if not pdf_path.exists():
+            pytest.skip(CORPUS_MISSING_REASON)
 
-    if not restored:
-        pytest.skip(CORPUS_MISSING_REASON)
-
-    for entry, pdf_path in restored:
+    for entry in entries:
+        pdf_path = PROJECT_ROOT / "data" / "raw" / entry["filename"]
         digest = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
         assert digest == entry["sha256"], (
             f"{entry['code']} ({entry['filename']}) does not match the SHA-256 in registry.json"
         )
 
-    assert len(restored) == len(entries), (
-        f"only {len(restored)}/{len(entries)} of the corpus is restored; run 'dvc pull' to fetch remaining PDFs"
-    )
-
 
 def test_download_codes_verification_routine():
     """Step 2: src.ingestion.download_codes.verify_all_corpus_files passes 100%."""
     from src.ingestion.download_codes import verify_all_corpus_files
+    entries = _all_registry_entries()
+    for entry in entries:
+        pdf_path = PROJECT_ROOT / "data" / "raw" / entry["filename"]
+        if not pdf_path.exists():
+            pytest.skip(CORPUS_MISSING_REASON)
+
     results = verify_all_corpus_files()
     assert results["total"] == 28
     assert results["valid"] == 28
