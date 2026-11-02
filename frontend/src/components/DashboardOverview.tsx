@@ -243,10 +243,11 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
       {/* 3. 4 Key Pillars Metrics Grid (Verified Against Codebase & Full Pytest Suite) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1 */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-slate-700 transition space-y-2">
+        <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg card-hover space-y-2 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between text-slate-400 text-xs font-medium">
             <span className="uppercase tracking-wider">Standards Ingested</span>
-            <BookOpen className="w-4 h-4 text-blue-400" />
+            <BookOpen className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
           </div>
           <div className="text-2xl font-black text-slate-100 font-mono">
             5 Standards
@@ -260,10 +261,11 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
         </div>
 
         {/* Metric 2 */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-slate-700 transition space-y-2">
+        <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg card-hover space-y-2 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between text-slate-400 text-xs font-medium">
             <span className="uppercase tracking-wider">Official Corpus</span>
-            <Database className="w-4 h-4 text-emerald-400" />
+            <Database className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
           </div>
           <div className="text-2xl font-black text-slate-100 font-mono">
             28 Documents
@@ -277,10 +279,11 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
         </div>
 
         {/* Metric 3 */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-slate-700 transition space-y-2">
+        <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg card-hover space-y-2 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between text-slate-400 text-xs font-medium">
             <span className="uppercase tracking-wider">Indexed Clauses</span>
-            <Cpu className="w-4 h-4 text-indigo-400" />
+            <Cpu className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
           </div>
           <div className="text-2xl font-black text-slate-100 font-mono">
             1,535 Chunks
@@ -294,10 +297,11 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
         </div>
 
         {/* Metric 4 */}
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg hover:border-slate-700 transition space-y-2">
+        <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg card-hover space-y-2 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-teal-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between text-slate-400 text-xs font-medium">
             <span className="uppercase tracking-wider">Automated Tests</span>
-            <CheckCircle className="w-4 h-4 text-teal-400" />
+            <CheckCircle className="w-4 h-4 text-teal-400 group-hover:scale-110 transition-transform" />
           </div>
           <div className="text-2xl font-black text-slate-100 font-mono">
             296 Passed
@@ -333,11 +337,14 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* 1. Floor Slabs */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-blue-500/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+          <div 
+            onClick={() => onNavigate('slab')}
+            className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 card-hover flex flex-col justify-between space-y-3 cursor-pointer group"
+          >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5">
-                  <Grid className="w-4 h-4 text-blue-400" />
+                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5 group-hover:text-blue-300 transition-colors">
+                  <Grid className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
                   1. Floor Slabs
                 </span>
                 <span className="text-[10px] bg-blue-500/10 text-blue-400 font-semibold px-2 py-0.5 rounded border border-blue-500/20 font-mono">
@@ -349,19 +356,22 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
               </p>
             </div>
             <button
-              onClick={() => onNavigate('slab')}
-              className="text-xs font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 pt-1"
+              onClick={(e) => { e.stopPropagation(); onNavigate('slab'); }}
+              className="text-xs font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 pt-1 self-start cursor-pointer"
             >
-              Size Slabs <ArrowRight className="w-3 h-3" />
+              Size Slabs <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* 2. Floor Beams */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-blue-500/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+          <div 
+            onClick={() => onNavigate('beam')}
+            className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 card-hover flex flex-col justify-between space-y-3 cursor-pointer group"
+          >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5">
-                  <Layers className="w-4 h-4 text-emerald-400" />
+                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5 group-hover:text-emerald-300 transition-colors">
+                  <Layers className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
                   2. Floor Beams
                 </span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
@@ -373,19 +383,22 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
               </p>
             </div>
             <button
-              onClick={() => onNavigate('beam')}
-              className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 pt-1"
+              onClick={(e) => { e.stopPropagation(); onNavigate('beam'); }}
+              className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 pt-1 self-start cursor-pointer"
             >
-              Size Beams <ArrowRight className="w-3 h-3" />
+              Size Beams <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* 3. Columns */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-blue-500/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+          <div 
+            onClick={() => onNavigate('column')}
+            className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 card-hover flex flex-col justify-between space-y-3 cursor-pointer group"
+          >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5">
-                  <Columns className="w-4 h-4 text-amber-400" />
+                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5 group-hover:text-amber-300 transition-colors">
+                  <Columns className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
                   3. Columns
                 </span>
                 <span className="text-[10px] bg-amber-500/10 text-amber-400 font-semibold px-2 py-0.5 rounded border border-amber-500/20 font-mono">
@@ -397,19 +410,22 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
               </p>
             </div>
             <button
-              onClick={() => onNavigate('column')}
-              className="text-xs font-semibold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 pt-1"
+              onClick={(e) => { e.stopPropagation(); onNavigate('column'); }}
+              className="text-xs font-semibold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 pt-1 self-start cursor-pointer"
             >
-              Size Columns <ArrowRight className="w-3 h-3" />
+              Size Columns <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* 4. Isolated Footings */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-blue-500/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+          <div 
+            onClick={() => onNavigate('footing')}
+            className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 card-hover flex flex-col justify-between space-y-3 cursor-pointer group"
+          >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5">
-                  <Square className="w-4 h-4 text-indigo-400" />
+                <span className="font-bold text-slate-200 text-sm flex items-center gap-1.5 group-hover:text-indigo-300 transition-colors">
+                  <Square className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
                   4. Footings
                 </span>
                 <span className="text-[10px] bg-indigo-500/10 text-indigo-400 font-semibold px-2 py-0.5 rounded border border-indigo-500/20 font-mono">
@@ -421,10 +437,10 @@ export const DashboardOverview: React.FC<DashboardProps> = ({ onNavigate }) => {
               </p>
             </div>
             <button
-              onClick={() => onNavigate('footing')}
-              className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 inline-flex items-center gap-1 pt-1"
+              onClick={(e) => { e.stopPropagation(); onNavigate('footing'); }}
+              className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 inline-flex items-center gap-1 pt-1 self-start cursor-pointer"
             >
-              Size Footings <ArrowRight className="w-3 h-3" />
+              Size Footings <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>

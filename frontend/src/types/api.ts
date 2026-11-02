@@ -73,13 +73,19 @@ export interface MultiCodeQueryResponse {
 
 // Beams (IS 456 Cl. 26.5.1 & Table 19)
 export interface BeamSizingParams {
-  span_m: number;
-  dead_load_kN_per_m: number;
-  live_load_kN_per_m: number;
+  span_m?: number;
+  dead_load_kN_per_m?: number;
+  live_load_kN_per_m?: number;
   fck?: number;
   fy?: number;
   exposure?: string;
   max_aggregate_size_mm?: number;
+  design?: any;
+  reviewer_name?: string;
+  reviewer_role?: string;
+  review_date?: string;
+  outcome?: string;
+  remarks?: string;
 }
 
 export interface BeamDesignDict {

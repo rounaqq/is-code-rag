@@ -480,7 +480,7 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({
             <button
               onClick={handleCalculate}
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 disabled:opacity-50 text-white font-semibold py-3 rounded-xl text-xs shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 transition"
+              className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 disabled:opacity-50 text-white font-semibold py-3 rounded-xl text-xs shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 transition-all btn-tactile cursor-pointer active:scale-[0.98]"
             >
               {isLoading ? (
                 <>
@@ -530,7 +530,7 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({
             const isVerified = beamResult.status === 'success' || beamResult.status === 'ok';
 
             return (
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-in fade-in">
+              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-tab-fade card-hover relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div>
                     <h3 className="font-bold text-slate-100 text-sm">RC Beam Sizing Results</h3>
@@ -648,7 +648,7 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({
             const isOk = columnResult.status === 'success' || columnResult.status === 'ok';
 
             return (
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-in fade-in">
+              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-tab-fade card-hover relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div>
                     <h3 className="font-bold text-slate-100 text-sm">Column Sizing Results</h3>
@@ -748,7 +748,7 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({
             const isOk = slabResult.status === 'success' || slabResult.status === 'ok';
 
             return (
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-in fade-in">
+              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-tab-fade card-hover relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div>
                     <h3 className="font-bold text-slate-100 text-sm">Slab Sizing Results</h3>
@@ -849,7 +849,7 @@ export const MemberStudio: React.FC<MemberStudioProps> = ({
             const isOk = footingResult.status === 'success' || footingResult.status === 'ok';
 
             return (
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-in fade-in">
+              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 animate-tab-fade card-hover relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div>
                     <h3 className="font-bold text-slate-100 text-sm">Isolated Footing Results</h3>

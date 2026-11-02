@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { searchISCodes, getStoredApiKey } from '../services/api';
 import type { ClauseHit } from '../types/api';
-import { Search, Loader2, BookOpen, ShieldCheck, Filter, Key } from 'lucide-react';
+import {
+  Search,
+  Loader2,
+  BookOpen,
+  ShieldCheck,
+  Key,
+  Maximize2,
+  Sparkles,
+} from 'lucide-react';
+import { ClauseInspectorModal } from './rag/ClauseInspectorModal';
 
 // Helper to clean and format clause text cleanly with proper paragraphs and list provisions
 const formatClauseText = (text: string, title?: string) => {
@@ -10,7 +19,11 @@ const formatClauseText = (text: string, title?: string) => {
 
   // If first line duplicates code + title header, separate or clean it
   const lines = cleaned.split('\n');
-  if (lines.length > 1 && (lines[0].toLowerCase().includes('clause') || (title && lines[0].toLowerCase().includes(title.toLowerCase().slice(0, 20))))) {
+  if (
+    lines.length > 1 &&
+    (lines[0].toLowerCase().includes('clause') ||
+      (title && lines[0].toLowerCase().includes(title.toLowerCase().slice(0, 20))))
+  ) {
     cleaned = lines.slice(1).join('\n').trim();
   }
 
@@ -31,6 +44,66 @@ const formatClauseText = (text: string, title?: string) => {
   return cleaned;
 };
 
+// Categorized smart prompts
+interface PromptCategory {
+  id: string;
+  name: string;
+  queries: Array<{ text: string; label: string; code: string }>;
+}
+
+const SMART_PROMPT_CATEGORIES: PromptCategory[] = [
+  {
+    id: 'all',
+    name: 'Featured',
+    queries: [
+      { text: 'nominal cover for moderate exposure', label: 'Moderate Exposure Cover', code: 'IS 456' },
+      { text: 'minimum shear reinforcement stirrups', label: 'Minimum Stirrup Spacing', code: 'IS 456' },
+      { text: 'maximum tension reinforcement in a beam', label: 'Max Beam Tension Steel', code: 'IS 456' },
+      { text: 'seismic column tie spacing IS 13920', label: 'Column Tie Confinement', code: 'IS 13920' },
+      { text: 'isolated footing two-way punching shear', label: 'Punching Shear Perimeter', code: 'IS 456' },
+    ],
+  },
+  {
+    id: 'flexure',
+    name: 'Flexure & Slabs',
+    queries: [
+      { text: 'maximum tension reinforcement in a beam', label: 'Max Beam Rebar (4%)', code: 'IS 456' },
+      { text: 'two-way slab bending moment coefficients Table 26', label: 'Table 26 Coefficients', code: 'IS 456' },
+      { text: 'control of deflection span to effective depth ratio Cl 23.2', label: 'L/d Deflection Limits', code: 'IS 456' },
+      { text: 'development length Ld for deformed bars Cl 26.2.1', label: 'Development Length Ld', code: 'IS 456' },
+    ],
+  },
+  {
+    id: 'compression',
+    name: 'Columns & Ties',
+    queries: [
+      { text: 'seismic column tie spacing IS 13920', label: 'Ductile Column Ties', code: 'IS 13920' },
+      { text: 'short axially loaded column formula Cl 39.3', label: 'Axial Capacity (Pu)', code: 'IS 456' },
+      { text: 'minimum eccentricity for columns Cl 25.4', label: 'Min Eccentricity (emin)', code: 'IS 456' },
+      { text: 'longitudinal reinforcement in columns limits Cl 26.5.3', label: 'Column Steel (0.8–6%)', code: 'IS 456' },
+    ],
+  },
+  {
+    id: 'shear',
+    name: 'Shear & Punching',
+    queries: [
+      { text: 'minimum shear reinforcement stirrups', label: 'Minimum Shear Links', code: 'IS 456' },
+      { text: 'design shear strength of concrete Table 19', label: 'Table 19 Shear tau_c', code: 'IS 456' },
+      { text: 'isolated footing two-way punching shear', label: 'Footing Punching Shear', code: 'IS 456' },
+      { text: 'critical section for shear at distance d from support Cl 40.1', label: 'Critical Section at d', code: 'IS 456' },
+    ],
+  },
+  {
+    id: 'seismic',
+    name: 'Seismic & Wind',
+    queries: [
+      { text: 'IS 13920 special confining reinforcement near joints', label: 'Joint Confinement Hoops', code: 'IS 13920' },
+      { text: 'IS 1893 seismic zone factor and response reduction R', label: 'Seismic Zone & R Factor', code: 'IS 1893' },
+      { text: 'IS 875 Part 3 wind pressure basic wind speed', label: 'Basic Wind Speed Vb', code: 'IS 875' },
+    ],
+  },
+];
+
 export const ISCodeSearch: React.FC = () => {
   const [query, setQuery] = useState('nominal cover for moderate exposure');
   const [standardFilter, setStandardFilter] = useState('ALL');
@@ -39,13 +112,11 @@ export const ISCodeSearch: React.FC = () => {
   const [results, setResults] = useState<ClauseHit[]>([]);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const sampleQueries = [
-    'nominal cover for moderate exposure',
-    'minimum shear reinforcement stirrups',
-    'maximum tension reinforcement in a beam',
-    'seismic column tie spacing IS 13920',
-    'isolated footing two-way punching shear',
-  ];
+  // Active prompt category
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  // Inspect Clause Modal State
+  const [inspectingClause, setInspectingClause] = useState<ClauseHit | null>(null);
 
   const handleSearch = async (searchQuery?: string) => {
     const q = searchQuery || query;
@@ -53,7 +124,9 @@ export const ISCodeSearch: React.FC = () => {
 
     const activeKey = getStoredApiKey();
     if (!activeKey) {
-      setErrorMsg('API Key required: Multi-standard RAG search requires an authorized X-API-Key header. Please click "Configure API Key" below or the Key button in the navbar.');
+      setErrorMsg(
+        'API Key required: Multi-standard RAG search requires an authorized X-API-Key header. Please click "Configure API Key" below or the Key button in the navbar.'
+      );
       return;
     }
 
@@ -64,15 +137,22 @@ export const ISCodeSearch: React.FC = () => {
       setResults(data.results || []);
     } catch (err: any) {
       if (err.response?.status === 401) {
-        setErrorMsg('Unauthorized (401): The provided API key is invalid or not registered in IS_RAG_API_KEYS. Please update your key in the top navigation bar.');
+        setErrorMsg(
+          'Unauthorized (401): The provided API key is invalid or not registered in IS_RAG_API_KEYS. Please update your key in the top navigation bar.'
+        );
       } else {
-        const msg = err.response?.data?.detail || err.message || 'Search failed. Please check backend connection and API key.';
+        const msg =
+          err.response?.data?.detail || err.message || 'Search failed. Please check backend connection and API key.';
         setErrorMsg(typeof msg === 'string' ? msg : JSON.stringify(msg));
       }
     } finally {
       setIsLoading(false);
     }
   };
+
+  const currentCategoryQueries =
+    SMART_PROMPT_CATEGORIES.find((c) => c.id === activeCategory)?.queries ||
+    SMART_PROMPT_CATEGORIES[0].queries;
 
   return (
     <div className="space-y-6">
@@ -152,24 +232,50 @@ export const ISCodeSearch: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Prompt Chips */}
-        <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-800/80">
-          <span className="text-[11px] font-semibold text-slate-400 mr-1 flex items-center gap-1">
-            <Filter className="w-3 h-3 text-slate-500" />
-            Quick Queries:
-          </span>
-          {sampleQueries.map((sq, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setQuery(sq);
-                handleSearch(sq);
-              }}
-              className="bg-slate-950/80 hover:bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-full border border-slate-800 hover:border-slate-700 transition"
-            >
-              {sq}
-            </button>
-          ))}
+        {/* Smart Prompt Suggestions Header & Tabs */}
+        <div className="pt-2 border-t border-slate-800/80 space-y-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-[11px] font-semibold text-slate-400 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Smart Engineering Inquiries:</span>
+            </span>
+
+            {/* Category Pills */}
+            <div className="flex p-0.5 bg-slate-950 rounded-lg border border-slate-800 text-[11px]">
+              {SMART_PROMPT_CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-2.5 py-1 rounded font-medium transition ${
+                    activeCategory === cat.id
+                      ? 'bg-blue-600/30 text-blue-300 font-semibold border border-blue-500/40'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Query Pill Cards */}
+          <div className="flex flex-wrap items-center gap-2">
+            {currentCategoryQueries.map((sq, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setQuery(sq.text);
+                  handleSearch(sq.text);
+                }}
+                className="inline-flex items-center gap-1.5 bg-slate-950/80 hover:bg-slate-800/90 text-slate-300 text-xs px-3 py-1.5 rounded-xl border border-slate-800 hover:border-slate-700 transition group shadow-sm"
+              >
+                <span className="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-1.5 py-0.2 rounded border border-blue-500/20">
+                  {sq.code}
+                </span>
+                <span>{sq.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -190,73 +296,109 @@ export const ISCodeSearch: React.FC = () => {
         </div>
       )}
 
+      {/* Results Header */}
+      {results.length > 0 && (
+        <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
+          <span>
+            Retrieved <strong className="text-slate-200">{results.length}</strong> governing legal provisions
+          </span>
+          <span className="text-emerald-400">Reranked via BAAI/bge-reranker-base</span>
+        </div>
+      )}
+
       {/* Results List */}
       <div className="space-y-4">
-        {results.length > 0 && (
-          <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
-            <span>Retrieved {results.length} governing legal provisions</span>
-            <span className="text-emerald-400">Reranked via BAAI/bge-reranker-base</span>
+        {results.length === 0 && !isLoading && (
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-10 text-center shadow-xl space-y-3">
+            <BookOpen className="h-10 w-10 mx-auto text-slate-600" />
+            <h3 className="font-bold text-slate-200 text-sm">Ready to Search IS Code Corpus</h3>
+            <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
+              Enter structural keywords, select a standard filter, or click any smart inquiry pill above to retrieve exact clauses.
+            </p>
           </div>
         )}
 
-        {results.map((hit, index) => {
-          const confidence = hit.confidence_score
-            ? Math.round(hit.confidence_score * 100)
-            : hit.score
-            ? Math.round(hit.score * 100)
-            : 85;
+          {results.map((hit, index) => {
+            const confidence = hit.confidence_score
+              ? Math.round(hit.confidence_score * 100)
+              : hit.score
+              ? Math.round(hit.score * 100)
+              : 85;
 
-          return (
-            <div
-              key={index}
-              className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl hover:border-slate-700 transition space-y-4"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 font-mono font-bold text-xs px-2.5 py-1 rounded-lg">
-                    {hit.chunk_id}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-200">
-                    {hit.code || 'IS 456:2000'}
-                  </span>
-                  {hit.clause && (
-                    <span className="text-xs font-mono text-slate-400">
-                      Cl. {hit.clause}
+            return (
+              <div
+                key={index}
+                className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl hover:border-slate-700 transition space-y-4"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="bg-blue-600/20 text-blue-400 border border-blue-500/30 font-mono font-bold text-xs px-2.5 py-1 rounded-lg">
+                      {hit.chunk_id}
                     </span>
-                  )}
-                </div>
-
-                {/* Calibrated Confidence Score */}
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-medium text-slate-400 font-mono">Relevance Score:</span>
-                  <div className="w-24 bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-emerald-400 h-2 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.min(confidence, 100)}%` }}
-                    />
+                    <span className="text-xs font-semibold text-slate-200">
+                      {hit.code || 'IS 456:2000'}
+                    </span>
+                    {hit.clause && (
+                      <span className="text-xs font-mono text-slate-400">
+                        Cl. {hit.clause}
+                      </span>
+                    )}
                   </div>
-                  <span className="text-xs font-mono font-bold text-emerald-400">{confidence}%</span>
+
+                  {/* Actions: Confidence + Inspect Clause Button */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-medium text-slate-400 font-mono">Relevance:</span>
+                      <div className="w-20 bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800">
+                        <div
+                          className="bg-gradient-to-r from-blue-500 to-emerald-400 h-2 rounded-full transition-all duration-500"
+                          style={{ width: `${Math.min(confidence, 100)}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-emerald-400">{confidence}%</span>
+                    </div>
+
+                    <button
+                      onClick={() => setInspectingClause(hit)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold transition"
+                      title="Open Clause Deep Inspector Drawer"
+                    >
+                      <Maximize2 className="w-3 h-3 text-blue-400" />
+                      <span>Inspect</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Title & Clause Text */}
+                <div className="space-y-2.5">
+                  <h3 className="font-bold text-sm text-slate-100 tracking-tight">{hit.title}</h3>
+                  <div className="bg-slate-950/90 p-4 rounded-xl border border-slate-800 text-slate-200 text-xs sm:text-[13px] leading-relaxed whitespace-pre-line font-sans select-text shadow-inner">
+                    {formatClauseText(hit.text, hit.title)}
+                  </div>
+                </div>
+
+                {/* Footer Citations */}
+                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 font-mono border-t border-slate-800/60">
+                  <span>Standard: {hit.code || 'IS 456:2000'}</span>
+                  {hit.context_path && <span>Context: {hit.context_path}</span>}
+                  {hit.page_number && <span>Page: {hit.page_number}</span>}
                 </div>
               </div>
-
-              {/* Title & Clause Text */}
-              <div className="space-y-2.5">
-                <h3 className="font-bold text-sm text-slate-100 tracking-tight">{hit.title}</h3>
-                <div className="bg-slate-950/90 p-4 rounded-xl border border-slate-800 text-slate-200 text-xs sm:text-[13px] leading-relaxed whitespace-pre-line font-sans select-text shadow-inner">
-                  {formatClauseText(hit.text, hit.title)}
-                </div>
-              </div>
-
-              {/* Footer Citations */}
-              <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 font-mono border-t border-slate-800/60">
-                <span>Standard: {hit.code || 'IS 456:2000'}</span>
-                {hit.context_path && <span>Context: {hit.context_path}</span>}
-                {hit.page_number && <span>Page: {hit.page_number}</span>}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
+
+      {/* Slide-over Clause Inspector Drawer */}
+      <ClauseInspectorModal
+        clause={inspectingClause}
+        isOpen={!!inspectingClause}
+        onClose={() => setInspectingClause(null)}
+        onSearchRelated={(relatedQuery) => {
+          setInspectingClause(null);
+          setQuery(relatedQuery);
+          handleSearch(relatedQuery);
+        }}
+      />
     </div>
   );
 };

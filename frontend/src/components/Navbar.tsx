@@ -78,29 +78,32 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
   return (
     <>
-      <header className="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white sticky top-0 z-50 shadow-lg">
+      <header className="bg-slate-950/80 backdrop-blur-xl border-b border-white/[0.06] text-white sticky top-0 z-50 shadow-lg shadow-black/25">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 gap-2">
+          <div className="flex items-center justify-between h-16 gap-3">
             {/* Brand Logo & Title */}
             <div
-              className="flex items-center gap-2 cursor-pointer select-none flex-shrink-0"
+              className="flex items-center gap-3 cursor-pointer select-none flex-shrink-0 group"
               onClick={() => handleTabClick('dashboard')}
             >
-              <div className="bg-gradient-to-tr from-blue-700 to-indigo-500 p-2 rounded-xl text-white shadow-md shadow-blue-500/20 ring-1 ring-white/10 flex-shrink-0">
-                <Compass className="h-5 w-5" />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur-sm opacity-40 group-hover:opacity-80 transition duration-300" />
+                <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 p-2 rounded-xl text-white border border-blue-500/30 shadow-md shadow-blue-500/10 flex-shrink-0">
+                  <Compass className="h-5 w-5 text-blue-400 group-hover:rotate-45 group-hover:text-blue-300 transition-all duration-300" />
+                </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-100 whitespace-nowrap">
-                  IS Code RAG
+                <span className="font-black text-base sm:text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent group-hover:from-white group-hover:to-blue-200 transition-all whitespace-nowrap">
+                  Build More AI
                 </span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono tracking-wide whitespace-nowrap">
-                  CAD v2.0
+                <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/25 font-mono tracking-wider uppercase shadow-sm whitespace-nowrap">
+                  v2.0
                 </span>
               </div>
             </div>
 
-            {/* Desktop Navigation Links - Perfectly spaced without scrollbars or clipping */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 flex-shrink-0">
+            {/* Desktop Navigation Links - Segmented Glass Capsule Dock */}
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800/80 backdrop-blur-md shadow-inner flex-shrink-0">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -108,13 +111,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                   <button
                     key={item.id}
                     onClick={() => handleTabClick(item.id)}
-                    className={`flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-150 flex-shrink-0 ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 btn-tactile cursor-pointer ${
                       isActive
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/30 border border-blue-400/20'
+                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
                     }`}
                   >
-                    <Icon className={`h-3.5 w-3.5 flex-shrink-0 ${isActive ? 'text-white' : 'text-blue-400'}`} />
+                    <Icon className={`h-3.5 w-3.5 flex-shrink-0 transition-colors ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`} />
                     <span className="hidden xl:inline">{item.label}</span>
                     <span className="xl:hidden">{item.shortLabel}</span>
                   </button>
@@ -122,25 +125,34 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               })}
             </nav>
 
-            {/* Right Status Controls */}
+            {/* Right Status Controls - Consistent Heights & Harmonized Pills */}
             <div className="flex items-center gap-2 flex-shrink-0">
               {/* Backend Heartbeat Pill */}
               <div
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors flex-shrink-0 ${
+                className={`h-8 px-3 rounded-full text-[11px] font-mono font-medium border flex items-center gap-2 transition-all flex-shrink-0 shadow-sm ${
                   isHealthy === true
-                    ? 'bg-emerald-950/60 border-emerald-500/30 text-emerald-300'
+                    ? 'bg-emerald-950/50 border-emerald-500/30 text-emerald-300 shadow-emerald-500/5'
                     : isHealthy === false
-                    ? 'bg-rose-950/60 border-rose-500/30 text-rose-300'
-                    : 'bg-slate-800 border-slate-700 text-slate-400'
+                    ? 'bg-rose-950/50 border-rose-500/30 text-rose-300'
+                    : 'bg-slate-900/80 border-slate-800 text-slate-400'
                 }`}
                 title={isHealthy ? 'FastAPI Backend Live on port 8000' : 'FastAPI Backend Disconnected'}
               >
-                <span
-                  className={`h-2 w-2 rounded-full ${
-                    isHealthy === true ? 'bg-emerald-400 animate-pulse' : 'bg-rose-400'
-                  }`}
-                />
-                <span className="font-mono text-[11px] whitespace-nowrap">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  {isHealthy === true && (
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  )}
+                  <span
+                    className={`relative inline-flex rounded-full h-2 w-2 ${
+                      isHealthy === true
+                        ? 'bg-emerald-400'
+                        : isHealthy === false
+                        ? 'bg-rose-400'
+                        : 'bg-slate-500'
+                    }`}
+                  />
+                </span>
+                <span className="whitespace-nowrap">
                   {isHealthy === true ? 'API Live' : isHealthy === false ? 'Offline' : 'Connecting'}
                 </span>
               </div>
@@ -151,15 +163,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                   setApiKeyInput(getStoredApiKey());
                   setShowKeyModal(true);
                 }}
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition flex-shrink-0 ${
+                className={`h-8 px-3 rounded-full text-[11px] font-mono font-medium border flex items-center gap-1.5 transition-all flex-shrink-0 btn-tactile cursor-pointer shadow-sm ${
                   currentKey
-                    ? 'bg-slate-800/80 hover:bg-slate-700 text-slate-200 border-slate-700'
-                    : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border-amber-500/40 animate-pulse'
+                    ? 'bg-slate-900/90 hover:bg-slate-800/90 text-slate-200 border-slate-700/80 hover:border-amber-500/40 shadow-sm'
+                    : 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/35'
                 }`}
                 title="Configure X-API-Key"
               >
-                <Key className="h-3.5 w-3.5 text-amber-400 flex-shrink-0" />
-                <span className="text-[11px] whitespace-nowrap">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  {currentKey && (
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60"></span>
+                  )}
+                  <span
+                    className={`relative inline-flex rounded-full h-2 w-2 ${
+                      currentKey ? 'bg-amber-400' : 'bg-slate-500'
+                    }`}
+                  />
+                </span>
+                <Key className="h-3 w-3 text-amber-400 flex-shrink-0" />
+                <span className="whitespace-nowrap">
                   {currentKey ? 'Key Active' : 'Set API Key'}
                 </span>
               </button>
@@ -167,7 +189,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               {/* Mobile / Tablet Menu Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition flex-shrink-0"
+                className="lg:hidden p-2 rounded-xl bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition flex-shrink-0"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}

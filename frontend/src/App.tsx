@@ -68,39 +68,41 @@ export const App: React.FC = () => {
 
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === 'dashboard' && (
-          <DashboardOverview onNavigate={handleNavigateFromDashboard} />
-        )}
+        <div key={activeTab} className="animate-tab-fade">
+          {activeTab === 'dashboard' && (
+            <DashboardOverview onNavigate={handleNavigateFromDashboard} />
+          )}
 
-        {activeTab === 'design' && (
-          <MemberStudio
-            initialMember={selectedStudioMember}
-            onDesignCalculated={handleDesignCalculated}
-            activeDesigns={latestDesigns}
-            onNavigateToCAD={handleNavigateToCADFromStudio}
-          />
-        )}
+          {activeTab === 'design' && (
+            <MemberStudio
+              initialMember={selectedStudioMember}
+              onDesignCalculated={handleDesignCalculated}
+              activeDesigns={latestDesigns}
+              onNavigateToCAD={handleNavigateToCADFromStudio}
+            />
+          )}
 
-        {activeTab === 'rag' && (
-          <ISCodeSearch />
-        )}
+          {activeTab === 'rag' && (
+            <ISCodeSearch />
+          )}
 
-        {activeTab === 'cad' && (
-          <CADViewer
-            initialMember={selectedStudioMember}
-            onNavigateToStudio={handleNavigateToStudioFromCAD}
-            activeDesigns={latestDesigns}
-            onDesignCalculated={handleDesignCalculated}
-          />
-        )}
+          {activeTab === 'cad' && (
+            <CADViewer
+              initialMember={selectedStudioMember}
+              onNavigateToStudio={handleNavigateToStudioFromCAD}
+              activeDesigns={latestDesigns}
+              onDesignCalculated={handleDesignCalculated}
+            />
+          )}
 
-        {activeTab === 'review' && (
-          <ReviewSignoff />
-        )}
+          {activeTab === 'review' && (
+            <ReviewSignoff activeDesigns={latestDesigns} />
+          )}
 
-        {activeTab === 'observability' && (
-          <AuditDashboard />
-        )}
+          {activeTab === 'observability' && (
+            <AuditDashboard />
+          )}
+        </div>
       </main>
 
       {/* Persistent Statutory Safety Footer */}
